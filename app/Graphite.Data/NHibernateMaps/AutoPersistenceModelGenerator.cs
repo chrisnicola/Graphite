@@ -4,7 +4,6 @@ using FluentNHibernate;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Conventions;
 using Graphite.Core;
-using Graphite.Data.NHibernateMaps.Conventions;
 using SharpArch.Core.DomainModel;
 using SharpArch.Data.NHibernate.FluentNHibernate;
 
@@ -19,7 +18,7 @@ namespace Graphite.Data.NHibernateMaps
         public AutoPersistenceModel Generate()
         {
             var mappings = new AutoPersistenceModel();
-            mappings.AddEntityAssembly(typeof(Class1).Assembly).Where(GetAutoMappingFilter);
+            mappings.AddEntityAssembly(typeof(Post).Assembly).Where(GetAutoMappingFilter);
             mappings.Conventions.Setup(GetConventions());
             mappings.Setup(GetSetup());
             mappings.IgnoreBase<Entity>();
@@ -27,12 +26,11 @@ namespace Graphite.Data.NHibernateMaps
             mappings.UseOverridesFromAssemblyOf<AutoPersistenceModelGenerator>();
 
             return mappings;
-
         }
 
         #endregion
 
-        private Action<AutoMappingExpressions> GetSetup()
+        private static Action<AutoMappingExpressions> GetSetup()
         {
             return c =>
             {
@@ -40,7 +38,7 @@ namespace Graphite.Data.NHibernateMaps
             };
         }
 
-        private Action<IConventionFinder> GetConventions()
+        private static Action<IConventionFinder> GetConventions()
         {
             return c =>
             {
@@ -58,7 +56,7 @@ namespace Graphite.Data.NHibernateMaps
         /// Provides a filter for only including types which inherit from the IEntityWithTypedId interface.
         /// </summary>
 
-        private bool GetAutoMappingFilter(Type t)
+        private static bool GetAutoMappingFilter(Type t)
         {
             return t.GetInterfaces().Any(x =>
                                          x.IsGenericType &&

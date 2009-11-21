@@ -1,14 +1,10 @@
-﻿using Castle.MicroKernel.Registration;
-using Castle.Windsor;
+﻿using Castle.Windsor;
 using CommonServiceLocator.WindsorAdapter;
 using Microsoft.Practices.ServiceLocation;
 using MvcContrib.Castle;
-using NHibernate.Cfg;
 using SharpArch.Data.NHibernate;
 using SharpArch.Web.NHibernate;
-using SharpArch.Web.Castle;
 using SharpArch.Web.Areas;
-using SharpArch.Web.CommonValidator;
 using SharpArch.Web.ModelBinder;
 using System;
 using System.Web;
@@ -61,7 +57,7 @@ namespace Graphite.Web
             base.Init();
 
             // The WebSessionStorage must be created during the Init() to tie in HttpApplication events
-            webSessionStorage = new WebSessionStorage(this);
+            _webSessionStorage = new WebSessionStorage(this);
         }
 
         /// <summary>
@@ -82,7 +78,7 @@ namespace Graphite.Web
         private void InitializeNHibernateSession()
         {
             NHibernateSession.Init(
-                webSessionStorage,
+                _webSessionStorage,
                 new string[] { Server.MapPath("~/bin/Graphite.Data.dll") },
                 new AutoPersistenceModelGenerator().Generate(),
                 Server.MapPath("~/NHibernate.config"));
@@ -95,6 +91,6 @@ namespace Graphite.Web
             var reflectionTypeLoadException = ex as ReflectionTypeLoadException;
         }
 
-        private WebSessionStorage webSessionStorage;
+        private WebSessionStorage _webSessionStorage;
     }
 }
