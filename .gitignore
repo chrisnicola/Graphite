@@ -1,0 +1,10 @@
+_ReSharper*/
+logs/
+build/
+release/
+bin/
+obj/
+*/*.user
+*.user
+*.suo
+*.~vsd

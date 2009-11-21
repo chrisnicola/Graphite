@@ -72,7 +72,7 @@ namespace Graphite.Web
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             NHibernateInitializer.Instance().InitializeNHibernateOnce(
-                () => InitializeNHibernateSession());
+                InitializeNHibernateSession);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Graphite.Web
         {
             // Useful for debugging
             Exception ex = Server.GetLastError();
-            ReflectionTypeLoadException reflectionTypeLoadException = ex as ReflectionTypeLoadException;
+            var reflectionTypeLoadException = ex as ReflectionTypeLoadException;
         }
 
         private WebSessionStorage webSessionStorage;
