@@ -1,4 +1,4 @@
-﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ template language="C#" hostspecific="True" debug="True" #>
 <#@ import namespace="System.Collections.Specialized" #>
 <#@ output extension="txt" #>
 <#@ include file="T4Toolbox.tt" #>
@@ -16,23 +16,24 @@
  * Examples:  Product, Organization.Employee, Financial.Costs.LedgerEntry
  */
 EntityScaffoldingDetails entityScaffoldingDetails =
-	new EntityScaffoldingDetails("Organization.Worker");
+	new EntityScaffoldingDetails("User");
  
 /*
  * Property names should be PascalCase.
  * Do not include a property for Id as it will be included automatically.
  */
+
 entityScaffoldingDetails.EntityProperties.Add(
-	new EntityProperty("FirstName", "string", "Joe", "[NotNull, NotEmpty]", true) 
+	new EntityProperty("Username", "string", "jsmith") 
 );
 entityScaffoldingDetails.EntityProperties.Add(
-	new EntityProperty("LastName", "string", "Smith", "[NotNull, NotEmpty]", true)
+	new EntityProperty("FirstName", "string", "Joe") 
+);
+entityScaffoldingDetails.EntityProperties.Add(
+	new EntityProperty("LastName", "string", "Smith")
 );
 entityScaffoldingDetails.EntityProperties.Add(
 	new EntityProperty("BirthDate", "DateTime", DateTime.Parse("1/1/1975"))
-);
-entityScaffoldingDetails.EntityProperties.Add(
-	new EntityProperty("Manager", "Employee", null, "[NotNull]")
 );
 
 ///////////////////////////////////////////////////
@@ -42,5 +43,5 @@ ScaffoldingGenerator generator = new ScaffoldingGenerator(
 	@"E:\dev\Graphite\Graphite\", "Graphite", entityScaffoldingDetails); 
 
 // Uncomment this line when you're ready for the scaffolding generator to fire...be sure to recomment after it completes to avoid accidental generating!
-//generator.Run();
+generator.Run();
 #>
