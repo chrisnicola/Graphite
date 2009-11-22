@@ -9,12 +9,12 @@ namespace Graphite.Core
             Published = false;
             AllowComments = true;
         }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DatePublished { get; set; }
-        public DateTime LastUpdated { get; set; }
-        public bool AllowComments { get; set; }
-        public bool Published { get; set; }
+        public virtual string Title { get; set; }
+        public virtual string Content { get; set; }
+        public virtual DateTime DateCreated { get; set; }
+        public virtual DateTime DatePublished { get; set; }
+        public virtual DateTime LastUpdated { get; set; }
+        public virtual bool AllowComments { get; set; }
+        public virtual bool Published { get; set; }
     }
 }

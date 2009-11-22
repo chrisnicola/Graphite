@@ -1,4 +1,6 @@
-﻿using Castle.Windsor;
+﻿using System;
+using System.Web.Mvc;
+using Castle.Windsor;
 using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Data.NHibernate;
 using SharpArch.Core.PersistenceSupport;
@@ -6,6 +8,8 @@ using SharpArch.Web.Castle;
 using Castle.MicroKernel.Registration;
 using SharpArch.Core.CommonValidator;
 using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
+using Spark;
+using Spark.Web.Mvc;
 
 namespace Graphite.Web.CastleWindsor
 {
@@ -16,9 +20,15 @@ namespace Graphite.Web.CastleWindsor
             AddGenericRepositoriesTo(container);
             AddCustomRepositoriesTo(container);
             AddApplicationServicesTo(container);
-
+            AddSparkViewEngineTo(container);
             container.AddComponent("validator",
                 typeof(IValidator), typeof(Validator));
+        }
+
+        private static void AddSparkViewEngineTo(IWindsorContainer container)
+        {
+            container.AddComponent<IViewEngine, SparkViewFactory>();
+            container.AddComponent<IViewActivatorFactory, WindsorViewActivator>();
         }
 
         private static void AddApplicationServicesTo(IWindsorContainer container)

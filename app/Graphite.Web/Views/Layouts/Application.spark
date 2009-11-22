@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>SharpWithSparkViewEngineExample</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+
+        <div id="mainContent">
+
+            <div class="columnsContainer">
+
+                <div class="leftColumn">
+                    <p>
+                        !{Html.Image("~/Content/Images/sharp_arch.jpg")}
+                    </p>
+                    <h2>Naviation Menu</h2>
+                    <ul>
+                        <li>!{Html.ActionLink("Home", "Index", new {area = "Root"})}</li>
+                        <li>!{Html.ActionLink("Admin", "Index", new {area = "Admin"})}</li>
+                    </ul>
+                </div>
+                <!--/leftColumn-->
+
+                <div class="rightColumn">
+                    <use content="view"/>
+                </div><!--/rightColumn-->
+
+                <div class="clear">
+                </div>
+
+            </div><!--/columnsContainer-->
+
+            <div id="sharpArchLogo">!{Html.Image("~/Content/Images/sharp_arch_small.gif")}</div>
+
+        </div><!--/mainContent-->
+
+    </div><!--/page-->
+</body>
+</html>

@@ -111,6 +111,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\SharpArch.Web.Castle.dll</HintPath>
     </Reference>
+    <Reference Include="Spark, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Spark.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Spark.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spark.Web.Mvc.Pdf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Spark.Web.Mvc.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -148,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
+    <Compile Include="CastleWindsor\WindsorViewActivator.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,9 +181,13 @@
     <Content Include="NHibernate.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Home\Index.aspx" />
-    <Content Include="Views\Shared\Error.aspx" />
-    <Content Include="Views\Shared\DebugFormSubmission.ascx" />
+    <None Include="Views\Admin\Home\Index.spark" />
+    <None Include="Views\Home\Index.spark" />
+    <None Include="Views\Post\List.spark">
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Views\Layouts\Application.spark" />
+    <None Include="Views\Shared\_global.spark" />
     <Content Include="Web.config" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery-1.3.2.js" />
@@ -179,7 +196,6 @@
     <Content Include="Scripts\MicrosoftAjax.debug.js" />
     <Content Include="Scripts\MicrosoftMvcAjax.js" />
     <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
-    <Content Include="Views\Shared\Site.Master" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
