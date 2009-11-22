@@ -1,0 +1,6 @@
+<viewdata model="IEnumerable[[Post]]" />
+<ListPosts canEdit="true" />
+<p>
+    !{Html.ActionLink("Create New", "Edit", new { area = "Admin" })}
+</p>
+

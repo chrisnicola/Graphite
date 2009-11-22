@@ -5,7 +5,7 @@ namespace Graphite.Web.Controllers
     [HandleError]
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             return View();
         }

@@ -1,0 +1,41 @@
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Date Created
+        </th>
+        <th>
+            Date Published
+        </th>
+        <th>
+            Allow Comments
+        </th>
+        <th>
+            Published
+        </th>
+    </tr>
+    <tr each="var item in Model">
+        <td>
+          <if condition='canEdit == true'>!{Html.ActionLink("Edit", "Edit", new { id = item.Id })}</if>|!{Html.ActionLink("View", "View", new { id = item.Id })}
+        </td>
+        <td>
+            ${item.Title}
+        </td>
+        <td>
+            ${String.Format("{0:ddMMyyyy}", item.DateCreated)}
+        </td>
+        <td>
+            ${String.Format("{0:ddMMyyyy}", item.DatePublished)}
+        </td>
+        <td>
+            ${H(item.AllowComments)}
+        </td>
+        <td>
+            ${H(item.Published)}
+        </td>
+    </tr>
+</table>
+

@@ -12,7 +12,14 @@ body
     padding: 0;
     color: #696969;
 }
-
+th 
+{
+	font-size: 1.0em;
+}
+tr
+{
+	font-size: 0.85em;
+}
 a:link
 {
     color: #034af3;

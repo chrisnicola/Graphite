@@ -1,0 +1,9 @@
+<p>
+  !{Html.Image("~/Content/Images/sharp_arch.jpg")}
+</p>
+<h2>Naviation Menu</h2>
+<ul>
+  <li>!{Html.ActionLink("Home", "Index", "Home", new { area = "Root" }, null)}</li>
+  <li>!{Html.ActionLink("Admin", "Index", "Home", new { area = "Admin" }, null)}</li>
+  <li>!{Html.ActionLink("Archive", "List", "Post", new { area = "Root" }, null)}</li>
+</ul>

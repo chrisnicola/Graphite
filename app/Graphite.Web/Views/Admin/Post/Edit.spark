@@ -1,0 +1,44 @@
+<viewdata model="Post" />
+<link type="text/css" href="/Scripts/themes/base/ui.all.css" rel="stylesheet" />
+	<script type="text/javascript" src="/Scripts/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="/Scripts/ui/ui.core.js"></script>
+	<script type="text/javascript" src="/Scripts/ui/ui.datepicker.js"></script>
+	<script type="text/javascript" src="/Scripts/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#createddate").datepicker();
+			$("#publisheddate").datepicker();
+		});
+	</script>
+<form method="post">
+	<p>
+		Title: 
+		!{Html.TextBoxFor<Post, string>(m => m.Title)}
+	</p>
+	<p>
+		Content: <br/>
+		!{Html.TextAreaFor<Post, string>(m => m.Content, new { @class = "ckeditor"})}
+	</p>
+	<p>
+		Created Date:
+		!{Html.TextBoxFor<Post, DateTime?>(m => m.DateCreated, new { id = "createddate", @readonly = "readonly" })}
+	</p>
+	<p>
+		Published Date:
+		!{Html.TextBoxFor<Post, DateTime?>(m => m.DatePublished, new { id = "publisheddate", @readonly = "readonly" })}
+	</p>
+	<p>
+		Allow Comments: 
+		!{Html.CheckBox("Comments Allowed", Model.AllowComments)}
+	</p>
+	<p>
+		Publish: 
+		!{Html.CheckBox("Published", Model.Published)}
+	</p>
+	!{Html.AntiForgeryToken()}
+	<input type="submit" value="Save" /> 
+</form>
+<p>
+
+</p>
+

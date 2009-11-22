@@ -11,6 +11,8 @@ using Graphite.Web.Controllers;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using MvcContrib.Castle;
+using NHibernate.AdoNet.Util;
+using NHibernate.Tool.hbm2ddl;
 using SharpArch.Data.NHibernate;
 using SharpArch.Web.ModelBinder;
 using SharpArch.Web.NHibernate;
@@ -56,16 +58,18 @@ namespace Graphite.Web {
     /// must only be called once.  Consequently, we invoke a thread-safe singleton class to 
     /// ensure it's only initialized once.
     /// </summary>
-    protected void Application_BeginRequest(object sender, EventArgs e) { NHibernateInitializer.Instance().InitializeNHibernateOnce(InitializeNHibernateSession); }
+    protected void Application_BeginRequest(object sender, EventArgs e) {
+      NHibernateInitializer.Instance().InitializeNHibernateOnce(InitializeNHibernateSessionFactory);
+    }
 
     /// <summary>
     /// If you need to communicate to multiple databases, you'd add a line to this method to
     /// initialize the other database as well.
     /// </summary>
-    private void InitializeNHibernateSession() {
-      NHibernateSession.Init(_webSessionStorage, new[] {Server.MapPath("~/bin/Graphite.Data.dll")},
+    private void InitializeNHibernateSessionFactory() {
+      var cfg = NHibernateSession.Init(_webSessionStorage, new[] {Server.MapPath("~/bin/Graphite.Data.dll")},
         new AutoPersistenceModelGenerator().Generate(), Server.MapPath("~/NHibernate.config"));
-      
+      new SchemaUpdate(cfg).Execute(true, true);
     }
 
     protected void Application_Error(object sender, EventArgs e) {
