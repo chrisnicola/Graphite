@@ -17,6 +17,7 @@ namespace Graphite.Web.Controllers.Admin {
 
     [AcceptVerbs(HttpVerbs.Post)]
     [ValidateAntiForgeryToken]
+    [ValidateInput(false)]
     [Transaction]
     public ActionResult Edit(Post post) {
       Posts.SaveOrUpdate(post);

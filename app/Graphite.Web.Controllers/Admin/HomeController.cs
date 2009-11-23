@@ -2,5 +2,7 @@
 
 namespace Graphite.Web.Controllers.Admin {
   [HandleError]
-  public class HomeController : Graphite.Web.Controllers.HomeController {}
+  public class HomeController : Controller {
+    public virtual ActionResult Index() { return View(); }
+  }
 }

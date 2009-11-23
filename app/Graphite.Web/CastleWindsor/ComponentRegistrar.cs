@@ -44,7 +44,7 @@ namespace Graphite.Web.CastleWindsor
             container.Register(
                 AllTypes.Pick()
                 .FromAssemblyNamed("Graphite.Data")
-                .WithService.FirstNonGenericCoreInterface("Graphite.Core"));
+                .WithService.FirstNonGenericCoreInterface("Graphite.Data"));
         }
 
         private static void AddGenericRepositoriesTo(IWindsorContainer container)

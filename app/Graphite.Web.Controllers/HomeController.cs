@@ -1,12 +1,21 @@
 ﻿#region
 
 using System.Web.Mvc;
+using Graphite.Data.Repositories;
 
 #endregion
 
 namespace Graphite.Web.Controllers {
   [HandleError]
   public class HomeController : Controller {
-    public virtual ActionResult Index() { return View(); }
+    private readonly IPostRepository _posts;
+
+    public HomeController(IPostRepository posts) {
+      _posts = posts;
+    }
+
+    public ActionResult Index() {
+      return View(_posts.GetRecentPosts(5));
+    }
   }
 }

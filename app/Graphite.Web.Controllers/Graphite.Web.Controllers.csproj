@@ -99,6 +99,10 @@
       <Project>{F8BA0E61-31B1-410D-BD60-022CCCF3F177}</Project>
       <Name>Graphite.ApplicationServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Graphite.Data\Graphite.Data.csproj">
+      <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
+      <Name>Graphite.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
