@@ -138,6 +138,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphite.Web\Controllers\Admin\PostControllerTests.cs" />
+    <Compile Include="Graphite.Web\Controllers\HomeControllerTests.cs" />
     <Compile Include="Graphite.Web\Controllers\RouteRegistrarTests.cs" />
     <Compile Include="Graphite.Data\NHibernateMaps\MappingIntegrationTests.cs" />
     <Compile Include="Graphite.Data\TestDoubles\EntityDuplicateCheckerStub.cs" />
