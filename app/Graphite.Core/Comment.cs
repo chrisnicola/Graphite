@@ -10,7 +10,7 @@ namespace Graphite.Core {
     public virtual string Content { get; set; }
     public virtual DateTime DatePosted { get; set; }
     public virtual Post Post { get; set; }
-    public virtual Comment ParentComment { get; set; }
-    public virtual IList<Comment> NestedComments { get; set; }
+    public virtual Comment Parent { get; set; }
+    public virtual IList<Comment> Children { get; set; }
   }
 }

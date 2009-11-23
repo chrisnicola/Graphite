@@ -24,6 +24,7 @@ namespace Graphite.Data.NHibernateMaps
             mappings.IgnoreBase<Entity>();
             mappings.IgnoreBase(typeof(EntityWithTypedId<>));
             mappings.UseOverridesFromAssemblyOf<AutoPersistenceModelGenerator>();
+          
 
             return mappings;
         }
