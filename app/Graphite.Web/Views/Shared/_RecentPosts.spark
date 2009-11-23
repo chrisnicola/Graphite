@@ -1,0 +1,8 @@
+<viewdata model="IEnumerable[[Post]]" />
+<div class="post" each="var post in Model">
+	<h2 class="title">${post.Title}</h2>
+	<div class="content">${post.Content}</div>
+	<div class="footer">
+		Published on ${post.DatePublished.Value.ToShortTimeString()}
+	</div>
+</div>

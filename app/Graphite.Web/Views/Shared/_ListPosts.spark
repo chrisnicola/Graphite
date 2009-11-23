@@ -1,4 +1,6 @@
-<table>
+<viewdata model="IEnumerable[[Post]]" />
+<div>
+  <table>
     <tr>
         <th></th>
         <th>
@@ -38,4 +40,4 @@
         </td>
     </tr>
 </table>
-
+</div>
