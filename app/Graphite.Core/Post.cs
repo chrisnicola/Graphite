@@ -1,6 +1,7 @@
 #region
 
 using System;
+using System.Collections.Generic;
 using SharpArch.Core.DomainModel;
 
 #endregion
@@ -19,7 +20,7 @@ namespace Graphite.Core {
     public virtual DateTime? DatePublished { get; set; }
     public virtual bool AllowComments { get; set; }
     public virtual bool Published { get; set; }
-
+    public virtual IList<Comment> Comments { get; set; }
     public virtual void Publish() {
       Published = true;
       DatePublished = DateTime.Now;
