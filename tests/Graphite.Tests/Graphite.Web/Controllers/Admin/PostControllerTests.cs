@@ -23,6 +23,13 @@ namespace Tests.Graphite.Web.Controllers.Admin
     }
 
     [Test]
+    public void CanViewAnIndividualPostById() {
+      var post = new Post();
+      _repository.Stub(m => m.Get(new Guid())).IgnoreArguments().Return(post);
+      _controller.View(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
+    }
+
+    [Test]
     public void CreatesANewPostWhenNewIsCalled() {
       _controller.New().AssertViewRendered().ViewData.Model.ShouldBe<Post>("ViewData.Model is not a Post");
     }
