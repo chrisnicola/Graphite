@@ -1,7 +1,6 @@
 ﻿<viewdata model="IEnumerable[[Post]]" />
 <h2>The Graphite Blog Engine</h2>
 <h3>What this?</h3>
-<p>
-The Graphite Blog Engine was created using S#arp Architecture, ASP.NET MVC 1.0 and the Spark View Engine.  It is intended to be a fully open source blog engine.
-</p>
-<RecentPosts />
+<p>Something Here</p>
+<PostView each="var post in Model" />
+

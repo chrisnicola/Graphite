@@ -12,7 +12,11 @@ namespace Graphite.Web.Controllers
     protected readonly IPostRepository Posts;
     public PostController(IPostRepository posts) { Posts = posts; }
 
-    public virtual ActionResult List() {
+    public ActionResult View(Guid id){
+      return View(Posts.Get(id));
+    }
+
+    public ActionResult List() {
       return View(Posts.GetAll());
     }
   }

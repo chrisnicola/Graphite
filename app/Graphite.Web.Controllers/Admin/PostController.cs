@@ -28,9 +28,5 @@ namespace Graphite.Web.Controllers.Admin {
         return View(post);
       }
     }
-
-    public ActionResult View(Guid guid) {
-      return View(Posts.Get(guid));
-    }
   }
 }

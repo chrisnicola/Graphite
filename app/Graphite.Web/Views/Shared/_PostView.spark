@@ -1,0 +1,8 @@
+<default post="Post"/>
+<div class="post">
+	<h2 class="title">${post.Title}</h2>
+	<div class="content">!{post.Content}</div>
+	<div class="footer">
+		Published on <if condition='post.DatePublished.HasValue'>${post.DatePublished.Value.ToShortTimeString()}</if>
+	</div>
+</div>

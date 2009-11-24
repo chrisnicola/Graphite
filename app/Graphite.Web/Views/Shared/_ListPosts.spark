@@ -21,7 +21,7 @@
     </tr>
     <tr each="var item in Model">
         <td>
-          <if condition='canEdit == true'>!{Html.ActionLink("Edit", "Edit", new { id = item.Id })}</if>|!{Html.ActionLink("View", "View", new { id = item.Id })}
+          <if condition='canEdit == true'>!{Html.ActionLink("Edit", "Edit", new { id = item.Id })} | </if>!{Html.ActionLink("View", "View", new { id = item.Id })}
         </td>
         <td>
             ${item.Title}
