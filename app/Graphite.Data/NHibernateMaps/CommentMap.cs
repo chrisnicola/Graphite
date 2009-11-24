@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Automapping.Alterations;
