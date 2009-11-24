@@ -23,8 +23,8 @@ namespace Tests.Graphite.Web.Controllers.Admin
     }
 
     [Test]
-    public void CreatesANewPostWhenEditIsCalledWithNoIdValue() {
-      _controller.Edit().AssertViewRendered().ViewData.Model.ShouldBe<Post>("ViewData.Model is not a Post");
+    public void CreatesANewPostWhenNewIsCalled() {
+      _controller.New().AssertViewRendered().ViewData.Model.ShouldBe<Post>("ViewData.Model is not a Post");
     }
 
     [Test]

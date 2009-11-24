@@ -8,7 +8,7 @@ namespace Graphite.Web.Controllers.Admin {
   public class PostController : Controllers.PostController {
     public PostController(IPostRepository posts) : base(posts) { }
 
-    public ActionResult Edit() {
+    public ActionResult New() {
       return View(new Post());
     }
 
