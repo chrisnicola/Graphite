@@ -12,7 +12,7 @@
 		});
 	</script>
 </content>
-<form method="post">
+<form action="<%= Url.Action("Create", "Post") %>" method="post" >
 	<p>
 		Title: 
 		!{Html.TextBoxFor<Post, string>(m => m.Title)}
@@ -39,4 +39,4 @@
 	</p>
 	!{Html.AntiForgeryToken()}
 	<input type="submit" value="Save" /> 
-</form>
+<% Html.EndForm(); %>

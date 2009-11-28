@@ -5,5 +5,5 @@
 <ul>
   <li>!{Html.ActionLink("Home", "Index", "Home", new { area = "Admin" }, null)}</li>
   <li>!{Html.ActionLink("Logout", "Index", "Home", new {area = "Root"}, null)}</li>
-  <li>!{Html.ActionLink("Archive", "List", "Post", new { area = "Admin" }, null)}</li>
+  <li>!{Html.ActionLink("Archive", "", "Post", new { area = "Admin" }, null)}</li>
 </ul>

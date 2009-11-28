@@ -12,6 +12,20 @@ namespace Graphite.Web.Controllers.Admin {
       return View(new Post());
     }
 
+    [AcceptVerbs(HttpVerbs.Post)]
+    [ValidateAntiForgeryToken]
+    [ValidateInput(false)]
+    [Transaction]
+    public ActionResult Create(Post post) {
+      try {
+        Posts.Save(post);
+        return RedirectToAction("");
+      }
+      catch {
+        return RedirectToAction("New");
+      }
+    }
+
     public ActionResult Edit(Guid id) {
       return View(Posts.Get(id));
     }
@@ -23,10 +37,21 @@ namespace Graphite.Web.Controllers.Admin {
     public ActionResult Edit(Post post) {
       try {
         Posts.SaveOrUpdate(post);
-        return RedirectToAction("List");
+        return RedirectToAction("");
       } catch (Exception) {
         return View(post);
       }
+    }
+
+    [AcceptVerbs(HttpVerbs.Delete)]
+    [ValidateAntiForgeryToken]
+    [ValidateInput(false)]
+    [Transaction]
+    public ActionResult Delete(Guid id) {
+      try {
+        Posts.Delete(Posts.Get(id));
+      } catch (Exception) { }
+      return RedirectToAction("");
     }
   }
 }

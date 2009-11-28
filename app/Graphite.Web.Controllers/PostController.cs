@@ -16,7 +16,7 @@ namespace Graphite.Web.Controllers
       return View(Posts.Get(id));
     }
 
-    public ActionResult List() {
+    public ActionResult Index() {
       return View(Posts.GetAll());
     }
   }

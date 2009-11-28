@@ -2,6 +2,7 @@
 
 using System.Web.Mvc;
 using System.Web.Routing;
+using MvcContrib.SimplyRestful;
 using SharpArch.Web.Areas;
 
 #endregion
@@ -27,6 +28,7 @@ namespace Graphite.Web.Controllers {
       // Routing config for the root area
       routes.CreateArea("Root", "Graphite.Web.Controllers",
         routes.MapRoute(null, "{controller}/{action}", new {controller = "Home", action = "Index"}));
+      SimplyRestfulRouteHandler.BuildRoutes(routes);
     }
   }
 }
