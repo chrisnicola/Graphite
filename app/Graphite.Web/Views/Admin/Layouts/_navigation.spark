@@ -3,7 +3,7 @@
 </p>
 <h2>Naviation Menu</h2>
 <ul>
-  <li>!{Html.ActionLink("Home", "Index", "Home", new { area = "Admin" }, null)}</li>
-  <li>!{Html.ActionLink("Logout", "Index", "Home", new {area = "Root"}, null)}</li>
-  <li>!{Html.ActionLink("Archive", "", "Post", new { area = "Admin" }, null)}</li>
+  <li>!{Html.ActionLink("Home", "Index")}</li>
+  <li>!{Html.ActionLink("Logout", "Index", new {area = "Root"})}</li>
+  <li>!{Html.ActionLink("Archive", "Index", "Post")}</li>
 </ul>

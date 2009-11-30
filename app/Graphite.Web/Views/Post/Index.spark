@@ -1,3 +1,2 @@
 <viewdata model="IEnumerable[[Post]]" />
 <ListPosts canEdit="false" />
-

@@ -30,7 +30,6 @@ namespace Graphite.Web.Controllers {
       routes.CreateArea("Root", "Graphite.Web.Controllers",
         routes.MapRoute(null, "{controller}/{id}/{action}", new {action = "Show"}),
         routes.MapRoute(null, "{controller}/{action}", new {controller = "Home", action = "Index"}));
-      SimplyRestfulRouteHandler.BuildRoutes(routes);
     }
   }
 }

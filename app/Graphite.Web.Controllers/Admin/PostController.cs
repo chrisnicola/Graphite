@@ -16,7 +16,7 @@ namespace Graphite.Web.Controllers.Admin {
     [ValidateAntiForgeryToken]
     [ValidateInput(false)]
     [Transaction]
-    public ActionResult Create(Post post) {
+    public ActionResult New(Post post) {
       try {
         Posts.Save(post);
         return RedirectToAction("");

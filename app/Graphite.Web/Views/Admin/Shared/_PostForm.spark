@@ -12,7 +12,7 @@
 		});
 	</script>
 </content>
-<form action="<%= Url.Action("Create", "Post") %>" method="post" >
+<form method="post" >
 	<p>
 		Title: 
 		!{Html.TextBoxFor<Post, string>(m => m.Title)}
