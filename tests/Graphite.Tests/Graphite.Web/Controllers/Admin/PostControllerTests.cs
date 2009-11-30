@@ -26,7 +26,7 @@ namespace Tests.Graphite.Web.Controllers.Admin
     public void CanViewAnIndividualPostById() {
       var post = new Post();
       _repository.Stub(m => m.Get(new Guid())).IgnoreArguments().Return(post);
-      _controller.View(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
+      _controller.Show(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
     }
 
     [Test]

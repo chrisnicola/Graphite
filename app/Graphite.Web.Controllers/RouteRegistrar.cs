@@ -24,9 +24,11 @@ namespace Graphite.Web.Controllers {
       //    routes.MapRoute(null, "Organization/{controller}/{action}/{id}")
       //);
       routes.CreateArea("Admin", "Graphite.Web.Controllers.Admin",
+        routes.MapRoute(null, "Admin/{controller}/{id}/{action}", new {action = "Show"}),
         routes.MapRoute(null, "Admin/{controller}/{action}", new {controller = "Home", action = "Index"}));
       // Routing config for the root area
       routes.CreateArea("Root", "Graphite.Web.Controllers",
+        routes.MapRoute(null, "{controller}/{id}/{action}", new {action = "Show"}),
         routes.MapRoute(null, "{controller}/{action}", new {controller = "Home", action = "Index"}));
       SimplyRestfulRouteHandler.BuildRoutes(routes);
     }

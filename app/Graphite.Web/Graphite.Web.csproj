@@ -445,14 +445,14 @@
     <None Include="Views\Admin\Post\Edit.spark" />
     <None Include="Views\Admin\Post\Index.spark">
     </None>
+    <None Include="Views\Admin\Post\Show.spark" />
     <None Include="Views\Admin\Shared\_PostForm.spark" />
     <None Include="Views\Home\Index.spark" />
     <None Include="Views\Layouts\Master.spark" />
     <None Include="Views\Layouts\_navigation.spark" />
-    <None Include="Views\Post\List.spark">
-    </None>
+    <None Include="Views\Post\Index.spark" />
     <None Include="Views\Layouts\Application.spark" />
-    <None Include="Views\Post\View.spark" />
+    <None Include="Views\Post\Show.spark" />
     <None Include="Views\Shared\_ListPosts.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Shared\_RecentPosts.spark" />
