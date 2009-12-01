@@ -7,22 +7,19 @@ using SharpArch.Web.NHibernate;
 namespace Graphite.Web.Controllers.Admin {
   public class PostController : Controllers.PostController {
     public PostController(IPostRepository posts) : base(posts) { }
-
-    public ActionResult New() {
-      return View(new Post());
+    
+    public ActionResult New(Post post) {
+      return View(post ?? new Post());
     }
 
-    [AcceptVerbs(HttpVerbs.Post)]
-    [ValidateAntiForgeryToken]
-    [ValidateInput(false)]
-    [Transaction]
-    public ActionResult New(Post post) {
+    [Transaction, ValidateInput(false)]
+    public ActionResult Create(Post post) {
       try {
         Posts.Save(post);
-        return RedirectToAction("");
+        return RedirectToAction("Show", new { id=post.Id });
       }
       catch {
-        return RedirectToAction("New");
+        return RedirectToAction("New", new {model=post});
       }
     }
 
@@ -30,28 +27,26 @@ namespace Graphite.Web.Controllers.Admin {
       return View(Posts.Get(id));
     }
 
-    [AcceptVerbs(HttpVerbs.Post)]
-    [ValidateAntiForgeryToken]
-    [ValidateInput(false)]
-    [Transaction]
-    public ActionResult Edit(Post post) {
+    [Transaction,ValidateInput(false)]
+    public ActionResult Update(Post post) {
       try {
         Posts.SaveOrUpdate(post);
-        return RedirectToAction("");
+        return RedirectToAction("Index");
       } catch (Exception) {
-        return View(post);
+        return RedirectToAction("Edit", new {model=post});
       }
     }
 
-    [AcceptVerbs(HttpVerbs.Delete)]
-    [ValidateAntiForgeryToken]
-    [ValidateInput(false)]
-    [Transaction]
     public ActionResult Delete(Guid id) {
+      return View(Posts.Get(id));
+    }
+
+    [Transaction]
+    public ActionResult Destroy(Post post) {
       try {
-        Posts.Delete(Posts.Get(id));
-      } catch (Exception) { }
-      return RedirectToAction("");
+        Posts.Delete(post);
+      } catch {}
+      return RedirectToAction("Index");
     }
   }
 }

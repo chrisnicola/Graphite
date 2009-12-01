@@ -1,2 +1,5 @@
 <viewdata model="Post" />
+<form action="${Url.Action("Create")}" method="post" >
 <PostForm />
+<input type="submit" value="Save" /> 
+</form>

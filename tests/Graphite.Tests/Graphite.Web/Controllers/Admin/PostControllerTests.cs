@@ -31,7 +31,7 @@ namespace Tests.Graphite.Web.Controllers.Admin
 
     [Test]
     public void CreatesANewPostWhenNewIsCalled() {
-      _controller.New().AssertViewRendered().ViewData.Model.ShouldBe<Post>("ViewData.Model is not a Post");
+      _controller.New(null).AssertViewRendered().ViewData.Model.ShouldBe<Post>("ViewData.Model is not a Post");
     }
 
     [Test]
@@ -44,22 +44,22 @@ namespace Tests.Graphite.Web.Controllers.Admin
     }
 
     [Test]
-    public void SavesPostToRepositoryWhenEditIsPosted() {
+    public void SavesPostToRepositoryWheUpdated() {
       var post = new Post();
-      _controller.Edit(post);
+      _controller.Update(post);
       _repository.AssertWasCalled(m => m.SaveOrUpdate(post));
     }
 
     [Test]
     public void RedirectsToListAfterSavingPost() {
-      _controller.Edit(new Post()).AssertActionRedirect().ToAction("List");
+      _controller.Update(new Post()).AssertActionRedirect().ToAction("List");
     }
 
     [Test]
     public void RedirectsBackToEditIfErrorSavingPost() {
       var post = new Post();
       _repository.Stub(m => m.SaveOrUpdate(post)).Return(post).Throw(new Exception());
-      _controller.Edit(post).AssertViewRendered().ViewData.Model.ShouldBe(post);
+      _controller.Update(post).AssertViewRendered().ViewData.Model.ShouldBe(post);
     }
   }
 }

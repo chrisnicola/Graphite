@@ -12,7 +12,7 @@
 		});
 	</script>
 </content>
-<form method="post" >
+
 	<p>
 		Title: 
 		!{Html.TextBoxFor<Post, string>(m => m.Title)}
@@ -38,5 +38,3 @@
 		!{Html.CheckBox("Published", Model.Published)}
 	</p>
 	!{Html.AntiForgeryToken()}
-	<input type="submit" value="Save" /> 
-<% Html.EndForm(); %>

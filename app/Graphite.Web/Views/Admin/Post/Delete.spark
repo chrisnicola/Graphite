@@ -1,0 +1,6 @@
+<viewdata model="Post" />
+<form name="DeletePost" action="!{Url.Action("Destroy")}" method="post" > 
+    <input type="hidden" name="_method" value="delete" />
+    <div>Are you sure you want to delete this post?</div>
+    <div>!{Html.ActionLink("Cancel", "Index")} |  <a href="javascript: void(0);" onclick="document.DeletePost.submit();return false;">Delete Post</a></div>
+</form>

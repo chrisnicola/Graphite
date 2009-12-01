@@ -441,6 +441,7 @@
     <None Include="Views\Admin\Home\Index.spark" />
     <None Include="Views\Admin\Layouts\Application.spark" />
     <None Include="Views\Admin\Layouts\_navigation.spark" />
+    <None Include="Views\Admin\Post\Delete.spark" />
     <None Include="Views\Admin\Post\New.spark" />
     <None Include="Views\Admin\Post\Edit.spark" />
     <None Include="Views\Admin\Post\Index.spark">
