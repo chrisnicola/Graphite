@@ -12,7 +12,6 @@
 		});
 	</script>
 </content>
-
 	<p>
 		Title: 
 		!{Html.TextBoxFor<Post, string>(m => m.Title)}

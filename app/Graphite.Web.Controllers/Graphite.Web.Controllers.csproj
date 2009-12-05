@@ -82,6 +82,7 @@
     <Compile Include="Admin\HomeController.cs" />
     <Compile Include="Admin\PostController.cs" />
     <Compile Include="ControllerEnums.cs" />
+    <Compile Include="CommentController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>

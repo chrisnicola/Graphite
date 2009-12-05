@@ -13,7 +13,9 @@ namespace Graphite.Web.Controllers
     public PostController(IPostRepository posts) { Posts = posts; }
 
     public ActionResult Show(Guid id){
-      return View(Posts.Get(id));
+    	Post post = Posts.Get(id);
+    	//var count = post.Comments.Count;
+    	return View(post);
     }
 
     public ActionResult Index() {
