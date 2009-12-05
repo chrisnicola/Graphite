@@ -52,14 +52,16 @@ namespace Tests.Graphite.Web.Controllers.Admin
 
     [Test]
     public void RedirectsToListAfterSavingPost() {
-      _controller.Update(new Post()).AssertActionRedirect().ToAction("List");
+      _controller.Update(new Post()).AssertActionRedirect().ToAction("Index");
     }
 
     [Test]
     public void RedirectsBackToEditIfErrorSavingPost() {
       var post = new Post();
       _repository.Stub(m => m.SaveOrUpdate(post)).Return(post).Throw(new Exception());
-      _controller.Update(post).AssertViewRendered().ViewData.Model.ShouldBe(post);
+    	var result = _controller.Update(post).AssertActionRedirect();
+			Assert.That(result.RouteValues["action"] == "Edit");
+			Assert.That(result.RouteValues["model"] == post);
     }
   }
 }
