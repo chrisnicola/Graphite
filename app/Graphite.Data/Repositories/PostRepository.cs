@@ -17,15 +17,7 @@ namespace Graphite.Data.Repositories {
     }
   }
 
-  public class CommentRepository : NHibernateRepositoryWithTypedId<Comment, Guid>, ICommentRepository
-  {
-    public override Comment Save(Comment entity)
-    {
-      Session.Save(entity);
-      Session.Flush();
-      return entity;
-    }
-  }
+  public class CommentRepository : NHibernateRepositoryWithTypedId<Comment, Guid>, ICommentRepository { }
 
   public interface IPostRepository : INHibernateRepositoryWithTypedId<Post, Guid> {
     /// <summary>
@@ -38,7 +30,5 @@ namespace Graphite.Data.Repositories {
   }
 
 
-  public interface ICommentRepository : INHibernateRepositoryWithTypedId<Comment, Guid>
-  {
-  }
+  public interface ICommentRepository : INHibernateRepositoryWithTypedId<Comment, Guid> { }
 }
