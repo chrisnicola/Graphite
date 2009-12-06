@@ -1,14 +1,9 @@
-<default post="Post"/>
 <div class="comments">
-	<div each="var comment in Model.Comments" class="comment">
+	<div each="var comment in Model.Post.Comments" class="comment">
 		<div class="header">
 			${comment.Author} | <a href="${comment.WebAddress}">${comment.WebAddress}</a>
 		</div>
 		<div class="content">!{comment.Content}</div>
 		<div clas="footer">!{comment.DatePosted}</div>
 	</div>
-	<form action="${Url.Action("Create", "Comment")}" method="post" >
-		<CommentForm comment="new Comment() { Post = post }" />
-		<input type="submit" value="Save" /> 
-	</form>
 </div>

@@ -2,11 +2,13 @@
 using System.Web.Mvc;
 using Graphite.Core;
 using Graphite.Data.Repositories;
+using SharpArch.Core.PersistenceSupport;
+using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Admin {
   public class PostController : Controllers.PostController {
-    public PostController(IPostRepository posts) : base(posts) { }
+    public PostController(IPostRepository posts, ICommentRepository comments) : base(posts, comments) { }
     
     public ActionResult New(Post post) {
       return View(post ?? new Post());
@@ -15,7 +17,7 @@ namespace Graphite.Web.Controllers.Admin {
     [Transaction, ValidateInput(false)]
     public ActionResult Create(Post post) {
       try {
-        Posts.Save(post);
+        _posts.Save(post);
         return RedirectToAction("Show", new { id=post.Id });
       }
       catch {
@@ -24,13 +26,13 @@ namespace Graphite.Web.Controllers.Admin {
     }
 
     public ActionResult Edit(Guid id) {
-      return View(Posts.Get(id));
+      return View(_posts.Get(id));
     }
 
     [Transaction,ValidateInput(false)]
     public ActionResult Update(Post post) {
       try {
-        Posts.SaveOrUpdate(post);
+        _posts.SaveOrUpdate(post);
         return RedirectToAction("Index");
       } catch (Exception) {
         return RedirectToAction("Edit", new {model=post});
@@ -38,13 +40,13 @@ namespace Graphite.Web.Controllers.Admin {
     }
 
     public ActionResult Delete(Guid id) {
-      return View(Posts.Get(id));
+      return View(_posts.Get(id));
     }
 
     [Transaction]
     public ActionResult Destroy(Post post) {
       try {
-        Posts.Delete(post);
+        _posts.Delete(post);
       } catch {}
       return RedirectToAction("Index");
     }

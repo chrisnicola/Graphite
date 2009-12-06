@@ -1,3 +1,8 @@
-<viewdata model="Post" />
-<PostView post="Model" />
-<Comments post="Model" />
+<viewdata model="PostViewModel" />
+<form action="${Url.Action("Update")}" method="post" >
+<PostView post="Model.Post" />
+<Comments />
+<CommentForm />
+<input type="hidden" name="_method" value="put" >
+<input type="submit" value="Save" /> 
+</form>

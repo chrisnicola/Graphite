@@ -448,7 +448,10 @@
     </None>
     <None Include="Views\Admin\Post\Show.spark" />
     <None Include="Views\Admin\Shared\_PostForm.spark" />
+    <None Include="Views\Comment\Index.spark" />
     <None Include="Views\Home\Index.spark" />
+    <None Include="Views\Comment\New.spark" />
+    <None Include="Views\Comment\Show.spark" />
     <None Include="Views\Layouts\Master.spark" />
     <None Include="Views\Layouts\_navigation.spark" />
     <None Include="Views\Post\Index.spark" />

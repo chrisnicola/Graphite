@@ -90,6 +90,7 @@
     <Compile Include="PostController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteRegistrar.cs" />
+    <Compile Include="ViewModels\PostViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">

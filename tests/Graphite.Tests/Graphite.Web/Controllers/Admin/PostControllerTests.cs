@@ -5,6 +5,8 @@ using Graphite.Web.Controllers.Admin;
 using NUnit.Framework;
 using Rhino.Mocks;
 using MvcContrib.TestHelper;
+using SharpArch.Core.PersistenceSupport;
+using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Testing.NUnit;
 using SharpArch.Testing;
 
@@ -15,11 +17,13 @@ namespace Tests.Graphite.Web.Controllers.Admin
   {
     private IPostRepository _repository;
     private PostController _controller;
+    private ICommentRepository _commentrepository;
 
     [SetUp]
     public void SetUp() {
       _repository = MockRepository.GenerateMock<IPostRepository>();
-      _controller = new PostController(_repository);
+      _commentrepository = MockRepository.GenerateMock<ICommentRepository>();
+      _controller = new PostController(_repository, _commentrepository);
     }
 
     [Test]

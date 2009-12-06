@@ -1,0 +1,5 @@
+<viewdata model="Comment" />
+#Html.BeginForm("Create", "Comment", FormMethod.Post);
+	<CommentForm comment="Model" />
+	<input type="submit" value="Save" /> 
+</form>

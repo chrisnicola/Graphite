@@ -1,4 +1,3 @@
-<viewdata comment="Comment" />
 <content:head>
 	<link type="text/css" href="/Scripts/themes/base/ui.all.css" rel="stylesheet" />
 	<script type="text/javascript" src="/Scripts/jquery-1.3.2.js"></script>
@@ -7,14 +6,19 @@
 </content>
 <p>
 	Name: 
-	<%=Html.TextBox("Author", comment.Author)%>
+	<%=Html.TextBox("NewComment.Author", Model.NewComment.Author)%>
+</p>
+<p>
+	Email: 
+ <%=Html.TextBox("NewComment.EmailAddress", Model.NewComment.EmailAddress)%>
 </p>
 <p>
 	Website: 
- <%=Html.TextBox("WebAddress", comment.WebAddress)%>
+ <%=Html.TextBox("NewComment.WebAddress", Model.NewComment.WebAddress)%>
 </p>
 <p>
 	Content: <br/>
-	<%=Html.TextArea("Content", comment.Content, new { @class = "ckeditor" })%>
+	<%=Html.TextArea("NewComment.Content", Model.NewComment.Content, new { @class = "ckeditor" })%>
 </p>
+!{Html.Hidden("PostId", Model.PostId)}
 !{Html.AntiForgeryToken()}
