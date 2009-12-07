@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using NHibernate.Validator.Constraints;
 using SharpArch.Core.DomainModel;
 
 namespace Graphite.Core {

@@ -12,6 +12,7 @@ namespace Graphite.Core {
       DateCreated = DateTime.Now;
       Published = false;
       AllowComments = true;
+      Comments = new List<Comment>();
     }
 
     public virtual string Title { get; set; }
@@ -24,6 +25,12 @@ namespace Graphite.Core {
     public virtual void Publish() {
       Published = true;
       DatePublished = DateTime.Now;
+    }
+
+    public virtual void AddComment(Comment comment) {
+      comment.Post = this;
+      if (!Comments.Contains(comment))
+        Comments.Add(comment);
     }
   }
 }

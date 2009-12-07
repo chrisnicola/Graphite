@@ -29,6 +29,5 @@ namespace Graphite.Data.Repositories {
     Post GetWithComments(Guid id);
   }
 
-
   public interface ICommentRepository : INHibernateRepositoryWithTypedId<Comment, Guid> { }
 }

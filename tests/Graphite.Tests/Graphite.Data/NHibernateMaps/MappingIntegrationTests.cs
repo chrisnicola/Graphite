@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Graphite.Data.NHibernateMaps;
 using NHibernate;
 using NHibernate.Cfg;
@@ -51,8 +52,10 @@ namespace Tests.Graphite.Data.NHibernateMaps {
     }
 
     [Test]
-    public void CanSavePostToDatabase() {
-      
+    public void OutputMappingsToXML() {
+      var mappings = new AutoPersistenceModelGenerator().Generate();
+      mappings.CompileMappings();
+      mappings.WriteMappingsTo("C:\\Mappings\\");
     }
   }
 }

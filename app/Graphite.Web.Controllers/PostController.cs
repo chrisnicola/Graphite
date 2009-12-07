@@ -24,7 +24,7 @@ namespace Graphite.Web.Controllers
     public ActionResult Show(Guid id) {
       Post post = _posts.GetWithComments(id);
       var count = post.Comments.Count;
-      return View(new PostViewModel(post));
+      return View(new ShowPostWithComments(post));
     }
 
     public ActionResult Index() {
@@ -32,13 +32,15 @@ namespace Graphite.Web.Controllers
     }
 
     [Transaction, ValidateInput(false)]
-    public ActionResult Update(PostViewModel postVM) {
-      var post = _posts.Get(postVM.PostId);
-      postVM.NewComment.Post = post;
-      if (CommentIsValid(postVM.NewComment)) _comments.Save(postVM.NewComment);
-      
-      //post.Comments.Add(postVM.NewComment);
-      return RedirectToAction("Index");
+    public ActionResult Update(ShowPostWithComments showPostVm) {
+      var post = _posts.Get(showPostVm.PostId);
+      try {
+        if (CommentIsValid(showPostVm.NewComment)) {
+          post.AddComment(showPostVm.NewComment);
+          //_comments.Save(showPostVm.NewComment);
+        }
+      } catch {}
+      return View("Show", new ShowPostWithComments(post));
     }
 
     private static bool CommentIsValid(Comment comment) {

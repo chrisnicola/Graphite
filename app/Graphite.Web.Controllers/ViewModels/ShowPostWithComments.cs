@@ -6,10 +6,10 @@ using Graphite.Core;
 
 namespace Graphite.Web.Controllers.ViewModels
 {
-  public class PostViewModel
+  public class ShowPostWithComments
   {
-    public PostViewModel() : this(new Post()) { }
-    public PostViewModel(Post post) {
+    public ShowPostWithComments() : this(new Post()) { }
+    public ShowPostWithComments(Post post) {
       Post = post;
       PostId = post.Id;
       NewComment = new Comment {Post = post};

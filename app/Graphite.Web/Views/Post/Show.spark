@@ -1,4 +1,4 @@
-<viewdata model="PostViewModel" />
+<viewdata model="ShowPostWithComments" />
 <form action="${Url.Action("Update")}" method="post" >
 <PostView post="Model.Post" />
 <Comments />
