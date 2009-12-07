@@ -23,8 +23,7 @@ namespace Graphite.Web.Controllers
 
     public ActionResult Show(Guid id) {
       Post post = _posts.GetWithComments(id);
-      var count = post.Comments.Count;
-      return View(new ShowPostWithComments(post));
+        return View(new ShowPostWithComments(post));
     }
 
     public ActionResult Index() {

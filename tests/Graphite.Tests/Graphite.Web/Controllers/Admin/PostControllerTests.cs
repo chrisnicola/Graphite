@@ -2,6 +2,7 @@
 using Graphite.Core;
 using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.Admin;
+using Graphite.Web.Controllers.ViewModels;
 using NUnit.Framework;
 using Rhino.Mocks;
 using MvcContrib.TestHelper;
@@ -29,8 +30,10 @@ namespace Tests.Graphite.Web.Controllers.Admin
     [Test]
     public void CanViewAnIndividualPostById() {
       var post = new Post();
-      _repository.Stub(m => m.Get(new Guid())).IgnoreArguments().Return(post);
-      _controller.Show(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
+      _repository.Stub(m => m.GetWithComments(new Guid())).IgnoreArguments().Return(post);
+      _controller.Show(new Guid()).AssertViewRendered()
+        .ViewData.Model.ShouldBe<ShowPostWithComments>("ViewModel is not of type ShowPostWithComments")
+        .Post.ShouldBe(post);
     }
 
     [Test]

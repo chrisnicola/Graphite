@@ -51,7 +51,7 @@ namespace Tests.Graphite.Data.NHibernateMaps {
       new SchemaExport(configuration).Execute(true, false, false, session.Connection, null);
     }
 
-    [Test]
+    [Test,Ignore]
     public void OutputMappingsToXML() {
       var mappings = new AutoPersistenceModelGenerator().Generate();
       mappings.CompileMappings();
