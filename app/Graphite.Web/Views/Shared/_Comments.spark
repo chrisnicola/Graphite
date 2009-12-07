@@ -1,5 +1,6 @@
+<viewdata model="ShowPostWithComments" />
 <div class="comments">
-	<div each="var comment in Model.Post.Comments" class="comment">
+	<div each="var comment in Model.Comments" class="comment">
 		<div class="header">
 			${comment.Author} | <a href="${comment.WebAddress}">${comment.WebAddress}</a>
 		</div>

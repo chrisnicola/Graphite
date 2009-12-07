@@ -19,7 +19,7 @@ namespace Graphite.Web.Controllers.Admin {
     public ActionResult Create(Post post) {
       try {
         _posts.Save(post);
-        return View("Show", new ShowPostWithComments(post));
+        return View("Show", post);
       }
       catch {
         return View("New", post);

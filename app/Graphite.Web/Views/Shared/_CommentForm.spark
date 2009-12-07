@@ -20,5 +20,5 @@
 	Content: <br/>
 	<%=Html.TextArea("NewComment.Content", Model.NewComment.Content, new { @class = "ckeditor" })%>
 </p>
-!{Html.Hidden("PostId", Model.PostId)}
+!{Html.Hidden("Id", Model.Id)}
 !{Html.AntiForgeryToken()}

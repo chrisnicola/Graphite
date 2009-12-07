@@ -1,8 +1,10 @@
-<viewdata model="ShowPostWithComments" />
-<form action="${Url.Action("Update")}" method="post" >
-<PostView post="Model.Post" />
-<Comments />
-<CommentForm />
-<input type="hidden" name="_method" value="put" >
-<input type="submit" value="Save" /> 
-</form>
+<viewmodel model="ShowPostWithComments" />
+	<PostView post="Model"/>
+	<Comments />
+<if condition="Model.AllowComments">
+	<form action="${Url.Action("Update")}" method="post" >
+		<CommentForm />
+		<input type="hidden" name="_method" value="put" >
+		<input type="submit" value="Save" /> 
+	</form>
+</if>

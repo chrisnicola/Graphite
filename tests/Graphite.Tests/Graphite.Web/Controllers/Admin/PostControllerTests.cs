@@ -31,9 +31,7 @@ namespace Tests.Graphite.Web.Controllers.Admin
     public void CanViewAnIndividualPostById() {
       var post = new Post();
       _repository.Stub(m => m.GetWithComments(new Guid())).IgnoreArguments().Return(post);
-      _controller.Show(new Guid()).AssertViewRendered()
-        .ViewData.Model.ShouldBe<ShowPostWithComments>("ViewModel is not of type ShowPostWithComments")
-        .Post.ShouldBe(post);
+      _controller.Show(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
     }
 
     [Test]

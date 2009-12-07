@@ -2,10 +2,8 @@
 using System.Web.Mvc;
 using Graphite.Core;
 using Graphite.Data.Repositories;
+using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.ViewModels;
-using SharpArch.Core.PersistenceSupport;
-using SharpArch.Core.PersistenceSupport.NHibernate;
-using SharpArch.Web.ModelBinder;
 using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers
@@ -21,9 +19,10 @@ namespace Graphite.Web.Controllers
       _comments = comments;
     }
 
+    [AutoMap(typeof(Post),typeof(ShowPostWithComments))]
     public ActionResult Show(Guid id) {
       Post post = _posts.GetWithComments(id);
-        return View(new ShowPostWithComments(post));
+      return View(post);
     }
 
     public ActionResult Index() {
@@ -32,14 +31,13 @@ namespace Graphite.Web.Controllers
 
     [Transaction, ValidateInput(false)]
     public ActionResult Update(ShowPostWithComments showPostVm) {
-      var post = _posts.Get(showPostVm.PostId);
+      var post = _posts.Get(showPostVm.Id);
       try {
         if (CommentIsValid(showPostVm.NewComment)) {
           post.AddComment(showPostVm.NewComment);
-          //_comments.Save(showPostVm.NewComment);
         }
       } catch {}
-      return View("Show", new ShowPostWithComments(post));
+      return View("Show", post);
     }
 
     private static bool CommentIsValid(Comment comment) {
