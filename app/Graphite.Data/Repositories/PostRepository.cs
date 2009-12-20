@@ -8,7 +8,12 @@ using SharpArch.Data.NHibernate;
 
 namespace Graphite.Data.Repositories {
   public class PostRepository : NHibernateRepositoryWithTypedId<Post, Guid>, IPostRepository {
-    public IEnumerable<Post> GetRecentPosts(int i) { return Session.Linq<Post>().Where(p => p.Published).OrderByDescending(p => p.DatePublished).Take(i); }
+    public IEnumerable<Post> GetRecentPublishedPosts(int i) {
+    	return Session.Linq<Post>()
+				.Where(p => p.Published)
+				.OrderByDescending(p => p.DatePublished)
+				.Take(i);
+    }
 
     public Post GetWithComments(Guid id) {
       var post = this.Get(id);
@@ -24,8 +29,7 @@ namespace Graphite.Data.Repositories {
     /// Gets the most recent posts in the database
     /// </summary>
     /// <param name="i">Number of recent posts to get</param>
-    IEnumerable<Post> GetRecentPosts(int i);
-
+    IEnumerable<Post> GetRecentPublishedPosts(int i);
     Post GetWithComments(Guid id);
   }
 

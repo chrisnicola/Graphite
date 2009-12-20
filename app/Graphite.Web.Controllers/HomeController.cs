@@ -15,7 +15,7 @@ namespace Graphite.Web.Controllers {
     }
 
     public ActionResult Index() {
-      return View(_posts.GetRecentPosts(5));
+      return View(_posts.GetRecentPublishedPosts(5));
     }
   }
 }
