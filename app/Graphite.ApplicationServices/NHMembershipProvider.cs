@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web.Security;
@@ -32,9 +34,10 @@ namespace Graphite.ApplicationServices {
 
 		public override MembershipUser CreateUser(string username, string password, string email, string passwordQuestion,
 			string passwordAnswer, bool isApproved, object providerUserKey, out MembershipCreateStatus status) {
-			var salt = GenerateSalt(32);
-			var user = new User {Username = username, 
-				Password = CreatePasswordHash(salt, password), 
+			string salt = GenerateSalt(32);
+			var user = new User {
+				Username = username,
+				Password = CreatePasswordHash(salt, password),
 				Salt = salt,
 				Email = email,
 				PasswordQuestion = passwordQuestion,
@@ -50,43 +53,51 @@ namespace Graphite.ApplicationServices {
 			return new NHMembershipUserWrapper(user, Name);
 		}
 
-		private static string GenerateSalt(int size)
-		{
+		public static string GenerateSalt(int size) {
 			var rng = new RNGCryptoServiceProvider();
 			var buff = new byte[size];
 			rng.GetBytes(buff);
 			return Convert.ToBase64String(buff);
 		}
 
-		private static string CreatePasswordHash(string salt, string password) {
+		public static string CreatePasswordHash(string salt, string password) {
 			string saltAndPwd = String.Concat(password, salt);
 			byte[] data = Encoding.UTF8.GetBytes(saltAndPwd);
-			using (HashAlgorithm sha = new SHA256Managed())
-			{
+			using (HashAlgorithm sha = new SHA256Managed()) {
 				sha.TransformFinalBlock(data, 0, data.Length);
 				return Convert.ToBase64String(sha.Hash);
 			}
 		}
 
-		[Transaction]
 		private void SaveUser(User user) { _repository.Save(user); }
 
 		public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion,
 			string newPasswordAnswer) { throw new NotImplementedException(); }
 
 		public override string GetPassword(string username, string answer) { throw new NotImplementedException(); }
-		public override bool ChangePassword(string username, string oldPassword, string newPassword) { throw new NotImplementedException(); }
+
+		public override bool ChangePassword(string username, string oldPassword, string newPassword) {
+			User user = _repository.GetUser(username);
+			if (ValidPasswordForUser(oldPassword, user)) {
+				user.Password = CreatePasswordHash(user.Salt, newPassword);
+				return true;
+			}
+			return false;
+		}
+
+		private static bool ValidPasswordForUser(string password, User user) { return CreatePasswordHash(user.Salt, password).Equals(user.Password); }
+
 		public override string ResetPassword(string username, string answer) { throw new NotImplementedException(); }
 		public override void UpdateUser(MembershipUser user) { throw new NotImplementedException(); }
-		public override bool ValidateUser(string username, string password) { throw new NotImplementedException(); }
+		public override bool ValidateUser(string username, string password) { return ValidPasswordForUser(password, _repository.GetUser(username)); }
 		public override bool UnlockUser(string userName) { throw new NotImplementedException(); }
-		public override MembershipUser GetUser(object providerUserKey, bool userIsOnline) { throw new NotImplementedException(); }
-		public override MembershipUser GetUser(string username, bool userIsOnline) {
-			return new NHMembershipUserWrapper(_repository.GetUser(username), Name);
-		}
-		
+
+		public override MembershipUser GetUser(object providerUserKey, bool userIsOnline) { return new NHMembershipUserWrapper(_repository.Get((Guid) providerUserKey), Name); }
+
+		public override MembershipUser GetUser(string username, bool userIsOnline) { return new NHMembershipUserWrapper(_repository.GetUser(username), Name); }
+
 		public override string GetUserNameByEmail(string email) {
-			var user = _repository.GetUserByEmail(email);
+			User user = _repository.GetUserByEmail(email);
 			return user.Username;
 		}
 
@@ -98,7 +109,6 @@ namespace Graphite.ApplicationServices {
 			}
 		}
 
-		[Transaction]
 		private bool DeleteUserFromDatabase(string username) {
 			User user = _repository.GetUser(username);
 			if (user == null) return false;
@@ -106,14 +116,33 @@ namespace Graphite.ApplicationServices {
 			return true;
 		}
 
-		public override MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords) { throw new NotImplementedException(); }
+		public override MembershipUserCollection GetAllUsers(int pageIndex, int pageSize, out int totalRecords) {
+			IEnumerable<User> users = _repository.FindAll();
+			totalRecords = users.Count();
+			var userCollection = new MembershipUserCollection();
+			foreach (User user in users.Skip(pageIndex*pageSize).Take(pageSize)) userCollection.Add(new NHMembershipUserWrapper(user, Name));
+			return userCollection;
+		}
+
 		public override int GetNumberOfUsersOnline() { throw new NotImplementedException(); }
 
 		public override MembershipUserCollection FindUsersByName(string usernameToMatch, int pageIndex, int pageSize,
-			out int totalRecords) { throw new NotImplementedException(); }
+			out int totalRecords) {
+			IEnumerable<User> users = _repository.FindAll(u => u.Username.Contains(usernameToMatch));
+			totalRecords = users.Count();
+			var userCollection = new MembershipUserCollection();
+			foreach (User user in users.Skip(pageIndex*pageSize).Take(pageSize)) userCollection.Add(new NHMembershipUserWrapper(user, Name));
+			return userCollection;
+		}
 
 		public override MembershipUserCollection FindUsersByEmail(string emailToMatch, int pageIndex, int pageSize,
-			out int totalRecords) { throw new NotImplementedException(); }
+			out int totalRecords) {
+			IEnumerable<User> users = _repository.FindAll(u => u.Email.Contains(emailToMatch));
+			totalRecords = users.Count();
+			var userCollection = new MembershipUserCollection();
+			foreach (User user in users.Skip(pageIndex*pageSize).Take(pageSize)) userCollection.Add(new NHMembershipUserWrapper(user, Name));
+			return userCollection;
+		}
 	}
 
 	public class NHMembershipUserWrapper : MembershipUser {
@@ -126,6 +155,7 @@ namespace Graphite.ApplicationServices {
 				user.IsLockedOut, user.CreationDate, user.LastLoginDate, user.LastActivityDate, user.LastPasswordChangedDate,
 				user.LastLockout) { _user = user; }
 
+		public string Salt { get { return _user.Salt; } }
 		public override string UserName { get { return _user.Username; } }
 		public override object ProviderUserKey { get { return _user.Id; } }
 		public override string Email { get { return _user.Email; } set { _user.Email = value; } }

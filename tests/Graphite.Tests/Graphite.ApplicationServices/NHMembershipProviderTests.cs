@@ -11,12 +11,15 @@ namespace Tests.Graphite.ApplicationServices
 	[TestFixture]
 	public class NHMembershipProviderTests
 	{
-		private readonly User _user = new User { Username = "username" };
+		private User _user;
 		private IUserRepository _userRepository;
 		private NHMembershipProvider _membershipProvider;
 
 		[SetUp]
 		public void SetUp() {
+			var salt = NHMembershipProvider.GenerateSalt(16);
+			_user = new User()
+			        {Username = "Username", Salt = salt, Password = NHMembershipProvider.CreatePasswordHash(salt, "Password")};
 			_userRepository = MockRepository.GenerateStub<IUserRepository>();
 			_userRepository.Stub(m => m.GetUser(_user.Username)).Return(_user);
 			_membershipProvider = ((NHMembershipProvider) Membership.Provider);
@@ -45,12 +48,24 @@ namespace Tests.Graphite.ApplicationServices
 
 		[Test]
 		public void CanGetUser() {
-			Assert.That((_membershipProvider.GetUser(_user.Username, false) as NHMembershipUserWrapper).User == _user);
+			Assert.That(((NHMembershipUserWrapper) _membershipProvider.GetUser(_user.Username, false)).User == _user);
 		}
 
 		[Test]
-		public void CanGetUserByEmailAddress() {
+		public void CanGetUsernameByEmailAddress() {
 			Assert.That(_membershipProvider.GetUserNameByEmail(_user.Email) == _user.Username);
+		}
+
+		[Test]
+		public void CanChangePasswordForUser() {
+			Assert.That(_membershipProvider.ChangePassword(_user.Username, "PasswordWrong", "NewPassword"), Is.False);
+			Assert.That(_membershipProvider.ChangePassword(_user.Username, "Password", "NewPassword"));
+			Assert.That(_membershipProvider.ValidateUser(_user.Username, "NewPassword"));
+		}
+		[Test]
+		public void CanValidateUserWithPassword() {
+			Assert.That(_membershipProvider.ValidateUser(_user.Username, "Password"), Is.True);
+			Assert.That(_membershipProvider.ValidateUser(_user.Username, "WrongPassword"), Is.False);
 		}
 	}
 }
