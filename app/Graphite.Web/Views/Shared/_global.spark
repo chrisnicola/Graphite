@@ -1,4 +1,6 @@
 <use namespace="System.Collections.Generic"/>
 <use namespace="System"/>
 <use namespace="System.Linq"/>
+<use namespace="MvcContrib.UI" />
+<use namespace="MvcContrib.UI.Grid" />
 <use namespace="Graphite.Web.Controllers.ViewModels" />

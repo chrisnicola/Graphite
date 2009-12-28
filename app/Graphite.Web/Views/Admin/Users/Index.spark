@@ -1,0 +1,5 @@
+<viewdata model="UserIndexViewModel" />
+!{Html.Grid<UserViewModel>(Model.Users).AutoGenerateColumns()}
+<p>
+    !{Html.ActionLink("Create New", "New", new { area = "Admin" })}
+</p>
