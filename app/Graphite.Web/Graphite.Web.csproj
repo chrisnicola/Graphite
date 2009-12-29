@@ -453,8 +453,9 @@
     </None>
     <None Include="Views\Admin\Post\Show.spark" />
     <None Include="Views\Admin\Shared\_PostForm.spark" />
-    <None Include="Views\Admin\Users\Index.spark" />
+    <None Include="Views\Admin\User\Index.spark" />
     <None Include="Views\Admin\Shared\ListUsers.spark" />
+    <None Include="Views\Admin\User\New.spark" />
     <None Include="Views\Comment\Index.spark" />
     <None Include="Views\Home\Index.spark" />
     <None Include="Views\Comment\New.spark" />

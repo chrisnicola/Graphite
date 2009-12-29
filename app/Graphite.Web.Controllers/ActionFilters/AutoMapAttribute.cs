@@ -15,9 +15,7 @@ namespace Graphite.Web.Controllers.ActionFilters {
 			_destType = destType;
 		}
 
-		public AutoMapAttribute(Type sourceType, Type destType, Type mapperType) {
-			_sourceType = sourceType;
-			_destType = destType;
+		public AutoMapAttribute(Type mapperType) {
 			_mapperType = mapperType;
 		}
 

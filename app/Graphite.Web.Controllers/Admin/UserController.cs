@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web.Mvc;
-using System.Web.Security;
 using Graphite.ApplicationServices;
 using Graphite.Core;
 using Graphite.Web.Controllers.ActionFilters;
+using Graphite.Web.Controllers.Mappers;
 using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Admin
@@ -16,7 +13,7 @@ namespace Graphite.Web.Controllers.Admin
 		private readonly IUserTasks _userTasks;
 		public UserController(IUserTasks userTasks) { _userTasks = userTasks; }
 
-		[AutoMap(typeof)]
+		[AutoMap(typeof(IUserIndexMapper))]
 		public ActionResult Index() {
 			return View(_userTasks.GetUsers());
 		}
@@ -40,4 +37,5 @@ namespace Graphite.Web.Controllers.Admin
 			}
 		}
 	}
+
 }

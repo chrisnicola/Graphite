@@ -3,8 +3,10 @@ using System.Web.Security;
 using Graphite.ApplicationServices;
 using Graphite.Core;
 using Graphite.Data.Repositories;
+using NHibernate;
 using NUnit.Framework;
 using Rhino.Mocks;
+using SharpArch.Core.DomainModel;
 
 namespace Tests.Graphite.ApplicationServices
 {

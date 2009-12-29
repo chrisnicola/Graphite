@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Graphite.Web.Controllers.ViewModels
 {
 	public class UserIndexViewModel {
-		IList<UserViewModel> Users { get; set; }
+		public IEnumerable<UserViewModel> Users { get; set; }
 	}
 
 	public class UserViewModel {
@@ -16,4 +13,11 @@ namespace Graphite.Web.Controllers.ViewModels
 		public string Email { get; set; }
 		public string PasswordQuestion { get; set; }
 	}
+
+	public class NewUserViewModel : UserViewModel {
+		public string Password { get; set; }
+		public string PasswordAnswer { get; set; }
+	}
 }
+
+
