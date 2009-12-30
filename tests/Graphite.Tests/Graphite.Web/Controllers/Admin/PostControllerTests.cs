@@ -2,9 +2,12 @@
 using Graphite.Core;
 using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.Admin;
+using Graphite.Web.Controllers.ViewModels;
 using NUnit.Framework;
 using Rhino.Mocks;
 using MvcContrib.TestHelper;
+using SharpArch.Core.PersistenceSupport;
+using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Testing.NUnit;
 using SharpArch.Testing;
 
@@ -15,17 +18,19 @@ namespace Tests.Graphite.Web.Controllers.Admin
   {
     private IPostRepository _repository;
     private PostController _controller;
+    private ICommentRepository _commentrepository;
 
     [SetUp]
     public void SetUp() {
       _repository = MockRepository.GenerateMock<IPostRepository>();
-      _controller = new PostController(_repository);
+      _commentrepository = MockRepository.GenerateMock<ICommentRepository>();
+      _controller = new PostController(_repository, _commentrepository);
     }
 
     [Test]
     public void CanViewAnIndividualPostById() {
       var post = new Post();
-      _repository.Stub(m => m.Get(new Guid())).IgnoreArguments().Return(post);
+      _repository.Stub(m => m.GetWithComments(new Guid())).IgnoreArguments().Return(post);
       _controller.Show(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
     }
 
@@ -52,14 +57,16 @@ namespace Tests.Graphite.Web.Controllers.Admin
 
     [Test]
     public void RedirectsToListAfterSavingPost() {
-      _controller.Update(new Post()).AssertActionRedirect().ToAction("List");
+      _controller.Update(new Post()).AssertActionRedirect().ToAction("Index");
     }
 
     [Test]
     public void RedirectsBackToEditIfErrorSavingPost() {
       var post = new Post();
       _repository.Stub(m => m.SaveOrUpdate(post)).Return(post).Throw(new Exception());
-      _controller.Update(post).AssertViewRendered().ViewData.Model.ShouldBe(post);
+    	var result = _controller.Update(post).AssertActionRedirect();
+			Assert.That(result.RouteValues["action"] == "Edit");
+			Assert.That(result.RouteValues["model"] == post);
     }
   }
 }

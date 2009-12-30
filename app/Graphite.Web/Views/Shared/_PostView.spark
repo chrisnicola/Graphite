@@ -1,4 +1,3 @@
-<default post="Post"/>
 <div class="post">
 	<h2 class="title">${post.Title}</h2>
 	<div class="content">!{post.Content}</div>

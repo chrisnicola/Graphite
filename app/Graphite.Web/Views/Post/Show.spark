@@ -1,2 +1,10 @@
-<viewdata model="Post" />
-<PostView post="Model" />
+<viewmodel model="ShowPostWithComments" />
+	<PostView post="Model"/>
+	<Comments />
+<if condition="Model.AllowComments">
+	<form action="${Url.Action("Update")}" method="post" >
+		<CommentForm />
+		<input type="hidden" name="_method" value="put" >
+		<input type="submit" value="Save" /> 
+	</form>
+</if>

@@ -20,8 +20,8 @@ namespace Tests.Graphite.Web.Controllers
 
     [Test]
     public void CanListRecentPostsWhenIndexIsCalled() {
-      var view = _controller.Index().AssertViewRendered().ForView("");
-      _repository.AssertWasCalled(m => m.GetRecentPosts(Arg<int>.Is.Anything));
+    	_controller.Index().AssertViewRendered().ForView("");
+    	_repository.AssertWasCalled(m => m.GetRecentPublishedPosts(Arg<int>.Is.Anything));
     }
   }
 }

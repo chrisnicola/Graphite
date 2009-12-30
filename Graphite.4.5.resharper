@@ -25,6 +25,7 @@
         <FORCE_USING_BRACES_STYLE>ONLY_FOR_MULTILINE</FORCE_USING_BRACES_STYLE>
         <FORCE_WHILE_BRACES_STYLE>ONLY_FOR_MULTILINE</FORCE_WHILE_BRACES_STYLE>
         <INITIALIZER_BRACES>END_OF_LINE</INITIALIZER_BRACES>
+        <INSERT_TABS>True</INSERT_TABS>
         <INVOCABLE_DECLARATION_BRACES>END_OF_LINE</INVOCABLE_DECLARATION_BRACES>
         <KEEP_BLANK_LINES_IN_CODE>0</KEEP_BLANK_LINES_IN_CODE>
         <KEEP_BLANK_LINES_IN_DECLARATIONS>1</KEEP_BLANK_LINES_IN_DECLARATIONS>
@@ -252,7 +253,9 @@ II.2.12 <HandlesEvent />
 ]]></CustomMemberReorderingPatterns>
     </CSharp>
     <VB>
-      <FormatSettings />
+      <FormatSettings>
+        <INSERT_TABS>True</INSERT_TABS>
+      </FormatSettings>
       <ImportsSettings />
       <Naming2 />
     </VB>
@@ -296,6 +299,7 @@ II.2.12 <HandlesEvent />
       <Abbreviation Text="UID" />
       <Abbreviation Text="ID" />
       <Abbreviation Text="GST" />
+      <Abbreviation Text="NH" />
     </Naming2>
   </CodeStyleSettings>
 </Configuration>

@@ -1,6 +1,3 @@
 ﻿<viewdata model="IEnumerable[[Post]]" />
-<h2>The Graphite Blog Engine</h2>
-<h3>What this?</h3>
-<p>Something Here</p>
+<h1>The Graphite Blog Engine</h1>
 <PostView each="var post in Model" />
-

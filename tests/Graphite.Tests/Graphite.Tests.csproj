@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{26E0BD76-A347-45C2-B47B-82A23EFCFA0D}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -138,6 +138,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphite.Data\NHibernateMaps\CRUDTests.cs" />
     <Compile Include="Graphite.Web\Controllers\Admin\PostControllerTests.cs" />
     <Compile Include="Graphite.Web\Controllers\HomeControllerTests.cs" />
     <Compile Include="Graphite.Web\Controllers\RouteRegistrarTests.cs" />
