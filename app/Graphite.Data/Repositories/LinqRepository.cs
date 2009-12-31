@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Graphite.Core;
 using NHibernate.Linq;
 using SharpArch.Core.DomainModel;
 using SharpArch.Data.NHibernate;
@@ -17,6 +18,10 @@ namespace Graphite.Data.Repositories {
 
 		public IEnumerable<T> FindAll() {
 			return Session.Linq<T>();
+		}
+
+		public void Delete(Guid id) {
+			Session.Delete(Session.Load<User>(id));
 		}
 	}
 }

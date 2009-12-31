@@ -11,6 +11,7 @@ using Graphite.Web.Controllers;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using MvcContrib.Castle;
+using MvcContrib.UI.InputBuilder;
 using NHibernate.AdoNet.Util;
 using NHibernate.Tool.hbm2ddl;
 using SharpArch.Data.NHibernate;
@@ -27,9 +28,10 @@ namespace Graphite.Web {
     protected void Application_Start() {
       XmlConfigurator.Configure();
       var controller = InitializeServiceLocator();
-      ViewEngines.Engines.Clear();
-      ViewEngines.Engines.Add(controller.Resolve<IViewEngine>());
-      ModelBinders.Binders.DefaultBinder = new SharpModelBinder();
+      ModelBinders.Binders.DefaultBinder = new SharpModelBinder();			
+			ViewEngines.Engines.Clear();
+			InputBuilder.BootStrap();
+			ViewEngines.Engines.Add(controller.Resolve<IViewEngine>());
       RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Web.Mvc;
 using Graphite.Core.MappingInterfaces;
+using Graphite.Web.Controllers.Mappers;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Graphite.Web.Controllers.ActionFilters {
@@ -32,7 +33,7 @@ namespace Graphite.Web.Controllers.ActionFilters {
 		}
 
 		private static IMapper GetDefaultMapperFor(Type sourceType, Type destType) {
-			Type genericClass = typeof (IMapper<,>);
+			Type genericClass = typeof (GenericMapper<,>);
 			Type constructedClass = genericClass.MakeGenericType(new[] {sourceType, destType});
 			return (IMapper) Activator.CreateInstance(constructedClass);
 		}

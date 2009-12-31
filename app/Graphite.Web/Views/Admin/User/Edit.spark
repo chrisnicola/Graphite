@@ -1,7 +1,6 @@
-<viewdata model="NewUserViewModel" />
+<viewdata model="EditUserViewModel" />
 <h2>Add New User</h2>
-<form action="${Url.Action("Create")}" method="post" >
-!{Html.AntiForgeryToken()}
+<form action="${Url.Action("Update")}" method="post" >
 <div class="formInput">
 !{this.TextBox(x => x.Username).Label("Username: ")}
 </div>
@@ -12,13 +11,15 @@
 	!{this.TextBox(x => x.Email).Label("Email: ")}
 </div>
 <div class="formInput">
-	!{this.TextBox(x => x.Password).Label("Password: ")}
+	!{this.TextBox(x => x.OldPassword).Label("Old Password: ")}
 </div>
 <div class="formInput">
-	!{this.TextBox(x => x.VerifyPassword).Label("Verify Password: ")}
+	!{this.TextBox(x => x.NewPassword).Label("New Password: ")}
 </div>
+<div class="formInput">
+	!{this.TextBox(x => x.VerifyPassword).Label("Verify New Password: ")}
+</div>
+!{Html.AntiForgeryToken()}
+!{this.Hidden("_method").Value("put")}
 !{Html.SubmitButton("Submit", "Submit")}
 </form>
-
-
-

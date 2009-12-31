@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Graphite.Core;
@@ -19,4 +20,8 @@ namespace Graphite.Web.Controllers.Mappers {
 			return new UserIndexViewModel { Users = source.Select(u => Mapper.Map<User,UserViewModel>(u)) };
 		}
 	}
+
+	public interface INewUserMapper : IMapper<User, NewUserViewModel> { }
+
+	public class NewUserMapper : GenericMapper<User, NewUserViewModel>, INewUserMapper { }
 }

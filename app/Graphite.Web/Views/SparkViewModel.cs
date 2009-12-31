@@ -10,7 +10,7 @@ namespace Graphite.Web.Views {
 
 		protected SparkModelViewPage()
 		{
-			//this._behaviors.Add(new ValidationBehavior(() => ViewData.ModelState));
+			this._behaviors.Add(new ValidationBehavior(() => ViewData.ModelState));
 		}
 
 		public IEnumerable<IBehaviorMarker> Behaviors
@@ -25,4 +25,6 @@ namespace Graphite.Web.Views {
 			get { return Model; }
 		}
 	}
+
+	public abstract class SparkModelViewPage : SparkModelViewPage<object> {}
 }

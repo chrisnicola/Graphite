@@ -3,7 +3,8 @@
 </p>
 <h2>Naviation Menu</h2>
 <ul>
-  <li>!{Html.ActionLink("Home", "Index")}</li>
-  <li>!{Html.ActionLink("Logout", "Index", new {area = "Root"})}</li>
-  <li>!{Html.ActionLink("Archive", "Index", "Post")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.HomeController>(c => c.Index(), "Home")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.HomeController>(c => c.Index(), "Logout")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.PostController>(c => c.Index(), "Posts")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.UserController>(c => c.Index(), "Users")}</li>
 </ul>

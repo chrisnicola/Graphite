@@ -21,6 +21,7 @@ namespace Graphite.Data.Repositories {
 		IList<T> FindAll(IDictionary<string, object> propertyValuePairs);
 		T FindOne(IDictionary<string, object> propertyValuePairs);
 		void Delete(T entity);
+		void Delete(Guid id);
 		T SaveOrUpdate(T entity);
 	}
 }

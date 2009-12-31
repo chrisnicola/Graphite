@@ -13,10 +13,11 @@ namespace Graphite.ApplicationServices
 {
 	public interface IUserTasks {
 		IEnumerable<User> GetUsers();
-		void AddUser(User user);
-		void UpdateUser(User user);
-		void AuthenticateUser(string username, string password);
+		User AddUser(CreateUserDetails user);
+		User UpdateUser(EditUserDetails user);
+		User AuthenticateUser(string username, string password);
 		User GetUser(Guid id);
+		void RemoveUser(Guid id);
 	}
 
 	public class UserTasks : IUserTasks {
@@ -27,27 +28,44 @@ namespace Graphite.ApplicationServices
 			return _users.FindAll();
 		}
 
-		public void AddUser(User user) {
-			user.Salt = GenerateSalt(16);
-			user.Password = CreatePasswordHash(user.Salt, user.Password);
-			_users.Save(user);
+		public User AddUser(CreateUserDetails user) {
+			var newuser = new User {
+				Username = user.Username,
+				CreationDate = DateTime.Now,
+				Email = user.Email,
+				RealName = user.RealName,
+				Salt = GenerateSalt(16)
+			};
+			newuser.Password = CreatePasswordHash(newuser.Salt, user.Password);
+			return _users.Save(newuser);
 		}
 
-		public void UpdateUser(User user) {
-			_users.SaveOrUpdate(user);
+		public User UpdateUser(EditUserDetails details) {
+			var user = _users.Get(details.Id);
+			user.Username = details.Username;
+			user.Email = details.Email;
+			user.RealName = details.RealName;
+			if (!string.IsNullOrEmpty(details.NewPassword)) user.Password = CreatePasswordHash(user.Salt, details.NewPassword);
+			return user;
 		}
 
-		public void AuthenticateUser(string username, string password) {
+		public User AuthenticateUser(string username, string password) {
 			try {
 				var user = _users.GetUser(username);
 				if (user == null) throw new AuthenticationException("No such username");
-				if (ValidPasswordForUser(_users.GetUser(username), password)) FormsAuthentication.SetAuthCookie(username, false);
-				else throw new AuthenticationException("Unable to validate username or password");
+				if (ValidPasswordForUser(_users.GetUser(username), password)) {
+					FormsAuthentication.SetAuthCookie(username, false);
+					return user;
+				} else throw new AuthenticationException("Unable to validate username or password");
 			} catch (Exception ex) { throw new AuthenticationException("An unkown error occurred", ex); }	
 		}
 
 		public User GetUser(Guid id) {
 			return _users.Get(id);
+		}
+
+		public void RemoveUser(Guid id) {
+			_users.Delete(id);
 		}
 
 		public static string GenerateSalt(int size)
