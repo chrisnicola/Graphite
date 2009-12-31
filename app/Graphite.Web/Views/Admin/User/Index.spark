@@ -1,0 +1,10 @@
+<viewdata model="UserIndexViewModel" />
+!{Html.Grid<UserViewModel>(Model.Users).AutoGenerateColumns().Columns(
+				c => { 
+          c.For(x => Html.ActionLink<Graphite.Web.Controllers.Admin.UserController>(ctl => ctl.Edit(x.Id), "Edit")).DoNotEncode();
+					c.For(x => Html.ActionLink<Graphite.Web.Controllers.Admin.UserController>(ctl => ctl.Delete(x.Id), "Delete")).DoNotEncode();
+        }
+    )}
+<p>
+    !{Html.ActionLink("Create New", "New", new { area = "Admin" })}
+</p>

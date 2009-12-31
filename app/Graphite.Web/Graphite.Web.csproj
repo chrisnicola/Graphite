@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{97E1828A-5A23-4277-AC3A-D6D9F16D7068}</ProjectGuid>
     <ProjectTypeGuids>{603c0e0b-db56-11dc-be95-000d561079b0};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -176,6 +176,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\SparkViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\ckeditor\CHANGES.html" />
@@ -452,6 +453,11 @@
     </None>
     <None Include="Views\Admin\Post\Show.spark" />
     <None Include="Views\Admin\Shared\_PostForm.spark" />
+    <None Include="Views\Admin\User\Delete.spark" />
+    <None Include="Views\Admin\User\Edit.spark" />
+    <None Include="Views\Admin\User\Index.spark" />
+    <None Include="Views\Admin\Shared\ListUsers.spark" />
+    <None Include="Views\Admin\User\New.spark" />
     <None Include="Views\Comment\Index.spark" />
     <None Include="Views\Home\Index.spark" />
     <None Include="Views\Comment\New.spark" />
@@ -464,7 +470,6 @@
     <None Include="Views\Shared\_CommentForm.spark" />
     <None Include="Views\Shared\_Comments.spark" />
     <None Include="Views\Shared\_ListPosts.spark" />
-    <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Shared\_RecentPosts.spark" />
     <None Include="Views\Shared\_PostView.spark" />
     <Content Include="Scripts\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -589,9 +594,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

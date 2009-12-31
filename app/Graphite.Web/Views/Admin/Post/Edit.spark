@@ -1,6 +1,7 @@
 <viewdata model="Post" />
 <form action="${Url.Action("Update")}" method="post" >
 <PostForm />
-<input type="hidden" name="_method" value="put" >
-<input type="submit" value="Save" /> 
+!{Html.AntiForgeryToken()}
+!{this.Hidden("_method").Value("put")}
+!{this.SubmitButton("Submit");}
 </form>

@@ -35,9 +35,23 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\SharpArch.Core.dll</HintPath>
     </Reference>
+    <Reference Include="SharpArch.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b5f559ae0ac4e006, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArch.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b5f559ae0ac4e006, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArch.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -53,11 +67,16 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserTasks.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">
       <Project>{3E143CD5-0C99-4745-B18F-1913FFAB90D8}</Project>
       <Name>Graphite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphite.Data\Graphite.Data.csproj">
+      <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
+      <Name>Graphite.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
