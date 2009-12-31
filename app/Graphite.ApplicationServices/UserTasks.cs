@@ -55,6 +55,7 @@ namespace Graphite.ApplicationServices
 				if (user == null) throw new AuthenticationException("No such username");
 				if (ValidPasswordForUser(_users.GetUser(username), password)) {
 					FormsAuthentication.SetAuthCookie(username, false);
+					user.LastLogin = DateTime.Now;
 					return user;
 				} else throw new AuthenticationException("Unable to validate username or password");
 			} catch (Exception ex) { throw new AuthenticationException("An unkown error occurred", ex); }	

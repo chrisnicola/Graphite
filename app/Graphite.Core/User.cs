@@ -11,5 +11,6 @@ namespace Graphite.Core {
 		public virtual string PasswordAnswer { get; set; }
 		public virtual DateTime CreationDate { get; set; }
 		public virtual string RealName { get; set; }
+		public virtual DateTime? LastLogin { get; set; }
 	}
 }

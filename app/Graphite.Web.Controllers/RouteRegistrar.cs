@@ -20,9 +20,8 @@ namespace Graphite.Web.Controllers {
     }
 
     private static Route[] GetRestfulRoutes(string areaPrefix) {
-      var routes = new RouteCollection();
-      SimplyRestfulRouteHandler.BuildRoutes(routes, areaPrefix + "{controller}", null, null);
-      routes.Add(GetDefaultRoute(areaPrefix));
+      var routes = new RouteCollection {GetDefaultRoute(areaPrefix)};
+    	SimplyRestfulRouteHandler.BuildRoutes(routes, areaPrefix + "{controller}", null, null);
       return routes.Cast<Route>().ToArray();
     }
 

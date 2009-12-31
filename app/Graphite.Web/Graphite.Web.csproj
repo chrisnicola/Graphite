@@ -452,6 +452,7 @@
     <None Include="Views\Admin\Post\Index.spark">
     </None>
     <None Include="Views\Admin\Post\Show.spark" />
+    <None Include="Views\Admin\Shared\_global.spark" />
     <None Include="Views\Admin\Shared\_PostForm.spark" />
     <None Include="Views\Admin\User\Delete.spark" />
     <None Include="Views\Admin\User\Edit.spark" />
@@ -464,11 +465,13 @@
     <None Include="Views\Comment\Show.spark" />
     <None Include="Views\Layouts\Master.spark" />
     <None Include="Views\Layouts\_navigation.spark" />
+    <None Include="Views\Login\Index.spark" />
     <None Include="Views\Post\Index.spark" />
     <None Include="Views\Layouts\Application.spark" />
     <None Include="Views\Post\Show.spark" />
     <None Include="Views\Shared\_CommentForm.spark" />
     <None Include="Views\Shared\_Comments.spark" />
+    <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Shared\_ListPosts.spark" />
     <None Include="Views\Shared\_RecentPosts.spark" />
     <None Include="Views\Shared\_PostView.spark" />
@@ -572,9 +575,6 @@
       <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
       <Name>Graphite.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\AutoMapAttribute.cs" />
+    <Compile Include="LoginController.cs" />
     <Compile Include="Mappers\CreateUserMapper.cs" />
     <Compile Include="Admin\HomeController.cs" />
     <Compile Include="Admin\PostController.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="RouteRegistrar.cs" />
     <Compile Include="ViewModels\DeletePost.cs" />
     <Compile Include="ViewModels\EditUserViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NewUserViewModel.cs" />
     <Compile Include="ViewModels\ShowPostWithComments.cs" />
     <Compile Include="ViewModels\UserIndexViewModel.cs" />
