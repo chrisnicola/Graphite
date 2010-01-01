@@ -27,10 +27,10 @@
             ${item.Title}
         </td>
         <td>
-            ${String.Format("{0:ddMMyyyy}", item.DateCreated)}
+            ${string.Format("{0:ddMMyyyy}", item.DateCreated)}
         </td>
         <td>
-            ${String.Format("{0:ddMMyyyy}", item.DatePublished)}
+            ${string.Format("{0:ddMMyyyy}", item.DatePublished)}
         </td>
         <td>
             ${H(item.AllowComments)}

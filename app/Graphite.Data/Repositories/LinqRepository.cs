@@ -21,7 +21,7 @@ namespace Graphite.Data.Repositories {
 		}
 
 		public void Delete(Guid id) {
-			Session.Delete(Session.Load<User>(id));
+			Session.Delete(Session.Load<T>(id));
 		}
 	}
 }

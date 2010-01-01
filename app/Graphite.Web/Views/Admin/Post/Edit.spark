@@ -3,5 +3,5 @@
 <PostForm />
 !{Html.AntiForgeryToken()}
 !{this.Hidden("_method").Value("put")}
-!{this.SubmitButton("Submit");}
+!{this.SubmitButton("Submit")}
 </form>

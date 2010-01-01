@@ -26,7 +26,7 @@ namespace Graphite.Web.Controllers
     }
 
     public ActionResult Index() {
-      return View(_posts.GetAll());
+      return View(_posts.FindAll());
     }
 
     [Transaction, ValidateInput(false)]

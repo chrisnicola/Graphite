@@ -7,7 +7,7 @@ using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Data.NHibernate;
 
 namespace Graphite.Data.Repositories {
-  public class PostRepository : NHibernateRepositoryWithTypedId<Post, Guid>, IPostRepository {
+  public class PostRepository : LinqRepository<Post>, IPostRepository {
     public IEnumerable<Post> GetRecentPublishedPosts(int i) {
     	return Session.Linq<Post>()
 				.Where(p => p.Published)
@@ -16,7 +16,7 @@ namespace Graphite.Data.Repositories {
     }
 
     public Post GetWithComments(Guid id) {
-      var post = this.Get(id);
+      var post = Get(id);
       post.Comments.Count();
       return post;
     }
@@ -24,7 +24,7 @@ namespace Graphite.Data.Repositories {
 
   public class CommentRepository : NHibernateRepositoryWithTypedId<Comment, Guid>, ICommentRepository { }
 
-  public interface IPostRepository : INHibernateRepositoryWithTypedId<Post, Guid> {
+  public interface IPostRepository : ILinqRepository<Post> {
     /// <summary>
     /// Gets the most recent posts in the database
     /// </summary>

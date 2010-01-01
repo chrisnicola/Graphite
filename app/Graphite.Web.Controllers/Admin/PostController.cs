@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Graphite.Core;
 using Graphite.Data.Repositories;
+using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.ViewModels;
 using SharpArch.Core.PersistenceSupport;
 using SharpArch.Core.PersistenceSupport.NHibernate;
@@ -39,16 +40,18 @@ namespace Graphite.Web.Controllers.Admin {
         return RedirectToAction("Edit", new {model=post});
       }
     }
-		[Authorize]
-    public ActionResult Delete(Post post) {
-      return View(new DeletePost(post));
+		[Authorize, AutoMap(typeof(Post), typeof(DeletePostViewModel))]
+    public ActionResult Delete(Guid id) {
+      return View(_posts.Get(id));
     }
 
 		[Authorize, Transaction]
-    public ActionResult Destroy(DeletePost post) {
+    public ActionResult Destroy(DeletePostViewModel post) {
       try {
-        _posts.Delete(_posts.GetWithComments(post.Id));
-      } catch {}
+        _posts.Delete(post.Id);
+      } catch (Exception ex) {
+      	Console.Write(ex.Message);
+      }
       return RedirectToAction("Index");
     }
   }
