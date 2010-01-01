@@ -12,11 +12,8 @@ namespace Graphite.Web.Controllers.ViewModels
 		public string Username { get; set; }
 		public string RealName { get; set; }
 		public string Email { get; set; }
-	}
-
-	public class DeleteUserViewModel {
-		public Guid Id { get; set; }
-		public string Username { get; set; }
+		public DateTime? LastLogin { get; set; }
+		public DateTime? Created { get; set; }
 	}
 }
 

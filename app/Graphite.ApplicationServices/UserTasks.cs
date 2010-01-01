@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Authentication;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using Graphite.Core;
@@ -18,6 +19,8 @@ namespace Graphite.ApplicationServices
 		User AuthenticateUser(string username, string password);
 		User GetUser(Guid id);
 		void RemoveUser(Guid id);
+		bool IsLoggedIn();
+		void SignOut();
 	}
 
 	public class UserTasks : IUserTasks {
@@ -67,6 +70,14 @@ namespace Graphite.ApplicationServices
 
 		public void RemoveUser(Guid id) {
 			_users.Delete(id);
+		}
+
+		public bool IsLoggedIn() { 
+			return HttpContext.Current.User.Identity.IsAuthenticated;
+		}
+
+		public void SignOut() {
+			FormsAuthentication.SignOut();
 		}
 
 		public static string GenerateSalt(int size)
