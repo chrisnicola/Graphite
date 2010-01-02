@@ -1,9 +1,8 @@
 <viewdata model="PostEditModel" />
 <form action="${Url.Action("Update")}" method="post" >
-<div>!{this.Label(m => m.DateCreated.ToString()).Label("Created On: ")}</div>
-<div>!{this.Label(m => m.LastEdited.ToString()).Label("Last Edited On: ")}</div>
+<div>Created On: ${H(Model.DateCreated)}</div>
+<div>Last Edited: ${H(Model.LastEdited)}</div>
 <PostForm />
-!{Html.AntiForgeryToken()}
 !{this.Hidden("_method").Value("put")}
 !{this.SubmitButton("Submit")}
 </form>

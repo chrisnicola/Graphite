@@ -24,8 +24,11 @@ namespace Graphite.ApplicationServices
 										AllowComments = details.AllowComments,
 										Published = details.Published,
 										DateCreated = DateTime.Now,
-										LastEdited = DateTime.Now
+										LastEdited = DateTime.Now,
+										DatePublished = details.DatePublished
 			             };
+			if (details.Published)
+				post.PublishOn(details.DatePublished);
 			post.SetSlugForPost(details.Slug);
 			EnsurePostSlugIsUnique(post);
 			return _posts.Save(post);
@@ -46,11 +49,12 @@ namespace Graphite.ApplicationServices
 			post.Author = details.Author;
 			post.Content = details.Content;
 			post.AllowComments = details.AllowComments;
-			post.Published = details.Published;
 			post.DateCreated = DateTime.Now;
 			post.LastEdited = DateTime.Now;
 			post.SetSlugForPost(details.Slug);
 			EnsurePostSlugIsUnique(post);
+			if (details.Published)
+				post.PublishOn(details.DatePublished);
 			return post;
 		}
 		public void Delete(Guid id) { 

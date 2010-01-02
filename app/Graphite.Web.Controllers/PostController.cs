@@ -9,26 +9,30 @@ using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers
 {
-  [HandleError]
-  public class PostController : Controller
-  {
-  	protected readonly IPostTasks PostTasks;
+	public class PostControllerBase : Controller {
+		protected IPostTasks PostTasks;
 
-  	public PostController(IPostTasks postTasks) {
-    	PostTasks = postTasks;
-    }
+		public PostControllerBase(IPostTasks postTasks) {
+			PostTasks = postTasks;
+		}
 
-    [AutoMap(typeof(Post),typeof(PostWithCommentsViewModel))]
-    public ActionResult Show(Guid id) {
-      Post post = PostTasks.GetWithComments(id);
-      return View(post);
-    }
+		[AutoMap(typeof(Post),typeof(PostWithCommentsViewModel))]
+		public ActionResult Show(Guid id) {
+			Post post = PostTasks.GetWithComments(id);
+			return View(post);
+		}
 
-    public ActionResult Index() {
+		public ActionResult Index() {
 			return View(PostTasks.GetAll());
-    }
+		}
+	}
 
-    [Transaction, ValidateInput(false)]
+	[HandleError]
+  public class PostController : PostControllerBase
+  {
+		public PostController(IPostTasks postTasks) : base(postTasks) {}
+
+		[Transaction, ValidateInput(false)]
     public ActionResult Update(PostWithCommentsViewModel postVm) {
 			Post post = PostTasks.Get(postVm.Id);
       try {

@@ -12,8 +12,7 @@ namespace Graphite.Web.Controllers {
 		private readonly IUserTasks _userTasks;
   	public LoginController(IUserTasks userTasks) { _userTasks = userTasks; }
 		
-		[AcceptGet]
-		public ActionResult Index() {
+		public ActionResult Show() {
 			if (_userTasks.IsLoggedIn()) return RedirectToAction("Index", "Home", new { area = "Admin"});
 			return View(new LoginViewModel());
 		}

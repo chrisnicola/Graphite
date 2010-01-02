@@ -13,7 +13,7 @@ using SharpArch.Web.NHibernate;
 using MvcContrib;
 
 namespace Graphite.Web.Controllers.Admin {
-  public class PostController : Controllers.PostController {
+	public class PostController : PostControllerBase {
   	private readonly IEditPostMapper _editMapper;
   	private readonly ICreatePostMapper _createMapper;
 
@@ -39,7 +39,7 @@ namespace Graphite.Web.Controllers.Admin {
       }
     }
 
-		[Authorize, AutoMap(typeof(Post), typeof(PostEditModel))]
+		[Authorize, AutoMap(typeof(IMapper<Post, PostEditModel>))]
     public ActionResult Edit(Guid id) {
       return View(PostTasks.Get(id));
     }

@@ -18,6 +18,7 @@ namespace Graphite.Web.CastleWindsor {
 			AddCustomRepositoriesTo(container);
 			AddApplicationServicesTo(container);
 			AddSparkViewEngineTo(container);
+			AddGenericMappersTo(container);
 			AddCustomMappersTo(container);
 			container.AddComponent("validator", typeof (IValidator), typeof (Validator));
 		}

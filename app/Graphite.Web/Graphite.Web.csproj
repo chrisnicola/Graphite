@@ -465,7 +465,7 @@
     <None Include="Views\Comment\Show.spark" />
     <None Include="Views\Layouts\Master.spark" />
     <None Include="Views\Layouts\_navigation.spark" />
-    <None Include="Views\Login\Index.spark" />
+    <None Include="Views\Login\Show.spark" />
     <None Include="Views\Post\Index.spark" />
     <None Include="Views\Layouts\Application.spark" />
     <None Include="Views\Post\Show.spark" />

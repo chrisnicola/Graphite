@@ -18,7 +18,12 @@
 		!{this.TextArea(m => m.Content).Class("ckeditor")}
 	</div>
 	<div>
-		!{this.TextBox(m => m.DatePublished).Label("Publish Date: ").Class("datepicker").Attr("readonly","readonly")}
+		!{this.TextBox(m => m.DatePublished)
+            .Value(Model.DatePublished ?? DateTime.Today)
+              .Format("{0:dd-MMMM-yyyy}")
+                .Label("Publish Date: ")
+                  .Class("datepicker")
+                    .Attr("readonly","readonly")}
 	</div>
 	<div>
 		!{this.CheckBox(m => m.AllowComments).Label("Allow Comments: ")}

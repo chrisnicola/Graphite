@@ -29,11 +29,6 @@ namespace Graphite.Core {
 		[DomainSignature, NotNull]
   	public virtual string Slug { get; set; }
 
-  	public virtual void Publish() {
-      Published = true;
-      DatePublished = DateTime.Now;
-    }
-
     public virtual void AddComment(Comment comment) {
       comment.Post = this;
       if (!Comments.Contains(comment))
@@ -46,10 +41,17 @@ namespace Graphite.Core {
 			else Slug = slug;
 		}
 
+		public virtual void PublishOn(DateTime? datePublished) {
+			Published = true;
+			DatePublished = datePublished ?? DateTime.Now;
+		}
+
   	private void CreateSlugFromTitle() {
   		var slug = Regex.Replace(Title, @"/[^\w ]+/g", "");
 			slug = Regex.Replace(slug, @"/ +/g", "-");
   		Slug = slug;
 		}
+
+  	
   }
 }

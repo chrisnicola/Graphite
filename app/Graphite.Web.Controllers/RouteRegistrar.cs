@@ -3,7 +3,6 @@
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Graphite.Web.Controllers.Admin;
 using RestfulRouting;
 using SharpArch.Web.Areas;
 
@@ -14,34 +13,48 @@ namespace Graphite.Web.Controllers {
 		public static void RegisterRoutesTo(RouteCollection routes) {
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 			routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
-			var map = new RestfulRouteMapper(RouteTable.Routes);
-			map.Namespace("admin", typeof(Admin.PostController).Namespace, m => m.Resources<Admin.PostController>());
-			routes.CreateArea("admin", typeof(Admin.PostController).Namespace, GetDefaultRoute("Admin/"));
-			map.Namespace("", typeof(PostController).Namespace, m => m.Resources<PostController>());
-			routes.CreateArea("root", typeof(PostController).Namespace, GetDefaultRoute(""));
-			
+			var configuration = new RouteConfiguration { Namespaces = new[] { typeof(PostController).Namespace } };
+			var map = new RestfulRouteMapper(routes, configuration);
+			routes.CreateArea("admin", typeof(Admin.PostController).Namespace, GetAdminRoutes());
+			routes.CreateArea("root", typeof(PostController).Namespace, GetRootRoutes());
 		}
 
 		private static Route[] GetAdminRoutes() {
 			var routes = new RouteCollection();
 			var map = new RestfulRouteMapper(routes);
-			map.Namespace("Admin", m => m.Resources<Admin.PostController>());
-			map.Namespace("Admin", m => m.Resources<UserController>());
-			//routes.Add(GetDefaultRoute("Admin/"));
+			routes.MapRoute(null, "admin/", new { controller = "Home", action = "Index"});
+			map.Namespace("admin", m =>
+			{
+				m.Resources<Admin.PostController>();
+				m.Resources<Admin.UserController>();
+				m.Resources<Admin.HomeController>();
+			});
 			return routes.Cast<Route>().ToArray();
 		}
 
-		private static Route[] GetRootRoutes() {
+		private static Route[] GetRootRoutes()
+		{
 			var routes = new RouteCollection();
 			var map = new RestfulRouteMapper(routes);
-			map.Resources<PostController>();
-			//routes.Add(GetDefaultRoute(""));
+			routes.MapRoute(null, "", new { controller = "Home", action = "Index" });
+			map.Namespace("", m =>
+			{
+				m.Resources<PostController>();
+				m.Resources<HomeController>();
+				m.Resource<LoginController>(r => {
+					r.AddMemberRoute<LoginController>(c => c.Authenticate(null), HttpVerbs.Post);
+					r.AddMemberRoute<LoginController>(c => c.SignOut(), HttpVerbs.Get);
+					r.Except("new", "create", "edit", "update", "delete", "destroy");
+				});
+				m.Resource<FeedController>(r => {
+					r.ShowName = "rss";
+					r.Except("new", "create", "edit", "update", "delete", "destroy");
+					r.AddMemberRoute<FeedController>(c => c.Rss(), HttpVerbs.Get);
+					r.AddMemberRoute<FeedController>(c => c.Atom(), HttpVerbs.Get);
+				});
+			});
 			return routes.Cast<Route>().ToArray();
 		}
 
-		private static Route GetDefaultRoute(string areaPrefix) {
-			return new Route(areaPrefix + "{controller}/{action}",
-				new RouteValueDictionary(new {controller = "Home", action = "Index"}), new MvcRouteHandler());
-		}
 	}
 }
