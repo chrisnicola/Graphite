@@ -2,6 +2,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using NHibernate.Validator.Constraints;
 using SharpArch.Core.DomainModel;
 
 #endregion
@@ -14,8 +16,7 @@ namespace Graphite.Core {
       AllowComments = true;
       Comments = new List<Comment>();
     }
-		public virtual string Author { get; set; }
-		public virtual string Email { get; set; }
+		public virtual User Author { get; set; }
     public virtual string Title { get; set; }
     public virtual string Content { get; set; }
     public virtual DateTime DateCreated { get; set; }
@@ -24,6 +25,8 @@ namespace Graphite.Core {
     public virtual bool AllowComments { get; set; }
     public virtual bool Published { get; set; }
     public virtual IList<Comment> Comments { get; set; }
+		
+		[DomainSignature, NotNull]
   	public virtual string Slug { get; set; }
 
   	public virtual void Publish() {
@@ -36,5 +39,17 @@ namespace Graphite.Core {
       if (!Comments.Contains(comment))
         Comments.Add(comment);
     }
+
+  	public virtual void SetSlugForPost(string slug) { 
+			if (Slug == slug) return;
+			if (string.IsNullOrEmpty(slug)) CreateSlugFromTitle();
+			else Slug = slug;
+		}
+
+  	private void CreateSlugFromTitle() {
+  		var slug = Regex.Replace(Title, @"/[^\w ]+/g", "");
+			slug = Regex.Replace(slug, @"/ +/g", "-");
+  		Slug = slug;
+		}
   }
 }

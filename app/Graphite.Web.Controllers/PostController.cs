@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using Graphite.ApplicationServices;
 using Graphite.Core;
 using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.ActionFilters;
@@ -11,30 +12,28 @@ namespace Graphite.Web.Controllers
   [HandleError]
   public class PostController : Controller
   {
-    protected readonly IPostRepository _posts;
-    protected readonly ICommentRepository _comments;
+  	protected readonly IPostTasks PostTasks;
 
-    public PostController(IPostRepository posts, ICommentRepository comments) {
-      _posts = posts;
-      _comments = comments;
+  	public PostController(IPostTasks postTasks) {
+    	PostTasks = postTasks;
     }
 
-    [AutoMap(typeof(Post),typeof(ShowPostWithComments))]
+    [AutoMap(typeof(Post),typeof(PostWithCommentsViewModel))]
     public ActionResult Show(Guid id) {
-      Post post = _posts.GetWithComments(id);
+      Post post = PostTasks.GetWithComments(id);
       return View(post);
     }
 
     public ActionResult Index() {
-      return View(_posts.FindAll());
+			return View(PostTasks.GetAll());
     }
 
     [Transaction, ValidateInput(false)]
-    public ActionResult Update(ShowPostWithComments showPostVm) {
-      var post = _posts.Get(showPostVm.Id);
+    public ActionResult Update(PostWithCommentsViewModel postVm) {
+			Post post = PostTasks.Get(postVm.Id);
       try {
-        if (CommentIsValid(showPostVm.NewComment)) {
-          post.AddComment(showPostVm.NewComment);
+        if (CommentIsValid(postVm.NewComment)) {
+          post.AddComment(postVm.NewComment);
         }
       } catch {}
       return View("Show", post);

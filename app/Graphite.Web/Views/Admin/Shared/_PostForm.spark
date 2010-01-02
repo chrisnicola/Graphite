@@ -1,4 +1,4 @@
-<viewdata model="Post" />
+<viewdata model="PostEditModelBase" />
 <content:head>
 	<link type="text/css" href="/Scripts/themes/base/ui.all.css" rel="stylesheet" />
 	<script type="text/javascript" src="/Scripts/jquery-1.3.2.js"></script>
@@ -7,33 +7,23 @@
 	<script type="text/javascript" src="/Scripts/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
 		$(function() {
-			$("#createddate").datepicker();
-			$("#publisheddate").datepicker();
+			$(".datepicker").datepicker();
 		});
 	</script>
 </content>
-	<p>
-		Title: 
-		!{Html.TextBoxFor<Post, string>(m => m.Title)}
-	</p>
-	<p>
-		Content: <br/>
-		!{Html.TextAreaFor<Post, string>(m => m.Content, new { @class = "ckeditor" })}
-	</p>
-	<p>
-		Created Date:
-		!{Html.TextBoxFor<Post, DateTime?>(m => m.DateCreated, new { id = "createddate", @readonly = "readonly" })}
-	</p>
-	<p>
-		Published Date:
-		!{Html.TextBoxFor<Post, DateTime?>(m => m.DatePublished, new { id = "publisheddate", @readonly = "readonly" })}
-	</p>
-	<p>
-		Allow Comments: 
-		!{Html.CheckBox("Comments Allowed", Model.AllowComments)}
-	</p>
-	<p>
-		Publish: 
-		!{Html.CheckBox("Published", Model.Published)}
-	</p>
+	<div>
+		!{this.TextBox(m => m.Title).Label("Title")}
+	</div>
+	<div>
+		!{this.TextArea(m => m.Content).Label("Content: <br/>").Class("ckeditor")}
+	</div>
+	<div>
+		!{this.TextBox(m => m.DatePublished).Label("Publish Date: ").Class("datepicker").Attr("readonly","readonly")}
+	</div>
+	<div>
+		!{this.CheckBox(m => m.AllowComments).Label("Allow Comments: ")}
+	</div>
+	<div>
+		!{this.CheckBox(m => m.Published).Label("Publish: ")}
+	</div>
 	!{Html.AntiForgeryToken()}

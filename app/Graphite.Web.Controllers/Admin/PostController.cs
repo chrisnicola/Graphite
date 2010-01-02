@@ -1,57 +1,69 @@
 ﻿using System;
 using System.Web.Mvc;
+using Graphite.ApplicationServices;
 using Graphite.Core;
+using Graphite.Core.MappingInterfaces;
 using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.ActionFilters;
+using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
 using SharpArch.Core.PersistenceSupport;
 using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Web.NHibernate;
+using MvcContrib;
 
 namespace Graphite.Web.Controllers.Admin {
   public class PostController : Controllers.PostController {
-    public PostController(IPostRepository posts, ICommentRepository comments) : base(posts, comments) { }
-		[Authorize]
-    public ActionResult New(Post post) {
-      return View(post ?? new Post());
+  	private readonly IEditPostMapper _editMapper;
+  	private readonly ICreatePostMapper _createMapper;
+
+  	public PostController(IPostTasks postTasks, IEditPostMapper editMapper, ICreatePostMapper createMapper) : base(postTasks) {
+  		_editMapper = editMapper;
+  		_createMapper = createMapper;
+  	}
+
+  	[Authorize, AutoMap(typeof(Post), typeof(PostCreateModel))]
+		public ActionResult New(PostCreateModel post)
+		{
+			return View(post ?? new PostCreateModel());
     }
 
     [Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
-    public ActionResult Create(Post post) {
+    public ActionResult Create(PostCreateModel post) {
       try {
-        _posts.Save(post);
-        return View("Show", post);
+				var id = PostTasks.SaveNewPost(_createMapper.MapFrom(post)).Id;
+      	return this.RedirectToAction(x => x.Show(id));
       }
       catch {
-        return View("New", post);
+        return this.RedirectToAction(x => x.New(post));
       }
-    }
-		[Authorize]
-    public ActionResult Edit(Guid id) {
-      return View(_posts.Get(id));
     }
 
-		[Authorize, Transaction, ValidateInput(false)]
-    public ActionResult Update(Post post) {
+		[Authorize, AutoMap(typeof(Post), typeof(PostEditModel))]
+    public ActionResult Edit(Guid id) {
+      return View(PostTasks.Get(id));
+    }
+
+		[Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
+    public ActionResult Update(PostEditModel post) {
       try {
-        _posts.SaveOrUpdate(post);
-        return RedirectToAction("Index");
+        PostTasks.UpdatePost(_editMapper.MapFrom(post));
+        return this.RedirectToAction(x => x.Index());
       } catch (Exception) {
-        return RedirectToAction("Edit", new {model=post});
+				return this.RedirectToAction(x => x.Edit(post.Id));
       }
     }
+
 		[Authorize, AutoMap(typeof(Post), typeof(DeletePostViewModel))]
     public ActionResult Delete(Guid id) {
-      return View(_posts.Get(id));
+      return View(PostTasks.Get(id));
     }
 
 		[Authorize, Transaction]
     public ActionResult Destroy(DeletePostViewModel post) {
       try {
-        _posts.Delete(post.Id);
-      } catch (Exception ex) {
-      	Console.Write(ex.Message);
-      }
+				PostTasks.Delete(post.Id);
+      } catch (Exception ex) { }
       return RedirectToAction("Index");
     }
   }

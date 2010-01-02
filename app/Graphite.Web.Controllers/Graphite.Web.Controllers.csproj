@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -114,10 +114,12 @@
     <Compile Include="ActionFilters\AutoMapAttribute.cs" />
     <Compile Include="ActionResults\RssResult.cs" />
     <Compile Include="LoginController.cs" />
+    <Compile Include="Mappers\CreatePostMapper.cs" />
     <Compile Include="Mappers\CreateUserMapper.cs" />
     <Compile Include="Admin\HomeController.cs" />
     <Compile Include="Admin\PostController.cs" />
     <Compile Include="Admin\UserController.cs" />
+    <Compile Include="Mappers\EditPostMapper.cs" />
     <Compile Include="Mappers\UserIndexMapper.cs" />
     <Compile Include="ControllerEnums.cs" />
     <Compile Include="CommentController.cs" />
@@ -125,7 +127,6 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Mappers\GenericMapper.cs" />
     <Compile Include="PostController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteRegistrar.cs" />
@@ -135,7 +136,7 @@
     <Compile Include="ViewModels\EditUserViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NewUserViewModel.cs" />
-    <Compile Include="ViewModels\ShowPostWithComments.cs" />
+    <Compile Include="ViewModels\PostWithCommentsViewModel.cs" />
     <Compile Include="ViewModels\UserIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

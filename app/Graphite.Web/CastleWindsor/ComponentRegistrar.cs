@@ -1,11 +1,7 @@
-﻿using System.Reflection;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using System.Web.Mvc;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using Graphite.Core;
-using Graphite.Web.Controllers.Mappers;
-using Graphite.Web.Controllers.ViewModels;
+using Graphite.Core.MappingInterfaces;
 using SharpArch.Core.CommonValidator;
 using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
 using SharpArch.Core.PersistenceSupport;
@@ -24,7 +20,6 @@ namespace Graphite.Web.CastleWindsor {
 			AddSparkViewEngineTo(container);
 			AddCustomMappersTo(container);
 			container.AddComponent("validator", typeof (IValidator), typeof (Validator));
-			CreateAutoMappings();
 		}
 
 		private static void AddSparkViewEngineTo(IWindsorContainer container) {
@@ -41,8 +36,12 @@ namespace Graphite.Web.CastleWindsor {
 
 		private static void AddCustomMappersTo(IWindsorContainer container) {
 			container.Register(
-				AllTypes.Pick().FromAssembly(Assembly.GetAssembly(typeof(GenericMapper<,>))).
+				AllTypes.Pick().FromAssemblyNamed("Graphite.Web.Controllers.Mappers").
 					WithService.FirstNonGenericCoreInterface("Graphite.Web.Controllers.Mappers"));
+		}
+
+		private static void AddGenericMappersTo(IWindsorContainer container) {
+			container.AddComponent("genericMapper", typeof (IMapper<,>), typeof (GenericMapper<,>));
 		}
 
 		private static void AddGenericRepositoriesTo(IWindsorContainer container) {
@@ -52,10 +51,6 @@ namespace Graphite.Web.CastleWindsor {
 			container.AddComponent("repositoryWithTypedId", typeof (IRepositoryWithTypedId<,>), typeof (RepositoryWithTypedId<,>));
 			container.AddComponent("nhibernateRepositoryWithTypedId", typeof (INHibernateRepositoryWithTypedId<,>),
 				typeof (NHibernateRepositoryWithTypedId<,>));
-		}
-
-		private static void CreateAutoMappings() {
-			Mapper.CreateMap<Post, ShowPostWithComments>().ForMember(m => m.NewComment, c => c.Ignore()).ForMember(m => m.Post, a => a.Ignore());
 		}
 	}
 }

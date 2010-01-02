@@ -1,4 +1,4 @@
-<viewmodel model="ShowPostWithComments" />
+<viewmodel model="PostWithCommentsViewModel" />
 	<PostView post="Model"/>
 	<Comments />
 <if condition="Model.AllowComments">

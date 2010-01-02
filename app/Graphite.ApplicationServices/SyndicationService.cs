@@ -23,7 +23,7 @@ namespace Graphite.ApplicationServices {
 			var item = new SyndicationItem(p.Title, p.Content, new Uri("~/Post/" + p.Slug, UriKind.Relative), p.Id.ToString(),
 				new DateTimeOffset(p.LastEdited));
 			item.PublishDate = new DateTimeOffset(p.DatePublished.Value);
-			item.Authors.Add(new SyndicationPerson(p.Email, p.Author, ""));
+			item.Authors.Add(new SyndicationPerson(p.Author.Email, p.Author.RealName, ""));
 			return item;
 		}
 	}

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using Graphite.Core.MappingInterfaces;
 
-namespace Graphite.Web.Controllers.Mappers {
+namespace Graphite.Core.MappingInterfaces {
 	public class GenericMapper<TSource,TDest> : IMapper<TSource, TDest> where TDest : class where TSource : class {
 		public GenericMapper() {
 			Mapper.CreateMap<TSource, TDest>();

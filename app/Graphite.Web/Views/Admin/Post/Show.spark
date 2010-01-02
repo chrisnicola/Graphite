@@ -1,2 +1,2 @@
-<viewdata model="ShowPostWithComments" />
+<viewdata model="PostWithCommentsViewModel" />
 <PostView post="Model" />
