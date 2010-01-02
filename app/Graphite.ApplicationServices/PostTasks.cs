@@ -11,7 +11,13 @@ namespace Graphite.ApplicationServices
 	public class PostTasks : IPostTasks 
 	{
 		private readonly IPostRepository _posts;
-		public PostTasks(IPostRepository posts) { _posts = posts; }
+		private readonly IUserRepository _users;
+
+		public PostTasks(IPostRepository posts, IUserRepository users) {
+			_posts = posts;
+			_users = users;
+		}
+
 		public Post GetWithComments(Guid id) { return _posts.GetWithComments(id); }
 		public IEnumerable<Post> GetAll() { return _posts.FindAll(); }
 		public Post Get(Guid id) { return _posts.Get(id); }
@@ -19,7 +25,7 @@ namespace Graphite.ApplicationServices
 			var post = new Post
 			             {
 										Title = details.Title,
-			             	Author = details.Author,
+			             	Author = _users.Get(details.AuthorId),
 										Content = details.Content,
 										AllowComments = details.AllowComments,
 										Published = details.Published,
@@ -46,7 +52,7 @@ namespace Graphite.ApplicationServices
 		public Post UpdatePost(PostEditDetails details) {
 			var post = _posts.Get(details.Id);
 			post.Title = details.Title;
-			post.Author = details.Author;
+			post.Author = _users.Get(details.AuthorId);
 			post.Content = details.Content;
 			post.AllowComments = details.AllowComments;
 			post.DateCreated = DateTime.Now;

@@ -3,7 +3,7 @@
 namespace Graphite.Core {
 	public class PostEditDetails {
 		public Guid Id { get; set; }
-		public User Author { get; set; }
+		public Guid AuthorId { get; set; }
 		public string Title { get; set; }
 		public string Content { get; set; }
 		public DateTime? DatePublished { get; set; }
@@ -12,7 +12,7 @@ namespace Graphite.Core {
 		public string Slug { get; set; }
 	}
 	public class PostCreateDetails {
-		public User Author { get; set; }
+		public Guid AuthorId { get; set; }
 		public string Title { get; set; }
 		public string Content { get; set; }
 		public DateTime? DatePublished { get; set; }

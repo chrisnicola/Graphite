@@ -14,6 +14,7 @@ namespace Graphite.Web.Controllers.ViewModels
 
     public Guid Id { get; set;}
     public string Title { get; set; }
+		public string AuthorRealName { get; set; }
     public string Content { get; set; }
     public DateTime DateCreated { get; set; }
     public DateTime? DatePublished { get; set; }
@@ -29,21 +30,4 @@ namespace Graphite.Web.Controllers.ViewModels
 			set { _newComment = value; }
   	}
   }
-
-	public abstract class PostEditModelBase {
-		public string Title { get; set; }
-		public string Content { get; set; }
-		public DateTime? DatePublished { get; set; }
-		public bool AllowComments { get; set; }
-		public bool Published { get; set; }
-		public string Slug { get; set; }
-	}
-
-	public class PostEditModel : PostEditModelBase {
-		public Guid Id { get; set; }
-		public DateTime DateCreated { get; set; }
-		public DateTime LastEdited { get; set; }
-	}
-
-	public class PostCreateModel : PostEditModelBase { }
 }

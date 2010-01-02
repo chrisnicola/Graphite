@@ -6,6 +6,9 @@
         <th>
             Title
         </th>
+                <th>
+            Author
+        </th>
         <th>
             Date Created
         </th>
@@ -25,6 +28,9 @@
         </td>
         <td>
             ${item.Title}
+        </td>
+        <td>
+            ${item.Author.RealName}
         </td>
         <td>
             ${string.Format("{0:ddMMyyyy}", item.DateCreated)}

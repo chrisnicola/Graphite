@@ -22,7 +22,7 @@ namespace Graphite.Web.Controllers.Admin {
   		_createMapper = createMapper;
   	}
 
-  	[Authorize, AutoMap(typeof(Post), typeof(PostCreateModel))]
+  	[Authorize, AutoMap(typeof(IPostCreateModelMapper))]
 		public ActionResult New(PostCreateModel post)
 		{
 			return View(post ?? new PostCreateModel());
@@ -39,7 +39,7 @@ namespace Graphite.Web.Controllers.Admin {
       }
     }
 
-		[Authorize, AutoMap(typeof(IMapper<Post, PostEditModel>))]
+		[Authorize, AutoMap(typeof(IPostEditModelMapper))]
     public ActionResult Edit(Guid id) {
       return View(PostTasks.Get(id));
     }

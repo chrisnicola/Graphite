@@ -3,6 +3,7 @@
 <div>Created On: ${H(Model.DateCreated)}</div>
 <div>Last Edited: ${H(Model.LastEdited)}</div>
 <PostForm />
+!{this.Select(x => x.AuthorId).Options(Model.Authors, x => x.Id, x => x.RealName).Label("Author: ")}
 !{this.Hidden("_method").Value("put")}
 !{this.SubmitButton("Submit")}
 </form>
