@@ -1,4 +1,4 @@
-<viewdata model="ShowPostWithComments" />
+<viewdata model="PostWithCommentsViewModel" />
 <div class="comments">
 	<div each="var comment in Model.Comments" class="comment">
 		<div class="header">

@@ -1,4 +1,4 @@
-<viewdata model="PostEditModelBase" />
+
 <content:head>
 	<link type="text/css" href="/Scripts/themes/base/ui.all.css" rel="stylesheet" />
 	<script type="text/javascript" src="/Scripts/jquery-1.3.2.js"></script>
@@ -12,10 +12,10 @@
 	</script>
 </content>
 	<div>
-		!{this.TextBox(m => m.Title).Label("Title")}
+		!{this.TextBox(m => m.Title).Label("Title: ")}
 	</div>
 	<div>
-		!{this.TextArea(m => m.Content).Label("Content: <br/>").Class("ckeditor")}
+		!{this.TextArea(m => m.Content).Class("ckeditor")}
 	</div>
 	<div>
 		!{this.TextBox(m => m.DatePublished).Label("Publish Date: ").Class("datepicker").Attr("readonly","readonly")}

@@ -36,7 +36,7 @@ namespace Graphite.Web.CastleWindsor {
 
 		private static void AddCustomMappersTo(IWindsorContainer container) {
 			container.Register(
-				AllTypes.Pick().FromAssemblyNamed("Graphite.Web.Controllers.Mappers").
+				AllTypes.Pick().FromAssembly(typeof(Controllers.Mappers.EditPostMapper).Assembly).
 					WithService.FirstNonGenericCoreInterface("Graphite.Web.Controllers.Mappers"));
 		}
 
