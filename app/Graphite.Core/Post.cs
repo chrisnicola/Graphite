@@ -8,13 +8,14 @@ using SharpArch.Core.DomainModel;
 
 namespace Graphite.Core {
   public class Post : EntityWithTypedId<Guid> {
-    public Post() {
+  	public Post() {
       DateCreated = DateTime.Now;
       Published = false;
       AllowComments = true;
       Comments = new List<Comment>();
     }
-
+		public virtual string Author { get; set; }
+		public virtual string Email { get; set; }
     public virtual string Title { get; set; }
     public virtual string Content { get; set; }
     public virtual DateTime DateCreated { get; set; }
