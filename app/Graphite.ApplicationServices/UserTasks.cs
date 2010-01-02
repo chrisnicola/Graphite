@@ -55,12 +55,20 @@ namespace Graphite.ApplicationServices
 		public User AuthenticateUser(string username, string password) {
 			try {
 				var user = _users.GetUser(username);
-				if (user == null) throw new AuthenticationException("No such username");
+				if (user == null) {
+					//If no user has been added to the database, authenticate anyways
+					if (_users.FindAll().Count() == 0) { 
+						FormsAuthentication.SetAuthCookie("none", false);
+						return null;
+					}
+					throw new AuthenticationException("No such username");
+				}
 				if (ValidPasswordForUser(_users.GetUser(username), password)) {
 					FormsAuthentication.SetAuthCookie(username, false);
 					user.LastLogin = DateTime.Now;
 					return user;
-				} else throw new AuthenticationException("Unable to validate username or password");
+				}
+				throw new AuthenticationException("Unable to validate username or password");
 			} catch (Exception ex) { throw new AuthenticationException("An unkown error occurred", ex); }	
 		}
 
