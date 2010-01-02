@@ -85,6 +85,9 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -105,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilters\AutoMapAttribute.cs" />
+    <Compile Include="ActionResults\RssResult.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="Mappers\CreateUserMapper.cs" />
     <Compile Include="Admin\HomeController.cs" />
