@@ -18,11 +18,14 @@ namespace Graphite.Core {
     public virtual string Title { get; set; }
     public virtual string Content { get; set; }
     public virtual DateTime DateCreated { get; set; }
-    public virtual DateTime? DatePublished { get; set; }
+		public virtual DateTime LastEdited { get; set; }
+		public virtual DateTime? DatePublished { get; set; }
     public virtual bool AllowComments { get; set; }
     public virtual bool Published { get; set; }
     public virtual IList<Comment> Comments { get; set; }
-    public virtual void Publish() {
+  	public virtual string Slug { get; set; }
+
+  	public virtual void Publish() {
       Published = true;
       DatePublished = DateTime.Now;
     }
