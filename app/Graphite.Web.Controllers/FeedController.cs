@@ -8,13 +8,17 @@ using Graphite.Web.Controllers.ActionResults;
 
 namespace Graphite.Web.Controllers
 {
-	public class RssController : Controller
+	public class FeedController : Controller
 	{
 		private readonly ISyndicationService _syndication;
-		public RssController(ISyndicationService syndication) { _syndication = syndication; }
+		public FeedController(ISyndicationService syndication) { _syndication = syndication; }
 
-		public ActionResult Index() {
+		public ActionResult Rss() {
 			return new RssResult(_syndication.GetPostsAsSyndicationFeed(Request.Url));
+		}
+
+		public ActionResult Atom() {
+			return new AtomResult(_syndication.GetPostsAsSyndicationFeed(Request.Url));
 		}
 	}
 
