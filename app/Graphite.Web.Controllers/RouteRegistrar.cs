@@ -1,11 +1,10 @@
 ﻿#region
 
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using MvcContrib.SimplyRestful;
+using RestfulRouting;
 using SharpArch.Web.Areas;
 
 #endregion
@@ -15,16 +14,40 @@ namespace Graphite.Web.Controllers {
     public static void RegisterRoutesTo(RouteCollection routes) {
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
       routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
-      routes.CreateArea("Admin", "Graphite.Web.Controllers.Admin",GetRestfulRoutes("Admin/"));
-      routes.CreateArea("Root", "Graphite.Web.Controllers",GetRestfulRoutes(""));
+			var configuration = new RouteConfiguration { Namespaces = new[] { typeof(PostController).Namespace } };
+
+			var map = new RestfulRouteMapper(RouteTable.Routes, configuration);
+
+			// this is mapped using the default namespaces defined above
+			map.Resources<PostController>();
+
+    	map.Namespace("admin", typeof (Admin.PostController).Namespace, m => {
+    	                                                                            	m.Resources
+    	                                                                            		<Admin.PostController>();
+    	                                                                            	m.Resources
+    	                                                                            		<Admin.PostController>();
+    	                                                                            });
+
+			routes.CreateArea("Admin", typeof(Admin.UserController).Namespace, GetDefaultRoute("Admin/"));
+			routes.CreateArea("Root", typeof(PostController).Namespace, GetDefaultRoute(""));
     }
 
-    private static Route[] GetRestfulRoutes(string areaPrefix) {
-      var routes = new RouteCollection();
-    	SimplyRestfulRouteHandler.BuildRoutes(routes, areaPrefix + "{controller}", null, null);
-    	routes.Add(GetDefaultRoute(areaPrefix));
-      return routes.Cast<Route>().ToArray();
-    }
+  	private static Route[] GetAdminRoutes() {
+			var routes = new RouteCollection();
+  		var map = new RestfulRouteMapper(routes);
+  		map.Namespace("Admin", m => m.Resources<Admin.PostController>());
+  		map.Namespace("Admin", m => m.Resources<Admin.UserController>());
+			//routes.Add(GetDefaultRoute("Admin/"));
+  		return routes.Cast<Route>().ToArray();
+  	}
+
+		private static Route[] GetRootRoutes() {
+			var routes = new RouteCollection();
+  		var map = new RestfulRouteMapper(routes);
+			map.Resources<PostController>();
+			//routes.Add(GetDefaultRoute(""));
+  		return routes.Cast<Route>().ToArray();
+		}
 
     private static Route GetDefaultRoute(string areaPrefix) {
       return new Route(areaPrefix + "{controller}/{action}",
