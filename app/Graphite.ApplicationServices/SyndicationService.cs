@@ -15,12 +15,12 @@ namespace Graphite.ApplicationServices {
 			var items =
 				_posts.FindAll().Where(x => x.Published).Select(
 					p =>
-						SyndicationItemFromPost(p));
+						SyndicationItemFromPost(p, requestUrl));
 			return new SyndicationFeed("Test Title", "My syndication feed", requestUrl, items);
 		}
 
-		private static SyndicationItem SyndicationItemFromPost(Post p) {
-			var item = new SyndicationItem(p.Title, p.Content, new Uri("~/Post/" + p.Slug, UriKind.Relative), p.Id.ToString(),
+		private static SyndicationItem SyndicationItemFromPost(Post p, Uri requestUrl) {
+			var item = new SyndicationItem(p.Title, p.Content, new Uri(requestUrl, "/Post/" + p.Slug), p.Id.ToString(),
 				new DateTimeOffset(p.LastEdited));
 			item.PublishDate = new DateTimeOffset(p.DatePublished.Value);
 			item.Authors.Add(new SyndicationPerson(p.Author.Email, p.Author.RealName, ""));

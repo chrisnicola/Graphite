@@ -3,7 +3,6 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Web.UI.WebControls;
 using Graphite.ApplicationServices;
-using Graphite.Core;
 using Graphite.Data.Repositories;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -40,22 +39,5 @@ namespace Tests.Graphite.ApplicationServices
 			Assert.AreEqual(_feed.Items.First().Authors.First().Name, TestData.PublishedPost.Author.RealName);
 			Assert.AreEqual(_feed.Items.First().Authors.First().Email, TestData.PublishedPost.Author.Email);
 		}
-	}
-
-	public static class TestData {
-		public static Post[] Posts = new [] { PublishedPost };
-
-		public static User User = new User {Username = "username", RealName = "Real Name", Email = "user@test.com"};
-
-		public static readonly Post PublishedPost = new Post {
-			Author = User,
-			AllowComments = true,
-			Content = "Some content here",
-			DateCreated = DateTime.Now,
-			DatePublished = DateTime.Now,
-			LastEdited= DateTime.Now,
-			Published = true,
-			Title = "Title"
-		};
 	}
 }
