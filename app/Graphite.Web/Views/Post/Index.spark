@@ -1,2 +1,2 @@
-<viewdata model="IEnumerable[[Post]]" />
-<ListPosts canEdit="false" />
+<viewdata model="PostIndexViewModel" />
+<ListPosts />

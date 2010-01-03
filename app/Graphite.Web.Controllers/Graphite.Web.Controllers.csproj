@@ -120,6 +120,8 @@
     <Compile Include="Admin\PostController.cs" />
     <Compile Include="Admin\UserController.cs" />
     <Compile Include="Mappers\EditPostMapper.cs" />
+    <Compile Include="Mappers\NewUserMapper.cs" />
+    <Compile Include="Mappers\PostIndexMapper.cs" />
     <Compile Include="Mappers\UserIndexMapper.cs" />
     <Compile Include="ControllerEnums.cs" />
     <Compile Include="CommentController.cs" />

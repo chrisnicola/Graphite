@@ -7,21 +7,16 @@ using Graphite.Core.MappingInterfaces;
 using Graphite.Web.Controllers.ViewModels;
 
 namespace Graphite.Web.Controllers.Mappers {
-
 	public interface IUserIndexMapper : IMapper<IEnumerable<User>, UserIndexViewModel> { }
 
-	public class UserIndexMapper : GenericMapper<IEnumerable<User>, UserIndexViewModel>, IUserIndexMapper {
-		public UserIndexMapper() {
-			Mapper.CreateMap<User, UserViewModel>();
-		}
+	public class UserIndexMapper : IUserIndexMapper {
+		private readonly IMapper<User, UserViewModel> _mapper;
+		public UserIndexMapper(IMapper<User, UserViewModel> mapper) { _mapper = mapper; }
 
-		public override UserIndexViewModel MapFrom(IEnumerable<User> source)
-		{
-			return new UserIndexViewModel { Users = source.Select(u => Mapper.Map<User,UserViewModel>(u)) };
+		public UserIndexViewModel MapFrom(IEnumerable<User> source){
+			return new UserIndexViewModel {Users = source.Select(u => _mapper.MapFrom(u))};
 		}
+		public object MapFrom(object source) { return MapFrom(source as IEnumerable<User>); }
 	}
 
-	public interface INewUserMapper : IMapper<User, NewUserViewModel> { }
-
-	public class NewUserMapper : GenericMapper<User, NewUserViewModel>, INewUserMapper { }
 }
