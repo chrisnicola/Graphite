@@ -1,5 +1,5 @@
 <viewmodel model="PostWithCommentsViewModel" />
-	<PostView post="Model"/>
+	<PostView />
 	<Comments />
 <if condition="Model.AllowComments">
 	<form action="${Url.Action("Update")}" method="post" >

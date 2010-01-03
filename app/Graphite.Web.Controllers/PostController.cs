@@ -2,8 +2,8 @@
 using System.Web.Mvc;
 using Graphite.ApplicationServices;
 using Graphite.Core;
-using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.ActionFilters;
+using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
 using SharpArch.Web.NHibernate;
 
@@ -16,12 +16,13 @@ namespace Graphite.Web.Controllers
 			PostTasks = postTasks;
 		}
 
-		[AutoMap(typeof(Post),typeof(PostWithCommentsViewModel))]
+		[AutoMap(typeof(Post),typeof(PostShowWithCommentsViewModel))]
 		public ActionResult Show(Guid id) {
 			Post post = PostTasks.GetWithComments(id);
 			return View(post);
 		}
 
+		[AutoMap(typeof(IPostIndexMapper))]
 		public ActionResult Index() {
 			return View(PostTasks.GetAll());
 		}
@@ -33,11 +34,11 @@ namespace Graphite.Web.Controllers
 		public PostController(IPostTasks postTasks) : base(postTasks) {}
 
 		[Transaction, ValidateInput(false)]
-    public ActionResult Update(PostWithCommentsViewModel postVm) {
-			Post post = PostTasks.Get(postVm.Id);
+    public ActionResult Update(PostShowWithCommentsViewModel postShowVm) {
+			Post post = PostTasks.Get(postShowVm.Id);
       try {
-        if (CommentIsValid(postVm.NewComment)) {
-          post.AddComment(postVm.NewComment);
+        if (CommentIsValid(postShowVm.NewComment)) {
+          post.AddComment(postShowVm.NewComment);
         }
       } catch {}
       return View("Show", post);

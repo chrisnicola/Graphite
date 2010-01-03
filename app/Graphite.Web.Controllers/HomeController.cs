@@ -3,21 +3,21 @@
 using System.Web.Mvc;
 using Graphite.ApplicationServices;
 using Graphite.Data.Repositories;
-using MvcContrib;
 
 #endregion
 
 namespace Graphite.Web.Controllers {
   [HandleError]
   public class HomeController : Controller {
+  	private readonly IPostTasks _postTasks;
   	private readonly IPostRepository _posts;
 
-    public HomeController(IPostRepository posts) {
-      _posts = posts;
+    public HomeController(IPostTasks postTasks) {
+    	_postTasks = postTasks;
     }
 
-    public ActionResult Index() {
-      return View(_posts.GetRecentPublishedPosts(5));
+  	public ActionResult Index() {
+      return View(_postTasks.GetRecentPublishedPosts(5));
     }
   }
 }

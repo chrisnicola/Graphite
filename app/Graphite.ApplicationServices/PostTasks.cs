@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Web.Mvc;
 using Graphite.Core;
 using Graphite.Data.Repositories;
 
@@ -66,6 +64,10 @@ namespace Graphite.ApplicationServices
 		public void Delete(Guid id) { 
 			_posts.Delete(id);
 		}
+
+		public IEnumerable<Post> GetRecentPublishedPosts(int i) {
+			return _posts.GetRecentPublishedPosts(i);
+		}
 	}
 
 	public interface IPostTasks {
@@ -75,5 +77,6 @@ namespace Graphite.ApplicationServices
 		Post SaveNewPost(PostCreateDetails post);
 		Post UpdatePost(PostEditDetails post);
 		void Delete(Guid id);
+		IEnumerable<Post> GetRecentPublishedPosts(int i);
 	}
 }

@@ -1,7 +1,8 @@
+<viewmodel model="PostWithCommentsViewModel" />
 <div class="post">
-	<h2 class="title">${post.Title}</h2>
-	<div class="author">By ${post.AuthorRealName}</div>
-	<div class="content">!{post.Content}</div>
+	<h2 class="title">${Model.Title}</h2>
+	<div class="author">By ${Model.AuthorRealName}</div>
+	<div class="content">!{Model.Content}</div>
 	<div class="footer">
 		Published on <if condition='post.DatePublished.HasValue'>${post.DatePublished.Value.ToShortTimeString()}</if>
 	</div>
