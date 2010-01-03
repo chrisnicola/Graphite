@@ -1,10 +1,5 @@
-<viewdata model="PostWithCommentsViewModel" />
 <div class="comments">
-	<div each="var comment in Model.Comments" class="comment">
-		<div class="header">
-			${comment.Author} | <a href="${comment.WebAddress}">${comment.WebAddress}</a>
-		</div>
-		<div class="content">!{comment.Content}</div>
-		<div clas="footer">!{comment.DatePosted}</div>
+	<div each="var item in comments" class="comment">
+		<CommentView comment="item" />
 	</div>
 </div>

@@ -471,6 +471,7 @@
     <None Include="Views\Post\Show.spark" />
     <None Include="Views\Shared\_CommentForm.spark" />
     <None Include="Views\Shared\_Comments.spark" />
+    <None Include="Views\Shared\_CommentView.spark" />
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Shared\_ListPosts.spark" />
     <None Include="Views\Shared\_PostView.spark" />

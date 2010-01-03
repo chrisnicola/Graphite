@@ -1,3 +1,3 @@
-﻿<viewdata model="IEnumerable[[Post]]" />
+﻿<viewdata model="HomeIndexViewModel" />
 <h1>The Graphite Blog Engine</h1>
-<PostView each="var post in Model" />
+<PostView each="var post in Model.Posts" />

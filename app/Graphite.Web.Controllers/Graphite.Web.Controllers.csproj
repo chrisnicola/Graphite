@@ -136,13 +136,15 @@
     <Compile Include="ViewModels\DeletePostViewModel.cs" />
     <Compile Include="ViewModels\DeleteUserViewModel.cs" />
     <Compile Include="ViewModels\EditUserViewModel.cs" />
-    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NewUserViewModel.cs" />
     <Compile Include="ViewModels\PostCreateModel.cs" />
     <Compile Include="ViewModels\PostEditModel.cs" />
     <Compile Include="ViewModels\PostEditModelBase.cs" />
     <Compile Include="ViewModels\PostIndexViewModel.cs" />
+    <Compile Include="ViewModels\PostItemViewModel.cs" />
+    <Compile Include="ViewModels\PostShowViewModel.cs" />
     <Compile Include="ViewModels\PostShowWithCommentsViewModel.cs" />
     <Compile Include="ViewModels\UserIndexViewModel.cs" />
   </ItemGroup>

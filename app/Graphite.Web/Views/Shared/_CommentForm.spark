@@ -6,19 +6,18 @@
 </content>
 <p>
 	Name: 
-	<%=Html.TextBox("NewComment.Author", Model.NewComment.Author)%>
+	<%=Html.TextBox("NewComment.Author", newcomment.Author)%>
 </p>
 <p>
 	Email: 
- <%=Html.TextBox("NewComment.EmailAddress", Model.NewComment.EmailAddress)%>
+ <%=Html.TextBox("NewComment.EmailAddress", newcomment.EmailAddress)%>
 </p>
 <p>
 	Website: 
- <%=Html.TextBox("NewComment.WebAddress", Model.NewComment.WebAddress)%>
+ <%=Html.TextBox("NewComment.WebAddress", newcomment.WebAddress)%>
 </p>
 <p>
 	Content: <br/>
-	<%=Html.TextArea("NewComment.Content", Model.NewComment.Content, new { @class = "ckeditor" })%>
+	<%=Html.TextArea("NewComment.Content", newcomment.Content, new { @class = "ckeditor" })%>
 </p>
-!{Html.Hidden("Id", Model.Id)}
 !{Html.AntiForgeryToken()}

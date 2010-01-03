@@ -4,7 +4,9 @@
 <h2>Naviation Menu</h2>
 <ul>
   <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.HomeController>(c => c.Index(), "Home")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Controllers.HomeController>(c => c.Index(), "Logout")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.LoginController>(c => c.SignOut(), "Logout")}</li>
   <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.PostController>(c => c.Index(), "Posts")}</li>
   <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.UserController>(c => c.Index(), "Users")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.FeedController>(c => c.Rss(), "RSS Feed")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.FeedController>(c => c.Atom(), "Atom Feed")}</li>
 </ul>

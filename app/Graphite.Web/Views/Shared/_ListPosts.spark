@@ -30,7 +30,7 @@
             ${item.Title}
         </td>
         <td>
-            ${item.Author.RealName}
+            ${item.AuthorRealName}
         </td>
         <td>
             ${string.Format("{0:ddMMyyyy}", item.DateCreated)}
