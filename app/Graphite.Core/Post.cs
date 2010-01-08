@@ -27,8 +27,7 @@ namespace Graphite.Core {
     public virtual IList<Comment> Comments { get; set; }
 		public virtual IList<Tag> Tags { get; set; }
 		public virtual IList<Category> Categories { get; set; }
-		
-		[DomainSignature, NotNull]
+		[DomainSignature]
   	public virtual string Slug { get; set; }
 
     public virtual void AddComment(Comment comment) {
