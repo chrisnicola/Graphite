@@ -25,6 +25,8 @@ namespace Graphite.Core {
     public virtual bool AllowComments { get; set; }
     public virtual bool Published { get; set; }
     public virtual IList<Comment> Comments { get; set; }
+		public virtual IList<Tag> Tags { get; set; }
+		public virtual IList<Category> Categories { get; set; }
 		
 		[DomainSignature, NotNull]
   	public virtual string Slug { get; set; }
@@ -51,7 +53,5 @@ namespace Graphite.Core {
 			slug = Regex.Replace(slug, @"/ +/g", "-");
   		Slug = slug;
 		}
-
-  	
   }
 }

@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="CreateUserDetails.cs" />
     <Compile Include="EditUserDetails.cs" />
@@ -78,6 +79,7 @@
     </Compile>
     <Compile Include="PostEditDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tag.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
