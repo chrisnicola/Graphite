@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using NHibernate.Validator.Constraints;
 using SharpArch.Core.DomainModel;
@@ -44,6 +45,14 @@ namespace Graphite.Core {
 		public virtual void PublishOn(DateTime? datePublished) {
 			Published = true;
 			DatePublished = datePublished ?? DateTime.Now;
+		}
+
+		public virtual string GetTagsString() {
+			return Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2);
+		}
+
+		public virtual IEnumerable<string> GetTagsList() {
+			return Tags.Select(t => t.Name);
 		}
 
   	private void CreateSlugFromTitle() {

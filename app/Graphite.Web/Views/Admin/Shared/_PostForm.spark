@@ -18,6 +18,9 @@
 		!{this.TextArea(m => m.Content).Class("ckeditor")}
 	</div>
 	<div>
+		!{this.TextBox(m => m.Tags).Label("Tags: ")}
+	</div>
+	<div>
 		!{this.TextBox(m => m.DatePublished)
             .Value(Model.DatePublished ?? DateTime.Today)
               .Format("{0:dd-MMMM-yyyy}")

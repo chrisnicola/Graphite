@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Graphite.Web.Controllers.ViewModels {
 	public class PostItemViewModel {
@@ -9,5 +10,6 @@ namespace Graphite.Web.Controllers.ViewModels {
 		public DateTime? DatePublished { get; set; }
 		public bool AllowComments { get; set; }
 		public bool Published { get; set; }
+		public IEnumerable<string> TagsList { get; set; }
 	}
 }

@@ -7,7 +7,7 @@ using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Data.NHibernate;
 
 namespace Graphite.Data.Repositories {
-  public class PostRepository : LinqRepository<Post>, IPostRepository {
+	public class PostRepository : LinqRepository<Post>, IPostRepository {
     public IEnumerable<Post> GetRecentPublishedPosts(int i) {
     	return Session.Linq<Post>()
 				.Where(p => p.Published)

@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NHibernateMaps\AutoPersistenceModelGenerator.cs" />
-    <Compile Include="NHibernateMaps\CategoryMap.cs" />
     <Compile Include="NHibernateMaps\CommentMap.cs" />
     <Compile Include="NHibernateMaps\Conventions\ForeignKeyConvention.cs" />
     <Compile Include="NHibernateMaps\Conventions\HasManyConvention.cs" />
@@ -98,6 +97,7 @@
     <Compile Include="Repositories\ILinqRepository.cs" />
     <Compile Include="Repositories\LinqRepository.cs" />
     <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\TagRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

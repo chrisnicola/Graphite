@@ -3,6 +3,9 @@
 	<div class="author">By ${post.AuthorRealName}</div>
 	<div class="content">!{post.Content}</div>
 	<div class="footer">
-		Published on <if condition='post.DatePublished.HasValue'>${post.DatePublished.Value.ToShortDateString()}</if>
+		<div>Published on <if condition='post.DatePublished.HasValue'>${post.DatePublished.Value.ToShortDateString()}</if></div>
+		<div class="tags">
+			!{this.GetLinksForTags(post.TagsList)}
+		</div>
 	</div>
 </div>

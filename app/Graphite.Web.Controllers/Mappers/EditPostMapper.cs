@@ -17,9 +17,8 @@ namespace Graphite.Web.Controllers.Mappers {
 		private readonly IUserTasks _userTasks;
 
 		public PostEditModelMapper(IUserTasks userTasks) {
-			Mapper.CreateMap<Post, PostEditModel>()
-				.ForMember(m => m.Tags,o => o.MapFrom(p => p.Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2)))
-				.ForMember(m => m.Categories, o => o.MapFrom(p => p.Categories.Select(c => c.Name).Aggregate((t1, t2) => t1 + " " + t2)));
+			Mapper.CreateMap<Post, PostEditModel>().ForMember(m => m.Tags,
+				o => o.MapFrom(p => p.Tags.Count > 0 ? p.Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2) : ""));
 			_userTasks = userTasks;
 		}
 
@@ -36,18 +35,15 @@ namespace Graphite.Web.Controllers.Mappers {
 		private readonly IUserTasks _userTasks;
 		private readonly ICategoryTasks _categoryTasks;
 
-		public PostCreateModelMapper(IUserTasks userTasks, ICategoryTasks categoryTasks) {
-			Mapper.CreateMap<Post, PostCreateModel>()
-				.ForMember(m => m.Tags, o => o.MapFrom(p => p.Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2)))
-				.ForMember(m => m.Categories, o => o.MapFrom(p => p.Categories.Select(c => c.Name).Aggregate((t1, t2) => t1 + " " + t2)));
+		public PostCreateModelMapper(IUserTasks userTasks) {
+			Mapper.CreateMap<Post, PostCreateModel>().ForMember(m => m.Tags,
+				o => o.MapFrom(p => p.Tags.Count > 0 ? p.Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2) : ""));
 			_userTasks = userTasks;
-			_categoryTasks = categoryTasks;
 		}
 
 		public override PostCreateModel MapFrom(Post source) {
 			PostCreateModel viewmodel = base.MapFrom(source);
 			viewmodel.Authors = _userTasks.GetUsers();
-			viewmodel.Categories = _categoryTasks.GetCategoryNames();
 			return viewmodel;
 		}
 	}
