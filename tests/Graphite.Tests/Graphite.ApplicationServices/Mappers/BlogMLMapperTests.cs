@@ -31,7 +31,7 @@ namespace Tests.Graphite.ApplicationServices.Mappers {
 		} 
 
 		[Test]
-		public void comment_content_is_mapped() {
+		public void comment_fields_are_mapped() {
 			Assert.That(_mlPost.Comments[0].Content.Text == TestData.Comment.Content, "Content not mapped");
 			Assert.That(_mlPost.Comments[0].ID == TestData.Comment.Id.ToString(), "Id not mapped");
 			Assert.That(_mlPost.Comments[0].Approved == TestData.Comment.Approved, "Approved not mapped");
@@ -39,6 +39,16 @@ namespace Tests.Graphite.ApplicationServices.Mappers {
 			Assert.That(_mlPost.Comments[0].UserEMail == TestData.Comment.EmailAddress, "Email not mapped");
 			Assert.That(_mlPost.Comments[0].UserName == TestData.Comment.Author, "Email not mapped");
 			Assert.That(_mlPost.Comments[0].UserUrl == TestData.Comment.WebAddress, "Email not mapped");
+		}
+
+		[Test]
+		public void post_author_is_mapped_by_emailaddress() {
+			Assert.That(_mlPost.Authors[0].Ref == TestData.PublishedPost.Author.Email);
+		}
+
+		[Test]
+		public void post_tags_are_mapped_to_categories() {
+			Assert.That(_mlPost.Categories[0].Ref == TestData.PublishedPost.Tags[0].Name);
 		}
 	}
 }

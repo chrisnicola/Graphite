@@ -27,6 +27,8 @@ namespace Graphite.ApplicationServices.BlogML.Mappers {
 		{
 			var mlPost = base.MapFrom(source);
 			foreach(var comment in source.Comments) mlPost.Comments.Add(Mapper.Map<Comment, BlogMLComment>(comment));
+			foreach (var tag in source.Tags) mlPost.Categories.Add(tag.Name);
+			mlPost.Authors.Add(new BlogMLAuthorReference {Ref = source.Author.Email});
 			return mlPost;
 		}
 	}
