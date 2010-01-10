@@ -24,7 +24,7 @@ namespace Graphite.Web.Controllers {
 		[Transaction, ValidateInput(false)]
 		public ActionResult Create(Comment comment) {
 			try {
-        comment.DatePosted = DateTime.Now;
+        comment.DateCreated = DateTime.Now;
 				_comments.Save(comment);
 				return RedirectToAction("Show", "Post", new {id = comment.Post.Id});
 			} catch {

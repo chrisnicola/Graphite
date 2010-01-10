@@ -11,22 +11,27 @@ using SharpArch.Core.DomainModel;
 
 namespace Graphite.Core {
   public class Post : EntityWithTypedId<Guid> {
+  	
+
   	public Post() {
       DateCreated = DateTime.Now;
       Published = false;
       AllowComments = true;
       Comments = new List<Comment>();
+  		Tags = new List<Tag>();
     }
 		public virtual User Author { get; set; }
     public virtual string Title { get; set; }
     public virtual string Content { get; set; }
-    public virtual DateTime DateCreated { get; set; }
-		public virtual DateTime LastEdited { get; set; }
+		public virtual string Exerpt { get; set; }
+		public virtual DateTime DateCreated { get; set; }
+		public virtual DateTime DateModified { get; set; }
 		public virtual DateTime? DatePublished { get; set; }
     public virtual bool AllowComments { get; set; }
     public virtual bool Published { get; set; }
     public virtual IList<Comment> Comments { get; set; }
 		public virtual IList<Tag> Tags { get; set; }
+		
 		[DomainSignature]
   	public virtual string Slug { get; set; }
 

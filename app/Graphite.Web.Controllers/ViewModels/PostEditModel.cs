@@ -5,6 +5,6 @@ namespace Graphite.Web.Controllers.ViewModels {
 		
 		public Guid Id { get; set; }
 		public DateTime DateCreated { get; set; }
-		public DateTime LastEdited { get; set; }
+		public DateTime DateModified { get; set; }
 	}
 }

@@ -21,7 +21,7 @@ namespace Graphite.ApplicationServices {
 
 		private static SyndicationItem SyndicationItemFromPost(Post p, Uri requestUrl) {
 			var item = new SyndicationItem(p.Title, p.Content, new Uri(requestUrl, "post/" + p.Slug), p.Id.ToString(),
-				new DateTimeOffset(p.LastEdited));
+				new DateTimeOffset(p.DateModified));
 			item.PublishDate = new DateTimeOffset(p.DatePublished.Value);
 			item.Authors.Add(new SyndicationPerson(p.Author.Email, p.Author.RealName, ""));
 			foreach (var tag in p.Tags) item.Categories.Add(new SyndicationCategory(tag.Name, requestUrl + "tag/" + tag.Name, tag.Name));

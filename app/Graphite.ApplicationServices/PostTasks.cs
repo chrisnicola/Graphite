@@ -44,7 +44,7 @@ namespace Graphite.ApplicationServices
 				AllowComments = details.AllowComments,
 				Published = details.Published,
 				DateCreated = DateTime.Now,
-				LastEdited = DateTime.Now,
+				DateModified = DateTime.Now,
 				DatePublished = details.DatePublished,
 				Tags = GetTagsFromString(details.Tags)
 			};
@@ -78,7 +78,7 @@ namespace Graphite.ApplicationServices
 			post.Content = details.Content;
 			post.AllowComments = details.AllowComments;
 			post.DateCreated = DateTime.Now;
-			post.LastEdited = DateTime.Now;
+			post.DateModified = DateTime.Now;
 			post.SetSlugForPost(details.Slug);
 			UpdateTagsForPost(post, details.Tags);
 			EnsurePostSlugIsUnique(post);

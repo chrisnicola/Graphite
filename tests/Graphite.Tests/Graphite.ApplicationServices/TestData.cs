@@ -13,9 +13,13 @@ namespace Tests.Graphite.ApplicationServices {
 			Content = "Some content here",
 			DateCreated = DateTime.Now,
 			DatePublished = DateTime.Now,
-			LastEdited= DateTime.Now,
+			DateModified= DateTime.Now,
 			Published = true,
-			Title = "Title"
+			Title = "Title",
+			Exerpt = "Some",
+			Slug = "Slug",
 		};
+
+		public static readonly Comment Comment = new Comment {Author = "Someone", EmailAddress = "someone@test.com", Content = "Some comment content"};
 	}
 }

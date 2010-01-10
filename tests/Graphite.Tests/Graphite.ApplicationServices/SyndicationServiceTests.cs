@@ -30,7 +30,7 @@ namespace Tests.Graphite.ApplicationServices
 		public void SyndicationFeedPostHasCorrectValues() {
 			Assert.AreEqual(_feed.Items.First().Title.Text, TestData.PublishedPost.Title);
 			Assert.AreEqual(((TextSyndicationContent) _feed.Items.First().Content).Text, TestData.PublishedPost.Content);
-			Assert.AreEqual(_feed.Items.First().LastUpdatedTime.LocalDateTime, TestData.PublishedPost.LastEdited);
+			Assert.AreEqual(_feed.Items.First().LastUpdatedTime.LocalDateTime, TestData.PublishedPost.DateModified);
 			Assert.AreEqual(_feed.Items.First().PublishDate.LocalDateTime, TestData.PublishedPost.DatePublished);
 		}
 
