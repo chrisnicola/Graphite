@@ -40,6 +40,7 @@ namespace Graphite.Web.Controllers {
 			map.Namespace("", m =>
 			{
 				m.Resources<PostController>();
+				m.Resources<TagController>(r => r.Except("index", "new", "create", "edit", "update", "delete", "destroy"));
 				m.Resources<HomeController>();
 				m.Resource<LoginController>(r => {
 					r.AddMemberRoute<LoginController>(c => c.Authenticate(null), HttpVerbs.Post);

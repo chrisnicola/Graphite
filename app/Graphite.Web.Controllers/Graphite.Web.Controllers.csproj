@@ -119,7 +119,9 @@
     <Compile Include="ActionResults\RssResult.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="LoginController.cs" />
-    <Compile Include="Mappers\CreatePostMapper.cs" />
+    <Compile Include="Mappers\HomeIndexMapper.cs" />
+    <Compile Include="Mappers\PostNewModelMapper.cs" />
+    <Compile Include="Mappers\PostNewViewMapper.cs" />
     <Compile Include="Mappers\CreateUserMapper.cs" />
     <Compile Include="Admin\HomeController.cs" />
     <Compile Include="Admin\PostController.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="Mappers\EditPostMapper.cs" />
     <Compile Include="Mappers\NewUserMapper.cs" />
     <Compile Include="Mappers\PostIndexMapper.cs" />
+    <Compile Include="Mappers\TagShowMapper.cs" />
     <Compile Include="Mappers\UserIndexMapper.cs" />
     <Compile Include="ControllerEnums.cs" />
     <Compile Include="CommentController.cs" />
@@ -145,13 +148,14 @@
     <Compile Include="ViewModels\HomeIndexViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\NewUserViewModel.cs" />
-    <Compile Include="ViewModels\PostCreateModel.cs" />
+    <Compile Include="ViewModels\PostNewModel.cs" />
     <Compile Include="ViewModels\PostEditModel.cs" />
     <Compile Include="ViewModels\PostEditModelBase.cs" />
     <Compile Include="ViewModels\PostIndexViewModel.cs" />
     <Compile Include="ViewModels\PostItemViewModel.cs" />
     <Compile Include="ViewModels\PostShowViewModel.cs" />
     <Compile Include="ViewModels\PostShowWithCommentsViewModel.cs" />
+    <Compile Include="ViewModels\TagViewModel.cs" />
     <Compile Include="ViewModels\UserIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

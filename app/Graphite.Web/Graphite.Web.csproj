@@ -475,6 +475,7 @@
     <None Include="Views\Shared\_global.spark" />
     <None Include="Views\Shared\_ListPosts.spark" />
     <None Include="Views\Shared\_PostView.spark" />
+    <None Include="Views\Tag\Show.spark" />
     <Content Include="Scripts\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Scripts\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Scripts\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

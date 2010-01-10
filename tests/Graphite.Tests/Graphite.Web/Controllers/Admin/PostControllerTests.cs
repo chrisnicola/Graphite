@@ -1,16 +1,12 @@
 ﻿using System;
 using Graphite.ApplicationServices;
 using Graphite.Core;
-using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.Admin;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
 using NUnit.Framework;
 using Rhino.Mocks;
 using MvcContrib.TestHelper;
-using SharpArch.Core.PersistenceSupport;
-using SharpArch.Core.PersistenceSupport.NHibernate;
-using SharpArch.Testing.NUnit;
 using SharpArch.Testing;
 
 namespace Tests.Graphite.Web.Controllers.Admin
@@ -20,15 +16,15 @@ namespace Tests.Graphite.Web.Controllers.Admin
   {
     private IPostTasks _postTasks;
     private PostController _controller;
-    private IEditPostMapper _editPostMapper;
-  	private ICreatePostMapper _createPostMapper;
+    private IPostEditDetailsMapper _postEditDetailsMapper;
+  	private IPostCreateDetailsMapper _postCreateDetailsMapper;
 
   	[SetUp]
     public void SetUp() {
       _postTasks = MockRepository.GenerateMock<IPostTasks>();
-      _editPostMapper = MockRepository.GenerateMock<IEditPostMapper>();
-			_createPostMapper = MockRepository.GenerateMock<ICreatePostMapper>();
-      _controller = new PostController(_postTasks, _editPostMapper, _createPostMapper);
+      _postEditDetailsMapper = MockRepository.GenerateMock<IPostEditDetailsMapper>();
+			_postCreateDetailsMapper = MockRepository.GenerateMock<IPostCreateDetailsMapper>();
+      _controller = new PostController(_postTasks, _postEditDetailsMapper, _postCreateDetailsMapper);
     }
 
     [Test]
@@ -40,7 +36,7 @@ namespace Tests.Graphite.Web.Controllers.Admin
 
     [Test]
     public void CreatesANewPostWhenNewIsCalled() {
-      _controller.New(null).AssertViewRendered().ViewData.Model.ShouldBe<PostCreateModel>("ViewData.Model is not a Post");
+      _controller.New(null).AssertViewRendered().ViewData.Model.ShouldBe<PostNewModel>("ViewData.Model is not a Post");
     }
 
     [Test]
@@ -56,7 +52,7 @@ namespace Tests.Graphite.Web.Controllers.Admin
     public void SavesPostToRepositoryWheUpdated() {
       var post = new PostEditModel();
 			var details = new PostEditDetails();
-    	_editPostMapper.Stub(m => m.MapFrom(post)).Return(details);
+    	_postEditDetailsMapper.Stub(m => m.MapFrom(post)).Return(details);
       _controller.Update(post);
       _postTasks.AssertWasCalled(m => m.UpdatePost(details));
     }

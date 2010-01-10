@@ -6,6 +6,18 @@ using Graphite.Data.Repositories;
 
 namespace Graphite.ApplicationServices
 {
+	public interface ITagTasks {
+		Tag GetTagByName(string tagname);
+	}
+
+	public class TagTasks : ITagTasks {
+		private readonly ITagRepository _tags;
+		public TagTasks(ITagRepository tags) { _tags = tags; }
+
+		public Tag GetTagByName(string tagname) {
+			return _tags.FindOne(t => t.Name == tagname);
+		}
+	}
 	public class PostTasks : IPostTasks 
 	{
 		private readonly IPostRepository _posts;

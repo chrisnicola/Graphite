@@ -7,9 +7,9 @@ using Graphite.Core.MappingInterfaces;
 using Graphite.Web.Controllers.ViewModels;
 
 namespace Graphite.Web.Controllers.Mappers {
-	public interface IEditPostMapper : IMapper<PostEditModel, PostEditDetails> {}
+	public interface IPostEditDetailsMapper : IMapper<PostEditModel, PostEditDetails> {}
 
-	public class EditPostMapper : GenericMapper<PostEditModel, PostEditDetails>, IEditPostMapper {}
+	public class PostEditDetailsMapper : GenericMapper<PostEditModel, PostEditDetails>, IPostEditDetailsMapper {}
 
 	public interface IPostEditModelMapper : IMapper<Post, PostEditModel> {}
 
@@ -27,28 +27,5 @@ namespace Graphite.Web.Controllers.Mappers {
 			viewmodel.Authors = _userTasks.GetUsers();
 			return viewmodel;
 		}
-	}
-
-	public interface IPostCreateModelMapper : IMapper<Post, PostCreateModel> {}
-
-	public class PostCreateModelMapper : GenericMapper<Post, PostCreateModel>, IPostCreateModelMapper {
-		private readonly IUserTasks _userTasks;
-		private readonly ICategoryTasks _categoryTasks;
-
-		public PostCreateModelMapper(IUserTasks userTasks) {
-			Mapper.CreateMap<Post, PostCreateModel>().ForMember(m => m.Tags,
-				o => o.MapFrom(p => p.Tags.Count > 0 ? p.Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2) : ""));
-			_userTasks = userTasks;
-		}
-
-		public override PostCreateModel MapFrom(Post source) {
-			PostCreateModel viewmodel = base.MapFrom(source);
-			viewmodel.Authors = _userTasks.GetUsers();
-			return viewmodel;
-		}
-	}
-
-	public interface ICategoryTasks {
-		IEnumerable<string> GetCategoryNames();
 	}
 }

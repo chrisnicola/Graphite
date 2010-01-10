@@ -10,22 +10,22 @@ using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Admin {
 	public class PostController : PostControllerBase {
-		private readonly IEditPostMapper _editMapper;
-		private readonly ICreatePostMapper _createMapper;
+		private readonly IPostEditDetailsMapper _postEditMapper;
+		private readonly IPostCreateDetailsMapper _postCreateDetailsMapper;
 
-		public PostController(IPostTasks postTasks, IEditPostMapper editMapper, ICreatePostMapper createMapper)
+		public PostController(IPostTasks postTasks, IPostEditDetailsMapper postEditMapper, IPostCreateDetailsMapper postCreateDetailsMapper)
 			: base(postTasks) {
-			_editMapper = editMapper;
-			_createMapper = createMapper;
+			_postEditMapper = postEditMapper;
+			_postCreateDetailsMapper = postCreateDetailsMapper;
 		}
 
-		[Authorize, AutoMap(typeof (IPostCreateModelMapper))]
-		public ActionResult New(PostCreateModel post) { return View(post ?? new PostCreateModel()); }
+		[Authorize, AutoMap(typeof (IPostNewModelMapper))]
+		public ActionResult New(PostNewModel post) { return View(post ?? new PostNewModel()); }
 
 		[Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
-		public ActionResult Create(PostCreateModel post) {
+		public ActionResult Create(PostNewModel post) {
 			try {
-				Guid id = PostTasks.SaveNewPost(_createMapper.MapFrom(post)).Id;
+				Guid id = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post)).Id;
 				return this.RedirectToAction(x => x.Show(id));
 			} catch {
 				return this.RedirectToAction(x => x.New(post));
@@ -38,7 +38,7 @@ namespace Graphite.Web.Controllers.Admin {
 		[Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
 		public ActionResult Update(PostEditModel post) {
 			try {
-				PostTasks.UpdatePost(_editMapper.MapFrom(post));
+				PostTasks.UpdatePost(_postEditMapper.MapFrom(post));
 				return this.RedirectToAction(x => x.Index());
 			} catch (Exception) {
 				return this.RedirectToAction(x => x.Edit(post.Id));
