@@ -321,6 +321,7 @@ II.2.12 <HandlesEvent />
       <Abbreviation Text="UID" />
       <Abbreviation Text="ID" />
       <Abbreviation Text="GST" />
+      <Abbreviation Text="ML" />
     </Naming2>
   </CodeStyleSettings>
 </Configuration>

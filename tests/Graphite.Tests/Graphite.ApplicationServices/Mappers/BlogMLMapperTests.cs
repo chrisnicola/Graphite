@@ -15,7 +15,7 @@ namespace Tests.Graphite.ApplicationServices.Mappers {
 			TestData.PublishedPost.SetIdTo(Guid.NewGuid());
 			TestData.PublishedPost.AddComment(TestData.Comment);
 			TestData.PublishedPost.Tags.Add(new Tag {Name = "tag"});
-			_mlPost = new PostMapper().MapFrom(TestData.PublishedPost);
+			_mlPost = new PostToBlogMlMapper().MapFrom(TestData.PublishedPost);
 		}
 
 		[Test]
