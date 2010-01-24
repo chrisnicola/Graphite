@@ -14,8 +14,7 @@ namespace Graphite.ApplicationServices {
 			//Todo: Add settings entities so settings can be loaded here
 			var items =
 				_posts.FindAll().Where(x => x.Published).Select(
-					p =>
-						SyndicationItemFromPost(p, requestUrl));
+					p => SyndicationItemFromPost(p, requestUrl));
 			return new SyndicationFeed("Test Title", "My syndication feed", requestUrl, items);
 		}
 

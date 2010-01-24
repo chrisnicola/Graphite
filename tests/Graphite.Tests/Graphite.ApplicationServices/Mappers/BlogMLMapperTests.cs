@@ -7,14 +7,20 @@ using SharpArch.Testing;
 
 namespace Tests.Graphite.ApplicationServices.Mappers {
 	[TestFixture]
+	public class when_blogmlpost_is_mapped_to_post {
+		[SetUp]
+		public void Setup() {
+			TestData.Init();
+		}
+	}
+	
+	[TestFixture]
 	public class when_post_is_mapped_to_blogmlpost {
 		private BlogMLPost _mlPost;
 
 		[SetUp]
 		public void Setup() {
-			TestData.PublishedPost.SetIdTo(Guid.NewGuid());
-			TestData.PublishedPost.AddComment(TestData.Comment);
-			TestData.PublishedPost.Tags.Add(new Tag {Name = "tag"});
+			TestData.Init();
 			_mlPost = new PostToBlogMlMapper().MapFrom(TestData.PublishedPost);
 		}
 
