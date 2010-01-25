@@ -47,7 +47,7 @@ namespace Tests.Graphite.ApplicationServices {
 			DateModified= DateTime.Now,
 			Published = true,
 			Title = "Title",
-			Exerpt = "Some",
+			Excerpt = "Some",
 			Slug = "Slug",
 		};
 

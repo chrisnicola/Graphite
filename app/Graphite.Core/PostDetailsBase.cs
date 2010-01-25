@@ -10,5 +10,6 @@ namespace Graphite.Core {
 		public bool Published { get; set; }
 		public string Slug { get; set; }
 		public string Tags { get; set; }
+		public string Excerpt { get; set; }
 	}
 }

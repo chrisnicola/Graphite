@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<blog root-url="/" date-created="2010-01-24T13:33:26" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blogml.com/2006/09/BlogML">
+  <title type="text"><![CDATA[lucisferre]]></title>
+  <sub-title type="text"><![CDATA[...csharp... ...csharp run... ...run csharp run...]]></sub-title>
+  <authors>
+    <author id="chrisn" date-created="2010-01-24T13:33:26" date-modified="2010-01-24T13:33:26" approved="true" email="chnicola@gmail.com">
+      <title type="text"><![CDATA[chrisn]]></title>
+    </author>
+  </authors>
+  <extended-properties>
+    <property name="CommentModeration" value="Anonymous" />
+    <property name="SendTrackback" value="Yes" />
+  </extended-properties>
+  <categories>
+   <category id="5c2b051b-f6df-4b41-baa8-63eb610e5201" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[ASP.NET MVC]]></title>
+    </category>
+    <category id="5cd0be3a-3124-4224-9a21-46b4befb628f" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Coding]]></title>
+    </category>
+    <category id="1091489b-35f0-473f-8e03-c2b8aa031f8c" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Agile]]></title>
+    </category>
+    <category id="832202cb-b074-4686-8c64-efb0d3a1aa9c" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[TDD]]></title>
+    </category>
+    <category id="0ae10b56-7656-4192-bd7d-4aac5a14e403" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[nHibernate]]></title>
+    </category>
+    <category id="80a93719-d0b6-493d-a18c-d82537b759e3" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Tools and Tricks]]></title>
+    </category>
+    <category id="02e1c448-89bc-4ed3-b7eb-616a79502dec" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Events]]></title>
+    </category>
+    <category id="60961e3d-020b-4362-8aad-91d6b33f1261" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Food]]></title>
+    </category>
+    <category id="fd020249-be87-49a8-bc2b-2a5ddbb8ffaa" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Recipies]]></title>
+    </category>
+    <category id="2d8fc2fe-cb40-4d21-b2ec-5400c1693ff4" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[From other blogs]]></title>
+    </category>
+    <category id="d259b49c-a79d-456b-97d9-c4b585a4a0ef" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Graphite]]></title>
+    </category>
+    <category id="cf1f8747-baf3-4952-8d1a-659dfad1e794" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[iPhone (and other toys)]]></title>
+    </category>
+    <category id="0a5ca7b4-d45c-4df1-9e90-8928262d248b" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Landscapes]]></title>
+    </category>
+    <category id="38f5fc4d-2f6a-4f4d-9015-9d44ae6d607b" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Music]]></title>
+    </category>
+    <category id="69991539-4bfc-4cb9-a66d-09f836c0b344" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[News]]></title>
+    </category>
+    <category id="2c07e59a-ca1c-4daa-8218-0cb00efde8b7" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Opinion]]></title>
+    </category>
+    <category id="1b70b1a2-2a7c-4e85-a6ba-6accc0b980f8" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Politcs]]></title>
+    </category>
+    <category id="b483fd48-b2f5-44af-b1ae-6fb4648d5bc2" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Photography]]></title>
+    </category>
+    <category id="0ef29b7d-d0ff-4312-858e-fdc6791dd80b" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[City Life]]></title>
+    </category>
+    <category id="22488829-47f6-4140-bd30-5a9dbe7e89fd" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[s#arp architecture]]></title>
+    </category>
+    <category id="ac3232d9-d92c-492b-ba4a-12bd53e6a9d1" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[The City]]></title>
+    </category>
+    <category id="f464751e-12eb-4fe0-98d4-ba9abc8703c8" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Going out]]></title>
+    </category>
+    <category id="c9544665-8ae2-41a0-b1b5-93a70ae5525f" date-created="0001-01-01T00:00:00" date-modified="0001-01-01T00:00:00" approved="true" parentref="0">
+      <title type="text"><![CDATA[Travel]]></title>
+    </category>
+  </categories>
+  <posts>
+    <post id="39acd904-988d-4631-90ca-18957932afce" date-created="2010-01-22T05:58:00" date-modified="2010-01-22T06:14:50" approved="true" post-url="/post/2010/01/22/Even-images-need-boundaries.aspx" type="normal" hasexcerpt="false" views="0" is-published="True">
+      <title type="text"><![CDATA[Even images need boundaries]]></title>
+      <content type="text"><![CDATA[<p>This morning I was looking for some simple code to do basic resizing of images.&nbsp; A website I am working on has an image upload and the upload needs to restrict the images to maximum height and width values.&nbsp; This is a very simple and probably fairly common task.&nbsp; As a rule, I don't usually keep a reference library worth of code snippets in my head (or anywhere for that matter) since I can quickly google anything when I need it and doing so I found <a href="http://www.mikeborozdin.com/post/High-Quality-Image-Resizing-with-NET.aspx">this post</a> which had a solution I liked.</p>
+<p>Immediately upon reading the code, something about the geometry of the solution seemed off to me.&nbsp; As far as I could tell, this would only correctly shrink the image if the boundary values were 1:1.&nbsp; Clearly, no such restriction is placed on the input values, so we can assume that this is a bug.&nbsp; I made some corrections and did some "clean-code" refactoring and ended up with what I thought was working code.&nbsp; Actually, trying it out revealed another bug though, the logic was entirely backwards.&nbsp;</p>
+<p>It was resizing by the width when it needed to use height and vice versa.&nbsp; A couple more changes and some more "clean-code" refactoring and the final corrected code is as follows:</p>
+<div id="scid:9ce6104f-a9aa-4a17-a79f-3a39532ebf7c:d399fd0a-36bc-4a48-8591-7db3c942f788" class="wlWriterEditableSmartContent" style="padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: none; padding-top: 0px">
+<div style="border: #000080 1px solid; color: #000; font-family: 'Courier New', Courier, Monospace; font-size: 10pt">
+<div style="background: #fff; max-height: 300px; overflow: auto"><ol style="background: #ffffff; margin: 0; padding: 0 0 0 5px; white-space: nowrap">
+<li><span style="color:#0000ff">private</span> <span style="color:#0000ff">static</span> <span style="color:#2b91af">Image</span> ResizeImage(<span style="color:#2b91af">Image</span> original, <span style="color:#0000ff">int</span> maxHeight, <span style="color:#0000ff">int</span> maxWidth) {</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">if</span> (ImageIsSmallerThanMaxSize(original, maxWidth, maxHeight)) <span style="color:#0000ff">return</span> original;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">var</span> scaleFactor = (AspectRatioIsLessThanMaxRatio(original, maxWidth, maxHeight))</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;? <span style="color:#2b91af">Decimal</span>.Divide(maxHeight, original.Height)</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span style="color:#2b91af">Decimal</span>.Divide(maxWidth, original.Width);</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">return</span> ScaleImage(original, scaleFactor);</li>
+<li>}</li>
+<li style="background: #f3f3f3">&nbsp;</li>
+<li><span style="color:#0000ff">private</span> <span style="color:#0000ff">static</span> <span style="color:#2b91af">Bitmap</span> ScaleImage(<span style="color:#2b91af">Image</span> original, <span style="color:#0000ff">decimal</span> scaleFactor) {</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">var</span> output = <span style="color:#0000ff">new</span> <span style="color:#2b91af">Bitmap</span>((<span style="color:#0000ff">int</span>) (original.Width * scaleFactor),(<span style="color:#0000ff">int</span>) (original.Height * scaleFactor));</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">var</span> tmpGraph = <span style="color:#2b91af">Graphics</span>.FromImage(output);</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;tmpGraph.InterpolationMode = System.Drawing.Drawing2D.<span style="color:#2b91af">InterpolationMode</span>.HighQualityBilinear;</li>
+<li>&nbsp;&nbsp;&nbsp;&nbsp;tmpGraph.DrawImage(original, 0, 0, output.Width, output.Height);</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">return</span> output;</li>
+<li>}</li>
+<li style="background: #f3f3f3">&nbsp;</li>
+<li><span style="color:#0000ff">private</span> <span style="color:#0000ff">static</span> <span style="color:#0000ff">bool</span> ImageIsSmallerThanMaxSize(<span style="color:#2b91af">Image</span> original, <span style="color:#0000ff">int</span> maxWidth, <span style="color:#0000ff">int</span> maxHeight) {</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">return</span> original.Width &lt; maxWidth &amp;&amp; original.Height &lt; maxHeight;</li>
+<li>}</li>
+<li style="background: #f3f3f3">&nbsp;</li>
+<li><span style="color:#0000ff">private</span> <span style="color:#0000ff">static</span> <span style="color:#0000ff">bool</span> AspectRatioIsLessThanMaxRatio(<span style="color:#2b91af">Image</span> original, <span style="color:#0000ff">int</span> maxWidth, <span style="color:#0000ff">int</span> maxHeight) {</li>
+<li style="background: #f3f3f3">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0000ff">return</span> <span style="color:#2b91af">Decimal</span>.Divide(original.Width, original.Height) &lt; <span style="color:#2b91af">Decimal</span>.Divide(maxWidth, maxHeight);</li>
+<li>}</li>
+</ol></div>
+</div>
+</div>
+<p>I think you will agree that not only is the code correct but it is much clearer that it is in-fact correct.&nbsp; So what can I take away from this:</p>
+<ul>
+<li>Always try to double check your blog post code (I'm sure this statement is going to bite me in the ass)</li>
+<li>Never take anything you find via. Google or the internets for granted</li>
+<li>Cleanliness is next to correctness</li>
+<li>I should have TDD'd this code</li>
+</ul>]]></content>
+      <post-name type="text"><![CDATA[Even images need boundaries]]></post-name>
+      <authors>
+        <author ref="chrisn" />
+      </authors>
+      <categories>
+        <category ref="5cd0be3a-3124-4224-9a21-46b4befb628f" />
+        <category ref="80a93719-d0b6-493d-a18c-d82537b759e3" />
+      </categories>
+      <tags>
+        <tag ref="csharp" />
+        <tag ref="coding" />
+      </tags>
+    </post>
+    <post id="838a0086-6ef3-4b8d-b82b-00e059bb4b53" date-created="2010-01-12T04:17:00" date-modified="2010-01-13T04:07:57" approved="true" post-url="/post/2010/01/12/My-goals-for-2009.aspx" type="normal" hasexcerpt="false" views="0" is-published="True">
+      <title type="text"><![CDATA[A brief retrospective and my goals for 2009]]></title>
+      <content type="text"><![CDATA[<p>Seems lots of people are doing this these days.&#160; Both <a href="http://scottmuc.com/blog/development/my-developer-resolutions-for-2010/">Scott Muc</a> and <a href="http://graysmatter.codivation.com/post/Your-2010-New-Years-Resolutions-%28thats-right-I-said-yours%29.aspx">Justice Gray</a> have posted theirs, well... Justice actually posted <em>yours</em>.</p>  <p>Usually, I just keep an general idea of my goals in mind.&#160; This keeps my goal setting flexible, but it makes it really hard to measure my progress relative to goals and doesn't make me very accountable to them.&#160; This year I remedying that by posting them here on my blog.[more]</p>  <p>First a little retrospective of how I think I did last year.&#160; Thinking back to early last year my goals were things like:</p>  <ul>   <li>Learn and use nHibernate in my projects </li>    <li>Learn to use messaging in service architecture </li>    <li>Learn to use IoC framworks </li>    <li>Start learning Agile programming </li>    <li>Start blogging and do it regularly </li>    <li>Read more books on coding      <ul>       <li>Specifically: Read DDD by Eric Evans </li>     </ul>   </li>    <li>Start using TDD in all my development work </li>    <li>Begin to branch out to more clients as a contractor </li> </ul>  <p>On framework learning I did fairly well,&#160; I've become very comfortable with using nHibernate and I can comfortably configure and customize it for most situations.&#160; For messaging, I actually learned by building a small simple message bus architecture (I will do a short blog post on it in the near future).&#160; Inversion of control containers originally confused me, now I use Castle Windsor IoC container in every new project I start.</p>  <p>In the agile category, I invested quite a bit of time into books like &quot;Clean Code&quot; and &quot;Pragmatic Thinking and Learning&quot; as well as many of the &quot;agile themed&quot; blogs.&#160; I attended both DevTeach and the excellent Much Ado About Agile conference put on by Agile Vancouver this year.&#160; Both conferences were incredible learning experiences for me at this stage in my career.</p>  <p>I've kept up with my blogging as well. It has been something I really enjoy and I find it is helpful to write about my work and what I am learning.&#160; It is an excellent way to reflect on things.&#160; Since starting this blog in May I have managed 66 posts and 6 in December alone.&#160; My goal was to average one a week so I'd say that was achieved handily.</p>  <p>my reading goals fell short a bit.&#160; I finished most of &quot;Clean Code&quot; and all of &quot;Pragmatic Thinking and Learning&quot;, but I really wanted to complete DDD and some of the other &quot;masterworks&quot;.&#160; That said, I did manage to read a lot of blog posts this year.&#160; I also learn by doing, so much of my learning came from writing code and reading code in open source projects.&#160;&#160;&#160; I'd maybe give myself a B- here, but I was never really a hard marker as a T.A. so.</p>  <p>TDD was a real challenge too.&#160; I've learned that it is a technique that requires time and practice to master.&#160; I've learned to write tests and can use them to drive my design, but I am not sure that I feel confident in my TDD use yet.&#160; This year I will continue to practice my TDD and also explore BDD.</p>  <p>Where I made no progress whatsoever was exploring work opportunities with new clients.&#160; While I certainly did not lack for work (my sole client always has something on the go) it is still very important for me to form new business relationships.&#160; This is an area I will definitely not neglect in the early part of this year.</p>  <p>Of course those were not the only things I managed to cram into last year (I also have been learning Salsa!) just a some goals I had in mind early last year. </p>  <p>My goals (so far) for 2009 are as follows (I'll stick to my professional goals and leave the salsa dancing out):</p>  <ul>   <li><strong>Read Domain Driven Design</strong> <em>and</em> the new chapter Eric Evans gave me at the conference (if I read nothing else I will read this book this year) </li>    <li>Develop at least two new client relationships </li>    <li>Complete the first release candidate for Graphite </li>    <li>Contribute to at least one open source project </li>    <li>Practice my TDD technique and start learning BDD </li>    <li>Organize discussions/talks with ALT.NET locally </li>    <li>Submit at least one presentation/talk to a conference (doesn't have to be a big one) </li>    <li>And of course. be more like Ju<a href="http://graysmatter.codivation.com/">stice Gray</a> (or at least try to make my blog posts a little less dry) </li>    <li>Learn Ruby on Rails (if I still have time after everything else) </li> </ul>  <p>I think those are some pretty good goals to start with for this year.&#160; As I said, I like to be flexible so I will try to review these every few months to see if I still have the same goals.&#160; Now I just need to work on a plan to achieve all these goals.</p>]]></content>
+      <post-name type="text"><![CDATA[A brief retrospective and my goals for 2009]]></post-name>
+      <authors>
+        <author ref="chrisn" />
+      </authors>
+      <tags>
+        <tag ref="agile" />
+        <tag ref="blogging" />
+        <tag ref="coding" />
+      </tags>
+    </post>
+    <post id="a080e0b2-376f-4d2a-ab9c-cde1db3fd091" date-created="2010-01-10T11:39:00" date-modified="2010-01-10T11:40:28" approved="true" post-url="/post/2010/01/10/A-Tag-by-any-other-name.aspx" type="normal" hasexcerpt="false" views="0" is-published="True">
+      <title type="text"><![CDATA[A Tag by any other name.]]></title>
+      <content type="text"><![CDATA[<p><a href="http://www.lucisferre.org/image.axd?picture=tagcloud.jpg"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="tagcloud" src="http://www.lucisferre.org/image.axd?picture=tagcloud_thumb.jpg" border="0" alt="tagcloud" width="240" height="221" align="right" /></a> I have really enjoyed working on Graphite lately, which has actually made it hard to blog about it since I am having trouble tearing my self away from the code long enough to write a post.&nbsp; The progress has been pretty good so far.&nbsp; Just to update from last time I have added an RSS and Atom feed that uses the System.ServiceModel.Syndication API.&nbsp; I have also added tagging to posts (thinking about tags for comments too).</p>
+<p>One of the thing that occurred to me while implementing tags was that I didn&rsquo;t really need both categories <em>and</em> tags.&nbsp; While it is true that most blogs support both categories and tags, I honestly can&rsquo;t tell you functionally what&rsquo;s the difference.&nbsp; What functionality does the category provide that the tag doesn&rsquo;t or can&rsquo;t? - That isn&rsquo;t a rhetorical question, if anyone can answer it please do.[more]</p>
+<p>Tags seem almost like an evolution of categories.&nbsp; Tags are intended to be easy to use, flexible and dynamic.&nbsp; Tags tend to stay more relevant and current than static categories.&nbsp; Most tag interfaces will let you type out new ones as you need them and usually auto-hint previously used tags so you don&rsquo;t end up with C# and csharp <em>and &ldquo;</em>c sharp&rdquo; all as tags.&nbsp;</p>
+<p>BlogEngine.NET supports both tags and categories, you can select multiple categories for a post (just like tags) and even nest&nbsp; your categories into a hierarchy.&nbsp; You can see both a category list and a tag cloud on the right side of my site.&nbsp;&nbsp; Technically the tag cloud could be a category list, with post counts and even RSS feeds for each tag but it isn&rsquo;t.&nbsp; That&rsquo;s because in general we feel that a tag cloud is a more useful visual representation, if it wasn&rsquo;t we would just display our tags like our categories.&nbsp; Clearly we feel this is a superior way to organize blog posts.</p>
+<p>Both RSS feeds and BlogML (which I am using as an import/export format) only define a categories item and not tags.&nbsp; This generally means that if you are importing content from a blog that has both categories and tags you can only bring over one of the two, or merge them both.&nbsp; Well, in that case I would choose my tags and by not implementing both I can ensure Graphite users will not ever have this problem.</p>
+<p>Until someone can convince me otherwise categories will not be a feature in Graphite, only tags.&nbsp; This will allow me to focus on providing better functionality built around tags alone, including tag management, and perhaps even <em>tag-categorization </em>which I can see being potentially useful.</p>
+<p><em>Afterthought</em>: I just googled this topic after writing this and found these two old posts debating the same thing.&nbsp; <a href="http://www.duncanmackenzie.net/blog/categories-vs-tags-in-blogs-and-blog-editors/" target="_blank">Duncan Mackenzie</a> seems to agree and decided to do away with categories as well, while <a href="http://haacked.com/archive/2006/09/27/Categories_vs_Tags.aspx" target="_blank">Phil Haack</a> defends categories as &ldquo;a structural element and navigational aid&hellip; &hellip;a way to group posts into large high-level groupings&rdquo;</p>
+<p>I&rsquo;m not sure I really understand what Phil is trying to say there, but it seems like a lot to expect from a lowly category.&nbsp; I don&rsquo;t really agree with the &lsquo;use categories sparingly&rsquo; and &lsquo;use tags liberally&rsquo; suggestions either.&nbsp; Keeping a few categories with large numbers of posts doesn&rsquo;t really people find relevant content any more than liberally using tags which is likely to dilute their value and lead to a <strong>tag fog</strong>&hellip; <a href="http://haacked.com/Tags/default.aspx" target="_blank">*ahem*</a>.</p>
+<p>In the end I don&rsquo;t think it matters that much how we <em>define </em>the difference but what practical examples tell us.&nbsp; Do many blogs actually use both categories and tags in a way that separates them into two clearly definable functions?</p>]]></content>
+      <post-name type="text"><![CDATA[A Tag by any other name.]]></post-name>
+      <authors>
+        <author ref="chrisn" />
+      </authors>
+      <categories>
+        <category ref="5cd0be3a-3124-4224-9a21-46b4befb628f" />
+        <category ref="2c07e59a-ca1c-4daa-8218-0cb00efde8b7" />
+      </categories>
+      <tags>
+        <tag ref="graphite" />
+        <tag ref="blogging" />
+        <tag ref="opinion" />
+      </tags>
+      <comments>
+        <comment id="6dd5d0f3-f0f0-4a10-9827-165021254521" parentid="00000000-0000-0000-0000-000000000000" date-created="2010-01-08T19:57:33" date-modified="2010-01-08T19:57:33" approved="true" user-name="Scott Muc" user-email="smuc@thoughtworks.com" user-ip="70.75.2.163" user-url="http://scottmuc.com/">
+          <title type="text"><![CDATA[re: A Tag by any other name.]]></title>
+          <content type="text"><![CDATA[I totally agree with you. I used categories on my blog and then eventually realized that there's no point. The inner conflict of what should be a tag vs category ends up taking a lot of time.
+
+Once you start with categorizes then you want to categorize everything. Doing away with the categories removes that choice therefore you think about better tagging strategies.
+
+I'm having the same dilema with organizing Evernote right now. It has tags and notebooks (which is essentially a category). I'm starting to do away with my notebooks now too and using some sort of specification (saved search) as an encapsulation of a category.
+
+How about this for your blog engine. Allow the user to determine categories by specifying some sort of rules on the tags. Eg: A category of Agile is anything that matches [agile], [tdd], [xp], [scrum], [pair-programming]. 
+
+]]></content>
+        </comment>
+        <comment id="f4c3a764-b480-4c82-afd5-9b44b59a0d8f" parentid="6dd5d0f3-f0f0-4a10-9827-165021254521" date-created="2010-01-09T06:04:46" date-modified="2010-01-09T06:04:46" approved="true" user-name="Chris Nicola" user-email="chnicola@gmail.com" user-ip="174.6.66.116" user-url="http://www.lucisferre.net/">
+          <title type="text"><![CDATA[re: A Tag by any other name.]]></title>
+          <content type="text"><![CDATA[Exactly what I was thinking.  I was considering having categories for grouping tags rather than posts.  Then the category has a clear and distinct purpose.]]></content>
+        </comment>
+        <comment id="687ce43a-1bf2-4d5e-a0c5-cd78817913b3" parentid="00000000-0000-0000-0000-000000000000" date-created="2010-01-09T23:16:25" date-modified="2010-01-09T23:16:25" approved="true" user-name="Mike Maskery" user-email="mikem@ece.ubc.ca" user-ip="66.46.103.18" user-url="">
+          <title type="text"><![CDATA[re: A Tag by any other name.]]></title>
+          <content type="text"><![CDATA[
+Perhaps tags are supposed to be searchable, while categories are supposed to be browseable.  Yes, you can search for categories, and you can browse tags, so on a macro-level they're more or less equivalent.  Categories also lend themselves well to sub-categories, while I've never heard of a sub-tag (although perhaps you could invent a hierarchical tagging structure)...]]></content>
+        </comment>
+        <comment id="915cd5f3-2b89-459b-a21f-38ea88d74ec3" parentid="687ce43a-1bf2-4d5e-a0c5-cd78817913b3" date-created="2010-01-12T03:55:57" date-modified="2010-01-12T03:55:57" approved="true" user-name="Chris Nicola" user-email="chnicola@gmail.com" user-ip="209.139.204.161" user-url="http://lucisferre.net/">
+          <title type="text"><![CDATA[re: A Tag by any other name.]]></title>
+          <content type="text"><![CDATA[Nested categories are definitely distinct from tags, the question is are they actually useful in the blogging context?  I don't think nested tags are a good idea, we can apply multiple tags in a simple and flexible way already, nested tags can't add to much to this.
+
+Relying on the dictionary definition, &quot;a division in a system of classification&quot; we can see categories as truly distinct from tags.  Categories should separate the things they classify, i.e., [i]belonging to one category should exclude belonging to any other category at the same level of hierarchy [/i](you could also belong to a subcategory of a category you belong too, but not of a category you don't).  In single-user blogging I don't see the value of being able to divide blog posts like this.
+
+Categories would make sense on a site like http://www.massively.com/ which blogs about every MMO out there.  WoW and AoC would definitely be two separate categories in this case.  However, that is a multi-blog and multi-author environment (with multiple domains too), quite a different context from a single-user blog.  If I ran a personal blog about MMO gaming then WoW and AoC would probably just be tags for me.]]></content>
+        </comment>
+      </comments>
+      <trackbacks />
+    </post>
+  </posts>
+</blog>

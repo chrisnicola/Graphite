@@ -151,7 +151,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphite.ApplicationServices\BlogMLServiceTests.cs" />
+    <Compile Include="Graphite.ApplicationServices\BlogMLImporterTests.cs" />
     <Compile Include="Graphite.ApplicationServices\Mappers\BlogMLMapperTests.cs" />
     <Compile Include="Graphite.ApplicationServices\SyndicationServiceTests.cs" />
     <Compile Include="Graphite.ApplicationServices\TestData.cs" />
@@ -189,6 +189,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BlogML.xml" />
     <Content Include="Hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

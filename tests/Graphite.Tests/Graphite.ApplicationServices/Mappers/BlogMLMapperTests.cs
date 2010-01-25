@@ -21,7 +21,7 @@ namespace Tests.Graphite.ApplicationServices.Mappers {
 		[SetUp]
 		public void Setup() {
 			TestData.Init();
-			_mlPost = new PostToBlogMlMapper().MapFrom(TestData.PublishedPost);
+			_mlPost = new PostToBlogMLMapper().MapFrom(TestData.PublishedPost);
 		}
 
 		[Test]
@@ -32,7 +32,7 @@ namespace Tests.Graphite.ApplicationServices.Mappers {
 			Assert.That(_mlPost.Approved == TestData.PublishedPost.Published, "Approved not mapped");
 			Assert.That(_mlPost.PostUrl == TestData.PublishedPost.Slug, "PostURL not mapped");
 			Assert.That(_mlPost.ID == TestData.PublishedPost.Id.ToString(), "Id not mapped");
-			Assert.That(_mlPost.Excerpt.Text == TestData.PublishedPost.Exerpt, "Exerpt not mapped");
+			Assert.That(_mlPost.Excerpt.Text == TestData.PublishedPost.Excerpt, "Excerpt not mapped");
 			Assert.That(_mlPost.Content.Text == TestData.PublishedPost.Content, "Content not mapped");
 		} 
 

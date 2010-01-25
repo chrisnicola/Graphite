@@ -23,7 +23,7 @@ namespace Graphite.Core {
 		public virtual User Author { get; set; }
     public virtual string Title { get; set; }
     public virtual string Content { get; set; }
-		public virtual string Exerpt { get; set; }
+		public virtual string Excerpt { get; set; }
 		public virtual DateTime DateCreated { get; set; }
 		public virtual DateTime DateModified { get; set; }
 		public virtual DateTime? DatePublished { get; set; }
