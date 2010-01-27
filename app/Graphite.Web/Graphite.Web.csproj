@@ -443,6 +443,7 @@
     </Content>
     <None Include="Scripts\ckeditor\.htaccess" />
     <None Include="Scripts\ckeditor\ckeditor.pack" />
+    <None Include="Views\Admin\BlogML\Show.spark" />
     <None Include="Views\Admin\Home\Index.spark" />
     <None Include="Views\Admin\Layouts\Application.spark" />
     <None Include="Views\Admin\Layouts\_navigation.spark" />

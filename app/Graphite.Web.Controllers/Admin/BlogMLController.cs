@@ -12,14 +12,14 @@ namespace Graphite.Web.Controllers.Admin {
 		private readonly IBlogImporter _importer;
 		public BlogMLController(IBlogImporter importer) { _importer = importer; }
 
-		public ActionResult Index() {
+		public ActionResult Show() {
 			return View();
 		}
 
 		public ActionResult Import() {
 			if (Request.Files["blogml"] != null)
 				_importer.Import(XmlReader.Create(Request.Files["blogml"].InputStream));
-			return this.RedirectToAction(x => x.Index());
+			return this.RedirectToAction(x => x.Show());
 		}
 	}
 

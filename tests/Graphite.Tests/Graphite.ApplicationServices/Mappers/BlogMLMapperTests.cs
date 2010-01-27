@@ -1,6 +1,6 @@
 using System;
 using BlogML.Xml;
-using Graphite.ApplicationServices.BlogML.Mappers;
+using Graphite.ApplicationServices.BlogML;
 using Graphite.Core;
 using NUnit.Framework;
 using SharpArch.Testing;

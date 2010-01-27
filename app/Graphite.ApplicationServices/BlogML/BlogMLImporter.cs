@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
 using BlogML.Xml;
-using Graphite.ApplicationServices.BlogML.Mappers;
 using Graphite.Core;
 
 namespace Graphite.ApplicationServices.BlogML
@@ -13,11 +9,11 @@ namespace Graphite.ApplicationServices.BlogML
 	{
 		private readonly IPostTasks _tasks;
 		private readonly IUserTasks _users;
-		private readonly IBlogMlToPostMapper _postMapper;
+		private readonly IBlogMLToPostMapper _postMapper;
 		private readonly IBlogMLToCommentMapper _commentMapper;
 		private readonly IList<User> _authors = new List<User>();
 
-		public BlogMLImporter(IPostTasks tasks, IUserTasks users, IBlogMlToPostMapper postMapper, IBlogMLToCommentMapper commentMapper) {
+		public BlogMLImporter(IPostTasks tasks, IUserTasks users, IBlogMLToPostMapper postMapper, IBlogMLToCommentMapper commentMapper) {
 			_tasks = tasks;
 			_users = users;
 			_postMapper = postMapper;

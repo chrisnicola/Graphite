@@ -28,6 +28,10 @@ namespace Graphite.Web.Controllers {
 				m.Resources<Admin.PostController>();
 				m.Resources<Admin.UserController>();
 				m.Resources<Admin.HomeController>();
+				m.Resource<Admin.BlogMLController>(r => {
+					r.AddMemberRoute<Admin.BlogMLController>(c => c.Import(), HttpVerbs.Post);
+					r.Except("new", "create", "edit", "update", "delete", "destroy");
+				});
 			});
 			return routes.Cast<Route>().ToArray();
 		}

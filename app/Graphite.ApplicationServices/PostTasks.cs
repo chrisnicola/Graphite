@@ -60,6 +60,7 @@ namespace Graphite.ApplicationServices
 		}
 
 		private IList<Tag> GetTagsFromString(string tagstring) {
+			if (string.IsNullOrEmpty(tagstring)) return new List<Tag>();
 			var taglist = tagstring.Split(new[] {' ', ',', ';'});
 			var tags = _tags.FindAll().Where(t => taglist.Contains(t.Name));
 			var newtags = taglist.Where(t => tags.All(tag => tag.Name != t)).Select(t => new Tag {Name = t});

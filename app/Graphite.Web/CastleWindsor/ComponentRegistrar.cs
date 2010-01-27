@@ -28,11 +28,15 @@ namespace Graphite.Web.CastleWindsor {
 			container.AddComponent<IViewActivatorFactory, WindsorViewActivator>();
 		}
 
-		private static void AddApplicationServicesTo(IWindsorContainer container) { container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices").WithService.FirstInterface()); }
+		private static void AddApplicationServicesTo(IWindsorContainer container) {
+			container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
+				.WithService.FirstNonGenericCoreInterface("Graphite.ApplicationServices"));
+		}
 
 		private static void AddCustomRepositoriesTo(IWindsorContainer container) {
 			container.Register(
-				AllTypes.Pick().FromAssemblyNamed("Graphite.Data").WithService.FirstNonGenericCoreInterface("Graphite.Data"));
+				AllTypes.Pick().FromAssemblyNamed("Graphite.Data")
+				.WithService.FirstNonGenericCoreInterface("Graphite.Data"));
 		}
 
 		private static void AddCustomMappersTo(IWindsorContainer container) {

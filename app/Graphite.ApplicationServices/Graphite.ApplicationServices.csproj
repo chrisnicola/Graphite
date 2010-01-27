@@ -78,7 +78,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BlogML\BlogMLImporter.cs" />
-    <Compile Include="BlogML\Mappers\PostMapper.cs" />
+    <Compile Include="BlogML\PostMapper.cs" />
     <Compile Include="ISyndicationService.cs" />
     <Compile Include="PostTasks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

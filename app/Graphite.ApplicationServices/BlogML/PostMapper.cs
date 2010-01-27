@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
@@ -6,7 +5,7 @@ using BlogML.Xml;
 using Graphite.Core;
 using Graphite.Core.MappingInterfaces;
 
-namespace Graphite.ApplicationServices.BlogML.Mappers {
+namespace Graphite.ApplicationServices.BlogML {
 	public interface IPostToBlogMLMapper : IMapper<Post, BlogMLPost> {}
 
 	public class PostToBlogMLMapper : GenericMapper<Post, BlogMLPost>, IPostToBlogMLMapper
@@ -33,7 +32,7 @@ namespace Graphite.ApplicationServices.BlogML.Mappers {
 		}
 	}
 
-	public class BlogMLToPostMapper : GenericMapper<BlogMLPost, PostImportDetails>, IBlogMlToPostMapper {
+	public class BlogMLToPostMapper : GenericMapper<BlogMLPost, PostImportDetails>, IBlogMLToPostMapper {
 		public BlogMLToPostMapper() {
 			Mapper.CreateMap<BlogMLPost, PostImportDetails>()
 				.ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
@@ -56,17 +55,17 @@ namespace Graphite.ApplicationServices.BlogML.Mappers {
 	public class BlogMLToCommentMapper : GenericMapper<BlogMLComment, Comment>, IBlogMLToCommentMapper {
 		public BlogMLToCommentMapper() {
 			Mapper.CreateMap<BlogMLComment, Comment>()
-			.ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
-			.ForMember(m => m.EmailAddress, o => o.MapFrom(s => s.UserEMail))
-			.ForMember(m => m.WebAddress, o => o.MapFrom(s => s.UserUrl))
-			.ForMember(m => m.Author, o => o.MapFrom(s => s.UserName));
+				.ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
+				.ForMember(m => m.EmailAddress, o => o.MapFrom(s => s.UserEMail))
+				.ForMember(m => m.WebAddress, o => o.MapFrom(s => s.UserUrl))
+				.ForMember(m => m.Author, o => o.MapFrom(s => s.UserName));
 
 		}
 	}
 
 	public interface IBlogMLToCommentMapper : IMapper<BlogMLComment, Comment> { }
 
-	public interface IBlogMlToPostMapper : IMapper<BlogMLPost, PostImportDetails> {
+	public interface IBlogMLToPostMapper : IMapper<BlogMLPost, PostImportDetails> {
 		PostImportDetails MapFrom(BlogMLPost post, IEnumerable<BlogMLCategory> categories);
 	}
 }
