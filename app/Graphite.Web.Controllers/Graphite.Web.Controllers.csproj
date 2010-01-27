@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="ActionFilters\AutoMapAttribute.cs" />
     <Compile Include="ActionResults\RssResult.cs" />
+    <Compile Include="Admin\BlogMLController.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="Mappers\HomeIndexMapper.cs" />

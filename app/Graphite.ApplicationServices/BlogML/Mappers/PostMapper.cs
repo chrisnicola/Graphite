@@ -40,7 +40,33 @@ namespace Graphite.ApplicationServices.BlogML.Mappers {
 				.ForMember(m => m.Excerpt, o => o.MapFrom(s => s.Content.Text))
 				.ForMember(m => m.AuthorEmail, o => o.MapFrom(s => s.Authors.Count > 1 ? s.Authors[0].Ref : ""));
 		}
+
+		public PostImportDetails MapFrom(BlogMLPost blogMLPost, IEnumerable<BlogMLCategory> categories) {
+			var post = MapFrom(blogMLPost);
+			post.Tags = GetTags(blogMLPost, categories);
+			return post;
+		}
+
+		private static string GetTags(BlogMLPost blogMLPost, IEnumerable<BlogMLCategory> categories) {
+			return categories.Where(c => blogMLPost.Categories.Cast<BlogMLCategoryReference>().Any(r => r.Ref == c.ID)).Aggregate("",
+				(a, b) => a + "," + b.Title, a => a.TrimStart(','));
+		}
 	}
 
-	public interface IBlogMlToPostMapper : IMapper<BlogMLPost, PostImportDetails> { }
+	public class BlogMLToCommentMapper : GenericMapper<BlogMLComment, Comment>, IBlogMLToCommentMapper {
+		public BlogMLToCommentMapper() {
+			Mapper.CreateMap<BlogMLComment, Comment>()
+			.ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
+			.ForMember(m => m.EmailAddress, o => o.MapFrom(s => s.UserEMail))
+			.ForMember(m => m.WebAddress, o => o.MapFrom(s => s.UserUrl))
+			.ForMember(m => m.Author, o => o.MapFrom(s => s.UserName));
+
+		}
+	}
+
+	public interface IBlogMLToCommentMapper : IMapper<BlogMLComment, Comment> { }
+
+	public interface IBlogMlToPostMapper : IMapper<BlogMLPost, PostImportDetails> {
+		PostImportDetails MapFrom(BlogMLPost post, IEnumerable<BlogMLCategory> categories);
+	}
 }
