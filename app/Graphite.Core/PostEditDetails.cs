@@ -9,6 +9,8 @@ namespace Graphite.Core {
 		public Guid Id { get; set; }
 	}
 
-	public class PostCreateDetails : PostDetailsBase { }
+	public class PostCreateDetails : PostDetailsBase {
+		
+	}
 	
 }

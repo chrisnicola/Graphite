@@ -37,9 +37,13 @@ namespace Graphite.ApplicationServices
 		public Post Get(Guid id) { return _posts.Get(id); }
 		
 		public Post SaveNewPost(PostCreateDetails details) {
+			return SaveNewPostForAuthor(details, _users.Get(details.AuthorId));
+		}
+
+		private Post SaveNewPostForAuthor(PostDetailsBase details, User author) {
 			var post = new Post {
 				Title = details.Title,
-				Author = _users.Get(details.AuthorId),
+				Author = author,
 				Content = details.Content,
 				AllowComments = details.AllowComments,
 				Published = details.Published,
@@ -102,6 +106,10 @@ namespace Graphite.ApplicationServices
 		public IEnumerable<Post> GetRecentPublishedPosts(int i) {
 			return _posts.GetRecentPublishedPosts(i);
 		}
+
+		public Post ImportPost(PostImportDetails details) {
+			return SaveNewPostForAuthor(details, _users.GetUserByEmail(details.AuthorEmail));
+		}
 	}
 
 	public interface IPostTasks {
@@ -112,5 +120,6 @@ namespace Graphite.ApplicationServices
 		Post UpdatePost(PostEditDetails post);
 		void Delete(Guid id);
 		IEnumerable<Post> GetRecentPublishedPosts(int i);
+		Post ImportPost(PostImportDetails postDetails);
 	}
 }
