@@ -4,22 +4,9 @@ using System.Linq;
 using Graphite.Core;
 using Graphite.Data.Repositories;
 
-namespace Graphite.ApplicationServices
-{
-	public interface ITagTasks {
-		Tag GetTagByName(string tagname);
-	}
+namespace Graphite.ApplicationServices {
 
-	public class TagTasks : ITagTasks {
-		private readonly ITagRepository _tags;
-		public TagTasks(ITagRepository tags) { _tags = tags; }
-
-		public Tag GetTagByName(string tagname) {
-			return _tags.FindOne(t => t.Name == tagname);
-		}
-	}
-	public class PostTasks : IPostTasks 
-	{
+	public class PostTasks : IPostTasks {
 		private readonly IPostRepository _posts;
 		private readonly IUserRepository _users;
 		private readonly ITagRepository _tags;
@@ -31,14 +18,41 @@ namespace Graphite.ApplicationServices
 		}
 
 		public Post GetWithComments(Guid id) { return _posts.GetWithComments(id); }
-		
+
 		public IEnumerable<Post> GetAll() { return _posts.FindAll(); }
-		
+
 		public Post Get(Guid id) { return _posts.Get(id); }
-		
+
 		public Post SaveNewPost(PostCreateDetails details) {
-			var post = CreateNewPostFromDetails(details);
-			post.Author = _users.Get(details.AuthorId);
+			Post post = CreateNewPostFromDetails(details);
+			post.Author = _users.GetUser(details.AuthorUserName);
+			return _posts.Save(post);
+		}
+
+		public Post UpdatePost(PostEditDetails details) {
+			Post post = _posts.Get(details.Id);
+			post.Title = details.Title;
+			post.ModifiedBy = _users.GetUser(details.AuthorUserName);
+			post.Content = details.Content;
+			post.AllowComments = details.AllowComments;
+			post.DateModified = DateTime.Now;
+			post.SetSlugForPost(details.Slug);
+			post.DatePublished = details.DatePublished;
+			post.Published = post.Published;
+			UpdateTagsForPost(post, details.Tags);
+			EnsurePostSlugIsUnique(post);
+			return post;
+		}
+
+		public void Delete(Guid id) { _posts.Delete(id); }
+
+		public IEnumerable<Post> GetRecentPublishedPosts(int i) { return _posts.GetRecentPublishedPosts(i); }
+
+		public Post ImportPost(PostImportDetails details) {
+			Post post = CreateNewPostFromDetails(details);
+			post.Author = _users.GetUser(details.AuthorUserName);
+			post.DateCreated = details.DateCreated;
+			post.DateModified = details.DateModified;
 			return _posts.Save(post);
 		}
 
@@ -53,8 +67,7 @@ namespace Graphite.ApplicationServices
 				DatePublished = details.DatePublished,
 				Tags = GetTagsFromString(details.Tags)
 			};
-			if (details.Published)
-				post.PublishOn(details.DatePublished);
+			if (details.Published) post.PublishOn(details.DatePublished);
 			post.SetSlugForPost(details.Slug);
 			EnsurePostSlugIsUnique(post);
 			return post;
@@ -62,60 +75,26 @@ namespace Graphite.ApplicationServices
 
 		private IList<Tag> GetTagsFromString(string tagstring) {
 			if (string.IsNullOrEmpty(tagstring)) return new List<Tag>();
-			var taglist = tagstring.Split(new[] {' ', ',', ';'});
-			var tags = _tags.FindAll().Where(t => taglist.Contains(t.Name));
-			var newtags = taglist.Where(t => tags.All(tag => tag.Name != t)).Select(t => new Tag {Name = t});
+			string[] taglist = tagstring.Split(new[] {' ', ',', ';'});
+			IEnumerable<Tag> tags = _tags.FindAll().Where(t => taglist.Contains(t.Name));
+			IEnumerable<Tag> newtags = taglist.Where(t => tags.All(tag => tag.Name != t)).Select(t => new Tag {Name = t});
 			return tags.Union(newtags).ToList();
 		}
 
 		private void EnsurePostSlugIsUnique(Post post) {
-			var slug = post.Slug;
+			string slug = post.Slug;
 			int n = 1;
-			var posts = _posts.FindAll().Where(p => p.Slug == post.Slug).ToList();
+			List<Post> posts = _posts.FindAll().Where(p => p.Slug == post.Slug).ToList();
 			while (posts.Where(p => p.Slug == post.Slug && p.Id != post.Id).Count() > 0) {
 				post.Slug = slug + n;
 				n++;
 			}
 		}
 
-		public Post UpdatePost(PostEditDetails details) {
-			var post = _posts.Get(details.Id);
-			post.Title = details.Title;
-			post.Author = _users.Get(details.AuthorId);
-			post.Content = details.Content;
-			post.AllowComments = details.AllowComments;
-			post.DateCreated = DateTime.Now;
-			post.DateModified = DateTime.Now;
-			post.SetSlugForPost(details.Slug);
-			UpdateTagsForPost(post, details.Tags);
-			EnsurePostSlugIsUnique(post);
-			if (details.Published)
-				post.PublishOn(details.DatePublished);
-			return post;
-		}
-
 		private void UpdateTagsForPost(Post post, string tagstring) {
-			var taglist = GetTagsFromString(tagstring);
-			foreach (var tag in post.Tags)
-				if (!taglist.Contains(tag)) post.Tags.Remove(tag);
-			foreach (var tag in taglist)
-				if (!post.Tags.Contains(tag)) post.Tags.Add(tag);
-		}
-
-		public void Delete(Guid id) { 
-			_posts.Delete(id);
-		}
-
-		public IEnumerable<Post> GetRecentPublishedPosts(int i) {
-			return _posts.GetRecentPublishedPosts(i);
-		}
-
-		public Post ImportPost(PostImportDetails details) {
-			var post = CreateNewPostFromDetails(details);
-			post.Author = _users.GetUserByEmail(details.AuthorEmail);
-			post.DateCreated = details.DateCreated;
-			post.DateModified = details.DateModified;
-			return _posts.Save(post);
+			IList<Tag> taglist = GetTagsFromString(tagstring);
+			foreach (Tag tag in post.Tags) if (!taglist.Contains(tag)) post.Tags.Remove(tag);
+			foreach (Tag tag in taglist) if (!post.Tags.Contains(tag)) post.Tags.Add(tag);
 		}
 	}
 

@@ -2,7 +2,6 @@
 
 namespace Graphite.Core {
 	public class PostImportDetails  : PostDetailsBase {
-		public string AuthorEmail { get; set; }
 		public DateTime DateCreated { get; set; }
 		public DateTime DateModified { get; set; }
 	}

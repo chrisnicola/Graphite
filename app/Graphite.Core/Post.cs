@@ -28,6 +28,7 @@ namespace Graphite.Core {
 		public virtual string Excerpt { get; set; }
 		public virtual DateTime DateCreated { get; set; }
 		public virtual DateTime DateModified { get; set; }
+		public virtual User ModifiedBy { get; set; }
 		public virtual DateTime? DatePublished { get; set; }
     public virtual bool AllowComments { get; set; }
     public virtual bool Published { get; set; }

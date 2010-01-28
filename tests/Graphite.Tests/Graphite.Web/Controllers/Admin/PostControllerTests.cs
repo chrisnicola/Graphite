@@ -41,7 +41,7 @@ namespace Tests.Graphite.Web.Controllers.Admin
 
     [Test]
     public void CreatesANewPostWhenNewIsCalled() {
-      _controller.New(null).AssertViewRendered().ViewData.Model.ShouldBe<PostNewModel>("ViewData.Model is not a Post");
+      _controller.New(new PostNewModel()).AssertViewRendered().ViewData.Model.ShouldBe<PostNewModel>("ViewData.Model is not a PostNewModel");
     }
 
     [Test]

@@ -38,7 +38,7 @@ namespace Graphite.ApplicationServices.BlogML {
 		public BlogMLToPostMapper() {
 			Mapper.CreateMap<BlogMLPost, PostImportDetails>().ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
 				.ForMember(m => m.Excerpt, o => o.MapFrom(s => s.Content.Text))
-				.ForMember(m => m.AuthorEmail,o => o.MapFrom(s => s.Authors.Count > 1 ? s.Authors[0].Ref : ""))
+				.ForMember(m => m.AuthorUserName,o => o.MapFrom(s => s.Authors.Count > 1 ? s.Authors[0].Ref : ""))
 				.ForMember(m => m.DatePublished, o => o.MapFrom(s => s.DateCreated))
 				.ForMember(m => m.Published, o => o.MapFrom(s => s.Approved));
 		}

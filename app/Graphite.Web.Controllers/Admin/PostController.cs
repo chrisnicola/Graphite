@@ -33,6 +33,7 @@ namespace Graphite.Web.Controllers.Admin {
 		[Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
 		public ActionResult Create(PostNewModel post) {
 			try {
+				post.AuthorUserName = _userTasks.GetCurrentUserName();
 				var newPost = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post));
 				return this.RedirectToAction(x => x.Show(newPost.Slug));
 			} catch {
@@ -46,6 +47,7 @@ namespace Graphite.Web.Controllers.Admin {
 		[Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
 		public ActionResult Update(PostEditModel post) {
 			try {
+				post.AuthorUserName = _userTasks.GetCurrentUserName();
 				PostTasks.UpdatePost(_postEditMapper.MapFrom(post));
 				return this.RedirectToAction(x => x.Index());
 			} catch (Exception) {
