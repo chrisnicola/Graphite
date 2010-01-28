@@ -5,6 +5,7 @@ namespace Graphite.Web.Controllers.ViewModels {
 	public class PostItemViewModel {
 		public Guid Id { get; set;}
 		public string Title { get; set; }
+		public string Slug { get; set; }
 		public string AuthorRealName { get; set; }
 		public DateTime DateCreated { get; set; }
 		public DateTime? DatePublished { get; set; }

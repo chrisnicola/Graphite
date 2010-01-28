@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Graphite.ApplicationServices;
 using Graphite.Core;
+using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
@@ -10,23 +11,30 @@ using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Admin {
 	public class PostController : PostControllerBase {
+		private readonly IUserTasks _userTasks;
+		private readonly IPostRepository _posts;
 		private readonly IPostEditDetailsMapper _postEditMapper;
 		private readonly IPostCreateDetailsMapper _postCreateDetailsMapper;
 
-		public PostController(IPostTasks postTasks, IPostEditDetailsMapper postEditMapper, IPostCreateDetailsMapper postCreateDetailsMapper)
-			: base(postTasks) {
+		public PostController(IPostTasks postTasks, IUserTasks userTasks, IPostRepository posts, IPostEditDetailsMapper postEditMapper, IPostCreateDetailsMapper postCreateDetailsMapper)
+			: base(postTasks, posts) {
+			_userTasks = userTasks;
+			_posts = posts;
 			_postEditMapper = postEditMapper;
 			_postCreateDetailsMapper = postCreateDetailsMapper;
 		}
 
-		[Authorize, AutoMap(typeof (IPostNewModelMapper))]
-		public ActionResult New(PostNewModel post) { return View(post ?? new PostNewModel()); }
+		[Authorize]
+		public ActionResult New(PostNewModel post) {
+			post.AuthorUserName = _userTasks.GetCurrentUserName();
+			return View(post);
+		}
 
 		[Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
 		public ActionResult Create(PostNewModel post) {
 			try {
-				Guid id = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post)).Id;
-				return this.RedirectToAction(x => x.Show(id));
+				var newPost = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post));
+				return this.RedirectToAction(x => x.Show(newPost.Slug));
 			} catch {
 				return this.RedirectToAction(x => x.New(post));
 			}

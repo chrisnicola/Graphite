@@ -11,6 +11,7 @@
 		});
 	</script>
 </content>
+	<div>Author: ${H(Model.AuthorUserName)}</div>
 	<div>
 		!{this.TextBox(m => m.Title).Label("Title: ")}
 	</div>
@@ -22,11 +23,11 @@
 	</div>
 	<div>
 		!{this.TextBox(m => m.DatePublished)
-            .Value(Model.DatePublished ?? DateTime.Today)
-              .Format("{0:dd-MMMM-yyyy}")
-                .Label("Publish Date: ")
-                  .Class("datepicker")
-                    .Attr("readonly","readonly")}
+						.Value(Model.DatePublished ?? DateTime.Today)
+							.Format("{0:dd-MMMM-yyyy}")
+								.Label("Publish Date: ")
+									.Class("datepicker")
+										.Attr("readonly", "readonly")}
 	</div>
 	<div>
 		!{this.CheckBox(m => m.AllowComments).Label("Allow Comments: ")}

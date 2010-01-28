@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Graphite.Core;
 
 namespace Graphite.Web.Controllers.ViewModels

@@ -25,7 +25,7 @@ namespace Graphite.Web.Controllers {
 			routes.MapRoute(null, "admin/", new { controller = "Home", action = "Index"});
 			map.Namespace("admin", m =>
 			{
-				m.Resources<Admin.PostController>();
+				m.Resources<Admin.PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
 				m.Resources<Admin.UserController>();
 				m.Resources<Admin.HomeController>();
 				m.Resource<Admin.BlogMLController>(r => {
@@ -43,7 +43,7 @@ namespace Graphite.Web.Controllers {
 			routes.MapRoute(null, "", new { controller = "Home", action = "Index" });
 			map.Namespace("", m =>
 			{
-				m.Resources<PostController>();
+				m.Resources<PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
 				m.Resources<TagController>(r => r.Except("index", "new", "create", "edit", "update", "delete", "destroy"));
 				m.Resources<HomeController>();
 				m.Resource<LoginController>(r => {

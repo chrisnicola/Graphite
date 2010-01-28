@@ -19,6 +19,7 @@ namespace Graphite.ApplicationServices
 		User AuthenticateUser(string username, string password);
 		User GetUser(Guid id);
 		User GetUserByEmail(string email);
+		string GetCurrentUserName();
 		void RemoveUser(Guid id);
 		bool IsLoggedIn();
 		void SignOut();
@@ -79,6 +80,10 @@ namespace Graphite.ApplicationServices
 
 		public User GetUserByEmail(string email) {
 			return _users.GetUserByEmail(email);
+		}
+
+		public string GetCurrentUserName() {
+			return HttpContext.Current.User.Identity.Name;
 		}
 
 		public void RemoveUser(Guid id) {

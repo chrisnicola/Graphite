@@ -1,6 +1,7 @@
 ﻿using System;
 using Graphite.ApplicationServices;
 using Graphite.Core;
+using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.Admin;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
@@ -18,20 +19,24 @@ namespace Tests.Graphite.Web.Controllers.Admin
     private PostController _controller;
     private IPostEditDetailsMapper _postEditDetailsMapper;
   	private IPostCreateDetailsMapper _postCreateDetailsMapper;
+  	private IPostRepository _postRepository;
+  	private IUserTasks _userTasks;
 
   	[SetUp]
     public void SetUp() {
       _postTasks = MockRepository.GenerateMock<IPostTasks>();
+			_userTasks = MockRepository.GenerateMock<IUserTasks>();
       _postEditDetailsMapper = MockRepository.GenerateMock<IPostEditDetailsMapper>();
 			_postCreateDetailsMapper = MockRepository.GenerateMock<IPostCreateDetailsMapper>();
-      _controller = new PostController(_postTasks, _postEditDetailsMapper, _postCreateDetailsMapper);
+  		_postRepository = MockRepository.GenerateMock<IPostRepository>();
+      _controller = new PostController(_postTasks, _userTasks, _postRepository, _postEditDetailsMapper, _postCreateDetailsMapper);
     }
 
     [Test]
     public void CanViewAnIndividualPostById() {
       var post = new Post();
-      _postTasks.Stub(m => m.GetWithComments(new Guid())).IgnoreArguments().Return(post);
-      _controller.Show(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
+      _postRepository.Stub(m => m.FindOne(Arg.Is<Func<Post, bool>>(null))).IgnoreArguments().Return(post);
+      _controller.Id(new Guid()).AssertViewRendered().ViewData.Model.ShouldBe(post);
     }
 
     [Test]
