@@ -1,4 +1,5 @@
-﻿using FluentNHibernate.Conventions;
+﻿using System;
+using FluentNHibernate.Conventions;
 using FluentNHibernate.Mapping;
 
 namespace Graphite.Data.NHibernateMaps.Conventions

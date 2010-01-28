@@ -6,6 +6,7 @@ using Graphite.ApplicationServices.BlogML;
 using MvcContrib.ActionResults;
 using Microsoft.Web.Mvc;
 using MvcContrib;
+using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Admin {
 	public class BlogMLController : Controller {
@@ -15,7 +16,8 @@ namespace Graphite.Web.Controllers.Admin {
 		public ActionResult Show() {
 			return View();
 		}
-
+		
+		[Transaction]
 		public ActionResult Import() {
 			if (Request.Files["blogml"] != null)
 				_importer.Import(XmlReader.Create(Request.Files["blogml"].InputStream));

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using NHibernate.Validator.Constraints;
+using Graphite.Core.Attributes;
 using SharpArch.Core.DomainModel;
 
 #endregion
@@ -22,7 +22,9 @@ namespace Graphite.Core {
     }
 		public virtual User Author { get; set; }
     public virtual string Title { get; set; }
+		[TextField]
     public virtual string Content { get; set; }
+		[TextField]
 		public virtual string Excerpt { get; set; }
 		public virtual DateTime DateCreated { get; set; }
 		public virtual DateTime DateModified { get; set; }
@@ -41,10 +43,8 @@ namespace Graphite.Core {
         Comments.Add(comment);
     }
 
-  	public virtual void SetSlugForPost(string slug) { 
-			if (Slug == slug) return;
-			if (string.IsNullOrEmpty(slug)) CreateSlugFromTitle();
-			else Slug = slug;
+  	public virtual void SetSlugForPost(string slug) {
+			Slug = CreateValidSlugString(slug ?? Slug ?? Title);
 		}
 
 		public virtual void PublishOn(DateTime? datePublished) {
@@ -60,10 +60,12 @@ namespace Graphite.Core {
 			return Tags.Select(t => t.Name);
 		}
 
-  	private void CreateSlugFromTitle() {
-  		var slug = Regex.Replace(Title, @"/[^\w ]+/g", "");
-			slug = Regex.Replace(slug, @"/ +/g", "-");
-  		Slug = slug;
+  	private static string CreateValidSlugString(string slug) {
+  		slug = slug.ToLower();
+			slug = Regex.Replace(slug, @"[^a-z0-9\s-]", "");
+			slug = Regex.Replace(slug, @"\s+", " ");
+  		slug = Regex.Replace(slug, @"\s", "-");
+			return slug;
 		}
   }
 }

@@ -14,6 +14,8 @@ namespace Graphite.ApplicationServices.BlogML {
 			Mapper.CreateMap<Post, BlogMLPost>()
 				.ForMember(m => m.Content,o => o.MapFrom(s => BlogMLContent.Create(s.Content, false)))
 				.ForMember(m => m.Excerpt,o => o.MapFrom(s => BlogMLContent.Create(s.Excerpt, false)))
+				.ForMember(m => m.Approved, o=> o.MapFrom(s => s.Published))
+				.ForMember(m => m.DateCreated, o => o.MapFrom(s => s.DatePublished ?? s.DateCreated))
 				.ForMember(m => m.ID,o => o.MapFrom(s => s.Id.ToString())).ForMember(m => m.PostUrl, o => o.MapFrom(s => s.Slug));
 			Mapper.CreateMap<Comment, BlogMLComment>()
 				.ForMember(m => m.Content,o => o.MapFrom(s => BlogMLContent.Create(s.Content, false)))
@@ -34,10 +36,11 @@ namespace Graphite.ApplicationServices.BlogML {
 
 	public class BlogMLToPostMapper : GenericMapper<BlogMLPost, PostImportDetails>, IBlogMLToPostMapper {
 		public BlogMLToPostMapper() {
-			Mapper.CreateMap<BlogMLPost, PostImportDetails>()
-				.ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
+			Mapper.CreateMap<BlogMLPost, PostImportDetails>().ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
 				.ForMember(m => m.Excerpt, o => o.MapFrom(s => s.Content.Text))
-				.ForMember(m => m.AuthorEmail, o => o.MapFrom(s => s.Authors.Count > 1 ? s.Authors[0].Ref : ""));
+				.ForMember(m => m.AuthorEmail,o => o.MapFrom(s => s.Authors.Count > 1 ? s.Authors[0].Ref : ""))
+				.ForMember(m => m.DatePublished, o => o.MapFrom(s => s.DateCreated))
+				.ForMember(m => m.Published, o => o.MapFrom(s => s.Approved));
 		}
 
 		public PostImportDetails MapFrom(BlogMLPost blogMLPost, IEnumerable<BlogMLCategory> categories) {
@@ -55,11 +58,11 @@ namespace Graphite.ApplicationServices.BlogML {
 	public class BlogMLToCommentMapper : GenericMapper<BlogMLComment, Comment>, IBlogMLToCommentMapper {
 		public BlogMLToCommentMapper() {
 			Mapper.CreateMap<BlogMLComment, Comment>()
+				.ForMember(m => m.Id, o => o.Ignore())
 				.ForMember(m => m.Content, o => o.MapFrom(s => s.Content.Text))
 				.ForMember(m => m.EmailAddress, o => o.MapFrom(s => s.UserEMail))
 				.ForMember(m => m.WebAddress, o => o.MapFrom(s => s.UserUrl))
 				.ForMember(m => m.Author, o => o.MapFrom(s => s.UserName));
-
 		}
 	}
 

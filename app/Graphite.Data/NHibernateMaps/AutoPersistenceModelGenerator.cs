@@ -50,6 +50,7 @@ namespace Graphite.Data.NHibernateMaps
                 c.Add<Graphite.Data.NHibernateMaps.Conventions.PrimaryKeyConvention>();
                 c.Add<Graphite.Data.NHibernateMaps.Conventions.ReferenceConvention>();
                 c.Add<Graphite.Data.NHibernateMaps.Conventions.TableNameConvention>();
+								c.Add<Graphite.Data.NHibernateMaps.Conventions.TextFieldConvention>();
             };
         }
 

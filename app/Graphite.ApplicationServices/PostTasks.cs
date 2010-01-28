@@ -70,7 +70,8 @@ namespace Graphite.ApplicationServices
 		private void EnsurePostSlugIsUnique(Post post) {
 			var slug = post.Slug;
 			int n = 1;
-			while (_posts.FindAll(p => p.Slug == post.Slug && p.Id != post.Id).Count() > 0) {
+			var posts = _posts.FindAll().Where(p => p.Slug == post.Slug).ToList();
+			while (posts.Where(p => p.Slug == post.Slug && p.Id != post.Id).Count() > 0) {
 				post.Slug = slug + n;
 				n++;
 			}

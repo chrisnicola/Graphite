@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\TextFieldAttribute.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="CreateUserDetails.cs" />
     <Compile Include="EditUserDetails.cs" />

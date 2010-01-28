@@ -51,6 +51,13 @@ namespace Tests.Graphite.Data.NHibernateMaps {
       new SchemaExport(configuration).Execute(true, false, false, session.Connection, null);
     }
 
+		[Test,Ignore]
+		public void UpdateDatabaseSchema()
+		{
+			ISession session = NHibernateSession.GetDefaultSessionFactory().OpenSession();
+			new SchemaUpdate(configuration).Execute(true, true);
+		}
+
     [Test,Ignore]
     public void OutputMappingsToXML() {
       var mappings = new AutoPersistenceModelGenerator().Generate();

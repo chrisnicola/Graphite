@@ -94,6 +94,7 @@
     <Compile Include="NHibernateMaps\Conventions\PrimaryKeyConvention.cs" />
     <Compile Include="NHibernateMaps\Conventions\ReferenceConvention.cs" />
     <Compile Include="NHibernateMaps\Conventions\TableNameConvention.cs" />
+    <Compile Include="NHibernateMaps\Conventions\TextFieldConvention.cs" />
     <Compile Include="Repositories\ILinqRepository.cs" />
     <Compile Include="Repositories\LinqRepository.cs" />
     <Compile Include="Repositories\PostRepository.cs" />

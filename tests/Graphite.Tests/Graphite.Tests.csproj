@@ -155,6 +155,7 @@
     <Compile Include="Graphite.ApplicationServices\Mappers\BlogMLMapperTests.cs" />
     <Compile Include="Graphite.ApplicationServices\SyndicationServiceTests.cs" />
     <Compile Include="Graphite.ApplicationServices\TestData.cs" />
+    <Compile Include="Graphite.Core\PostTests.cs" />
     <Compile Include="Graphite.Data\NHibernateMaps\CRUDTests.cs" />
     <Compile Include="Graphite.Web\Controllers\Admin\PostControllerTests.cs" />
     <Compile Include="Graphite.Web\Controllers\HomeControllerTests.cs" />
@@ -193,9 +194,6 @@
     <Content Include="Hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Graphite.Core\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
