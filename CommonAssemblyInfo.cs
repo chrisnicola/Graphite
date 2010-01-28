@@ -1,8 +1,8 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyCompany("Your Company")]
-[assembly: AssemblyCopyright("Copyright © Your Company 2009")]
+[assembly: AssemblyCompany("Chris Nicola")]
+[assembly: AssemblyCopyright("Copyright © Chris Nicola 2010")]
 [assembly: AssemblyConfiguration("debug")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
