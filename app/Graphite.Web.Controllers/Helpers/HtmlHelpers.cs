@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web;
 using Microsoft.Web.Mvc;
 using MvcContrib.FluentHtml;
 using MvcContrib.FluentHtml.Expressions;
@@ -11,8 +12,9 @@ namespace Graphite.Web.Controllers.Helpers {
 		public static string GetLinksForTags<TViewModel>(this IViewModelContainer<TViewModel> view, IEnumerable<string> tags)
 			where TViewModel : class {
 			if (tags.Count() == 0) return "";
+
 			string links =
-				tags.Select(t => "<a href='/tag/"+ t + "'>"+t+"</a>").Aggregate((t1, t2) => t1 + " " + t2);
+				tags.Select(t => "<a href='/tag/"+  HttpUtility.UrlEncode(t) + "'>"+t+"</a>").Aggregate((t1, t2) => t1 + " " + t2);
 			return links;
 		}
 
