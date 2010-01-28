@@ -7,36 +7,36 @@ using NUnit.Framework;
 using SharpArch.Data.NHibernate;
 using SharpArch.Testing.NHibernate;
 
-namespace Tests.Graphite.Data.NHibernateMaps {
-  [TestFixture]
-  public class CRUDTests {
-    [SetUp]
-    public virtual void SetUp() {
-      string[] mappingAssemblies = RepositoryTestsHelper.GetMappingAssemblies();
-      Configuration cfg = NHibernateSession.Init(new SimpleSessionStorage(), mappingAssemblies,
-        new AutoPersistenceModelGenerator().Generate());
-      _session = GetSession();
-      new SchemaExport(cfg).Execute(true, true, false, _session.Connection, null);
-    }
+namespace Tests.Graphite.Data.NHibernateMaps{
+	[TestFixture]
+	public class CRUDTests{
+		[SetUp]
+		public virtual void SetUp() {
+			string[] mappingAssemblies = RepositoryTestsHelper.GetMappingAssemblies();
+			Configuration cfg = NHibernateSession.Init(new SimpleSessionStorage(), mappingAssemblies,
+			                                           new AutoPersistenceModelGenerator().Generate());
+			_session = GetSession();
+			new SchemaExport(cfg).Execute(true, true, false, _session.Connection, null);
+		}
 
-    [TearDown]
-    public virtual void TearDown() {
-      NHibernateSession.CloseAllSessions();
-      NHibernateSession.Reset();
-    }
+		[TearDown]
+		public virtual void TearDown() {
+			NHibernateSession.CloseAllSessions();
+			NHibernateSession.Reset();
+		}
 
-    private ISession _session;
+		ISession _session;
 
-    private ISession GetSession() { return NHibernateSession.GetDefaultSessionFactory().OpenSession(); }
+		ISession GetSession() { return NHibernateSession.GetDefaultSessionFactory().OpenSession(); }
 
-    [Test]
-    public virtual void CanSaveAndDeletePostWithComments() {
-      var post = new Post();
-      post.AddComment(new Comment());
-      _session.Save(post);
-      _session.Flush();
-      _session.Delete(post);
-      _session.Flush();
-    }
-  }
+		[Test]
+		public virtual void CanSaveAndDeletePostWithComments() {
+			var post = new Post();
+			post.AddComment(new Comment());
+			_session.Save(post);
+			_session.Flush();
+			_session.Delete(post);
+			_session.Flush();
+		}
+	}
 }

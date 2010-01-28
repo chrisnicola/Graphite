@@ -5,11 +5,12 @@ using Graphite.Core;
 using Graphite.Core.MappingInterfaces;
 using Graphite.Web.Controllers.ViewModels;
 
-namespace Graphite.Web.Controllers.Mappers {
+namespace Graphite.Web.Controllers.Mappers{
 	public interface IHomeIndexMapper : IMapper<IEnumerable<Post>, HomeIndexViewModel> {}
-	public class HomeIndexMapper : IHomeIndexMapper {
-		private readonly IUserTasks _userTasks;
-		private readonly IMapper<Post, PostShowViewModel> _mapper;
+
+	public class HomeIndexMapper : IHomeIndexMapper{
+		readonly IUserTasks _userTasks;
+		readonly IMapper<Post, PostShowViewModel> _mapper;
 
 		public HomeIndexMapper(IUserTasks userTasks, IMapper<Post, PostShowViewModel> mapper) {
 			_userTasks = userTasks;
@@ -18,7 +19,7 @@ namespace Graphite.Web.Controllers.Mappers {
 
 		public HomeIndexViewModel MapFrom(IEnumerable<Post> source) {
 			return new HomeIndexViewModel
-			{IsAuthenticated = _userTasks.IsLoggedIn(), Posts = source.Select(p => _mapper.MapFrom(p))};
+			       {IsAuthenticated = _userTasks.IsLoggedIn(), Posts = source.Select(p => _mapper.MapFrom(p))};
 		}
 
 		public object MapFrom(object source) { return MapFrom(source as IEnumerable<Post>); }

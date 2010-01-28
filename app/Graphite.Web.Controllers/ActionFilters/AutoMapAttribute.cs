@@ -1,24 +1,21 @@
 using System;
 using System.Web.Mvc;
 using Graphite.Core.MappingInterfaces;
-using Graphite.Web.Controllers.Mappers;
 using Microsoft.Practices.ServiceLocation;
 
-namespace Graphite.Web.Controllers.ActionFilters {
+namespace Graphite.Web.Controllers.ActionFilters{
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
-	public class AutoMapAttribute : ActionFilterAttribute {
-		private readonly Type _sourceType;
-		private readonly Type _destType;
-		private readonly Type _mapperType;
+	public class AutoMapAttribute : ActionFilterAttribute{
+		readonly Type _sourceType;
+		readonly Type _destType;
+		readonly Type _mapperType;
 
 		public AutoMapAttribute(Type sourceType, Type destType) {
 			_sourceType = sourceType;
 			_destType = destType;
 		}
 
-		public AutoMapAttribute(Type mapperType) {
-			_mapperType = mapperType;
-		}
+		public AutoMapAttribute(Type mapperType) { _mapperType = mapperType; }
 
 		public Type SourceType { get { return _sourceType; } }
 
@@ -32,15 +29,15 @@ namespace Graphite.Web.Controllers.ActionFilters {
 			filter.OnActionExecuted(filterContext);
 		}
 
-		private static IMapper GetDefaultMapperFor(Type sourceType, Type destType) {
+		static IMapper GetDefaultMapperFor(Type sourceType, Type destType) {
 			Type genericClass = typeof (GenericMapper<,>);
 			Type constructedClass = genericClass.MakeGenericType(new[] {sourceType, destType});
 			return (IMapper) Activator.CreateInstance(constructedClass);
 		}
 	}
 
-	public class AutoMapFilter : EmptyActionFilter {
-		private readonly IMapper _mapper;
+	public class AutoMapFilter : EmptyActionFilter{
+		readonly IMapper _mapper;
 
 		public AutoMapFilter(IMapper mapper) { _mapper = mapper; }
 
@@ -50,7 +47,7 @@ namespace Graphite.Web.Controllers.ActionFilters {
 		}
 	}
 
-	public abstract class EmptyActionFilter : IActionFilter, IResultFilter {
+	public abstract class EmptyActionFilter : IActionFilter, IResultFilter{
 		public virtual void OnActionExecuting(ActionExecutingContext filterContext) { }
 
 		public virtual void OnActionExecuted(ActionExecutedContext filterContext) { }

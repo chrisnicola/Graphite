@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ServiceModel.Syndication;
 
-namespace Graphite.ApplicationServices {
-	public interface ISyndicationService {
+namespace Graphite.ApplicationServices{
+	public interface ISyndicationService{
 		/// <summary>
 		/// Returns a Syndication feed with published posts
 		/// </summary>

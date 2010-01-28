@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using Graphite.Core;
 
-namespace Graphite.Web.Controllers.ViewModels {
-	public abstract class PostEditModelBase {
-		public string AuthorUserName { get; set;}
+namespace Graphite.Web.Controllers.ViewModels{
+	public abstract class PostEditModelBase{
+		public string AuthorUserName { get; set; }
 		public string Title { get; set; }
 		public string Content { get; set; }
 		public DateTime? DatePublished { get; set; }

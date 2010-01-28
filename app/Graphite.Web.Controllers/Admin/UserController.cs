@@ -6,14 +6,13 @@ using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
 using MvcContrib;
-using Microsoft.Web.Mvc;
 using SharpArch.Web.NHibernate;
 
-namespace Graphite.Web.Controllers.Admin {
-	public class UserController : Controller {
-		private readonly IUserTasks _userTasks;
-		private readonly ICreateUserMapper _createUserMap;
-		private readonly IEditUserMapper _editUserMap;
+namespace Graphite.Web.Controllers.Admin{
+	public class UserController : Controller{
+		readonly IUserTasks _userTasks;
+		readonly ICreateUserMapper _createUserMap;
+		readonly IEditUserMapper _editUserMap;
 
 		public UserController(IUserTasks userTasks, ICreateUserMapper createUserMap, IEditUserMapper editUserMap) {
 			_userTasks = userTasks;
@@ -21,10 +20,10 @@ namespace Graphite.Web.Controllers.Admin {
 			_editUserMap = editUserMap;
 		}
 
-		[Authorize, AutoMap(typeof(IUserIndexMapper))]
+		[Authorize, AutoMap(typeof (IUserIndexMapper))]
 		public ActionResult Index() { return View(_userTasks.GetUsers()); }
 
-		[Authorize, AutoMap(typeof(User), typeof(EditUserViewModel))]
+		[Authorize, AutoMap(typeof (User), typeof (EditUserViewModel))]
 		public ActionResult Edit(Guid id) { return View(_userTasks.GetUser(id)); }
 
 		[Authorize, Transaction, ValidateAntiForgeryToken]
@@ -48,7 +47,8 @@ namespace Graphite.Web.Controllers.Admin {
 				return View("New", user);
 			}
 		}
-		[Authorize, AutoMap(typeof(User), typeof(DeleteUserViewModel))]
+
+		[Authorize, AutoMap(typeof (User), typeof (DeleteUserViewModel))]
 		public ActionResult Delete(Guid id) { return View(_userTasks.GetUser(id)); }
 
 		[Authorize, Transaction, ValidateAntiForgeryToken]

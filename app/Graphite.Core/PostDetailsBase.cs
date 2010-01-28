@@ -1,7 +1,7 @@
 ﻿using System;
 
-namespace Graphite.Core {
-	public class PostDetailsBase {
+namespace Graphite.Core{
+	public class PostDetailsBase{
 		public string AuthorUserName { get; set; }
 		public string Title { get; set; }
 		public string Content { get; set; }

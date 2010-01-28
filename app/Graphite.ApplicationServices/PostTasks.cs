@@ -4,12 +4,11 @@ using System.Linq;
 using Graphite.Core;
 using Graphite.Data.Repositories;
 
-namespace Graphite.ApplicationServices {
-
-	public class PostTasks : IPostTasks {
-		private readonly IPostRepository _posts;
-		private readonly IUserRepository _users;
-		private readonly ITagRepository _tags;
+namespace Graphite.ApplicationServices{
+	public class PostTasks : IPostTasks{
+		readonly IPostRepository _posts;
+		readonly IUserRepository _users;
+		readonly ITagRepository _tags;
 
 		public PostTasks(IPostRepository posts, IUserRepository users, ITagRepository tags) {
 			_posts = posts;
@@ -56,24 +55,24 @@ namespace Graphite.ApplicationServices {
 			return _posts.Save(post);
 		}
 
-		private Post CreateNewPostFromDetails(PostDetailsBase details) {
+		Post CreateNewPostFromDetails(PostDetailsBase details) {
 			var post = new Post {
-				Title = details.Title,
-				Content = details.Content,
-				AllowComments = details.AllowComments,
-				Published = details.Published,
-				DateCreated = DateTime.Now,
-				DateModified = DateTime.Now,
-				DatePublished = details.DatePublished,
-				Tags = GetTagsFromString(details.Tags)
-			};
+			                    Title = details.Title,
+			                    Content = details.Content,
+			                    AllowComments = details.AllowComments,
+			                    Published = details.Published,
+			                    DateCreated = DateTime.Now,
+			                    DateModified = DateTime.Now,
+			                    DatePublished = details.DatePublished,
+			                    Tags = GetTagsFromString(details.Tags)
+			                    };
 			if (details.Published) post.PublishOn(details.DatePublished);
 			post.SetSlugForPost(details.Slug);
 			EnsurePostSlugIsUnique(post);
 			return post;
 		}
 
-		private IList<Tag> GetTagsFromString(string tagstring) {
+		IList<Tag> GetTagsFromString(string tagstring) {
 			if (string.IsNullOrEmpty(tagstring)) return new List<Tag>();
 			string[] taglist = tagstring.Split(new[] {' ', ',', ';'});
 			IEnumerable<Tag> tags = _tags.FindAll().Where(t => taglist.Contains(t.Name));
@@ -81,7 +80,7 @@ namespace Graphite.ApplicationServices {
 			return tags.Union(newtags).ToList();
 		}
 
-		private void EnsurePostSlugIsUnique(Post post) {
+		void EnsurePostSlugIsUnique(Post post) {
 			string slug = post.Slug;
 			int n = 1;
 			List<Post> posts = _posts.FindAll().Where(p => p.Slug == post.Slug).ToList();
@@ -91,21 +90,28 @@ namespace Graphite.ApplicationServices {
 			}
 		}
 
-		private void UpdateTagsForPost(Post post, string tagstring) {
+		void UpdateTagsForPost(Post post, string tagstring) {
 			IList<Tag> taglist = GetTagsFromString(tagstring);
 			foreach (Tag tag in post.Tags) if (!taglist.Contains(tag)) post.Tags.Remove(tag);
 			foreach (Tag tag in taglist) if (!post.Tags.Contains(tag)) post.Tags.Add(tag);
 		}
 	}
 
-	public interface IPostTasks {
+	public interface IPostTasks{
 		Post GetWithComments(Guid id);
+
 		IEnumerable<Post> GetAll();
+
 		Post Get(Guid id);
+
 		Post SaveNewPost(PostCreateDetails post);
+
 		Post UpdatePost(PostEditDetails post);
+
 		void Delete(Guid id);
+
 		IEnumerable<Post> GetRecentPublishedPosts(int i);
+
 		Post ImportPost(PostImportDetails postDetails);
 	}
 }

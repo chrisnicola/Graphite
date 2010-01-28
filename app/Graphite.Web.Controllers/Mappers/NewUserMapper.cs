@@ -2,8 +2,8 @@
 using Graphite.Core.MappingInterfaces;
 using Graphite.Web.Controllers.ViewModels;
 
-namespace Graphite.Web.Controllers.Mappers {
+namespace Graphite.Web.Controllers.Mappers{
+	public interface INewUserMapper : IMapper<User, NewUserViewModel> {}
 
-	public interface INewUserMapper : IMapper<User, NewUserViewModel> { }
-	public class NewUserMapper : GenericMapper<User, NewUserViewModel>, INewUserMapper { }
+	public class NewUserMapper : GenericMapper<User, NewUserViewModel>, INewUserMapper {}
 }

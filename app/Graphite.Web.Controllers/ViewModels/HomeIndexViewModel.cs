@@ -1,3 +1,3 @@
-﻿namespace Graphite.Web.Controllers.ViewModels {
+﻿namespace Graphite.Web.Controllers.ViewModels{
 	public class HomeIndexViewModel : PostIndexViewModel {}
 }

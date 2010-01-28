@@ -1,27 +1,25 @@
 ﻿using System;
 using System.Linq;
 using System.ServiceModel.Syndication;
-using System.Web.UI.WebControls;
 using Graphite.ApplicationServices;
 using Graphite.Data.Repositories;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Tests.Graphite.ApplicationServices
-{
+namespace Tests.Graphite.ApplicationServices{
 	[TestFixture]
-	public class SyndicationServiceTests {
-		private IPostRepository _repository;
-		private SyndicationService _service;
-		private SyndicationFeed _feed;
-
+	public class SyndicationServiceTests{
 		[SetUp]
 		public void SetUp() {
 			_repository = MockRepository.GenerateStub<IPostRepository>();
 			_service = new SyndicationService(_repository);
-			_repository.Stub(m => m.FindAll()).Return(new[] { TestData.PublishedPost });
+			_repository.Stub(m => m.FindAll()).Return(new[] {TestData.PublishedPost});
 			_feed = _service.GetPostsAsSyndicationFeed(new Uri("http://test.com/testrss"));
 		}
+
+		IPostRepository _repository;
+		SyndicationService _service;
+		SyndicationFeed _feed;
 
 		[Test]
 		public void SyndicationFeedContainsPosts() { Assert.That(_feed.Items.Count() == 1); }

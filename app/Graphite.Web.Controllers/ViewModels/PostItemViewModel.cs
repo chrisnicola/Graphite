@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graphite.Web.Controllers.ViewModels {
-	public class PostItemViewModel {
-		public Guid Id { get; set;}
+namespace Graphite.Web.Controllers.ViewModels{
+	public class PostItemViewModel{
+		public Guid Id { get; set; }
 		public string Title { get; set; }
 		public string Slug { get; set; }
 		public string AuthorRealName { get; set; }

@@ -9,15 +9,16 @@ using Graphite.Web.Controllers.ViewModels;
 using MvcContrib;
 using SharpArch.Web.NHibernate;
 
-namespace Graphite.Web.Controllers.Admin {
-	public class PostController : PostControllerBase {
-		private readonly IUserTasks _userTasks;
-		private readonly IPostRepository _posts;
-		private readonly IPostEditDetailsMapper _postEditMapper;
-		private readonly IPostCreateDetailsMapper _postCreateDetailsMapper;
+namespace Graphite.Web.Controllers.Admin{
+	public class PostController : PostControllerBase{
+		readonly IUserTasks _userTasks;
+		readonly IPostRepository _posts;
+		readonly IPostEditDetailsMapper _postEditMapper;
+		readonly IPostCreateDetailsMapper _postCreateDetailsMapper;
 
-		public PostController(IPostTasks postTasks, IUserTasks userTasks, IPostRepository posts, IPostEditDetailsMapper postEditMapper, IPostCreateDetailsMapper postCreateDetailsMapper)
-			: base(postTasks, posts) {
+		public PostController(IPostTasks postTasks, IUserTasks userTasks, IPostRepository posts,
+		                      IPostEditDetailsMapper postEditMapper, IPostCreateDetailsMapper postCreateDetailsMapper)
+		: base(postTasks, posts) {
 			_userTasks = userTasks;
 			_posts = posts;
 			_postEditMapper = postEditMapper;
@@ -34,7 +35,7 @@ namespace Graphite.Web.Controllers.Admin {
 		public ActionResult Create(PostNewModel post) {
 			try {
 				post.AuthorUserName = _userTasks.GetCurrentUserName();
-				var newPost = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post));
+				Post newPost = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post));
 				return this.RedirectToAction(x => x.Show(newPost.Slug));
 			} catch {
 				return this.RedirectToAction(x => x.New(post));

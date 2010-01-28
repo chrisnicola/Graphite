@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Graphite.Web.Controllers.ViewModels
-{
-	public class UserIndexViewModel {
+namespace Graphite.Web.Controllers.ViewModels{
+	public class UserIndexViewModel{
 		public IEnumerable<UserViewModel> Users { get; set; }
 	}
 
-	public class UserViewModel {
+	public class UserViewModel{
 		public Guid Id { get; set; }
 		public string Username { get; set; }
 		public string RealName { get; set; }
@@ -16,5 +15,3 @@ namespace Graphite.Web.Controllers.ViewModels
 		public DateTime? Created { get; set; }
 	}
 }
-
-

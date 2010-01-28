@@ -1,8 +1,8 @@
 using System;
 using SharpArch.Core.DomainModel;
 
-namespace Graphite.Core {
-	public class User : EntityWithTypedId<Guid> {
+namespace Graphite.Core{
+	public class User : EntityWithTypedId<Guid>{
 		public virtual string Salt { get; set; }
 		public virtual string Username { get; set; }
 		public virtual string Email { get; set; }
