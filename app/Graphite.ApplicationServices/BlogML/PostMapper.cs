@@ -50,8 +50,8 @@ namespace Graphite.ApplicationServices.BlogML {
 		}
 
 		private static string GetTags(BlogMLPost blogMLPost, IEnumerable<BlogMLCategory> categories) {
-			return categories.Where(c => blogMLPost.Categories.Cast<BlogMLCategoryReference>().Any(r => r.Ref == c.ID)).Aggregate("",
-				(a, b) => a + "," + b.Title, a => a.TrimStart(','));
+			return categories.Where(c => blogMLPost.Categories.Cast<BlogMLCategoryReference>().Any(r => r.Ref == c.ID))
+				.Aggregate("",(a, b) => a + "," + b.Title.Replace(' ','-'), a => a.TrimStart(','));
 		}
 	}
 

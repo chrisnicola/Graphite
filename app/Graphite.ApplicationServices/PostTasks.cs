@@ -37,13 +37,14 @@ namespace Graphite.ApplicationServices
 		public Post Get(Guid id) { return _posts.Get(id); }
 		
 		public Post SaveNewPost(PostCreateDetails details) {
-			return SaveNewPostForAuthor(details, _users.Get(details.AuthorId));
+			var post = CreateNewPostFromDetails(details);
+			post.Author = _users.Get(details.AuthorId);
+			return _posts.Save(post);
 		}
 
-		private Post SaveNewPostForAuthor(PostDetailsBase details, User author) {
+		private Post CreateNewPostFromDetails(PostDetailsBase details) {
 			var post = new Post {
 				Title = details.Title,
-				Author = author,
 				Content = details.Content,
 				AllowComments = details.AllowComments,
 				Published = details.Published,
@@ -56,7 +57,7 @@ namespace Graphite.ApplicationServices
 				post.PublishOn(details.DatePublished);
 			post.SetSlugForPost(details.Slug);
 			EnsurePostSlugIsUnique(post);
-			return _posts.Save(post);
+			return post;
 		}
 
 		private IList<Tag> GetTagsFromString(string tagstring) {
@@ -110,7 +111,11 @@ namespace Graphite.ApplicationServices
 		}
 
 		public Post ImportPost(PostImportDetails details) {
-			return SaveNewPostForAuthor(details, _users.GetUserByEmail(details.AuthorEmail));
+			var post = CreateNewPostFromDetails(details);
+			post.Author = _users.GetUserByEmail(details.AuthorEmail);
+			post.DateCreated = details.DateCreated;
+			post.DateModified = details.DateModified;
+			return _posts.Save(post);
 		}
 	}
 

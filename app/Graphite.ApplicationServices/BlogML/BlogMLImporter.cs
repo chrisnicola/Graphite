@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using BlogML.Xml;
 using Graphite.Core;
@@ -37,7 +38,9 @@ namespace Graphite.ApplicationServices.BlogML
 
 		private void ImportPostsFromBlog(BlogMLBlog blog) {
 			foreach (var post in blog.Posts) {
-				var importPost = _tasks.ImportPost(_postMapper.MapFrom(post));
+				var importPost = _tasks.ImportPost(_postMapper.MapFrom(post, blog.Categories));
+				importPost.Author = _authors.FirstOrDefault();
+				importPost.AllowComments = true;
 				foreach (BlogMLComment comment in post.Comments) {
 					importPost.AddComment(_commentMapper.MapFrom(comment));
 				}
