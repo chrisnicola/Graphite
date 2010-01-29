@@ -179,6 +179,7 @@
     <Compile Include="Views\SparkViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="favicon.png" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
@@ -443,40 +444,39 @@
     </Content>
     <None Include="Scripts\ckeditor\.htaccess" />
     <None Include="Scripts\ckeditor\ckeditor.pack" />
-    <None Include="Views\Admin\BlogML\Show.spark" />
-    <None Include="Views\Admin\Home\Index.spark" />
-    <None Include="Views\Admin\Layouts\Application.spark" />
-    <None Include="Views\Admin\Layouts\_navigation.spark" />
-    <None Include="Views\Admin\Post\Delete.spark" />
-    <None Include="Views\Admin\Post\New.spark" />
-    <None Include="Views\Admin\Post\Edit.spark" />
-    <None Include="Views\Admin\Post\Index.spark">
-    </None>
-    <None Include="Views\Admin\Post\Show.spark" />
-    <None Include="Views\Admin\Shared\_global.spark" />
-    <None Include="Views\Admin\Shared\_PostForm.spark" />
-    <None Include="Views\Admin\User\Delete.spark" />
-    <None Include="Views\Admin\User\Edit.spark" />
-    <None Include="Views\Admin\User\Index.spark" />
-    <None Include="Views\Admin\Shared\ListUsers.spark" />
-    <None Include="Views\Admin\User\New.spark" />
-    <None Include="Views\Comment\Index.spark" />
-    <None Include="Views\Home\Index.spark" />
-    <None Include="Views\Comment\New.spark" />
-    <None Include="Views\Comment\Show.spark" />
-    <None Include="Views\Layouts\Master.spark" />
-    <None Include="Views\Layouts\_navigation.spark" />
-    <None Include="Views\Login\Show.spark" />
-    <None Include="Views\Post\Index.spark" />
-    <None Include="Views\Layouts\Application.spark" />
-    <None Include="Views\Post\Show.spark" />
-    <None Include="Views\Shared\_CommentForm.spark" />
-    <None Include="Views\Shared\_Comments.spark" />
-    <None Include="Views\Shared\_CommentView.spark" />
-    <None Include="Views\Shared\_global.spark" />
-    <None Include="Views\Shared\_ListPosts.spark" />
-    <None Include="Views\Shared\_PostView.spark" />
-    <None Include="Views\Tag\Show.spark" />
+    <Content Include="Views\Admin\BlogML\Show.spark" />
+    <Content Include="Views\Admin\Home\Index.spark" />
+    <Content Include="Views\Admin\Layouts\Application.spark" />
+    <Content Include="Views\Admin\Layouts\_navigation.spark" />
+    <Content Include="Views\Admin\Post\Delete.spark" />
+    <Content Include="Views\Admin\Post\New.spark" />
+    <Content Include="Views\Admin\Post\Edit.spark" />
+    <Content Include="Views\Admin\Post\Index.spark" />
+    <Content Include="Views\Admin\Post\Show.spark" />
+    <Content Include="Views\Admin\Shared\_global.spark" />
+    <Content Include="Views\Admin\Shared\_PostForm.spark" />
+    <Content Include="Views\Admin\User\Delete.spark" />
+    <Content Include="Views\Admin\User\Edit.spark" />
+    <Content Include="Views\Admin\User\Index.spark" />
+    <Content Include="Views\Admin\Shared\ListUsers.spark" />
+    <Content Include="Views\Admin\User\New.spark" />
+    <Content Include="Views\Comment\Index.spark" />
+    <Content Include="Views\Home\Index.spark" />
+    <Content Include="Views\Comment\New.spark" />
+    <Content Include="Views\Comment\Show.spark" />
+    <Content Include="Views\Layouts\Master.spark" />
+    <Content Include="Views\Layouts\_navigation.spark" />
+    <Content Include="Views\Login\Show.spark" />
+    <Content Include="Views\Post\Index.spark" />
+    <Content Include="Views\Layouts\Application.spark" />
+    <Content Include="Views\Post\Show.spark" />
+    <Content Include="Views\Shared\_CommentForm.spark" />
+    <Content Include="Views\Shared\_Comments.spark" />
+    <Content Include="Views\Shared\_CommentView.spark" />
+    <Content Include="Views\Shared\_global.spark" />
+    <Content Include="Views\Shared\_ListPosts.spark" />
+    <Content Include="Views\Shared\_PostView.spark" />
+    <Content Include="Views\Tag\Show.spark" />
     <Content Include="Scripts\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Scripts\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Scripts\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -577,9 +577,6 @@
       <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
       <Name>Graphite.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Rss\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
