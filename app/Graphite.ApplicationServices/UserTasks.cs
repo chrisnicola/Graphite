@@ -19,6 +19,8 @@ namespace Graphite.ApplicationServices{
 
 		User AuthenticateUser(string username, string password);
 
+		bool ValidateUser(string username, string password);
+
 		User GetUser(Guid id);
 
 		User GetUserByEmail(string email);
@@ -80,6 +82,10 @@ namespace Graphite.ApplicationServices{
 			} catch (Exception ex) {
 				throw new AuthenticationException("An unkown error occurred", ex);
 			}
+		}
+
+		public bool ValidateUser(string username, string password) {
+			return ValidPasswordForUser(_users.GetUser(username), password);
 		}
 
 		public User GetUser(Guid id) { return _users.Get(id); }

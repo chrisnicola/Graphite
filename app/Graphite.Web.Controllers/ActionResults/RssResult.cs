@@ -1,6 +1,8 @@
+using System;
 using System.ServiceModel.Syndication;
 using System.Web.Mvc;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace Graphite.Web.Controllers.ActionResults{
 	/// <summary>
@@ -27,7 +29,24 @@ namespace Graphite.Web.Controllers.ActionResults{
 		public override void ExecuteResult(ControllerContext context) {
 			context.HttpContext.Response.ContentType = "application/atom+xml";
 			var formatter = new Atom10FeedFormatter(Feed);
-			using (XmlWriter writer = XmlWriter.Create(context.HttpContext.Response.Output)) formatter.WriteTo(writer);
+			using (XmlWriter writer = XmlWriter.Create(context.HttpContext.Response.Output)) 
+				formatter.WriteTo(writer);
 		}
+	}
+
+	public class XmlRpcResult : ActionResult{
+		public XmlRpcResponse Response { get; set; }
+
+		public XmlRpcResult(XmlRpcResponse response) { Response = response; }
+
+		public override void ExecuteResult(ControllerContext context) {
+			var serializer = new XmlSerializer(typeof(XmlRpcResponse));
+			using (XmlWriter writer = XmlWriter.Create(context.HttpContext.Response.Output)) 
+				serializer.Serialize(writer, Response);
+		}
+	}
+
+	public class XmlRpcResponse{
+		
 	}
 }

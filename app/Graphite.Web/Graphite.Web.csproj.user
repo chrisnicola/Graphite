@@ -15,7 +15,7 @@
           <PublishCopyOption>RunFiles</PublishCopyOption>
           <PublishTargetLocation>C:\graphite\</PublishTargetLocation>
           <PublishDeleteAllFiles>False</PublishDeleteAllFiles>
-          <PublishCopyAppData>True</PublishCopyAppData>
+          <PublishCopyAppData>False</PublishCopyAppData>
           <ExternalProgram>
           </ExternalProgram>
           <StartExternalURL>

@@ -16,6 +16,6 @@
             <div class="clear">
             </div>
         </div>
-        <div id="sharpArchLogo">!{Html.Image("~/Content/Images/sharp_arch_small.gif")}</div>
+        <div id="sharpArchLogo">!{Html.Image("~/Content/Images/graphitelogosmall.jpg")}</div>
     </div>
 </div>

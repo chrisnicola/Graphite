@@ -12,6 +12,7 @@
     <AssemblyName>Graphite.Web</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <TargetFrameworkSubset>Full</TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,7 +27,8 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -179,6 +181,8 @@
     <Compile Include="Views\SparkViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\graphitelogo.jpg" />
+    <Content Include="Content\Images\graphitelogosmall.jpg" />
     <Content Include="favicon.png" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -446,7 +450,6 @@
     <None Include="Scripts\ckeditor\ckeditor.pack" />
     <Content Include="Views\Admin\BlogML\Show.spark" />
     <Content Include="Views\Admin\Home\Index.spark" />
-    <Content Include="Views\Admin\Layouts\Application.spark" />
     <Content Include="Views\Admin\Layouts\_navigation.spark" />
     <Content Include="Views\Admin\Post\Delete.spark" />
     <Content Include="Views\Admin\Post\New.spark" />

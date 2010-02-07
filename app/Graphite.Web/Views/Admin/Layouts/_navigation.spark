@@ -1,5 +1,5 @@
 <p>
-  !{Html.Image("~/Content/Images/sharp_arch.jpg")}
+  !{Html.Image("~/Content/Images/graphitelogo.jpg")}
 </p>
 <h2>Naviation Menu</h2>
 <ul>
