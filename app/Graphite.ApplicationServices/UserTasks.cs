@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Security;
 using Graphite.Core;
 using Graphite.Data.Repositories;
+using SharpArchContrib.Castle.NHibernate;
 
 namespace Graphite.ApplicationServices{
 	public interface IUserTasks{
@@ -40,7 +41,7 @@ namespace Graphite.ApplicationServices{
 		public UserTasks(IUserRepository users) { _users = users; }
 
 		public IEnumerable<User> GetUsers() { return _users.FindAll(); }
-
+		[Transaction]
 		public User AddUser(CreateUserDetails user) {
 			var newuser = new User {
 			                       Username = user.Username,
@@ -52,7 +53,7 @@ namespace Graphite.ApplicationServices{
 			newuser.Password = CreatePasswordHash(newuser.Salt, user.Password);
 			return _users.Save(newuser);
 		}
-
+		[Transaction]
 		public User UpdateUser(EditUserDetails details) {
 			User user = _users.Get(details.Id);
 			user.Username = details.Username;
@@ -61,7 +62,7 @@ namespace Graphite.ApplicationServices{
 			if (!string.IsNullOrEmpty(details.NewPassword)) user.Password = CreatePasswordHash(user.Salt, details.NewPassword);
 			return user;
 		}
-
+		[Transaction]
 		public User AuthenticateUser(string username, string password) {
 			try {
 				User user = _users.GetUser(username);
@@ -93,7 +94,7 @@ namespace Graphite.ApplicationServices{
 		public User GetUserByEmail(string email) { return _users.GetUserByEmail(email); }
 
 		public string GetCurrentUserName() { return HttpContext.Current.User.Identity.Name; }
-
+		[Transaction]
 		public void RemoveUser(Guid id) { _users.Delete(id); }
 
 		public bool IsLoggedIn() { return HttpContext.Current.User.Identity.IsAuthenticated; }

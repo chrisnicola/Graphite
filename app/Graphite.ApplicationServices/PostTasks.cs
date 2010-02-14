@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core;
 using Graphite.Data.Repositories;
+using SharpArchContrib.Castle.NHibernate;
 
 namespace Graphite.ApplicationServices{
 	public class PostTasks : IPostTasks{
@@ -22,12 +23,14 @@ namespace Graphite.ApplicationServices{
 
 		public Post Get(Guid id) { return _posts.Get(id); }
 
+		[Transaction]
 		public Post SaveNewPost(PostCreateDetails details) {
 			Post post = CreateNewPostFromDetails(details);
 			post.Author = _users.GetUser(details.AuthorUserName);
 			return _posts.Save(post);
 		}
 
+		[Transaction]
 		public Post UpdatePost(PostEditDetails details) {
 			Post post = _posts.Get(details.Id);
 			post.Title = details.Title;
@@ -43,6 +46,7 @@ namespace Graphite.ApplicationServices{
 			return post;
 		}
 
+		[Transaction]
 		public void Delete(Guid id) { _posts.Delete(id); }
 
 		public IEnumerable<Post> GetRecentPublishedPosts(int i) { return _posts.GetRecentPublishedPosts(i); }

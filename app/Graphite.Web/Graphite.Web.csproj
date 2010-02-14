@@ -53,6 +53,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\CommonServiceLocator.WindsorAdapter.dll</HintPath>
     </Reference>
+    <Reference Include="CookComputing.XmlRpc, Version=2.4.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\CookComputing.XmlRpc.dll</HintPath>
+    </Reference>
     <Reference Include="FluentNHibernate, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\FluentNHibernate.dll</HintPath>
@@ -116,6 +120,10 @@
     <Reference Include="SharpArch.Web.Castle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\SharpArch.Web.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArchContrib.Castle, Version=0.3.0.0, Culture=neutral, PublicKeyToken=f5e950d339f2ac36, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArchContrib.Castle.dll</HintPath>
     </Reference>
     <Reference Include="Spark, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7f8549eed921a12c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -184,6 +192,7 @@
     <Content Include="Content\Images\graphitelogo.jpg" />
     <Content Include="Content\Images\graphitelogosmall.jpg" />
     <Content Include="favicon.png" />
+    <Content Include="LiveWriterManifest.xml" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
@@ -448,6 +457,7 @@
     </Content>
     <None Include="Scripts\ckeditor\.htaccess" />
     <None Include="Scripts\ckeditor\ckeditor.pack" />
+    <Content Include="XmlRpc.ashx" />
     <Content Include="Views\Admin\BlogML\Show.spark" />
     <Content Include="Views\Admin\Home\Index.spark" />
     <Content Include="Views\Admin\Layouts\_navigation.spark" />
@@ -568,6 +578,10 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Graphite.ApplicationServices\Graphite.ApplicationServices.csproj">
+      <Project>{F8BA0E61-31B1-410D-BD60-022CCCF3F177}</Project>
+      <Name>Graphite.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Graphite.Web.Controllers\Graphite.Web.Controllers.csproj">
       <Project>{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}</Project>
       <Name>Graphite.Web.Controllers</Name>

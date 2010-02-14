@@ -15,6 +15,7 @@ using Spark.Web.Mvc;
 namespace Graphite.Web.CastleWindsor{
 	public class ComponentRegistrar{
 		public static void AddComponentsTo(IWindsorContainer container) {
+			SharpArchContrib.Castle.CastleWindsor.ComponentRegistrar.AddComponentsTo(container);
 			AddGenericRepositoriesTo(container);
 			AddCustomRepositoriesTo(container);
 			AddApplicationServicesTo(container);

@@ -43,6 +43,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\CookComputing.XmlRpc.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="SharpArch.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b5f559ae0ac4e006, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\SharpArch.Core.dll</HintPath>
@@ -55,11 +59,24 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\SharpArch.Web.dll</HintPath>
     </Reference>
+    <Reference Include="SharpArchContrib.Castle, Version=0.3.0.0, Culture=neutral, PublicKeyToken=f5e950d339f2ac36, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArchContrib.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArchContrib.Core, Version=0.3.0.0, Culture=neutral, PublicKeyToken=f5e950d339f2ac36, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArchContrib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpArchContrib.Data, Version=0.3.0.0, Culture=neutral, PublicKeyToken=f5e950d339f2ac36, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\SharpArchContrib.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceModel.Web">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -89,6 +106,7 @@
     <Compile Include="BlogML\BlogMLImporter.cs" />
     <Compile Include="BlogML\PostMapper.cs" />
     <Compile Include="ISyndicationService.cs" />
+    <Compile Include="MetaWeblog\APIStructs.cs" />
     <Compile Include="MetaWeblog\IMetaWeblog.cs" />
     <Compile Include="MetaWeblog\MetaWeblogAPI.cs" />
     <Compile Include="PostTasks.cs" />

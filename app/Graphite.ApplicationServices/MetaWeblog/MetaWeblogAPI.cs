@@ -4,7 +4,6 @@ using System.Linq;
 using CookComputing.XmlRpc;
 using Graphite.Core;
 using Microsoft.Practices.ServiceLocation;
-using SharpArch.Web.NHibernate;
 
 namespace Graphite.ApplicationServices.MetaWeblog{
 	//Todo: Replace HttpHandler with MVC based XmlRpc API
@@ -69,7 +68,6 @@ namespace Graphite.ApplicationServices.MetaWeblog{
 			return _postTasks.GetRecentPublishedPosts(numberOfPosts).Select(p => MapPostToPostInfo(p)).ToArray();
 		}
 
-		[Transaction]
 		public string NewPost(string blogid, string username, string password, PostInfo postInfo, bool publish) {
 			ValidateUser(username, password);
 			try

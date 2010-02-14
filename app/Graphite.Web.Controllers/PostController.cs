@@ -33,7 +33,7 @@ namespace Graphite.Web.Controllers{
 	public class PostController : PostControllerBase{
 		public PostController(IPostTasks postTasks, IPostRepository posts) : base(postTasks, posts) { }
 
-		[Transaction, ValidateInput(false)]
+		[ValidateInput(false)]
 		public ActionResult Update(PostShowWithCommentsViewModel postShowVm) {
 			Post post = PostTasks.Get(postShowVm.Id);
 			try {

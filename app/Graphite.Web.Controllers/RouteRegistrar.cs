@@ -11,6 +11,7 @@ using SharpArch.Web.Areas;
 namespace Graphite.Web.Controllers{
 	public class RouteRegistrar{
 		public static void RegisterRoutesTo(RouteCollection routes) {
+			routes.IgnoreRoute("XmlRpc.ashx");
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 			routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
 			var configuration = new RouteConfiguration {Namespaces = new[] {typeof (PostController).Namespace}};
