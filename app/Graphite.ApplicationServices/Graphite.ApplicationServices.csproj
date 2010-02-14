@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="BlogML\BlogMLImporter.cs" />
     <Compile Include="BlogML\PostMapper.cs" />
+    <Compile Include="BlogTasks.cs" />
     <Compile Include="ISyndicationService.cs" />
     <Compile Include="MetaWeblog\APIStructs.cs" />
     <Compile Include="MetaWeblog\IMetaWeblog.cs" />
