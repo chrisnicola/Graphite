@@ -72,6 +72,9 @@
     <Compile Include="Comment.cs" />
     <Compile Include="CreateUserDetails.cs" />
     <Compile Include="EditUserDetails.cs" />
+    <Compile Include="EventAggregator\EventAggregator.cs" />
+    <Compile Include="EventAggregator\IEvent.cs" />
+    <Compile Include="EventAggregator\ISubscriber.cs" />
     <Compile Include="MappingInterfaces\GenericMapper.cs" />
     <Compile Include="MappingInterfaces\IMapper.cs" />
     <Compile Include="Post.cs" />
