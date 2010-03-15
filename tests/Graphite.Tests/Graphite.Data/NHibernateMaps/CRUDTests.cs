@@ -1,4 +1,5 @@
 ﻿using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Data.NHibernateMaps;
 using NHibernate;
 using NHibernate.Cfg;

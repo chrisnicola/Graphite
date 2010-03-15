@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CookComputing.XmlRpc;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Graphite.ApplicationServices.MetaWeblog{

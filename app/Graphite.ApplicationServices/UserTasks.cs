@@ -7,6 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.Security;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Data.Repositories;
 using SharpArchContrib.Castle.NHibernate;
 

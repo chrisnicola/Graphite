@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Data.Repositories;
 
 namespace Graphite.ApplicationServices{

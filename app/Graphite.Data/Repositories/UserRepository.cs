@@ -1,5 +1,6 @@
 using System.Linq;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using NHibernate.Linq;
 
 namespace Graphite.Data.Repositories{

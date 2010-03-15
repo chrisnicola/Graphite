@@ -3,6 +3,7 @@ using System.Linq;
 using System.Xml;
 using BlogML.Xml;
 using Graphite.Core;
+using Graphite.Core.Domain;
 
 namespace Graphite.ApplicationServices.BlogML{
 	public class BlogMLImporter : IBlogImporter{

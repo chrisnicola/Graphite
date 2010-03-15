@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Graphite.ApplicationServices;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using NHibernate.Linq;
 using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Data.NHibernate;

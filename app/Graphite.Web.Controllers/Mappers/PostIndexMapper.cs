@@ -2,6 +2,7 @@
 using System.Linq;
 using Graphite.ApplicationServices;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Core.MappingInterfaces;
 using Graphite.Web.Controllers.ViewModels;
 

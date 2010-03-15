@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using BlogML.Xml;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Core.MappingInterfaces;
 
 namespace Graphite.ApplicationServices.BlogML{
