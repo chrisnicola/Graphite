@@ -1,14 +1,8 @@
-using System;
+﻿using System;
 using Graphite.Core.EventAggregator;
 
-namespace Graphite.ApplicationServices.PostTasks{
-  public class CreateNewPostTask : ISubscriber <NewPostEvent>{
-
-
-    public Action<NewPostEvent> OnEvent { get; private set; }
-  }
-
-  public class NewPostEvent : IEvent{
+namespace Graphite.Core.Events{
+  public class SubmitPostEvent : IEvent{
     public string AuthorUserName { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }

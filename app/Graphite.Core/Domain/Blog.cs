@@ -8,5 +8,3 @@ namespace Graphite.Core.Domain
     public string Url { get; set; }
   }
 }
-
-
