@@ -5,9 +5,11 @@ using Graphite.Core.Domain;
 using SharpArch.Testing;
 
 namespace Tests.Graphite.ApplicationServices{
-	public class TestData{
+	public static class TestData{
+
+    public static User User = new User { Username = "username", RealName = "Real Name", Email = "user@test.com" };
+
 		public static readonly Post PublishedPost = new Post {
-		                                                     Author = User,
 		                                                     AllowComments = true,
 		                                                     Content = "Some content here",
 		                                                     DateCreated = DateTime.Now,
@@ -46,9 +48,8 @@ namespace Tests.Graphite.ApplicationServices{
 
 		public static Post[] Posts = new[] {PublishedPost};
 
-		public static User User = new User {Username = "username", RealName = "Real Name", Email = "user@test.com"};
-
 		public static void Init() {
+		  PublishedPost.Author = User;
 			PublishedPost.SetIdTo(Guid.NewGuid());
 			PublishedPost.AddComment(Comment);
 			PublishedPost.Tags.Add(new Tag {Name = "tag"});

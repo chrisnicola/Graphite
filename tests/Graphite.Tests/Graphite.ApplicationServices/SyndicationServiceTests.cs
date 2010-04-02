@@ -12,6 +12,7 @@ namespace Tests.Graphite.ApplicationServices{
 	public class SyndicationServiceTests{
 		[SetUp]
 		public void SetUp() {
+		  TestData.Init();
 			_repository = MockRepository.GenerateStub<IPostRepository>();
 			_service = new SyndicationService(_repository);
 			_repository.Stub(m => m.FindAll()).Return(new[] {TestData.PublishedPost});

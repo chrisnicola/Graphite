@@ -49,7 +49,7 @@ namespace Tests.Graphite.Data.NHibernateMaps{
 		[Test]
 		public void CanGenerateDatabaseSchema() {
 			ISession session = NHibernateSession.GetDefaultSessionFactory().OpenSession();
-			new SchemaExport(configuration).Execute(true, true, false, session.Connection, null);
+			new SchemaExport(configuration).Execute(true, false, false, session.Connection, null);
 		}
 
 		[Test, Ignore]
