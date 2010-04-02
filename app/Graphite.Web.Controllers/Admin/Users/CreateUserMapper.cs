@@ -1,4 +1,4 @@
-﻿using Graphite.Core.Contracts.MappingInterfaces;
+﻿using Graphite.Core.Contracts.Mapping;
 using Graphite.Core.Messages;
 
 namespace Graphite.Web.Controllers.Admin.Users{

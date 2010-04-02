@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Graphite.Core.Domain;
 
-namespace Graphite.Core.Contracts.DataInterfaces{
+namespace Graphite.Core.Contracts.Data{
   public interface IPostRepository : ILinqRepository<Post>{
     /// <summary>
     /// Gets the most recent posts in the database

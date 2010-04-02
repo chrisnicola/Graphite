@@ -1,7 +1,7 @@
 ﻿using System;
 using Graphite.ApplicationServices;
 using Graphite.Core;
-using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.Data;
 using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.Data;
 using NHibernate.Linq;
 using SharpArch.Core.DomainModel;
 using SharpArch.Data.NHibernate;

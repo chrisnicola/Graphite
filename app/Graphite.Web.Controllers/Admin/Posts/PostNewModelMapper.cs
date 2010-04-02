@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using AutoMapper;
-using Graphite.Core.Contracts.MappingInterfaces;
+using Graphite.Core.Contracts.Mapping;
 using Enumerable = System.Linq.Enumerable;
 
 namespace Graphite.Web.Controllers.Admin.Posts{

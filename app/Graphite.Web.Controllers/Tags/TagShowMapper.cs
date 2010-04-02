@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Graphite.Core.Contracts.MappingInterfaces;
+using Graphite.Core.Contracts.Mapping;
 using Graphite.Core.Domain;
 using Graphite.Web.Controllers.Posts;
 

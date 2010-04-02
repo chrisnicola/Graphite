@@ -1,6 +1,6 @@
 ﻿#region
 using System.Web.Mvc;
-using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.Data;
 using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Web.Controllers.ActionFilters;
 

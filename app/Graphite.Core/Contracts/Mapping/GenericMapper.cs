@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Graphite.Core.Contracts.MappingInterfaces{
+namespace Graphite.Core.Contracts.Mapping{
   public class GenericMapper<TSource, TDest> : IMapper<TSource, TDest> where TDest : class where TSource : class{
     public GenericMapper() { Mapper.CreateMap<TSource, TDest>(); }
 

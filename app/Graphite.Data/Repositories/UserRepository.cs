@@ -1,6 +1,6 @@
 using System.Linq;
 using Graphite.Core;
-using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.Data;
 using Graphite.Core.Domain;
 using NHibernate.Linq;
 

@@ -1,4 +1,4 @@
-﻿namespace Graphite.Core.Contracts.MappingInterfaces{
+﻿namespace Graphite.Core.Contracts.Mapping{
   public interface IMapper<TSource, TDest> : IMapper
     where TSource : class
     where TDest : class{

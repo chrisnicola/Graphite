@@ -7,7 +7,7 @@ using System.Text;
 using System.Web;
 using System.Web.Security;
 using Graphite.Core;
-using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.Data;
 using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;

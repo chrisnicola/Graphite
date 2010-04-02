@@ -8,7 +8,7 @@ namespace Tests.Graphite.Core{
 
 		[SetUp]
 		public void Setup() {
-			_post = new Post {Title = "postInfo Title"};
+			_post = new Post {Title = "Post Title"};
 			_post.SetSlugForPost("This is a test!#");
 		}
 

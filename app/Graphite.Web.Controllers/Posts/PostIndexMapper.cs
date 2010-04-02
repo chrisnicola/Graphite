@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Graphite.Core.Contracts.MappingInterfaces;
+using Graphite.Core.Contracts.Mapping;
 using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Core.Domain;
 

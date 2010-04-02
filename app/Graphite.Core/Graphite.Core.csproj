@@ -76,14 +76,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\TextFieldAttribute.cs" />
-    <Compile Include="Contracts\DataInterfaces\ICommentRepository.cs" />
-    <Compile Include="Contracts\DataInterfaces\ILinqRepository.cs" />
-    <Compile Include="Contracts\DataInterfaces\IPostRepository.cs" />
-    <Compile Include="Contracts\DataInterfaces\ITagRepository.cs" />
-    <Compile Include="Contracts\DataInterfaces\IUserRepository.cs" />
-    <Compile Include="Contracts\MappingInterfaces\GenericMapper.cs" />
-    <Compile Include="Contracts\MappingInterfaces\IHomeIndexMapper.cs" />
-    <Compile Include="Contracts\MappingInterfaces\IMapper.cs" />
+    <Compile Include="Contracts\Data\ICommentRepository.cs" />
+    <Compile Include="Contracts\Data\ILinqRepository.cs" />
+    <Compile Include="Contracts\Data\IPostRepository.cs" />
+    <Compile Include="Contracts\Data\ITagRepository.cs" />
+    <Compile Include="Contracts\Data\IUserRepository.cs" />
+    <Compile Include="Contracts\Mapping\GenericMapper.cs" />
+    <Compile Include="Contracts\Mapping\IMapper.cs" />
     <Compile Include="Contracts\Services\IMetaWeblog.cs" />
     <Compile Include="Contracts\Services\ISyndicationService.cs" />
     <Compile Include="Contracts\TaskInterfaces\ICommentsTasks.cs" />

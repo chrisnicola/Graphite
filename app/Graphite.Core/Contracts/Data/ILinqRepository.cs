@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SharpArch.Core;
 using SharpArch.Core.DomainModel;
 
-namespace Graphite.Core.Contracts.DataInterfaces{
+namespace Graphite.Core.Contracts.Data{
   public interface ILinqRepository<T> where T : EntityWithTypedId<Guid>{
     IEnumerable<T> FindAll(Func<T, bool> predicate);
 
