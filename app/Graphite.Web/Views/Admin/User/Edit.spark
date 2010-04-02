@@ -1,4 +1,4 @@
-<viewdata model="EditUserViewModel" />
+<viewdata model="Graphite.Web.Controllers.Admin.Users.EditUserViewModel" />
 <h2>Add New User</h2>
 <form action="${Url.Action("Update")}" method="post" >
 <div class="formInput">

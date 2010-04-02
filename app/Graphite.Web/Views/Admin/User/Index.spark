@@ -1,4 +1,4 @@
-<viewdata model="UserIndexViewModel" />
+<viewdata model="Graphite.Web.Controllers.Admin.Users.UserIndexViewModel" />
 !{Html.Grid<UserViewModel>(Model.Users).AutoGenerateColumns().Columns(
 				c => { 
           c.For(x => Html.ActionLink<Graphite.Web.Controllers.Admin.UserController>(ctl => ctl.Edit(x.Id), "Edit")).DoNotEncode();

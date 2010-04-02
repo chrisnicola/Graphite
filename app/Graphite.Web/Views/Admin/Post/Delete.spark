@@ -1,4 +1,4 @@
-<viewdata model="DeletePostViewModel" />
+<viewdata model="Graphite.Web.Controllers.Admin.Posts.DeletePostViewModel" />
 <form name="Delete" action="!{Url.Action("Destroy")}" method="post" > 
 	!{Html.AntiForgeryToken()}
 	!{this.Hidden("_method").Value("delete")}

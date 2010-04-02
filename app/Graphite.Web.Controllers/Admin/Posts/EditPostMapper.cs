@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using Graphite.Core.Contracts.MappingInterfaces;
 using Graphite.Core.Messages;
 using Enumerable = System.Linq.Enumerable;
@@ -17,7 +18,7 @@ namespace Graphite.Web.Controllers.Admin.Posts{
 			                                                  o.MapFrom(
 			                                                  p =>
 			                                                  p.Tags.Count > 0
-			                                                  ? Enumerable.Aggregate<string>(p.Tags.Select(t => t.Name), (t1, t2) => t1 + " " + t2)
+			                                                  ? p.Tags.Select(t => t.Name).Aggregate((t1, t2) => t1 + " " + t2)
 			                                                  : ""));
 		}
 	}

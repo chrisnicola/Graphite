@@ -1,2 +1,2 @@
-<viewdata model="PostIndexViewModel" />
+<viewdata model="Graphite.Web.Controllers.Posts.PostIndexViewModel" />
 <ListPosts />

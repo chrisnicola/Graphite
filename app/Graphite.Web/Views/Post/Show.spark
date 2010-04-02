@@ -1,4 +1,4 @@
-<viewdata model="PostShowWithCommentsViewModel" />
+<viewdata model="Graphite.Web.Controllers.Posts.PostShowWithCommentsViewModel" />
 	<PostView post="Model"/>
 	<Comments comments="Model.Comments"/>
 <if condition="Model.AllowComments">

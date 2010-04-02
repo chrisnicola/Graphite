@@ -1,4 +1,4 @@
-<viewdata model="PostEditModel" />
+<viewdata model="Graphite.Web.Controllers.Admin.Posts.PostEditModel" />
 <form action="${Url.Action("Update")}" method="post" >
 <div>Created On: ${H(Model.DateCreated)}</div>
 <div>Last Edited: ${H(Model.DateModified)}</div>

@@ -476,7 +476,6 @@
     <Content Include="Views\Admin\User\Delete.spark" />
     <Content Include="Views\Admin\User\Edit.spark" />
     <Content Include="Views\Admin\User\Index.spark" />
-    <Content Include="Views\Admin\Shared\ListUsers.spark" />
     <Content Include="Views\Admin\User\New.spark" />
     <Content Include="Views\Comment\Index.spark" />
     <Content Include="Views\Home\Index.spark" />
