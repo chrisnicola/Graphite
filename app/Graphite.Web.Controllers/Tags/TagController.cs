@@ -1,0 +1,14 @@
+﻿using System.Web.Mvc;
+using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Web.Controllers.ActionFilters;
+
+namespace Graphite.Web.Controllers.Tags{
+	public class TagController : Controller{
+		readonly ITagTasks _tagTasks;
+
+		public TagController(ITagTasks tagTasks) { _tagTasks = tagTasks; }
+
+		[AutoMap(typeof (ITagShowMapper))]
+		public ActionResult Show(string id) { return View(_tagTasks.GetTagByName(id)); }
+	}
+}

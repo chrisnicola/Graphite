@@ -3,8 +3,13 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Graphite.Web.Controllers.Admin;
+using Graphite.Web.Controllers.Admin.Users;
+using Graphite.Web.Controllers.Login;
+using Graphite.Web.Controllers.Posts;
+using Graphite.Web.Controllers.Tags;
 using RestfulRouting;
 using SharpArch.Web.Areas;
+using HomeController = Graphite.Web.Controllers.Home.HomeController;
 
 #endregion
 
@@ -16,7 +21,7 @@ namespace Graphite.Web.Controllers{
 			routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
 			var configuration = new RouteConfiguration {Namespaces = new[] {typeof (PostController).Namespace}};
 			var map = new RestfulRouteMapper(routes, configuration);
-			routes.CreateArea("admin", typeof (Admin.PostController).Namespace, GetAdminRoutes());
+			routes.CreateArea("admin", typeof (Admin.Posts.PostController).Namespace, GetAdminRoutes());
 			routes.CreateArea("root", typeof (PostController).Namespace, GetRootRoutes());
 		}
 
@@ -25,7 +30,7 @@ namespace Graphite.Web.Controllers{
 			var map = new RestfulRouteMapper(routes);
 			routes.MapRoute(null, "admin/", new {controller = "Home", action = "Index"});
 			map.Namespace("admin", m => {
-			                       	m.Resources<Admin.PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
+			                       	m.Resources<Admin.Posts.PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
 			                       	m.Resources<UserController>();
 			                       	m.Resources<Admin.HomeController>();
 			                       	m.Resource<BlogMLController>(r => {

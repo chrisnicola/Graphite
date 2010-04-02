@@ -117,49 +117,48 @@
   <ItemGroup>
     <Compile Include="ActionFilters\AutoMapAttribute.cs" />
     <Compile Include="ActionResults\RssResult.cs" />
-    <Compile Include="Admin\ApprovedCommentsViewModel.cs" />
     <Compile Include="Admin\BlogMLController.cs" />
-    <Compile Include="Admin\CommentsController.cs" />
-    <Compile Include="Admin\UnapprovedCommentsViewModel.cs" />
-    <Compile Include="Helpers\HtmlHelpers.cs" />
-    <Compile Include="LoginController.cs" />
-    <Compile Include="Mappers\HomeIndexMapper.cs" />
-    <Compile Include="Mappers\PostNewModelMapper.cs" />
-    <Compile Include="Mappers\PostNewViewMapper.cs" />
-    <Compile Include="Mappers\CreateUserMapper.cs" />
+    <Compile Include="Admin\Comments\ApprovedCommentsViewModel.cs" />
+    <Compile Include="Admin\Comments\CommentsController.cs" />
+    <Compile Include="Admin\Comments\UnapprovedCommentsViewModel.cs" />
+    <Compile Include="Admin\Posts\DeletePostViewModel.cs" />
+    <Compile Include="Admin\Posts\EditPostMapper.cs" />
+    <Compile Include="Admin\Posts\PostController.cs" />
+    <Compile Include="Admin\Posts\PostEditModel.cs" />
+    <Compile Include="Admin\Posts\PostEditModelBase.cs" />
+    <Compile Include="Admin\Posts\PostNewModel.cs" />
+    <Compile Include="Admin\Posts\PostNewModelMapper.cs" />
+    <Compile Include="Admin\Posts\PostNewViewMapper.cs" />
+    <Compile Include="Admin\Users\CreateUserMapper.cs" />
+    <Compile Include="Admin\Users\DeleteUserViewModel.cs" />
+    <Compile Include="Admin\Users\EditUserViewModel.cs" />
+    <Compile Include="Admin\Users\NewUserMapper.cs" />
+    <Compile Include="Admin\Users\NewUserViewModel.cs" />
+    <Compile Include="Admin\Users\UserController.cs" />
+    <Compile Include="Admin\Users\UserIndexMapper.cs" />
+    <Compile Include="Admin\Users\UserIndexViewModel.cs" />
+    <Compile Include="Home\HomeController.cs" />
+    <Compile Include="Home\HomeIndexMapper.cs" />
+    <Compile Include="Home\HomeIndexViewModel.cs" />
+    <Compile Include="Login\LoginController.cs" />
+    <Compile Include="Login\LoginViewModel.cs" />
     <Compile Include="Admin\HomeController.cs" />
-    <Compile Include="Admin\PostController.cs" />
-    <Compile Include="Admin\UserController.cs" />
-    <Compile Include="Mappers\EditPostMapper.cs" />
-    <Compile Include="Mappers\NewUserMapper.cs" />
-    <Compile Include="Mappers\PostIndexMapper.cs" />
-    <Compile Include="Mappers\TagShowMapper.cs" />
-    <Compile Include="Mappers\UserIndexMapper.cs" />
     <Compile Include="ControllerEnums.cs" />
-    <Compile Include="HomeController.cs" />
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="PostController.cs" />
+    <Compile Include="Posts\PostController.cs" />
+    <Compile Include="Posts\PostIndexMapper.cs" />
+    <Compile Include="Posts\PostIndexViewModel.cs" />
+    <Compile Include="Posts\PostItemViewModel.cs" />
+    <Compile Include="Posts\PostShowViewModel.cs" />
+    <Compile Include="Posts\PostShowWithCommentsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteRegistrar.cs" />
     <Compile Include="FeedController.cs" />
-    <Compile Include="TagController.cs" />
-    <Compile Include="ViewModels\DeletePostViewModel.cs" />
-    <Compile Include="ViewModels\DeleteUserViewModel.cs" />
-    <Compile Include="ViewModels\EditUserViewModel.cs" />
-    <Compile Include="ViewModels\HomeIndexViewModel.cs" />
-    <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\NewUserViewModel.cs" />
-    <Compile Include="ViewModels\PostNewModel.cs" />
-    <Compile Include="ViewModels\PostEditModel.cs" />
-    <Compile Include="ViewModels\PostEditModelBase.cs" />
-    <Compile Include="ViewModels\PostIndexViewModel.cs" />
-    <Compile Include="ViewModels\PostItemViewModel.cs" />
-    <Compile Include="ViewModels\PostShowViewModel.cs" />
-    <Compile Include="ViewModels\PostShowWithCommentsViewModel.cs" />
-    <Compile Include="ViewModels\TagViewModel.cs" />
-    <Compile Include="ViewModels\UserIndexViewModel.cs" />
+    <Compile Include="Tags\TagController.cs" />
+    <Compile Include="Tags\TagShowMapper.cs" />
+    <Compile Include="Tags\TagViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">
@@ -174,6 +173,9 @@
       <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
       <Name>Graphite.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

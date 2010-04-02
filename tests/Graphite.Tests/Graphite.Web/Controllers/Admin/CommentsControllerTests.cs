@@ -4,6 +4,7 @@ using Graphite.Core;
 using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Core.Domain;
 using Graphite.Web.Controllers.Admin;
+using Graphite.Web.Controllers.Admin.Comments;
 using NUnit.Framework;
 using Rhino.Mocks;
 using MvcContrib.TestHelper;

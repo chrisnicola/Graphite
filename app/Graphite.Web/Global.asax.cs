@@ -8,6 +8,7 @@ using CommonServiceLocator.WindsorAdapter;
 using Graphite.Data.NHibernateMaps;
 using Graphite.Web.CastleWindsor;
 using Graphite.Web.Controllers;
+using Graphite.Web.Controllers.Home;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using MvcContrib.Castle;

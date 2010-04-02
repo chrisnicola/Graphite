@@ -2,7 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Graphite.Core.Contracts.MappingInterfaces;
-using Graphite.Web.Controllers.Mappers;
+using Graphite.Web.Controllers.Admin.Posts;
 using SharpArch.Core.CommonValidator;
 using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
 using SharpArch.Core.PersistenceSupport;

@@ -82,6 +82,7 @@
     <Compile Include="Contracts\DataInterfaces\ITagRepository.cs" />
     <Compile Include="Contracts\DataInterfaces\IUserRepository.cs" />
     <Compile Include="Contracts\MappingInterfaces\GenericMapper.cs" />
+    <Compile Include="Contracts\MappingInterfaces\IHomeIndexMapper.cs" />
     <Compile Include="Contracts\MappingInterfaces\IMapper.cs" />
     <Compile Include="Contracts\Services\IMetaWeblog.cs" />
     <Compile Include="Contracts\Services\ISyndicationService.cs" />

@@ -1,4 +1,4 @@
-<viewdata model="NewUserViewModel" />
+<viewdata model="Graphite.Web.Controllers.Admin.User.NewUserViewModel" />
 <h2>Add New User</h2>
 <form action="${Url.Action("Create")}" method="post" >
 !{Html.AntiForgeryToken()}
