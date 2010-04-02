@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 using Graphite.Core;
-using Graphite.Core.MappingInterfaces;
+using Graphite.Core.Contracts.MappingInterfaces;
 using Graphite.Web.Controllers.ViewModels;
 
 namespace Graphite.Web.Controllers.Mappers{

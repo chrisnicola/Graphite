@@ -1,6 +1,6 @@
 using System;
 using System.Web.Mvc;
-using Graphite.Core.MappingInterfaces;
+using Graphite.Core.Contracts.MappingInterfaces;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Graphite.Web.Controllers.ActionFilters{

@@ -3,7 +3,7 @@ using System.Linq;
 using AutoMapper;
 using BlogML.Xml;
 using Graphite.Core;
-using Graphite.Core.MappingInterfaces;
+using Graphite.Core.Contracts.MappingInterfaces;
 
 namespace Graphite.ApplicationServices.BlogML{
 	public interface IPostToBlogMLMapper : IMapper<Post, BlogMLPost> {}

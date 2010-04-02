@@ -457,6 +457,10 @@
     </Content>
     <None Include="Scripts\ckeditor\.htaccess" />
     <None Include="Scripts\ckeditor\ckeditor.pack" />
+    <None Include="Views\Admin\Comments\Approved.spark" />
+    <None Include="Views\Admin\Comments\_CommentsTabs.spark" />
+    <None Include="Views\Admin\Comments\Settings.spark" />
+    <None Include="Views\Admin\Comments\Unapproved.spark" />
     <Content Include="XmlRpc.ashx" />
     <Content Include="Views\Admin\BlogML\Show.spark" />
     <Content Include="Views\Admin\Home\Index.spark" />
