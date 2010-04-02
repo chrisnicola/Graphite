@@ -63,6 +63,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Graphite.Web.Controllers, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Graphite.Web\Bin\Graphite.Web.Controllers.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -153,12 +157,22 @@
     <Compile Include="Admin\Users\UserController.cs" />
     <Compile Include="Admin\Users\UserIndexMapper.cs" />
     <Compile Include="Admin\Users\UserIndexViewModel.cs" />
+    <Compile Include="Contracts\Mappers\ICreateUserMapper.cs" />
+    <Compile Include="Contracts\Mappers\IEditUserMapper.cs" />
+    <Compile Include="Contracts\Mappers\IHomeIndexMapper.cs" />
+    <Compile Include="Contracts\Mappers\INewUserMapper.cs" />
+    <Compile Include="Contracts\Mappers\IPostCreateDetailsMapper.cs" />
+    <Compile Include="Contracts\Mappers\IPostEditDetailsMapper.cs" />
+    <Compile Include="Contracts\Mappers\IPostEditModelMapper.cs" />
+    <Compile Include="Contracts\Mappers\IPostIndexMapper.cs" />
+    <Compile Include="Contracts\Mappers\IPostNewModelMapper.cs" />
+    <Compile Include="Contracts\Mappers\ITagShowMapper.cs" />
+    <Compile Include="Contracts\Mappers\IUserIndexMapper.cs" />
     <Compile Include="Home\HomeController.cs" />
     <Compile Include="Home\HomeIndexMapper.cs" />
     <Compile Include="Home\HomeIndexViewModel.cs" />
     <Compile Include="Login\LoginController.cs" />
     <Compile Include="Login\LoginViewModel.cs" />
-    <Compile Include="Admin\HomeController.cs" />
     <Compile Include="ControllerEnums.cs" />
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>

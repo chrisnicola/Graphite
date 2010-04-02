@@ -3,6 +3,7 @@ logs/
 build/
 release/
 bin/
+Bin/
 obj/
 */*.user
 *.user

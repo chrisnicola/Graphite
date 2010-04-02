@@ -24,7 +24,7 @@
     </tr>
     <tr each="var item in Model.Posts">
         <td>
-          !{Html.ActionLink<PostController>(c => c.Show(item.Slug), "View")}<if condition='Model.IsAuthenticated == true'> | !{Html.ActionLink("Edit", "Edit", new { id = item.Id })} | !{Html.ActionLink("Delete", "Delete", new { id = item.Id })}</if>
+          !{Html.ActionLink<Graphite.Web.Controllers.Posts.PostController>(c => c.Show(item.Slug), "View")}<if condition='Model.IsAuthenticated == true'> | !{Html.ActionLink("Edit", "Edit", new { id = item.Id })} | !{Html.ActionLink("Delete", "Delete", new { id = item.Id })}</if>
         </td>
         <td>
             ${item.Title}

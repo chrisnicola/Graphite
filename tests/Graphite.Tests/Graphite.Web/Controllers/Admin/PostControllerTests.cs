@@ -2,12 +2,13 @@
 using Graphite.ApplicationServices;
 using Graphite.Core;
 using Graphite.Core.Contracts.Data;
-using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Contracts.Tasks;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
 using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.Admin;
 using Graphite.Web.Controllers.Admin.Posts;
+using Graphite.Web.Controllers.Contracts.Mappers;
 using MvcContrib.TestHelper;
 using NUnit.Framework;
 using Rhino.Mocks;

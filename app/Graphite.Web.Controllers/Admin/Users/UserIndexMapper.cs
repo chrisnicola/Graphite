@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core.Contracts.Mapping;
-using Graphite.Core.Domain;
+using Graphite.Web.Controllers.Contracts.Mappers;
 
 namespace Graphite.Web.Controllers.Admin.Users{
-	public interface IUserIndexMapper : IMapper<IEnumerable<User>, UserIndexViewModel> {}
-
-	public class UserIndexMapper : IUserIndexMapper{
+  public class UserIndexMapper : IUserIndexMapper{
 		readonly IMapper<Core.Domain.User, UserViewModel> _mapper;
 
 		public UserIndexMapper(IMapper<Core.Domain.User, UserViewModel> mapper) { _mapper = mapper; }

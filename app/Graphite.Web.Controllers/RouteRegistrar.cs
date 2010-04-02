@@ -21,18 +21,17 @@ namespace Graphite.Web.Controllers{
 			routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
 			var configuration = new RouteConfiguration {Namespaces = new[] {typeof (PostController).Namespace}};
 			var map = new RestfulRouteMapper(routes, configuration);
-			routes.CreateArea("admin", typeof (Admin.Posts.PostController).Namespace, GetAdminRoutes());
-			routes.CreateArea("root", typeof (PostController).Namespace, GetRootRoutes());
+			routes.CreateArea("admin", "Graphite.Web.Controllers.Admin", GetAdminRoutes());
+      routes.CreateArea("root", "Graphite.Web.Controllers", GetRootRoutes());
 		}
 
 		static Route[] GetAdminRoutes() {
 			var routes = new RouteCollection();
 			var map = new RestfulRouteMapper(routes);
-			routes.MapRoute(null, "admin/", new {controller = "Home", action = "Index"});
+			routes.MapRoute(null, "admin/", new {controller = "Post", action = "Index"});
 			map.Namespace("admin", m => {
 			                       	m.Resources<Admin.Posts.PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
 			                       	m.Resources<UserController>();
-			                       	m.Resources<Admin.HomeController>();
 			                       	m.Resource<BlogMLController>(r => {
 			                       	                             	r.AddMemberRoute<BlogMLController>(c => c.Import(),
 			                       	                             	                                   HttpVerbs.Post);

@@ -43,9 +43,9 @@ namespace Graphite.Web{
 		/// </summary>
 		static IWindsorContainer InitializeServiceLocator() {
 			IWindsorContainer container = new WindsorContainer();
-			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
+      ComponentRegistrar.AddComponentsTo(container);
+      ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
 			container.RegisterControllers(typeof (HomeController).Assembly);
-			ComponentRegistrar.AddComponentsTo(container);
 			ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
 			return container;
 		}

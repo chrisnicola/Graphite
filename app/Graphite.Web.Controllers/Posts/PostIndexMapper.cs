@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core.Contracts.Mapping;
-using Graphite.Core.Contracts.TaskInterfaces;
-using Graphite.Core.Domain;
+using Graphite.Core.Contracts.Tasks;
+using Graphite.Web.Controllers.Contracts.Mappers;
 
 namespace Graphite.Web.Controllers.Posts{
-	public interface IPostIndexMapper : IMapper<IEnumerable<Post>, PostIndexViewModel> {}
-
-	public class PostIndexMapper : IPostIndexMapper{
+  public class PostIndexMapper : IPostIndexMapper{
 		readonly IUserTasks _userTasks;
 		readonly IMapper<Core.Domain.Post, PostShowViewModel> _mapper;
 

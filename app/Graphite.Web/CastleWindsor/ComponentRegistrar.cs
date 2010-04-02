@@ -15,14 +15,14 @@ using Spark.Web.Mvc;
 namespace Graphite.Web.CastleWindsor{
 	public static class ComponentRegistrar{
 		public static void AddComponentsTo(IWindsorContainer container) {
-			SharpArchContrib.Castle.CastleWindsor.ComponentRegistrar.AddComponentsTo(container);
-			AddGenericRepositoriesTo(container);
+      AddControllerMappersTo(container);
 			AddCustomRepositoriesTo(container);
-			AddApplicationServicesTo(container);
-			AddSparkViewEngineTo(container);
+      AddApplicationServicesTo(container);
 			AddGenericMappersTo(container);
-			AddControllerMappersTo(container);
+      AddGenericRepositoriesTo(container);
 			container.AddComponent("validator", typeof (IValidator), typeof (Validator));
+      AddSparkViewEngineTo(container);
+      SharpArchContrib.Castle.CastleWindsor.ComponentRegistrar.AddComponentsTo(container);
 		}
 
 		static void AddSparkViewEngineTo(IWindsorContainer container) {
@@ -31,20 +31,21 @@ namespace Graphite.Web.CastleWindsor{
 		}
 
 		static void AddApplicationServicesTo(IWindsorContainer container) {
-			container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
-			                   .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services"));
+      container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
+			                   .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services")
+                         .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Tasks"));
 		}
 
 		static void AddCustomRepositoriesTo(IWindsorContainer container) {
 			container.Register(
-			AllTypes.Pick().FromAssemblyNamed("Graphite.Data")
+      AllTypes.Of(typeof(IRepositoryWithTypedId<,>)).FromAssemblyNamed("Graphite.Data")
 			.WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Data"));
 		}
 
 		static void AddControllerMappersTo(IWindsorContainer container) {
 			container.Register(
-			AllTypes.Pick().FromAssemblyNamed("Graphite.Web.Controllers").Where(t => t.IsAssignableFrom(typeof(IMapper)))
-			.WithService.FirstNonGenericCoreInterface("Graphite.Web.Controllers"));
+			AllTypes.Of<IMapper>().FromAssemblyNamed("Graphite.Web.Controllers")
+      .WithService.FirstNonGenericCoreInterface("Graphite.Web.Controllers.Contracts.Mappers"));
 		}
 
 		static void AddGenericMappersTo(IWindsorContainer container) {

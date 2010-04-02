@@ -2,16 +2,13 @@
 using AutoMapper;
 using Graphite.Core.Contracts.Mapping;
 using Graphite.Core.Messages;
+using Graphite.Web.Controllers.Contracts.Mappers;
 using Enumerable = System.Linq.Enumerable;
 
 namespace Graphite.Web.Controllers.Admin.Posts{
-	public interface IPostEditDetailsMapper : IMapper<PostEditModel, PostEditDetails> {}
+  public class PostEditDetailsMapper : GenericMapper<PostEditModel, PostEditDetails>, IPostEditDetailsMapper {}
 
-	public class PostEditDetailsMapper : GenericMapper<PostEditModel, PostEditDetails>, IPostEditDetailsMapper {}
-
-	public interface IPostEditModelMapper : IMapper<Core.Domain.Post, PostEditModel> {}
-
-	public class PostEditModelMapper : GenericMapper<Core.Domain.Post, PostEditModel>, IPostEditModelMapper{
+  public class PostEditModelMapper : GenericMapper<Core.Domain.Post, PostEditModel>, IPostEditModelMapper{
 		public PostEditModelMapper() {
 			Mapper.CreateMap<Core.Domain.Post, PostEditModel>().ForMember(m => m.Tags,
 			                                                  o =>

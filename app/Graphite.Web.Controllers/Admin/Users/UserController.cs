@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Contracts.Tasks;
 using Graphite.Web.Controllers.ActionFilters;
+using Graphite.Web.Controllers.Contracts.Mappers;
 using MvcContrib;
 
 namespace Graphite.Web.Controllers.Admin.Users{

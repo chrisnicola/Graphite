@@ -101,10 +101,10 @@
     <Compile Include="Contracts\Mapping\IMapper.cs" />
     <Compile Include="Contracts\Services\IMetaWeblog.cs" />
     <Compile Include="Contracts\Services\ISyndicationService.cs" />
-    <Compile Include="Contracts\TaskInterfaces\ICommentsTasks.cs" />
-    <Compile Include="Contracts\TaskInterfaces\IPostTasks.cs" />
-    <Compile Include="Contracts\TaskInterfaces\ITagTasks.cs" />
-    <Compile Include="Contracts\TaskInterfaces\IUserTasks.cs" />
+    <Compile Include="Contracts\Tasks\ICommentsTasks.cs" />
+    <Compile Include="Contracts\Tasks\IPostTasks.cs" />
+    <Compile Include="Contracts\Tasks\ITagTasks.cs" />
+    <Compile Include="Contracts\Tasks\IUserTasks.cs" />
     <Compile Include="Domain\Comment.cs" />
     <Compile Include="Domain\Post.cs" />
     <Compile Include="Domain\Tag.cs" />
@@ -118,6 +118,9 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\TaskInterfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

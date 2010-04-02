@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Graphite.Core;
-using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Contracts.Tasks;
 using Graphite.Core.Domain;
 using Graphite.Web.Controllers.Admin;
 using Graphite.Web.Controllers.Admin.Comments;

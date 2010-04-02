@@ -1,7 +1,6 @@
 ﻿using Graphite.Core.Contracts.Mapping;
+using Graphite.Web.Controllers.Contracts.Mappers;
 
 namespace Graphite.Web.Controllers.Admin.Users{
-	public interface INewUserMapper : IMapper<Core.Domain.User, NewUserViewModel> {}
-
-	public class NewUserMapper : GenericMapper<Core.Domain.User, NewUserViewModel>, INewUserMapper {}
+  public class NewUserMapper : GenericMapper<Core.Domain.User, NewUserViewModel>, INewUserMapper {}
 }
