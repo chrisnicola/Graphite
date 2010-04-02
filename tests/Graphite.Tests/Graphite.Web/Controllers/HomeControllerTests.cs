@@ -1,4 +1,5 @@
 ﻿using Graphite.ApplicationServices;
+using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Web.Controllers;
 using MvcContrib.TestHelper;
 using NUnit.Framework;

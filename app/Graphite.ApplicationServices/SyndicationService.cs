@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using Graphite.Core;
+using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.Services;
+using Graphite.Core.Domain;
 using Graphite.Data.Repositories;
 
 namespace Graphite.ApplicationServices{

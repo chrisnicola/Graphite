@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using CookComputing.XmlRpc;
 using Graphite.Core;
+using Graphite.Core.Contracts.Services;
+using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Domain;
+using Graphite.Core.Messages;
+using Graphite.Core.MetaWeblog;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Graphite.ApplicationServices.MetaWeblog{

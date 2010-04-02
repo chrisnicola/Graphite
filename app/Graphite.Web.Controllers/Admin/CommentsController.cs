@@ -1,5 +1,5 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Web.Controllers.ActionFilters;
 
 namespace Graphite.Web.Controllers.Admin{

@@ -105,15 +105,12 @@
     </Compile>
     <Compile Include="BlogML\BlogMLImporter.cs" />
     <Compile Include="BlogML\PostMapper.cs" />
-    <Compile Include="ISyndicationService.cs" />
-    <Compile Include="MetaWeblog\APIStructs.cs" />
-    <Compile Include="MetaWeblog\IMetaWeblog.cs" />
     <Compile Include="MetaWeblog\MetaWeblogAPI.cs" />
-    <Compile Include="PostTasks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyndicationService.cs" />
-    <Compile Include="TagTasks.cs" />
-    <Compile Include="UserTasks.cs" />
+    <Compile Include="Tasks\PostTasks.cs" />
+    <Compile Include="Tasks\TagTasks.cs" />
+    <Compile Include="Tasks\UserTasks.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">

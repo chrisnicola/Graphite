@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Graphite.ApplicationServices;
+using Graphite.Core.Contracts.Services;
 using Graphite.Web.Controllers.ActionResults;
 
 namespace Graphite.Web.Controllers{

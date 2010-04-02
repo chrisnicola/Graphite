@@ -1,6 +1,7 @@
 ﻿using FluentNHibernate.Automapping;
 using FluentNHibernate.Automapping.Alterations;
 using Graphite.Core;
+using Graphite.Core.Domain;
 
 namespace Graphite.Data.NHibernateMaps{
 	public class CommentMap : IAutoMappingOverride<Comment>{

@@ -1,6 +1,7 @@
 ﻿using System;
 using BlogML.Xml;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using SharpArch.Testing;
 
 namespace Tests.Graphite.ApplicationServices{

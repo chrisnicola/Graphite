@@ -120,7 +120,6 @@
     <Compile Include="Admin\ApprovedCommentsViewModel.cs" />
     <Compile Include="Admin\BlogMLController.cs" />
     <Compile Include="Admin\CommentsController.cs" />
-    <Compile Include="Admin\ICommentsTasks.cs" />
     <Compile Include="Admin\UnapprovedCommentsViewModel.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="LoginController.cs" />

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Graphite.Core;
+using Graphite.Core.Domain;
 
-namespace Graphite.Web.Controllers.Admin{
+namespace Graphite.Core.Contracts.TaskInterfaces{
   public interface ICommentsTasks {
     IEnumerable<Comment> GetApprovedComments();
 

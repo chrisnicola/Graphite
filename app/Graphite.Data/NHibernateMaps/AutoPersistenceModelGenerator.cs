@@ -4,6 +4,7 @@ using FluentNHibernate;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Conventions;
 using Graphite.Core;
+using Graphite.Core.Domain;
 using Graphite.Data.NHibernateMaps.Conventions;
 using SharpArch.Core.DomainModel;
 using SharpArch.Data.NHibernate.FluentNHibernate;

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.ServiceModel.Syndication;
 using Graphite.ApplicationServices;
+using Graphite.Core.Contracts.DataInterfaces;
 using Graphite.Data.Repositories;
 using NUnit.Framework;
 using Rhino.Mocks;

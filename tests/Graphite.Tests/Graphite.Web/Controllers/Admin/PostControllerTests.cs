@@ -1,6 +1,10 @@
 ﻿using System;
 using Graphite.ApplicationServices;
 using Graphite.Core;
+using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Domain;
+using Graphite.Core.Messages;
 using Graphite.Data.Repositories;
 using Graphite.Web.Controllers.Admin;
 using Graphite.Web.Controllers.Mappers;

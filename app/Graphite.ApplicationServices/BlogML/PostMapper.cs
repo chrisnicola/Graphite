@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using BlogML.Xml;
 using Graphite.Core;
 using Graphite.Core.Contracts.MappingInterfaces;
+using Graphite.Core.Domain;
+using Graphite.Core.Messages;
 
 namespace Graphite.ApplicationServices.BlogML{
 	public interface IPostToBlogMLMapper : IMapper<Post, BlogMLPost> {}

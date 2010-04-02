@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core;
+using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Domain;
 using NHibernate.Linq;
-using SharpArch.Core.PersistenceSupport.NHibernate;
-using SharpArch.Data.NHibernate;
 
 namespace Graphite.Data.Repositories{
 	public class PostRepository : LinqRepository<Post>, IPostRepository{
@@ -21,18 +21,4 @@ namespace Graphite.Data.Repositories{
 			return post;
 		}
 	}
-
-	public class CommentRepository : NHibernateRepositoryWithTypedId<Comment, Guid>, ICommentRepository {}
-
-	public interface IPostRepository : ILinqRepository<Post>{
-		/// <summary>
-		/// Gets the most recent posts in the database
-		/// </summary>
-		/// <param name="i">Number of recent posts to get</param>
-		IEnumerable<Post> GetRecentPublishedPosts(int i);
-
-		Post GetWithComments(Guid id);
-	}
-
-	public interface ICommentRepository : INHibernateRepositoryWithTypedId<Comment, Guid> {}
 }

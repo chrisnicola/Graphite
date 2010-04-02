@@ -1,8 +1,8 @@
 using System.Web.Mvc;
-using Graphite.ApplicationServices;
+using Graphite.Core.Contracts.TaskInterfaces;
 using Graphite.Web.Controllers.ViewModels;
-using MvcContrib;
 using MvcContrib.Attributes;
+using MvcContrib;
 using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers{

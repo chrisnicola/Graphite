@@ -1,4 +1,5 @@
 using Graphite.Core;
+using Graphite.Core.Domain;
 using NUnit.Framework;
 
 namespace Tests.Graphite.Core{

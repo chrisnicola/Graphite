@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Web.Mvc;
-using Graphite.ApplicationServices;
-using Graphite.Core;
-using Graphite.Data.Repositories;
+using MvcContrib;
+using Graphite.Core.Contracts.DataInterfaces;
+using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Domain;
 using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
-using MvcContrib;
-using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers{
 	public class PostControllerBase : Controller{

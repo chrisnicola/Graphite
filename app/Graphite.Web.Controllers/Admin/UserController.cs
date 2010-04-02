@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
-using Graphite.ApplicationServices;
-using Graphite.Core;
+using MvcContrib;
+using Graphite.Core.Contracts.TaskInterfaces;
+using Graphite.Core.Domain;
 using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Mappers;
 using Graphite.Web.Controllers.ViewModels;
-using MvcContrib;
 
 namespace Graphite.Web.Controllers.Admin{
 	public class UserController : Controller{
