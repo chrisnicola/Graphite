@@ -1,7 +1,6 @@
 ﻿using Graphite.ApplicationServices;
 using Graphite.Core.Contracts.Tasks;
-using Graphite.Web.Controllers;
-using Graphite.Web.Controllers.Home;
+using Graphite.Web.Views.Home;
 using MvcContrib.TestHelper;
 using NUnit.Framework;
 using Rhino.Mocks;

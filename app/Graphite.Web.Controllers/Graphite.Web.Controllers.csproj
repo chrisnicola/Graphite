@@ -63,10 +63,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Graphite.Web.Controllers, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Graphite.Web\Bin\Graphite.Web.Controllers.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -135,60 +131,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionFilters\AutoMapAttribute.cs" />
-    <Compile Include="ActionResults\RssResult.cs" />
-    <Compile Include="Admin\BlogMLController.cs" />
-    <Compile Include="Admin\Comments\ApprovedCommentsViewModel.cs" />
-    <Compile Include="Admin\Comments\CommentsController.cs" />
-    <Compile Include="Admin\Comments\UnapprovedCommentsViewModel.cs" />
-    <Compile Include="Admin\Posts\DeletePostViewModel.cs" />
-    <Compile Include="Admin\Posts\EditPostMapper.cs" />
-    <Compile Include="Admin\Posts\PostController.cs" />
-    <Compile Include="Admin\Posts\PostEditModel.cs" />
-    <Compile Include="Admin\Posts\PostEditModelBase.cs" />
-    <Compile Include="Admin\Posts\PostNewModel.cs" />
-    <Compile Include="Admin\Posts\PostNewModelMapper.cs" />
-    <Compile Include="Admin\Posts\PostNewViewMapper.cs" />
-    <Compile Include="Admin\Users\CreateUserMapper.cs" />
-    <Compile Include="Admin\Users\DeleteUserViewModel.cs" />
-    <Compile Include="Admin\Users\EditUserViewModel.cs" />
-    <Compile Include="Admin\Users\NewUserMapper.cs" />
-    <Compile Include="Admin\Users\NewUserViewModel.cs" />
-    <Compile Include="Admin\Users\UserController.cs" />
-    <Compile Include="Admin\Users\UserIndexMapper.cs" />
-    <Compile Include="Admin\Users\UserIndexViewModel.cs" />
-    <Compile Include="Contracts\Mappers\ICreateUserMapper.cs" />
-    <Compile Include="Contracts\Mappers\IEditUserMapper.cs" />
-    <Compile Include="Contracts\Mappers\IHomeIndexMapper.cs" />
-    <Compile Include="Contracts\Mappers\INewUserMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostCreateDetailsMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostEditDetailsMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostEditModelMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostIndexMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostNewModelMapper.cs" />
-    <Compile Include="Contracts\Mappers\ITagShowMapper.cs" />
-    <Compile Include="Contracts\Mappers\IUserIndexMapper.cs" />
-    <Compile Include="Home\HomeController.cs" />
-    <Compile Include="Home\HomeIndexMapper.cs" />
-    <Compile Include="Home\HomeIndexViewModel.cs" />
-    <Compile Include="Login\LoginController.cs" />
-    <Compile Include="Login\LoginViewModel.cs" />
-    <Compile Include="ControllerEnums.cs" />
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Posts\PostController.cs" />
-    <Compile Include="Posts\PostIndexMapper.cs" />
-    <Compile Include="Posts\PostIndexViewModel.cs" />
-    <Compile Include="Posts\PostItemViewModel.cs" />
-    <Compile Include="Posts\PostShowViewModel.cs" />
-    <Compile Include="Posts\PostShowWithCommentsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteRegistrar.cs" />
-    <Compile Include="FeedController.cs" />
-    <Compile Include="Tags\TagController.cs" />
-    <Compile Include="Tags\TagShowMapper.cs" />
-    <Compile Include="Tags\TagViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">
@@ -203,9 +149,6 @@
       <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
       <Name>Graphite.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
