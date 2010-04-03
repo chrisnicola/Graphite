@@ -1,5 +1,5 @@
 <div class="post">
-	<h2 class="title">!{Html.ActionLink<Graphite.Web.Controllers.Posts.PostController>(c => c.Show(post.Slug), post.Title)}</h2>
+	<h2 class="title">!{Html.ActionLink<Graphite.Web.Views.Post.PostController>(c => c.Show(post.Slug), post.Title)}</h2>
 	<div class="author">By ${post.AuthorRealName}</div>
 	<div class="content">!{post.Content}</div>
 	<div class="footer">

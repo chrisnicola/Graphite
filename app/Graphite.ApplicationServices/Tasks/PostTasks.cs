@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core.Contracts.Data;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
 using SharpArchContrib.Castle.NHibernate;

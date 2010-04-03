@@ -1,5 +1,5 @@
 using System.Web.Mvc;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Web.Views.Home;
 using MvcContrib;
 using MvcContrib.Attributes;

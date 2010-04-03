@@ -1,7 +1,7 @@
 using System;
 using System.Web.Mvc;
 using Graphite.Core.Contracts.Data;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Web.ActionFilters;
 using Graphite.Web.Contracts.Mappers;
 using Graphite.Web.Views.Post;

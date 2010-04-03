@@ -51,6 +51,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BlogML, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\BlogML.dll</HintPath>
+    </Reference>
     <Reference Include="CookComputing.XmlRpc, Version=2.4.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\CookComputing.XmlRpc.dll</HintPath>
@@ -99,12 +103,15 @@
     <Compile Include="Contracts\Data\IUserRepository.cs" />
     <Compile Include="Contracts\Mapping\GenericMapper.cs" />
     <Compile Include="Contracts\Mapping\IMapper.cs" />
+    <Compile Include="Contracts\Services\BlogML\IBlogMLToCommentMapper.cs" />
+    <Compile Include="Contracts\Services\BlogML\IBlogMLToPostMapper.cs" />
+    <Compile Include="Contracts\Services\BlogML\IPostToBlogMLMapper.cs" />
+    <Compile Include="Contracts\Services\ICommentsTasks.cs" />
     <Compile Include="Contracts\Services\IMetaWeblog.cs" />
+    <Compile Include="Contracts\Services\IPostTasks.cs" />
     <Compile Include="Contracts\Services\ISyndicationService.cs" />
-    <Compile Include="Contracts\Tasks\ICommentsTasks.cs" />
-    <Compile Include="Contracts\Tasks\IPostTasks.cs" />
-    <Compile Include="Contracts\Tasks\ITagTasks.cs" />
-    <Compile Include="Contracts\Tasks\IUserTasks.cs" />
+    <Compile Include="Contracts\Services\ITagTasks.cs" />
+    <Compile Include="Contracts\Services\IUserTasks.cs" />
     <Compile Include="Domain\Comment.cs" />
     <Compile Include="Domain\Post.cs" />
     <Compile Include="Domain\Tag.cs" />
@@ -120,7 +127,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contracts\TaskInterfaces\" />
+    <Folder Include="Contracts\Tasks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

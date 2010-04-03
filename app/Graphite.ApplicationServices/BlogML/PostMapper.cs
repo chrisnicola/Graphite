@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using BlogML.Xml;
-using Graphite.Core;
 using Graphite.Core.Contracts.Mapping;
+using Graphite.Core.Contracts.Services.BlogML;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
 
 namespace Graphite.ApplicationServices.BlogML{
-	public interface IPostToBlogMLMapper : IMapper<Post, BlogMLPost> {}
-
-	public class PostToBlogMLMapper : GenericMapper<Post, BlogMLPost>, IPostToBlogMLMapper{
+  public class PostToBlogMLMapper : GenericMapper<Post, BlogMLPost>, IPostToBlogMLMapper{
 		public PostToBlogMLMapper() {
 			Mapper.CreateMap<Post, BlogMLPost>()
 			.ForMember(m => m.Content, o => o.MapFrom(s => BlogMLContent.Create(s.Content, false)))
@@ -66,11 +64,5 @@ namespace Graphite.ApplicationServices.BlogML{
 			.ForMember(m => m.WebAddress, o => o.MapFrom(s => s.UserUrl))
 			.ForMember(m => m.Author, o => o.MapFrom(s => s.UserName));
 		}
-	}
-
-	public interface IBlogMLToCommentMapper : IMapper<BlogMLComment, Comment> {}
-
-	public interface IBlogMLToPostMapper : IMapper<BlogMLPost, PostImportDetails>{
-		PostImportDetails MapFrom(BlogMLPost post, IEnumerable<BlogMLCategory> categories);
 	}
 }

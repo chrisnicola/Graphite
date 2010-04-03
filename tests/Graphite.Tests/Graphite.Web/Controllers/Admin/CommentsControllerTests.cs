@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Graphite.Core;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Web.Views.Admin.Comments;
 using NUnit.Framework;
 using Rhino.Mocks;
 using MvcContrib.TestHelper;
 
-namespace Tests.Graphite.Web.Controllers.Admin{
+namespace Tests.Graphite.Web.Views.Admin{
   
   public static class TestHelper{
     public static T AssertViewData<T>(this ActionResult result) { return result.AssertViewRendered().WithViewData<T>(); }

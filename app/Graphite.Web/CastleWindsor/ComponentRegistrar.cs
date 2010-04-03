@@ -14,7 +14,7 @@ using Spark.Web.Mvc;
 namespace Graphite.Web.CastleWindsor{
 	public static class ComponentRegistrar{
 		public static void AddComponentsTo(IWindsorContainer container) {
-      AddControllerMappersTo(container);
+      AddCustomViewModelMappersTo(container);
 			AddCustomRepositoriesTo(container);
       AddApplicationServicesTo(container);
 			AddGenericMappersTo(container);
@@ -30,9 +30,8 @@ namespace Graphite.Web.CastleWindsor{
 		}
 
 		static void AddApplicationServicesTo(IWindsorContainer container) {
-      container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
-			                   .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services")
-                         .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Tasks"));
+		  container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
+		    .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services"));
 		}
 
 		static void AddCustomRepositoriesTo(IWindsorContainer container) {
@@ -41,10 +40,10 @@ namespace Graphite.Web.CastleWindsor{
 			.WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Data"));
 		}
 
-		static void AddControllerMappersTo(IWindsorContainer container) {
+		static void AddCustomViewModelMappersTo(IWindsorContainer container) {
 			container.Register(
-			AllTypes.Of<IMapper>().FromAssemblyNamed("Graphite.Web.Controllers")
-      .WithService.FirstNonGenericCoreInterface("Graphite.Web.Controllers.Contracts.Mappers"));
+			AllTypes.Of<IMapper>().FromAssemblyNamed("Graphite.Web")
+      .WithService.FirstNonGenericCoreInterface("Graphite.Web.Contracts.Mappers"));
 		}
 
 		static void AddGenericMappersTo(IWindsorContainer container) {
