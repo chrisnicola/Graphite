@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -25,7 +26,10 @@ namespace Tests.Graphite.Web{
 
 	  [Test]
 	  public void post_is_mapped_to_post_controller() {
+	    var guid = Guid.NewGuid();
 	    "~/post".Route().ShouldMapTo<PostController>(x => x.Index());
+	    "~/post/test".Route().ShouldMapTo<PostController>(x => x.Show("test"));
+      String.Format("~/post/{0}/id", guid.ToString()).Route().ShouldMapTo<PostController>(x => x.Id(guid));
 	  }
 
     [Test]
