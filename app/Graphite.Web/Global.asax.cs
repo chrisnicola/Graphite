@@ -28,11 +28,12 @@ namespace Graphite.Web{
 
 		protected void Application_Start() {
 			XmlConfigurator.Configure();
-			IWindsorContainer controller = InitializeServiceLocator();
+			IWindsorContainer container = InitializeServiceLocator();
+
 			ModelBinders.Binders.DefaultBinder = new SharpModelBinder();
 			ViewEngines.Engines.Clear();
 			InputBuilder.BootStrap();
-			ViewEngines.Engines.Add(controller.Resolve<IViewEngine>());
+			ViewEngines.Engines.Add(container.Resolve<IViewEngine>());
 			RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
 		}
 
