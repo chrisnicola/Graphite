@@ -28,7 +28,8 @@ namespace Graphite.Web{
       Area<Home.HomeController>("", () =>
       Map("").To<HomeController>(x => x.Index());
       Map("rss").To<FeedController>(x => x.Rss());
-      /*Area<HomeController>("", () =>
+      Map("atom").To<FeedController>(x => x.Atom());
+      Area<HomeController>("", () =>
       {
         Resources<Posts.PostController>(() => Member("id", HttpVerbs.Get));
         Resources<Tags.TagController>(() => Only("show"));
@@ -38,8 +39,7 @@ namespace Graphite.Web{
           Member("authenticate", HttpVerbs.Post);
           Member("signout", HttpVerbs.Get);
         });
-        Map("rss").To<FeedController>(x => x.Rss());
-        Map("atom").To<FeedController>(x => x.Atom());
+        
       });
       Area<Admin.Posts.PostController>("admin", () =>
       {
@@ -51,7 +51,7 @@ namespace Graphite.Web{
           Only("show");
           Member("import", HttpVerbs.Post);
         });
-      });*/
+      });
     }
   }
 }
