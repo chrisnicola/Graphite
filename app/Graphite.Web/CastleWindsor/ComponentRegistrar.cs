@@ -22,7 +22,6 @@ namespace Graphite.Web.CastleWindsor{
       AddGenericRepositoriesTo(container);
 			container.AddComponent("validator", typeof (IValidator), typeof (Validator));
       AddSparkViewEngineTo(container);
-      SharpArchContrib.Castle.CastleWindsor.ComponentRegistrar.AddComponentsTo(container);
 		}
 
 		static void AddSparkViewEngineTo(IWindsorContainer container) {
