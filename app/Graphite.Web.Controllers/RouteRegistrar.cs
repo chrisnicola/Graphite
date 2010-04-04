@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Graphite.Web.Controllers;
+using Graphite.Web.Controllers.Home;
 using RestfulRouting;
 
 namespace Graphite.Web.Controllers{
@@ -15,7 +16,6 @@ namespace Graphite.Web{
       routes.IgnoreRoute("XmlRpc.ashx");
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
       routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
-      AreaRegistration.RegisterAllAreas();
       routes.MapRoutes<Routes>();
     }
   }
@@ -26,6 +26,9 @@ namespace Graphite.Web{
     {
       Map("").To<Home.HomeController>(x => x.Index());
       Area<Home.HomeController>("", () =>
+      Map("").To<HomeController>(x => x.Index());
+      Map("rss").To<FeedController>(x => x.Rss());
+      /*Area<HomeController>("", () =>
       {
         Resources<Posts.PostController>(() => Member("id", HttpVerbs.Get));
         Resources<Tags.TagController>(() => Only("show"));
@@ -48,7 +51,7 @@ namespace Graphite.Web{
           Only("show");
           Member("import", HttpVerbs.Post);
         });
-      });
+      });*/
     }
   }
 }
