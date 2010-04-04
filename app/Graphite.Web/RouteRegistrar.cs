@@ -20,7 +20,6 @@ namespace Graphite.Web{
       routes.IgnoreRoute("XmlRpc.ashx");
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
       routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
-      AreaRegistration.RegisterAllAreas();
       routes.MapRoutes<Routes>();
     }
   }
@@ -30,7 +29,8 @@ namespace Graphite.Web{
     public Routes()
     {
       Map("").To<HomeController>(x => x.Index());
-      Area<HomeController>("", () =>
+      Map("rss").To<FeedController>(x => x.Rss());
+      /*Area<HomeController>("", () =>
       {
         Resources<PostController>(() => Member("id", HttpVerbs.Get));
         Resources<TagController>(() => Only("show"));
@@ -53,7 +53,7 @@ namespace Graphite.Web{
           Only("show");
           Member("import", HttpVerbs.Post);
         });
-      });
+      });*/
     }
   }
 }
