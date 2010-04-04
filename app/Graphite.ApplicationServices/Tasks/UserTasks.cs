@@ -11,7 +11,6 @@ using Graphite.Core.Contracts.Data;
 using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
-using SharpArchContrib.Castle.NHibernate;
 
 namespace Graphite.ApplicationServices.Tasks{
   public class UserTasks : IUserTasks{
@@ -20,7 +19,7 @@ namespace Graphite.ApplicationServices.Tasks{
     public UserTasks(IUserRepository users) { _users = users; }
 
     public IEnumerable<User> GetUsers() { return _users.FindAll(); }
-    [Transaction]
+
     public User AddUser(CreateUserDetails user) {
       var newuser = new User {
         Username = user.Username,
@@ -32,7 +31,7 @@ namespace Graphite.ApplicationServices.Tasks{
       newuser.Password = CreatePasswordHash(newuser.Salt, user.Password);
       return _users.Save(newuser);
     }
-    [Transaction]
+
     public User UpdateUser(EditUserDetails details) {
       User user = _users.Get(details.Id);
       user.Username = details.Username;
@@ -41,7 +40,7 @@ namespace Graphite.ApplicationServices.Tasks{
       if (!string.IsNullOrEmpty(details.NewPassword)) user.Password = CreatePasswordHash(user.Salt, details.NewPassword);
       return user;
     }
-    [Transaction]
+
     public User AuthenticateUser(string username, string password) {
       try {
         User user = _users.GetUser(username);
@@ -73,7 +72,7 @@ namespace Graphite.ApplicationServices.Tasks{
     public User GetUserByEmail(string email) { return _users.GetUserByEmail(email); }
 
     public string GetCurrentUserName() { return HttpContext.Current.User.Identity.Name; }
-    [Transaction]
+
     public void RemoveUser(Guid id) { _users.Delete(id); }
 
     public bool IsLoggedIn() { return HttpContext.Current.User.Identity.IsAuthenticated; }

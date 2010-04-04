@@ -18,8 +18,11 @@ namespace Graphite.Web.Views.Home{
 
     public HomeIndexViewModel MapFrom(IEnumerable<Core.Domain.Post> source)
     {
-			return new HomeIndexViewModel
-			       {IsAuthenticated = _userTasks.IsLoggedIn(), Posts = source.Select(p => _mapper.MapFrom(p))};
+      source = source ?? new Core.Domain.Post[]{};
+			return new HomeIndexViewModel {
+			  IsAuthenticated = _userTasks.IsLoggedIn(), 
+        Posts = source.Select(p => _mapper.MapFrom(p))
+			};
 		}
 
     public object MapFrom(object source) { return MapFrom(source as IEnumerable<Core.Domain.Post>); }

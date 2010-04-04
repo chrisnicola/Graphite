@@ -5,7 +5,6 @@ using Graphite.Core.Contracts.Data;
 using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
-using SharpArchContrib.Castle.NHibernate;
 
 namespace Graphite.ApplicationServices.Tasks{
   public class PostTasks : IPostTasks{
@@ -25,14 +24,12 @@ namespace Graphite.ApplicationServices.Tasks{
 
     public Post Get(Guid id) { return _posts.Get(id); }
 
-    [Transaction]
     public Post SaveNewPost(PostCreateDetails details) {
       Post post = CreateNewPostFromDetails(details);
       post.Author = _users.GetUser(details.AuthorUserName);
       return _posts.Save(post);
     }
 
-    [Transaction]
     public Post UpdatePost(PostEditDetails details) {
       Post post = _posts.Get(details.Id);
       post.Title = details.Title;
@@ -48,7 +45,6 @@ namespace Graphite.ApplicationServices.Tasks{
       return post;
     }
 
-    [Transaction]
     public void Delete(Guid id) { _posts.Delete(id); }
 
     public IEnumerable<Post> GetRecentPublishedPosts(int i) { return _posts.GetRecentPublishedPosts(i); }
