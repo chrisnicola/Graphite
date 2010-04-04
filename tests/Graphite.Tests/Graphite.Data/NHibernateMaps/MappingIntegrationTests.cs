@@ -61,7 +61,7 @@ namespace Tests.Graphite.Data.NHibernateMaps{
 		[Test, Ignore]
 		public void OutputMappingsToXML() {
 			AutoPersistenceModel mappings = new AutoPersistenceModelGenerator().Generate();
-			mappings.CompileMappings();
+			mappings.BuildMappings();
 			mappings.WriteMappingsTo("C:\\Mappings\\");
 		}
 	}

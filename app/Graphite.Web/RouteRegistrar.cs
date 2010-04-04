@@ -9,59 +9,51 @@ using Graphite.Web.Views.Login;
 using Graphite.Web.Views.Post;
 using Graphite.Web.Views.Tag;
 using RestfulRouting;
+using RestfulRouting.Mappings;
 using SharpArch.Web.Areas;
 
 namespace Graphite.Web{
-	public class RouteRegistrar{
-		public static void RegisterRoutesTo(RouteCollection routes) {
-			routes.IgnoreRoute("XmlRpc.ashx");
-			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-			routes.IgnoreRoute("{*favicon}", new {favicon = @"(.*/)?favicon.ico(/.*)?"});
-			var configuration = new RouteConfiguration {Namespaces = new[] {typeof (PostController).Namespace}};
-			var map = new RestfulRouteMapper(routes, configuration);
-			routes.CreateArea("admin", "Graphite.Web.Views.Admin", GetAdminRoutes());
-      routes.CreateArea("root", "Graphite.Web.Views", GetRootRoutes());
-		}
+  public static class RouteRegistrar
+  {
+    public static void RegisterRoutesTo(RouteCollection routes)
+    {
+      routes.IgnoreRoute("XmlRpc.ashx");
+      routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+      routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
+      AreaRegistration.RegisterAllAreas();
+      routes.MapRoutes<Routes>();
+    }
+  }
 
-		static Route[] GetAdminRoutes() {
-			var routes = new RouteCollection();
-			var map = new RestfulRouteMapper(routes);
-			routes.MapRoute(null, "admin/", new {controller = "Post", action = "Index"});
-			map.Namespace("admin", m => {
-			                       	m.Resources<Views.Admin.Post.PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
-			                       	m.Resources<UserController>();
-			                       	m.Resource<BlogMLController>(r => {
-			                       	                             	r.AddMemberRoute<BlogMLController>(c => c.Import(),
-			                       	                             	                                   HttpVerbs.Post);
-			                       	                             	r.Except("new", "create", "edit", "update", "delete", "destroy");
-			                       	                             });
-			                       });
-			return routes.Cast<Route>().ToArray();
-		}
-
-		static Route[] GetRootRoutes() {
-			var routes = new RouteCollection();
-			var map = new RestfulRouteMapper(routes);
-			routes.MapRoute(null, "", new {controller = "Home", action = "Index"});
-			map.Namespace("", m => {
-			                  	m.Resources<PostController>(r => r.AddMemberRoute("id", HttpVerbs.Get));
-			                  	m.Resources<TagController>(
-			                  	r => r.Except("index", "new", "create", "edit", "update", "delete", "destroy"));
-			                  	m.Resources<HomeController>();
-			                  	m.Resource<LoginController>(r => {
-			                  	                            	r.AddMemberRoute<LoginController>(c => c.Authenticate(null),
-			                  	                            	                                  HttpVerbs.Post);
-			                  	                            	r.AddMemberRoute<LoginController>(c => c.SignOut(), HttpVerbs.Get);
-			                  	                            	r.Except("new", "create", "edit", "update", "delete", "destroy");
-			                  	                            });
-			                  	m.Resource<FeedController>(r => {
-			                  	                           	r.ShowName = "rss";
-			                  	                           	r.Except("new", "create", "edit", "update", "delete", "destroy");
-			                  	                           	r.AddMemberRoute<FeedController>(c => c.Rss(), HttpVerbs.Get);
-			                  	                           	r.AddMemberRoute<FeedController>(c => c.Atom(), HttpVerbs.Get);
-			                  	                           });
-			                  });
-			return routes.Cast<Route>().ToArray();
-		}
-	}
+  public class Routes : RouteSet
+  {
+    public Routes()
+    {
+      Map("").To<HomeController>(x => x.Index());
+      Area<HomeController>("", () =>
+      {
+        Resources<PostController>(() => Member("id", HttpVerbs.Get));
+        Resources<TagController>(() => Only("show"));
+        Resource<LoginController>(() =>
+        {
+          Only("show");
+          Member("authenticate", HttpVerbs.Post);
+          Member("signout", HttpVerbs.Get);
+        });
+        Map("rss").To<FeedController>(x => x.Rss());
+        Map("atom").To<FeedController>(x => x.Atom());
+      });
+      Area<Views.Admin.Post.PostController>("admin", () =>
+      {
+        Resources<Views.Admin.Post.PostController>(
+          () => Member("id", HttpVerbs.Get));
+        Resources<UserController>();
+        Resource<BlogMLController>(() =>
+        {
+          Only("show");
+          Member("import", HttpVerbs.Post);
+        });
+      });
+    }
+  }
 }

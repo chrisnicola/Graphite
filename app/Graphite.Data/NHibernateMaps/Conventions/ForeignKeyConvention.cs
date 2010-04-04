@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Reflection;
+using FluentNHibernate;
 
 namespace Graphite.Data.NHibernateMaps.Conventions{
-	public class ForeignKeyConvention : FluentNHibernate.Conventions.ForeignKeyConvention{
-		protected override string GetKeyName(PropertyInfo property, Type type) {
-			if (property == null) return type.Name + "Fk";
-			return property.Name + "Fk";
-		}
-	}
+  public class ForeignKeyConvention : FluentNHibernate.Conventions.ForeignKeyConvention{
+    protected override string GetKeyName(Member property, Type type) {
+      if (property == null) return type.Name + "Fk";
+      return property.Name + "Fk";
+    }
+  }
 }

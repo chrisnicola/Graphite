@@ -16,7 +16,7 @@ namespace Graphite.Web.Views.Login{
 			return View(new LoginViewModel());
 		}
 
-		[AcceptPost, ValidateAntiForgeryToken, Transaction]
+		[HttpPost, ValidateAntiForgeryToken, Transaction]
 		public ActionResult Authenticate(LoginViewModel model) {
 			_userTasks.AuthenticateUser(model.Username, model.Password);
 			return RedirectToAction("Index", "Home", new {area = "Admin"});
