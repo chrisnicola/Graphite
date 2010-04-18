@@ -3,10 +3,10 @@
 </p>
 <h2>Naviation Menu</h2>
 <ul>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Home.HomeController>(c => c.Index(), "Home")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Home.HomeController>(c => c.Index(), "Home")}</li>
   <li>!{Html.ActionLink("Logout", "SignOut", "Login", new { area = "root"}, null)}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Admin.Posts.PostController>(c => c.Index(), "Posts")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Admin.User.UserController>(c => c.Index(), "Users")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.FeedController>(c => c.Rss(), "RSS Feed")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.FeedController>(c => c.Atom(), "Atom Feed")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.Posts.PostController>(c => c.Index(), "Posts")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.Users.UserController>(c => c.Index(), "Users")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.FeedController>(c => c.Rss(), "RSS Feed")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.FeedController>(c => c.Atom(), "Atom Feed")}</li>
 </ul>

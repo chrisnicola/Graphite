@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.ApplicationService
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.Data", "app\Graphite.Data\Graphite.Data.csproj", "{EDD7E57F-108D-492E-8C3E-309854CFFF58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.Web.Controllers", "app\Graphite.Web.Controllers\Graphite.Web.Controllers.csproj", "{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.Tests", "tests\Graphite.Tests\Graphite.Tests.csproj", "{26E0BD76-A347-45C2-B47B-82A23EFCFA0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.Web", "app\Graphite.Web\Graphite.Web.csproj", "{97E1828A-5A23-4277-AC3A-D6D9F16D7068}"
@@ -43,6 +45,14 @@ Global
 		{EDD7E57F-108D-492E-8C3E-309854CFFF58}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EDD7E57F-108D-492E-8C3E-309854CFFF58}.Release|x86.ActiveCfg = Release|x86
 		{EDD7E57F-108D-492E-8C3E-309854CFFF58}.Release|x86.Build.0 = Release|x86
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Debug|x86.ActiveCfg = Debug|x86
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Debug|x86.Build.0 = Debug|x86
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Release|x86.ActiveCfg = Release|x86
+		{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}.Release|x86.Build.0 = Release|x86
 		{26E0BD76-A347-45C2-B47B-82A23EFCFA0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{26E0BD76-A347-45C2-B47B-82A23EFCFA0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E0BD76-A347-45C2-B47B-82A23EFCFA0D}.Debug|x86.ActiveCfg = Debug|x86

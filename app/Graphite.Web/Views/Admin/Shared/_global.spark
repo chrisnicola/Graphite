@@ -1,2 +1,2 @@
-﻿<use namespace="Graphite.Web.Views.Admin" />
-<add namespace="Graphite.Web.Views.ViewModels" />
+﻿<use namespace="Graphite.Web.Controllers.Admin" />
+<add namespace="Graphite.Web.Controllers.ViewModels" />

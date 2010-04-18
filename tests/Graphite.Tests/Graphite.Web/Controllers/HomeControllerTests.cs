@@ -1,11 +1,12 @@
 ﻿using Graphite.ApplicationServices;
-using Graphite.Core.Contracts.Services;
-using Graphite.Web.Views.Home;
+using Graphite.Core.Contracts.Tasks;
+using Graphite.Web.Controllers;
+using Graphite.Web.Controllers.Home;
 using MvcContrib.TestHelper;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace Tests.Graphite.Web.Views{
+namespace Tests.Graphite.Web.Controllers{
 	[TestFixture]
 	public class HomeControllerTests{
 		[SetUp]

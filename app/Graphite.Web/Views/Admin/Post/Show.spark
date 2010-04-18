@@ -1,2 +1,2 @@
-<viewdata model="Graphite.Web.Views.Post.PostShowWithCommentsViewModel" />
+<viewdata model="Graphite.Web.Controllers.Posts.PostShowWithCommentsViewModel" />
 <PostView post="Model" />

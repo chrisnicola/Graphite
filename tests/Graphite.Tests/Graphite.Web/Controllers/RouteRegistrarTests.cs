@@ -1,6 +1,6 @@
 ﻿using System.Web.Routing;
-using Graphite.Web;
-using Graphite.Web.Views.Home;
+using Graphite.Web.Controllers;
+using Graphite.Web.Controllers.Home;
 using MvcContrib.TestHelper;
 using NUnit.Framework;
 

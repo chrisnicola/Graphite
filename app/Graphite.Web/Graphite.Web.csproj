@@ -116,10 +116,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\NHibernate.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="RestfulRouting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\RestfulRouting.dll</HintPath>
-    </Reference>
     <Reference Include="SharpArch.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\SharpArch.Core.dll</HintPath>
@@ -164,9 +160,6 @@
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.ServiceModel.Web">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\System.Web.Abstractions.dll</HintPath>
@@ -195,21 +188,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionFilters\AutoMapAttribute.cs" />
-    <Compile Include="ActionResults\RssResult.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="CastleWindsor\WindsorViewActivator.cs" />
-    <Compile Include="Contracts\Mappers\ICreateUserMapper.cs" />
-    <Compile Include="Contracts\Mappers\IEditUserMapper.cs" />
-    <Compile Include="Contracts\Mappers\IHomeIndexMapper.cs" />
-    <Compile Include="Contracts\Mappers\INewUserMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostCreateDetailsMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostEditDetailsMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostEditModelMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostIndexMapper.cs" />
-    <Compile Include="Contracts\Mappers\IPostNewModelMapper.cs" />
-    <Compile Include="Contracts\Mappers\ITagShowMapper.cs" />
-    <Compile Include="Contracts\Mappers\IUserIndexMapper.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,46 +200,9 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Helpers\ControllerEnums.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteRegistrar.cs" />
-    <Compile Include="Views\Admin\BlogML\BlogMLController.cs" />
-    <Compile Include="Views\Admin\Comments\ApprovedCommentsViewModel.cs" />
-    <Compile Include="Views\Admin\Comments\CommentsController.cs" />
-    <Compile Include="Views\Admin\Comments\UnapprovedCommentsViewModel.cs" />
-    <Compile Include="Views\Admin\Post\DeletePostViewModel.cs" />
-    <Compile Include="Views\Admin\Post\EditPostMapper.cs" />
-    <Compile Include="Views\Admin\Post\PostController.cs" />
-    <Compile Include="Views\Admin\Post\PostEditModel.cs" />
-    <Compile Include="Views\Admin\Post\PostEditModelBase.cs" />
-    <Compile Include="Views\Admin\Post\PostNewModel.cs" />
-    <Compile Include="Views\Admin\Post\PostNewModelMapper.cs" />
-    <Compile Include="Views\Admin\Post\PostNewViewMapper.cs" />
-    <Compile Include="Views\Admin\User\CreateUserMapper.cs" />
-    <Compile Include="Views\Admin\User\DeleteUserViewModel.cs" />
-    <Compile Include="Views\Admin\User\EditUserViewModel.cs" />
-    <Compile Include="Views\Admin\User\NewUserMapper.cs" />
-    <Compile Include="Views\Admin\User\NewUserViewModel.cs" />
-    <Compile Include="Views\Admin\User\UserController.cs" />
-    <Compile Include="Views\Admin\User\UserIndexMapper.cs" />
-    <Compile Include="Views\Admin\User\UserIndexViewModel.cs" />
-    <Compile Include="Views\Feed\FeedController.cs" />
-    <Compile Include="Views\Home\HomeController.cs" />
-    <Compile Include="Views\Home\HomeIndexMapper.cs" />
-    <Compile Include="Views\Home\HomeIndexViewModel.cs" />
-    <Compile Include="Views\Login\LoginController.cs" />
-    <Compile Include="Views\Login\LoginViewModel.cs" />
-    <Compile Include="Views\Post\PostController.cs" />
-    <Compile Include="Views\Post\PostIndexMapper.cs" />
-    <Compile Include="Views\Post\PostIndexViewModel.cs" />
-    <Compile Include="Views\Post\PostItemViewModel.cs" />
-    <Compile Include="Views\Post\PostShowViewModel.cs" />
-    <Compile Include="Views\Post\PostShowWithCommentsViewModel.cs" />
     <Compile Include="Views\SparkViewModel.cs" />
-    <Compile Include="Views\Tag\TagController.cs" />
-    <Compile Include="Views\Tag\TagShowMapper.cs" />
-    <Compile Include="Views\Tag\TagViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\graphitelogo.jpg" />
@@ -656,6 +599,10 @@
     <ProjectReference Include="..\Graphite.ApplicationServices\Graphite.ApplicationServices.csproj">
       <Project>{F8BA0E61-31B1-410D-BD60-022CCCF3F177}</Project>
       <Name>Graphite.ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphite.Web.Controllers\Graphite.Web.Controllers.csproj">
+      <Project>{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}</Project>
+      <Name>Graphite.Web.Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">
       <Project>{3E143CD5-0C99-4745-B18F-1913FFAB90D8}</Project>

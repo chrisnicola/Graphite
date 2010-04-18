@@ -194,6 +194,10 @@
       <Project>{F8BA0E61-31B1-410D-BD60-022CCCF3F177}</Project>
       <Name>Graphite.ApplicationServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\app\Graphite.Web.Controllers\Graphite.Web.Controllers.csproj">
+      <Project>{89DB3880-1E5E-4EFA-B8D2-EDE92A62FBC3}</Project>
+      <Name>Graphite.Web.Controllers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\app\Graphite.Core\Graphite.Core.csproj">
       <Project>{3E143CD5-0C99-4745-B18F-1913FFAB90D8}</Project>
       <Name>Graphite.Core</Name>
@@ -201,10 +205,6 @@
     <ProjectReference Include="..\..\app\Graphite.Data\Graphite.Data.csproj">
       <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
       <Name>Graphite.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\app\Graphite.Web\Graphite.Web.csproj">
-      <Project>{97E1828A-5A23-4277-AC3A-D6D9F16D7068}</Project>
-      <Name>Graphite.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

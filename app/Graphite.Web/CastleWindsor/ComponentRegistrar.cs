@@ -2,6 +2,7 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Graphite.Core.Contracts.Mapping;
+using Graphite.Web.Controllers.Admin.Posts;
 using SharpArch.Core.CommonValidator;
 using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
 using SharpArch.Core.PersistenceSupport;
@@ -14,7 +15,7 @@ using Spark.Web.Mvc;
 namespace Graphite.Web.CastleWindsor{
 	public static class ComponentRegistrar{
 		public static void AddComponentsTo(IWindsorContainer container) {
-      AddCustomViewModelMappersTo(container);
+      AddControllerMappersTo(container);
 			AddCustomRepositoriesTo(container);
       AddApplicationServicesTo(container);
 			AddGenericMappersTo(container);
@@ -30,8 +31,9 @@ namespace Graphite.Web.CastleWindsor{
 		}
 
 		static void AddApplicationServicesTo(IWindsorContainer container) {
-		  container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
-		    .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services"));
+      container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
+			                   .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services")
+                         .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Tasks"));
 		}
 
 		static void AddCustomRepositoriesTo(IWindsorContainer container) {
@@ -40,10 +42,10 @@ namespace Graphite.Web.CastleWindsor{
 			.WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Data"));
 		}
 
-		static void AddCustomViewModelMappersTo(IWindsorContainer container) {
+		static void AddControllerMappersTo(IWindsorContainer container) {
 			container.Register(
-			AllTypes.Of<IMapper>().FromAssemblyNamed("Graphite.Web")
-      .WithService.FirstNonGenericCoreInterface("Graphite.Web.Contracts.Mappers"));
+			AllTypes.Of<IMapper>().FromAssemblyNamed("Graphite.Web.Controllers")
+      .WithService.FirstNonGenericCoreInterface("Graphite.Web.Controllers.Contracts.Mappers"));
 		}
 
 		static void AddGenericMappersTo(IWindsorContainer container) {

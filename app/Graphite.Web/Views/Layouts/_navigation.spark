@@ -3,9 +3,9 @@
 </p>
 <h2>Naviation Menu</h2>
 <ul>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Home.HomeController>(c => c.Index(), "Home")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Login.LoginController>(c => c.Show(), "Login")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Post.PostController>(c => c.Index(), "Posts")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Feed.FeedController>(c => c.Rss(), "RSS Feed")}</li>
-  <li>!{Html.ActionLink<Graphite.Web.Views.Feed.FeedController>(c => c.Atom(), "Atom Feed")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Home.HomeController>(c => c.Index(), "Home")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Login.LoginController>(c => c.Show(), "Login")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.Posts.PostController>(c => c.Index(), "Posts")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.FeedController>(c => c.Rss(), "RSS Feed")}</li>
+  <li>!{Html.ActionLink<Graphite.Web.Controllers.FeedController>(c => c.Atom(), "Atom Feed")}</li>
 </ul>

@@ -4,6 +4,7 @@ using System.Linq;
 using CookComputing.XmlRpc;
 using Graphite.Core;
 using Graphite.Core.Contracts.Services;
+using Graphite.Core.Contracts.Tasks;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
 using Graphite.Core.MetaWeblog;
