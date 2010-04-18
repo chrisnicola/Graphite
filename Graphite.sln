@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.Core", "app\Graphite.Core\Graphite.Core.csproj", "{3E143CD5-0C99-4745-B18F-1913FFAB90D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphite.ApplicationServices", "app\Graphite.ApplicationServices\Graphite.ApplicationServices.csproj", "{F8BA0E61-31B1-410D-BD60-022CCCF3F177}"
