@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace Graphite.Web.Controllers.Admin.Users{
+namespace Graphite.Web.Controllers.Users{
 	public class UserIndexViewModel{
 		public IEnumerable<UserViewModel> Users { get; set; }
 	}

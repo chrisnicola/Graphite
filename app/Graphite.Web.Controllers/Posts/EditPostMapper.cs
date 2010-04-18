@@ -3,9 +3,8 @@ using AutoMapper;
 using Graphite.Core.Contracts.Mapping;
 using Graphite.Core.Messages;
 using Graphite.Web.Controllers.Contracts.Mappers;
-using Enumerable = System.Linq.Enumerable;
 
-namespace Graphite.Web.Controllers.Admin.Posts{
+namespace Graphite.Web.Controllers.Posts{
   public class PostEditDetailsMapper : GenericMapper<PostEditModel, PostEditDetails>, IPostEditDetailsMapper {}
 
   public class PostEditModelMapper : GenericMapper<Core.Domain.Post, PostEditModel>, IPostEditModelMapper{

@@ -1,4 +1,4 @@
-﻿namespace Graphite.Web.Controllers.Admin.Users{
+namespace Graphite.Web.Controllers.Users{
 	public class NewUserViewModel{
 		public string Username { get; set; }
 		public string RealName { get; set; }

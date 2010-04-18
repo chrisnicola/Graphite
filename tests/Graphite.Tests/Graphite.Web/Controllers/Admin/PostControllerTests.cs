@@ -1,14 +1,10 @@
 using System;
-using Graphite.ApplicationServices;
-using Graphite.Core;
 using Graphite.Core.Contracts.Data;
 using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
-using Graphite.Data.Repositories;
-using Graphite.Web.Controllers.Admin;
-using Graphite.Web.Controllers.Admin.Posts;
 using Graphite.Web.Controllers.Contracts.Mappers;
+using Graphite.Web.Controllers.Posts;
 using MvcContrib.TestHelper;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -24,8 +20,7 @@ namespace Tests.Graphite.Web.Controllers.Admin{
 			_postEditDetailsMapper = MockRepository.GenerateMock<IPostEditDetailsMapper>();
 			_postCreateDetailsMapper = MockRepository.GenerateMock<IPostCreateDetailsMapper>();
 			_postRepository = MockRepository.GenerateMock<IPostRepository>();
-			_controller = new PostController(_postTasks, _userTasks, _postRepository, _postEditDetailsMapper,
-			                                 _postCreateDetailsMapper);
+			_controller = new PostController(_postTasks, _postRepository);
 		}
 
 		IPostTasks _postTasks;

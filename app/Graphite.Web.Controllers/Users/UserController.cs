@@ -5,7 +5,7 @@ using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Contracts.Mappers;
 using MvcContrib;
 
-namespace Graphite.Web.Controllers.Admin.Users{
+namespace Graphite.Web.Controllers.Users{
 	public class UserController : Controller{
 		readonly IUserTasks _userTasks;
 		readonly ICreateUserMapper _createUserMap;

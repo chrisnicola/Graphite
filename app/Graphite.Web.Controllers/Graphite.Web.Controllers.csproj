@@ -137,26 +137,17 @@
   <ItemGroup>
     <Compile Include="ActionFilters\AutoMapAttribute.cs" />
     <Compile Include="ActionResults\RssResult.cs" />
-    <Compile Include="Admin\BlogMLController.cs" />
-    <Compile Include="Admin\Comments\ApprovedCommentsViewModel.cs" />
-    <Compile Include="Admin\Comments\CommentsController.cs" />
-    <Compile Include="Admin\Comments\UnapprovedCommentsViewModel.cs" />
-    <Compile Include="Admin\Posts\DeletePostViewModel.cs" />
-    <Compile Include="Admin\Posts\EditPostMapper.cs" />
-    <Compile Include="Admin\Posts\PostController.cs" />
-    <Compile Include="Admin\Posts\PostEditModel.cs" />
-    <Compile Include="Admin\Posts\PostEditModelBase.cs" />
-    <Compile Include="Admin\Posts\PostNewModel.cs" />
-    <Compile Include="Admin\Posts\PostNewModelMapper.cs" />
-    <Compile Include="Admin\Posts\PostNewViewMapper.cs" />
-    <Compile Include="Admin\Users\CreateUserMapper.cs" />
-    <Compile Include="Admin\Users\DeleteUserViewModel.cs" />
-    <Compile Include="Admin\Users\EditUserViewModel.cs" />
-    <Compile Include="Admin\Users\NewUserMapper.cs" />
-    <Compile Include="Admin\Users\NewUserViewModel.cs" />
-    <Compile Include="Admin\Users\UserController.cs" />
-    <Compile Include="Admin\Users\UserIndexMapper.cs" />
-    <Compile Include="Admin\Users\UserIndexViewModel.cs" />
+    <Compile Include="BlogML\BlogMLController.cs" />
+    <Compile Include="Comments\ApprovedCommentsViewModel.cs" />
+    <Compile Include="Comments\CommentsController.cs" />
+    <Compile Include="Comments\UnapprovedCommentsViewModel.cs" />
+    <Compile Include="Posts\DeletePostViewModel.cs" />
+    <Compile Include="Posts\EditPostMapper.cs" />
+    <Compile Include="Posts\PostEditModel.cs" />
+    <Compile Include="Posts\PostEditModelBase.cs" />
+    <Compile Include="Posts\PostNewModel.cs" />
+    <Compile Include="Posts\PostNewModelMapper.cs" />
+    <Compile Include="Posts\PostNewViewMapper.cs" />
     <Compile Include="Contracts\Mappers\ICreateUserMapper.cs" />
     <Compile Include="Contracts\Mappers\IEditUserMapper.cs" />
     <Compile Include="Contracts\Mappers\IHomeIndexMapper.cs" />
@@ -185,10 +176,18 @@
     <Compile Include="Posts\PostShowWithCommentsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteRegistrar.cs" />
-    <Compile Include="FeedController.cs" />
+    <Compile Include="Syndication\FeedController.cs" />
     <Compile Include="Tags\TagController.cs" />
     <Compile Include="Tags\TagShowMapper.cs" />
     <Compile Include="Tags\TagViewModel.cs" />
+    <Compile Include="Users\CreateUserMapper.cs" />
+    <Compile Include="Users\DeleteUserViewModel.cs" />
+    <Compile Include="Users\EditUserViewModel.cs" />
+    <Compile Include="Users\NewUserMapper.cs" />
+    <Compile Include="Users\NewUserViewModel.cs" />
+    <Compile Include="Users\UserController.cs" />
+    <Compile Include="Users\UserIndexMapper.cs" />
+    <Compile Include="Users\UserIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Graphite.Core\Graphite.Core.csproj">
@@ -205,6 +204,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

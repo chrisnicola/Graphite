@@ -1,11 +1,2 @@
 <viewdata model="Graphite.Web.Controllers.Posts.PostShowWithCommentsViewModel" />
-	<PostView post="Model"/>
-	<Comments comments="Model.Comments"/>
-<if condition="Model.AllowComments">
-	<form action="${Url.Action("Update")}" method="post" >
-		<CommentForm newcomment="Model.NewComment" />
-		!{Html.Hidden("Id", Model.Id)}
-		<input type="hidden" name="_method" value="put" >
-		<input type="submit" value="Save" /> 
-	</form>
-</if>
+<PostView post="Model" />

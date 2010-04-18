@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core.Contracts.Mapping;
 using Graphite.Web.Controllers.Contracts.Mappers;
 
-namespace Graphite.Web.Controllers.Admin.Users{
+namespace Graphite.Web.Controllers.Users{
   public class UserIndexMapper : IUserIndexMapper{
 		readonly IMapper<Core.Domain.User, UserViewModel> _mapper;
 

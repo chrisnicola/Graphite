@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Graphite.Web.Controllers.Admin.Posts{
+namespace Graphite.Web.Controllers.Posts{
 	public abstract class PostEditModelBase{
 		public string AuthorUserName { get; set; }
 		public string Title { get; set; }

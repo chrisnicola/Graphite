@@ -1,10 +1,9 @@
-﻿using System;
+using System;
 using System.Web.Mvc;
-using Graphite.ApplicationServices;
 using Graphite.Core.Contracts.Services;
 using Graphite.Web.Controllers.ActionResults;
 
-namespace Graphite.Web.Controllers{
+namespace Graphite.Web.Controllers.Syndication{
 	public class FeedController : Controller{
 		readonly ISyndicationService _syndication;
 

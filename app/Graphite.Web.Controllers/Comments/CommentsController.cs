@@ -1,7 +1,7 @@
 using System.Web.Mvc;
 using Graphite.Core.Contracts.Services;
 
-namespace Graphite.Web.Controllers.Admin.Comments{
+namespace Graphite.Web.Controllers.Comments{
   public class CommentsController : Controller {
     private readonly ICommentsTasks _tasks;
 

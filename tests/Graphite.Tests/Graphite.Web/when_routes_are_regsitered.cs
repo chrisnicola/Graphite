@@ -1,9 +1,10 @@
 using System;
 using System.Web.Routing;
 using Graphite.Web.Controllers;
-using Graphite.Web.Controllers.Admin.Posts;
 using Graphite.Web.Controllers.Home;
 using Graphite.Web.Controllers.Login;
+using Graphite.Web.Controllers.Posts;
+using Graphite.Web.Controllers.Syndication;
 using NUnit.Framework;
 using MvcContrib.TestHelper;
 

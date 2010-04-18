@@ -1,9 +1,12 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Graphite.Web.Controllers.BlogML;
 using Graphite.Web.Controllers.Home;
 using Graphite.Web.Controllers.Login;
 using Graphite.Web.Controllers.Posts;
+using Graphite.Web.Controllers.Syndication;
 using Graphite.Web.Controllers.Tags;
+using Graphite.Web.Controllers.Users;
 using RestfulRouting;
 
 namespace Graphite.Web.Controllers{
@@ -30,15 +33,11 @@ namespace Graphite.Web.Controllers{
                                   Member("authenticate", HttpVerbs.Post);
                                   Member("signout", HttpVerbs.Get);
                                 });
-      /*Area<Admin.Posts.PostController>("admin", () => {
-                                                  Resources<Admin.Posts.PostController>(
-                                                    () => Member("id", HttpVerbs.Get));
-                                                  Resources<UserController>();
-                                                  Resource<BlogMLController>(() => {
-                                                                               Only("show");
-                                                                               Member("import", HttpVerbs.Post);
-                                                                             });
-                                                });*/
+      Resources<UserController>();
+      Resource<BlogMLController>(() => {
+                                   Only("show");
+                                   Member("import", HttpVerbs.Post);
+                                 });
     }
   }
 }

@@ -1,10 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 using AutoMapper;
 using Graphite.Core.Contracts.Mapping;
 using Graphite.Web.Controllers.Contracts.Mappers;
-using Enumerable = System.Linq.Enumerable;
 
-namespace Graphite.Web.Controllers.Admin.Posts{
+namespace Graphite.Web.Controllers.Posts{
   public class PostNewModelMapper : GenericMapper<Core.Domain.Post, PostNewModel>, IPostNewModelMapper{
 		public PostNewModelMapper() {
 			Mapper.CreateMap<Core.Domain.Post, PostNewModel>().ForMember(m => m.Tags,

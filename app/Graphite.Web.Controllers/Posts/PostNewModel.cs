@@ -1,3 +1,3 @@
-﻿namespace Graphite.Web.Controllers.Admin.Posts{
+namespace Graphite.Web.Controllers.Posts{
 	public class PostNewModel : PostEditModelBase {}
 }
