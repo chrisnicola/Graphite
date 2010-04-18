@@ -2,7 +2,6 @@
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Graphite.Core.Contracts.Mapping;
-using Graphite.Web.Controllers.Admin.Posts;
 using SharpArch.Core.CommonValidator;
 using SharpArch.Core.NHibernateValidator.CommonValidatorAdapter;
 using SharpArch.Core.PersistenceSupport;
@@ -30,9 +29,8 @@ namespace Graphite.Web.CastleWindsor{
 		}
 
 		static void AddApplicationServicesTo(IWindsorContainer container) {
-      container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
-			                   .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services")
-                         .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Tasks"));
+		  container.Register(AllTypes.Pick().FromAssemblyNamed("Graphite.ApplicationServices")
+		    .WithService.FirstNonGenericCoreInterface("Graphite.Core.Contracts.Services"));
 		}
 
 		static void AddCustomRepositoriesTo(IWindsorContainer container) {

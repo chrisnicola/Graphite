@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Graphite.Core.Contracts.Mapping;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Web.Controllers.Contracts.Mappers;
 using Graphite.Web.Controllers.Posts;

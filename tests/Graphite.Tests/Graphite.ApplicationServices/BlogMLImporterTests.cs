@@ -1,6 +1,6 @@
 using Graphite.ApplicationServices;
 using Graphite.ApplicationServices.BlogML;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using NUnit.Framework;
 
 namespace Tests.Graphite.ApplicationServices{

@@ -1,5 +1,5 @@
-﻿using Graphite.ApplicationServices;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.ApplicationServices;
+using Graphite.Core.Contracts.Services;
 using Graphite.Web.Controllers;
 using Graphite.Web.Controllers.Home;
 using MvcContrib.TestHelper;

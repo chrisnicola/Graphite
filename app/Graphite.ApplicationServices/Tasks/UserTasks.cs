@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Authentication;
@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Security;
 using Graphite.Core;
 using Graphite.Core.Contracts.Data;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
 

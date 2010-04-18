@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;
 
 namespace Tests.Graphite.ApplicationServices.Tasks{

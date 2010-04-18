@@ -1,15 +1,9 @@
 using System;
-using System.Linq.Expressions;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
 using System.Web.Routing;
-using Graphite.Web;
-using Graphite.Web.Views.Feed;
-using Graphite.Web.Views.Home;
-using Graphite.Web.Views.Post;
+using Graphite.Web.Controllers;
+using Graphite.Web.Controllers.Admin.Posts;
+using Graphite.Web.Controllers.Home;
 using NUnit.Framework;
-using Rhino.Mocks;
 using MvcContrib.TestHelper;
 
 namespace Tests.Graphite.Web{

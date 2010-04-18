@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Web.Mvc;
-using Graphite.Core.Contracts.Tasks;
+using Graphite.Core.Contracts.Services;
 using Graphite.Web.Controllers.ActionFilters;
 using Graphite.Web.Controllers.Contracts.Mappers;
 using MvcContrib;

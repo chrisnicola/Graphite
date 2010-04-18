@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Graphite.Core;
-using Graphite.Core.Contracts.Tasks;
 using System.Web.Mvc;
 using Graphite.Core.Contracts.Services;
 using Graphite.Core.Domain;

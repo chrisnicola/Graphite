@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Graphite.Core.Domain;
 using Graphite.Core.Messages;
 
-namespace Graphite.Core.Contracts.Tasks{
+namespace Graphite.Core.Contracts.Services{
   public interface IPostTasks{
     Post GetWithComments(Guid id);
 

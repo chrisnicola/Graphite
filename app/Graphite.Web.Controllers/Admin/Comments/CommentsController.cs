@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using Graphite.Core.Contracts.Tasks;
+using System.Web.Mvc;
+using Graphite.Core.Contracts.Services;
 
 namespace Graphite.Web.Controllers.Admin.Comments{
   public class CommentsController : Controller {
