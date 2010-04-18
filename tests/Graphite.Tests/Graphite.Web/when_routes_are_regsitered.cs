@@ -1,4 +1,5 @@
 using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Graphite.Web.Controllers;
 using Graphite.Web.Controllers.Home;
@@ -23,9 +24,18 @@ namespace Tests.Graphite.Web{
 	  [Test]
 	  public void post_is_mapped_to_post_controller() {
 	    var guid = Guid.NewGuid();
+      //Validate restful routes
 	    "~/post".Route().ShouldMapTo<PostController>(x => x.Index());
-	    "~/post/test".Route().ShouldMapTo<PostController>(x => x.Show("test"));
-      String.Format("~/post/{0}/id", guid.ToString()).Route().ShouldMapTo<PostController>(x => x.Id(guid));
+      "~/post/itemname".Route().ShouldMapTo<PostController>(x => x.Show("itemname"));
+      "~/post/new".Route().ShouldMapTo<PostController>(x => x.New(null));
+      "~/post".WithMethod(HttpVerbs.Post).ShouldMapTo<PostController>(x => x.Create(null));
+      String.Format("~/post/{0}/edit", guid).Route().ShouldMapTo<PostController>(x => x.Edit(guid));
+      String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Put).ShouldMapTo<PostController>(x => x.Update(null));
+      String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostController>(x => x.Destroy(null));
+
+      //Validate extra routes
+      String.Format("~/post/{0}/id", guid).Route().ShouldMapTo<PostController>(x => x.Id(guid));
+      String.Format("~/post/{0}/delete", guid).Route().ShouldMapTo<PostController>(x => x.Delete(guid));
 	  }
 
     [Test]
@@ -38,5 +48,7 @@ namespace Tests.Graphite.Web{
     public void login_is_mapped_to_login_controller() {
       "~/login".Route().ShouldMapTo<LoginController>(x => x.Show());
     }
+
+
 	}
 }

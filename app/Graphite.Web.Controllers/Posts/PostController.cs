@@ -72,6 +72,7 @@ namespace Graphite.Web.Controllers.Posts{
       return RedirectToAction("Index");
     }
 
+    /*
     [ValidateInput(false)]
     public ActionResult Update(PostShowWithCommentsViewModel postShowVm) {
       Post post = PostTasks.Get(postShowVm.Id);
@@ -85,6 +86,6 @@ namespace Graphite.Web.Controllers.Posts{
       return !string.IsNullOrEmpty(comment.Author)
         && !string.IsNullOrEmpty(comment.EmailAddress)
           && !string.IsNullOrEmpty(comment.Content);
-    }
+    }*/
   }
 }

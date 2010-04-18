@@ -26,7 +26,11 @@ namespace Graphite.Web.Controllers{
         Map("").To<HomeController>(x => x.Index()));
       Map("rss").To<FeedController>(x => x.Rss());
       Map("atom").To<FeedController>(x => x.Atom());
-      Resources<PostController>(() => Member("id", HttpVerbs.Get));
+      Resources<PostController>(
+        () => {
+          Member("id", HttpVerbs.Get);
+          Member("delete", HttpVerbs.Get);
+        });
       Resources<TagController>(() => Only("show"));
       Resource<LoginController>(() => {
                                   Only("show");
