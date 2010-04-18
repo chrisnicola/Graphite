@@ -50,6 +50,10 @@ namespace Graphite.ApplicationServices.Tasks{
             FormsAuthentication.SetAuthCookie("none", false);
             return null;
           }
+#if DEBUG
+          FormsAuthentication.SetAuthCookie("none", false);
+          return null;
+#endif 
           throw new AuthenticationException("No such username");
         }
         if (ValidPasswordForUser(_users.GetUser(username), password)) {

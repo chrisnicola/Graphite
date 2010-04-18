@@ -1,7 +1,7 @@
 <div class="tabs">
   <ul>
-    <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.Comments.CommentsController>(c => c.Approved(), "Approved")}</li>
-    <li class=!{Html.IsCurrentAction()}>!{Html.ActionLink<Graphite.Web.Controllers.Admin.Comments.CommentsController>(c => c.Unapproved(), "Unapproved")}</li>
-    <li>!{Html.ActionLink<Graphite.Web.Controllers.Admin.Comments.CommentsController>(c => c.Settings(), "Settings")}</li>
+    <li>!{Html.ActionLink<Graphite.Web.Controllers.Comments.CommentsController>(c => c.Approved(), "Approved")}</li>
+    <li class=!{Html.IsCurrentAction()}>!{Html.ActionLink<Graphite.Web.Controllers.Comments.CommentsController>(c => c.Unapproved(), "Unapproved")}</li>
+    <li>!{Html.ActionLink<Graphite.Web.Controllers.Comments.CommentsController>(c => c.Settings(), "Settings")}</li>
   </ul>
 </div>

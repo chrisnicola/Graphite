@@ -1,2 +1,1 @@
 ﻿<use namespace="Graphite.Web.Controllers" />
-<add namespace="Graphite.Web.Controllers.ViewModels" />
