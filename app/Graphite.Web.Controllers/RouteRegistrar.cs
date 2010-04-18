@@ -1,7 +1,5 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Graphite.Web.Controllers.Admin;
-using Graphite.Web.Controllers.Admin.Users;
 using Graphite.Web.Controllers.Home;
 using Graphite.Web.Controllers.Login;
 using Graphite.Web.Controllers.Posts;
@@ -25,16 +23,14 @@ namespace Graphite.Web.Controllers{
         Map("").To<HomeController>(x => x.Index()));
       Map("rss").To<FeedController>(x => x.Rss());
       Map("atom").To<FeedController>(x => x.Atom());
-      Area<HomeController>("", () => {
-                                 Resources<PostController>(() => Member("id", HttpVerbs.Get));
-                                 Resources<TagController>(() => Only("show"));
-                                 Resource<LoginController>(() => {
-                                                             Only("show");
-                                                             Member("authenticate", HttpVerbs.Post);
-                                                             Member("signout", HttpVerbs.Get);
-                                                           });
-                               });
-      Area<Admin.Posts.PostController>("admin", () => {
+      Resources<PostController>(() => Member("id", HttpVerbs.Get));
+      Resources<TagController>(() => Only("show"));
+      Resource<LoginController>(() => {
+                                  Only("show");
+                                  Member("authenticate", HttpVerbs.Post);
+                                  Member("signout", HttpVerbs.Get);
+                                });
+      /*Area<Admin.Posts.PostController>("admin", () => {
                                                   Resources<Admin.Posts.PostController>(
                                                     () => Member("id", HttpVerbs.Get));
                                                   Resources<UserController>();
@@ -42,7 +38,7 @@ namespace Graphite.Web.Controllers{
                                                                                Only("show");
                                                                                Member("import", HttpVerbs.Post);
                                                                              });
-                                                });
+                                                });*/
     }
   }
 }
