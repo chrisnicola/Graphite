@@ -12,9 +12,9 @@ using Graphite.Web.Controllers.Home;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using MvcContrib.Castle;
-using MvcContrib.UI.InputBuilder;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using RestfulRouting;
 using SharpArch.Data.NHibernate;
 using SharpArch.Web.ModelBinder;
 using SharpArch.Web.NHibernate;
@@ -27,29 +27,30 @@ namespace Graphite.Web{
 		WebSessionStorage _webSessionStorage;
 
 		protected void Application_Start() {
-			XmlConfigurator.Configure();
-			IWindsorContainer container = InitializeServiceLocator();
+      XmlConfigurator.Configure();
+      ViewEngines.Engines.Clear();
+      ViewEngines.Engines.Add(new RestfulRoutingViewEngine());
+			InitializeServiceLocator(); 
 			ModelBinders.Binders.DefaultBinder = new SharpModelBinder();
-			ViewEngines.Engines.Clear();
-			InputBuilder.BootStrap();
-			ViewEngines.Engines.Add(container.Resolve<IViewEngine>());
+			
       AreaRegistration.RegisterAllAreas();
 			RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
+      //InputBuilder.BootStrap();
 		}
 
-		/// <summary>
-		/// Instantiate the container and add all Controllers that derive from 
-		/// WindsorController to the container.  Also associate the Controller 
-		/// with the WindsorContainer ControllerFactory.
-		/// </summary>
-		static IWindsorContainer InitializeServiceLocator() {
+	  /// <summary>
+	  /// Instantiate the container and add all Controllers that derive from 
+	  /// WindsorController to the container.  Also associate the Controller 
+	  /// with the WindsorContainer ControllerFactory.
+	  /// </summary>
+	  static void InitializeServiceLocator() {
 			IWindsorContainer container = new WindsorContainer();
       ComponentRegistrar.AddComponentsTo(container);
       ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
 			container.RegisterControllers(typeof (HomeController).Assembly);
 			ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(container));
-			return container;
-		}
+	    return;
+	  }
 
 		public override void Init() {
 			base.Init();
