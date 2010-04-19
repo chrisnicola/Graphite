@@ -1,5 +1,6 @@
+<%@ Control Language="C#" Inherits="ModelViewUserControl<Graphite.Core.Domain.Comment>" %>
 <div class="header">
-	${comment.Author} | <a href="${comment.WebAddress}">${comment.WebAddress}</a>
+	<%= Model.Author%> | <a href="<%= Model.WebAddress%>"><%= Model.WebAddress%></a>
 </div>
-<div class="content">!{comment.Content}</div>
-<div clas="footer">!{comment.DateCreated}</div>
+<div class="content"><%= Model.Content%></div>
+<div clas="footer"><%= Model.DateCreated%></div>

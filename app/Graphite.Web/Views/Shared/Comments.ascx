@@ -1,5 +1,9 @@
+<%@ Control Language="C#" Inherits="ModelViewUserControl<IList<Graphite.Core.Domain.Comment>>" %>
+<%@ Import Namespace="Graphite.Core.Domain" %>
 <div class="comments">
-	<div each="var item in comments" class="comment">
-		<CommentView comment="item" />
-	</div>
+  <% foreach (var comment in Model) { %>
+	  <div class="comment">
+      <%= Html.RenderPartial("CommentView", comment) %>
+	  </div>
+  <% } %>
 </div>

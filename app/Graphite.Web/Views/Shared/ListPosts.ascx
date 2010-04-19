@@ -23,13 +23,16 @@
             Published
         </th>
     </tr>
-    <% foreach (var item in Model.Posts) { %>
+    <%
+      foreach (PostShowViewModel item in Model.Posts) {%>
     <tr>
         <td>
           <%=Html.ActionLink<PostController>(c => c.Show(item.Slug), "View")%>
-          <% if (Model.IsAuthenticated) { %> 
-            | <%=Html.ActionLink<PostController>(x => x.Edit(item.Id), "Edit") %> | <%=Html.ActionLink<PostController>(x => x.Delete(item.Id), "Delete")%>
-          <% } %>
+          <%
+        if (Model.IsAuthenticated) {%> 
+            | <%=Html.ActionLink<PostController>(x => x.Edit(item.Id), "Edit")%> | <%=Html.ActionLink<PostController>(x => x.Delete(item.Id), "Delete")%>
+          <%
+        }%>
         </td>
         <td>
             <%=item.Title%>
@@ -50,11 +53,14 @@
             <%=Html.Encode(item.Published)%>
         </td>
     </tr>
-    <% } %>
+    <%
+      }%>
 </table>
-<% if (Model.IsAuthenticated) { %>
+<%
+      if (Model.IsAuthenticated) {%>
   <p>
     <%=Html.ActionLink<PostController>(x => x.New(new PostNewModel())%>
   </p>
-<% } %>
+<%
+      }%>
 </div>
