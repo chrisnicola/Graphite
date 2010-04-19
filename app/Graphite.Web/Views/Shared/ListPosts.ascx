@@ -53,12 +53,14 @@
             <%=Html.Encode(item.Published)%>
         </td>
     </tr>
-    <%}%>
+    <%
+      }%>
 </table>
 <%
       if (Model.IsAuthenticated) {%>
   <p>
-    <%=Html.ActionLink<PostController>(x => x.New(new PostNewModel())%>
+    <%=Html.ActionLink<PostController>(x => x.New(new PostNewModel()), "Create New Post")%>
   </p>
-<%}%>
+<%
+      }%>
 </div>

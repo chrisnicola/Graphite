@@ -25,7 +25,7 @@
 	<div>
 		<%= this.TextBox(m => m.DatePublished)
 						.Value(Model.DatePublished ?? DateTime.Today)
-							.Format("{0:dd-MMMM-yyyy%>")
+							.Format("{0:dd-MMMM-yyyy}")
 								.Label("Publish Date: ")
 									.Class("datepicker")
 										.Attr("readonly", "readonly")%>

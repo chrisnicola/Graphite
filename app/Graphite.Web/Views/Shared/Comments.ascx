@@ -3,7 +3,8 @@
 <div class="comments">
   <% foreach (var comment in Model) { %>
 	  <div class="comment">
-      <%= Html.RenderPartial("CommentView", comment) %>
+      <%
+       Html.RenderPartial("CommentView", comment); %>
 	  </div>
   <% } %>
 </div>

@@ -481,9 +481,9 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="XmlRpc.ashx" />
     <Content Include="Views\BlogML\Show.aspx" />
-    <Content Include="Views\Post\Delete.spark" />
-    <Content Include="Views\Post\New.spark" />
-    <Content Include="Views\Post\Edit.spark" />
+    <Content Include="Views\Post\Delete.aspx" />
+    <Content Include="Views\Post\New.aspx" />
+    <Content Include="Views\Post\Edit.aspx" />
     <Content Include="Views\Shared\PostForm.ascx" />
     <Content Include="Views\User\Delete.spark" />
     <Content Include="Views\User\Edit.spark" />
@@ -496,8 +496,8 @@
     <None Include="Views\Shared\Site.Master" />
     <Content Include="Views\Shared\Navigation.ascx" />
     <Content Include="Views\Login\Show.spark" />
-    <Content Include="Views\Post\Index.spark" />
-    <Content Include="Views\Post\Show.spark" />
+    <Content Include="Views\Post\Index.aspx" />
+    <Content Include="Views\Post\Show.aspx" />
     <Content Include="Views\Shared\CommentForm.ascx" />
     <Content Include="Views\Shared\Comments.ascx" />
     <Content Include="Views\Shared\CommentView.ascx" />
@@ -609,9 +609,7 @@
       <Name>Graphite.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Layouts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <Target Name="BeforeBuild">

@@ -65,9 +65,9 @@ namespace Graphite.Web.Controllers.Posts{
     public ActionResult Delete(Guid id) { return View(PostTasks.Get(id)); }
 
     [Authorize, Transaction]
-    public ActionResult Destroy(DeletePostViewModel post) {
+    public ActionResult Destroy(Guid id) {
       try {
-        PostTasks.Delete(post.Id);
+        PostTasks.Delete(id);
       } catch (Exception ex) {}
       return RedirectToAction("Index");
     }

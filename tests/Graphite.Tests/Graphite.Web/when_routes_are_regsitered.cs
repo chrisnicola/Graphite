@@ -31,7 +31,7 @@ namespace Tests.Graphite.Web{
       "~/post".WithMethod(HttpVerbs.Post).ShouldMapTo<PostController>(x => x.Create(null));
       String.Format("~/post/{0}/edit", guid).Route().ShouldMapTo<PostController>(x => x.Edit(guid));
       String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Put).ShouldMapTo<PostController>(x => x.Update(null));
-      String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostController>(x => x.Destroy(null));
+      var route = String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostController>(x => x.Destroy(guid));
 
       //Validate extra routes
       String.Format("~/post/{0}/id", guid).Route().ShouldMapTo<PostController>(x => x.Id(guid));

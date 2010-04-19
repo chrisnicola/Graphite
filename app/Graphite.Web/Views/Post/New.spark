@@ -1,5 +1,0 @@
-<viewdata model="Graphite.Web.Controllers.Posts.PostNewModel" />
-<form action="${Url.Action("Create")}" method="post" >
-<PostForm />
-<input type="submit" value="Save" /> 
-</form>
