@@ -329,5 +329,4 @@ II.2.12 <HandlesEvent />
       <Abbreviation Text="ML" />
     </Naming2>
   </CodeStyleSettings>
-  <Asp.CustomReferences enabled="False" />
 </Configuration>

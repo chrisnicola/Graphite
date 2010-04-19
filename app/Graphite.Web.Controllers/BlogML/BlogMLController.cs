@@ -4,7 +4,7 @@ using Graphite.ApplicationServices.BlogML;
 using MvcContrib;
 using SharpArch.Web.NHibernate;
 
-namespace Graphite.Web.Controllers.BlogML{
+namespace Graphite.Web.Controllers {
 	public class BlogMLController : Controller{
 		readonly IBlogImporter _importer;
 
