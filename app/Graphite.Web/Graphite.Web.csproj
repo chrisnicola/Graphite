@@ -185,7 +185,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
-    <Compile Include="CastleWindsor\WindsorViewActivator.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,14 +490,13 @@
     <Content Include="Views\User\Index.spark" />
     <Content Include="Views\User\New.spark" />
     <Content Include="Views\Comment\Index.spark" />
-    <Content Include="Views\Home\Index.spark" />
+    <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Comment\New.spark" />
     <Content Include="Views\Comment\Show.spark" />
     <None Include="Views\Shared\Site.Master" />
-    <Content Include="Views\Layouts\_navigation.spark" />
+    <Content Include="Views\Shared\Navigation.ascx" />
     <Content Include="Views\Login\Show.spark" />
     <Content Include="Views\Post\Index.spark" />
-    <Content Include="Views\Layouts\Application.spark" />
     <Content Include="Views\Post\Show.spark" />
     <Content Include="Views\Shared\CommentForm.ascx" />
     <Content Include="Views\Shared\Comments.ascx" />
@@ -610,6 +608,9 @@
       <Project>{EDD7E57F-108D-492E-8C3E-309854CFFF58}</Project>
       <Name>Graphite.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Layouts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -36,4 +36,4 @@
 	<div>
 		<%= this.CheckBox(m => m.Published).Label("Publish: ")%>
 	</div>
-	<%= Html.AntiForgeryToken()%>
+	<%Html.AntiForgeryToken();%>

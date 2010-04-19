@@ -8,8 +8,6 @@ using SharpArch.Core.PersistenceSupport;
 using SharpArch.Core.PersistenceSupport.NHibernate;
 using SharpArch.Data.NHibernate;
 using SharpArch.Web.Castle;
-using Spark;
-using Spark.Web.Mvc;
 
 namespace Graphite.Web.CastleWindsor{
 	public static class ComponentRegistrar{
@@ -20,12 +18,6 @@ namespace Graphite.Web.CastleWindsor{
 			AddGenericMappersTo(container);
       AddGenericRepositoriesTo(container);
 			container.AddComponent("validator", typeof (IValidator), typeof (Validator));
-      AddSparkViewEngineTo(container);
-		}
-
-		static void AddSparkViewEngineTo(IWindsorContainer container) {
-			container.AddComponent<IViewEngine, SparkViewFactory>();
-			container.AddComponent<IViewActivatorFactory, WindsorViewActivator>();
 		}
 
 		static void AddApplicationServicesTo(IWindsorContainer container) {
