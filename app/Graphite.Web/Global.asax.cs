@@ -30,7 +30,7 @@ namespace Graphite.Web{
       XmlConfigurator.Configure();
       ViewEngines.Engines.Clear();
       ViewEngines.Engines.Add(new RestfulRoutingViewEngine());
-			InitializeServiceLocator(); 
+			InitializeServiceLocator();
 			ModelBinders.Binders.DefaultBinder = new SharpModelBinder();
 			
       AreaRegistration.RegisterAllAreas();
