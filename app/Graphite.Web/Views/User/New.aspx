@@ -4,7 +4,7 @@
 <asp:Content runat="server" ContentPlaceHolderID="main">
 <h2>Add New User</h2>
 <%
-  using (Html.BeginForm<UserController>(x => x.Create(Model), FormMethod.Post)) {%>
+  using (Html.BeginForm("Create","User", FormMethod.Post)) {%>
   <%=Html.AntiForgeryToken()%>
 <div class="formInput">
  <%=this.TextBox(x => x.Username).Label("Username: ")%>

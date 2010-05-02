@@ -11,25 +11,19 @@ namespace Graphite.Web.Controllers.Login{
 
 		public LoginController(IUserTasks userTasks) { _userTasks = userTasks; }
 
-		public ActionResult Show() {
+		public ActionResult Login() {
 			if (_userTasks.IsLoggedIn()) return RedirectToAction("Index", "Home");
-			return View(new LoginViewModel());
+			return View(new LoginViewModel {Password = "test", Username = "test"});
 		}
 
 		[HttpPost, ValidateAntiForgeryToken, Transaction]
 		public ActionResult Authenticate(LoginViewModel model) {
-			_userTasks.AuthenticateUser(model.Username, model.Password);
+			var user = _userTasks.AuthenticateUser(model.Username, model.Password);
+      if (user == null) return RedirectToAction("Create", "User");
 			return RedirectToAction("Index", "Home", new {area = "Admin"});
 		}
 
-    [HttpPost, ValidateAntiForgeryToken, Transaction]
-    public ActionResult Create(LoginViewModel model)
-    {
-      _userTasks.AuthenticateUser(model.Username, model.Password);
-      return RedirectToAction("Index", "Home", new { area = "Admin" });
-    }
-
-		public ActionResult SignOut() {
+		public ActionResult Logout() {
 			_userTasks.SignOut();
 			return this.RedirectToAction<HomeController>(x => x.Index());
 		}

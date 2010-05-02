@@ -3,7 +3,7 @@
 <h2>Add New User</h2>
 
 <%
-  using (Html.BeginForm<UserController>(x => x.Update(Model), FormMethod.Post)) {%>
+  using (Html.BeginForm("Update","User", FormMethod.Post)) {%>
 <div class="formInput">
 <%=this.TextBox(x => x.Username).Label("Username: ")%>
 </div>

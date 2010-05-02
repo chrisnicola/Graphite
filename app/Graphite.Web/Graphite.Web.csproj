@@ -495,7 +495,7 @@
     <Content Include="Views\Comment\Show.spark" />
     <None Include="Views\Shared\Site.Master" />
     <Content Include="Views\Shared\Navigation.ascx" />
-    <Content Include="Views\Login\Show.aspx" />
+    <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\Post\Index.aspx" />
     <Content Include="Views\Post\Show.aspx" />
     <Content Include="Views\Shared\CommentForm.ascx" />

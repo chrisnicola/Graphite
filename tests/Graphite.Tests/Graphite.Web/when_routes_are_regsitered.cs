@@ -45,8 +45,8 @@ namespace Tests.Graphite.Web{
 
     [Test]
     public void login_is_mapped_to_login_controller() {
-      "~/login".Route().ShouldMapTo<LoginController>(x => x.Show());
-      "~/login/signout".Route().ShouldMapTo<LoginController>(x => x.SignOut());
+      "~/login".Route().ShouldMapTo<LoginController>(x => x.Login());
+      "~/login/signout".Route().ShouldMapTo<LoginController>(x => x.Logout());
       "~/login/authenticate".WithMethod(HttpVerbs.Post).ShouldMapTo<LoginController>(x => x.Authenticate(null));
     }
 

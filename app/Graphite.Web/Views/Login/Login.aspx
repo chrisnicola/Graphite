@@ -3,7 +3,7 @@
 
 <asp:Content ContentPlaceHolderID="main" runat="server" >
 <%
-  using (Html.BeginForm<LoginController>(x => x.Create(Model))) {%>
+  using (Html.BeginForm("Authenticate","Login")) {%>
   <div class="formInput"> 
 	   <%= this.TextBox(x => x.Username).Label("Username: ")%>
   </div>

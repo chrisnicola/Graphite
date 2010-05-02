@@ -25,6 +25,9 @@ namespace Graphite.Web.Controllers{
         Map("").To<HomeController>(x => x.Index()));
       Map("rss").To<FeedController>(x => x.Rss());
       Map("atom").To<FeedController>(x => x.Atom());
+      Map("login").To<LoginController>(x => x.Login()).Constrain("httpMethod", new HttpMethodConstraint("GET"));
+      Map("login").To<LoginController>(x => x.Authenticate(null)).Constrain("httpMethod", new HttpMethodConstraint("POST"));
+      Map("logout").To<LoginController>(x => x.Logout());
       Resources<PostController>(
         () => {
           Member("id", HttpVerbs.Get);

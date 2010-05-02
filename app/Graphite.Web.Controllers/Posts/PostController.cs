@@ -10,37 +10,44 @@ using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Posts{
   public class PostController : Controller{
-    private readonly IPostTasks PostTasks;
+    private readonly IPostTasks _postTasks;
     private readonly IPostRepository _posts;
-    private IUserTasks _userTasks;
-    private IPostEditDetailsMapper _postEditMapper;
-    private IPostCreateDetailsMapper _postCreateDetailsMapper;
+    private readonly IUserTasks _userTasks;
+    private readonly IPostEditDetailsMapper _postEditMapper;
+    private readonly IPostCreateDetailsMapper _postCreateMapper;
 
-    public PostController(IPostTasks postTasks, IPostRepository posts) {
-      PostTasks = postTasks;
+    public PostController(IPostTasks postTasks, 
+      IPostRepository posts, 
+      IUserTasks userTasks, 
+      IPostCreateDetailsMapper postCreateMapper, 
+      IPostEditDetailsMapper postEditMapper) {
+      _postTasks = postTasks;
       _posts = posts;
+      _userTasks = userTasks;
+      _postCreateMapper = postCreateMapper;
+      _postEditMapper = postEditMapper;
     }
 
     [AutoMap(typeof (Post), typeof (PostShowWithCommentsViewModel))]
-    public ActionResult Id(Guid id) { return View(_posts.FindOne(p => p.Id == id)); }
+    public ActionResult Id(Guid id) { return View("Show", _posts.FindOne(p => p.Id == id)); }
 
     [AutoMap(typeof (Post), typeof (PostShowWithCommentsViewModel))]
     public ActionResult Show(string id) { return View(_posts.FindOne(p => p.Slug == id)); }
 
     [AutoMap(typeof (IPostIndexMapper))]
-    public ActionResult Index() { return View(PostTasks.GetAll()); }
+    public ActionResult Index() { return View(_postTasks.GetAll()); }
 
     [Authorize]
     public ActionResult New(PostNewModel post) {
-      post.AuthorUserName = _userTasks.GetCurrentUserName();
-      return View(post);
+      var userName = _userTasks.GetCurrentUserName();
+      return View(post ?? new PostNewModel{AuthorUserName = userName});
     }
 
     [Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
     public ActionResult Create(PostNewModel post) {
       try {
         post.AuthorUserName = _userTasks.GetCurrentUserName();
-        Post newPost = PostTasks.SaveNewPost(_postCreateDetailsMapper.MapFrom(post));
+        Post newPost = _postTasks.SaveNewPost(_postCreateMapper.MapFrom(post));
         return this.RedirectToAction(x => x.Show(newPost.Slug));
       } catch {
         return this.RedirectToAction(x => x.New(post));
@@ -48,13 +55,13 @@ namespace Graphite.Web.Controllers.Posts{
     }
 
     [Authorize, AutoMap(typeof (IPostEditModelMapper))]
-    public ActionResult Edit(Guid id) { return View(PostTasks.Get(id)); }
+    public ActionResult Edit(Guid id) { return View(_postTasks.Get(id)); }
 
     [Authorize, Transaction, ValidateAntiForgeryToken, ValidateInput(false)]
     public ActionResult Update(PostEditModel post) {
       try {
         post.AuthorUserName = _userTasks.GetCurrentUserName();
-        PostTasks.UpdatePost(_postEditMapper.MapFrom(post));
+        _postTasks.UpdatePost(_postEditMapper.MapFrom(post));
         return this.RedirectToAction(x => x.Index());
       } catch (Exception) {
         return this.RedirectToAction(x => x.Edit(post.Id));
@@ -62,12 +69,12 @@ namespace Graphite.Web.Controllers.Posts{
     }
 
     [Authorize, AutoMap(typeof (Post), typeof (DeletePostViewModel))]
-    public ActionResult Delete(Guid id) { return View(PostTasks.Get(id)); }
+    public ActionResult Delete(Guid id) { return View(_postTasks.Get(id)); }
 
     [Authorize, Transaction]
     public ActionResult Destroy(Guid id) {
       try {
-        PostTasks.Delete(id);
+        _postTasks.Delete(id);
       } catch (Exception ex) {}
       return RedirectToAction("Index");
     }
