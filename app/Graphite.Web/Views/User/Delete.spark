@@ -1,7 +1,0 @@
-<viewdata model="Graphite.Web.Controllers.Users.DeleteUserViewModel" />
-<form name="Delete" action="!{Url.Action("Destroy")}" method="post" > 
-	!{Html.AntiForgeryToken()}
-	!{this.Hidden("_method").Value("delete")}
-    <div>Are you sure you want to delete ${Model.Username}?</div>
-    <div>!{Html.ActionLink("Cancel", "Index")} |  <a href="javascript: void(0);" onclick="document.Delete.submit();return false;">Delete Post</a></div>
-</form>
