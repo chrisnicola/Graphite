@@ -22,6 +22,13 @@ namespace Graphite.Web.Controllers.Login{
 			return RedirectToAction("Index", "Home", new {area = "Admin"});
 		}
 
+    [HttpPost, ValidateAntiForgeryToken, Transaction]
+    public ActionResult Create(LoginViewModel model)
+    {
+      _userTasks.AuthenticateUser(model.Username, model.Password);
+      return RedirectToAction("Index", "Home", new { area = "Admin" });
+    }
+
 		public ActionResult SignOut() {
 			_userTasks.SignOut();
 			return this.RedirectToAction<HomeController>(x => x.Index());

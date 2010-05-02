@@ -32,7 +32,7 @@ namespace Graphite.Web.Controllers{
         });
       Resources<TagController>(() => Only("show"));
       Resource<LoginController>(() => {
-                                  Only("show");
+                                  Only("show", "create");
                                   Member("authenticate", HttpVerbs.Post);
                                   Member("signout", HttpVerbs.Get);
                                 });

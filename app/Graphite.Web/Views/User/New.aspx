@@ -1,7 +1,8 @@
 <%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" AutoEventWireup="true" Inherits="ModelViewPage<Graphite.Web.Controllers.Users.NewUserViewModel>" %>
 <%@ Import Namespace="Graphite.Web.Controllers.Users" %>
-<h2>Add New User</h2>
 
+<asp:Content runat="server" ContentPlaceHolderID="main">
+<h2>Add New User</h2>
 <%
   using (Html.BeginForm<UserController>(x => x.Create(Model), FormMethod.Post)) {%>
   <%=Html.AntiForgeryToken()%>
@@ -23,7 +24,7 @@
 <%=Html.SubmitButton("Submit", "Submit")%>
 <%
   }%>
-
+</asp:Content>
 
 
 

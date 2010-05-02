@@ -35,7 +35,7 @@ namespace Graphite.Web.Controllers.Users{
 
 		public ActionResult New(NewUserViewModel user) { return View(user ?? new NewUserViewModel()); }
 
-		[Authorize, ValidateAntiForgeryToken]
+		[ValidateAntiForgeryToken]
 		public ActionResult Create(NewUserViewModel user) {
 			try {
 				_userTasks.AddUser(_createUserMap.MapFrom(user));

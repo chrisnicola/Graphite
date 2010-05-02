@@ -31,8 +31,7 @@ namespace Tests.Graphite.Web{
       "~/post".WithMethod(HttpVerbs.Post).ShouldMapTo<PostController>(x => x.Create(null));
       String.Format("~/post/{0}/edit", guid).Route().ShouldMapTo<PostController>(x => x.Edit(guid));
       String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Put).ShouldMapTo<PostController>(x => x.Update(null));
-      var route = String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostController>(x => x.Destroy(guid));
-
+      String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostController>(x => x.Destroy(guid));
       //Validate extra routes
       String.Format("~/post/{0}/id", guid).Route().ShouldMapTo<PostController>(x => x.Id(guid));
       String.Format("~/post/{0}/delete", guid).Route().ShouldMapTo<PostController>(x => x.Delete(guid));
@@ -47,6 +46,8 @@ namespace Tests.Graphite.Web{
     [Test]
     public void login_is_mapped_to_login_controller() {
       "~/login".Route().ShouldMapTo<LoginController>(x => x.Show());
+      "~/login/signout".Route().ShouldMapTo<LoginController>(x => x.SignOut());
+      "~/login/authenticate".WithMethod(HttpVerbs.Post).ShouldMapTo<LoginController>(x => x.Authenticate(null));
     }
 
 

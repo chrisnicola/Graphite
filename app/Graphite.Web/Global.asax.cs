@@ -31,7 +31,7 @@ namespace Graphite.Web{
       ViewEngines.Engines.Clear();
       ViewEngines.Engines.Add(new RestfulRoutingViewEngine());
 			InitializeServiceLocator();
-			ModelBinders.Binders.DefaultBinder = new SharpModelBinder();
+		  ModelBinders.Binders.DefaultBinder = new DefaultModelBinder();
 			
       AreaRegistration.RegisterAllAreas();
 			RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);

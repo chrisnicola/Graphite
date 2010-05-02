@@ -11,5 +11,5 @@
     }
     ); %>
 <p>
-    <%= Html.ActionLink<Graphite.Web.Controllers.Users.UserController>(x => x.New(), "Create New") %>
+    <%= Html.ActionLink<Graphite.Web.Controllers.Users.UserController>(x => x.New(null), "Create New") %>
 </p>
