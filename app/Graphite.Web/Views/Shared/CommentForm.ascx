@@ -1,4 +1,4 @@
-<%@ Control Language="C#" Inherits="ModelViewUserControl<Graphite.Core.Domain.Comment>" %>
+<%@ Control Language="C#" Inherits="ModelViewUserControl<Graphite.Web.Controllers.Posts.NewCommentViewModel>" %>
 
 	<link type="text/css" href="/Scripts/themes/base/ui.all.css" rel="stylesheet" />
 	<script type="text/javascript" src="/Scripts/jquery-1.3.2.js"></script>
@@ -21,4 +21,5 @@
 	Content: <br/>
 	<%=Html.TextArea("NewComment.Content", Model.Content, new { @class = "ckeditor" })%>
 </p>
-!{Html.AntiForgeryToken()}
+<%= Html.SubmitButton("submit", "Post Comment") %>
+<%= Html.AntiForgeryToken() %>

@@ -2,6 +2,7 @@ using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Graphite.Web.Controllers;
+using Graphite.Web.Controllers.Comments;
 using Graphite.Web.Controllers.Home;
 using Graphite.Web.Controllers.Login;
 using Graphite.Web.Controllers.Posts;
@@ -50,6 +51,12 @@ namespace Tests.Graphite.Web{
       "~/login".WithMethod(HttpVerbs.Post).ShouldMapTo<LoginController>(x => x.Authenticate(null));
     }
 
+    [Test]
+    public void controller_is_nested_below_posts() {
+      var guid = Guid.NewGuid();
+      String.Format("~/posts/{0}/comments", guid).WithMethod(HttpVerbs.Post).ShouldMapTo<CommentsController>(x => x.Create(null));
+      OutBoundUrl.Of<PostsController>(x => x.Show("test")).ShouldMapToUrl("/");
+    }
 
 	}
 }

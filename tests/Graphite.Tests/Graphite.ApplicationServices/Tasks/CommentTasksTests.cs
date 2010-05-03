@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
+using Graphite.ApplicationServices.Tasks;
 using Graphite.Core.Contracts.Services;
-using Graphite.Core.Domain;
 
 namespace Tests.Graphite.ApplicationServices.Tasks{
   public class CommentTasksTestBase {
@@ -10,11 +8,7 @@ namespace Tests.Graphite.ApplicationServices.Tasks{
     public virtual void Setup() {
       Tasks = new CommentsTasks();
     }
-  }
 
-  public class CommentsTasks : ICommentsTasks {
-    public IEnumerable<Comment> GetApprovedComments() { throw new NotImplementedException(); }
 
-    public IEnumerable<Comment> GetUnapprovedComments() { throw new NotImplementedException(); }
   }
 }

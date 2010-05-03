@@ -28,8 +28,8 @@ namespace Graphite.Web{
 
 		protected void Application_Start() {
       XmlConfigurator.Configure();
-      //ViewEngines.Engines.Clear();
-      //ViewEngines.Engines.Add(new RestfulRoutingViewEngine());
+      ViewEngines.Engines.Clear();
+      ViewEngines.Engines.Add(new RestfulRoutingViewEngine());
 			InitializeServiceLocator();
 		  ModelBinders.Binders.DefaultBinder = new DefaultModelBinder();
 			

@@ -1,19 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Graphite.Core.Domain;
 
 namespace Graphite.Web.Controllers.Posts{
 	public class PostShowWithCommentsViewModel : PostShowViewModel{
-		Comment _newComment;
-
-		public PostShowWithCommentsViewModel() { NewComment = new Comment(); }
-
 		public IList<Comment> Comments { get; set; }
-		public Comment NewComment {
-			get {
-				if (_newComment == null) return new Comment();
-				return _newComment;
-			}
-			set { _newComment = value; }
-		}
+	  private NewCommentViewModel _newComment;
+	  public NewCommentViewModel NewComment {
+      get { return _newComment ?? new NewCommentViewModel(); } 
+      set { _newComment = value; }
+	  }
 	}
+
+  public class NewCommentViewModel{
+    public virtual string Author { get; set; }
+    public virtual string EmailAddress { get; set; }
+    public virtual string WebAddress { get; set; }
+    public virtual string Content { get; set; }
+    public virtual Guid ParentId { get; set; }
+  }
 }
