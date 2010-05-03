@@ -20,11 +20,11 @@ namespace Tests.Graphite.Web.Controllers.Admin{
 			_postEditDetailsMapper = MockRepository.GenerateMock<IPostEditDetailsMapper>();
 			_postCreateDetailsMapper = MockRepository.GenerateMock<IPostCreateDetailsMapper>();
 			_postRepository = MockRepository.GenerateMock<IPostRepository>();
-			_controller = new PostController(_postTasks, _postRepository, _userTasks, _postCreateDetailsMapper, _postEditDetailsMapper);
+			_controller = new PostsController(_postTasks, _postRepository, _userTasks, _postCreateDetailsMapper, _postEditDetailsMapper);
 		}
 
 		IPostTasks _postTasks;
-		PostController _controller;
+		PostsController _controller;
 		IPostEditDetailsMapper _postEditDetailsMapper;
 		IPostCreateDetailsMapper _postCreateDetailsMapper;
 		IPostRepository _postRepository;

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Graphite.Web.Controllers.Comments;
 using Graphite.Web.Controllers.Home;
 using Graphite.Web.Controllers.Login;
 using Graphite.Web.Controllers.Posts;
@@ -28,8 +29,9 @@ namespace Graphite.Web.Controllers{
       Map("login").To<LoginController>(x => x.Login()).Constrain("httpMethod", new HttpMethodConstraint("GET"));
       Map("login").To<LoginController>(x => x.Authenticate(null)).Constrain("httpMethod", new HttpMethodConstraint("POST"));
       Map("logout").To<LoginController>(x => x.Logout());
-      Resources<PostController>(
+      Resources<PostsController>(
         () => {
+          Resources<CommentsController>();
           Member("id", HttpVerbs.Get);
           Member("delete", HttpVerbs.Get);
         });

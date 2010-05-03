@@ -9,14 +9,14 @@ using MvcContrib;
 using SharpArch.Web.NHibernate;
 
 namespace Graphite.Web.Controllers.Posts{
-  public class PostController : Controller{
+  public class PostsController : Controller {
     private readonly IPostTasks _postTasks;
     private readonly IPostRepository _posts;
     private readonly IUserTasks _userTasks;
     private readonly IPostEditDetailsMapper _postEditMapper;
     private readonly IPostCreateDetailsMapper _postCreateMapper;
 
-    public PostController(IPostTasks postTasks, 
+    public PostsController(IPostTasks postTasks, 
       IPostRepository posts, 
       IUserTasks userTasks, 
       IPostCreateDetailsMapper postCreateMapper, 
@@ -28,8 +28,8 @@ namespace Graphite.Web.Controllers.Posts{
       _postEditMapper = postEditMapper;
     }
 
-    [AutoMap(typeof (Post), typeof (PostShowWithCommentsViewModel))]
-    public ActionResult Id(Guid id) { return View("Show", _posts.FindOne(p => p.Id == id)); }
+    [AutoMap(typeof(Post), typeof(PostShowWithCommentsViewModel))]
+    public ActionResult Id(Guid id) { return View("Show", (object)_posts.FindOne(p => p.Id == id)); }
 
     [AutoMap(typeof (Post), typeof (PostShowWithCommentsViewModel))]
     public ActionResult Show(string id) { return View(_posts.FindOne(p => p.Slug == id)); }
@@ -78,21 +78,5 @@ namespace Graphite.Web.Controllers.Posts{
       } catch (Exception ex) {}
       return RedirectToAction("Index");
     }
-
-    /*
-    [ValidateInput(false)]
-    public ActionResult Update(PostShowWithCommentsViewModel postShowVm) {
-      Post post = PostTasks.Get(postShowVm.Id);
-      try {
-        if (CommentIsValid(postShowVm.NewComment)) post.AddComment(postShowVm.NewComment);
-      } catch {}
-      return this.RedirectToAction(c => c.Show(post.Slug));
-    }
-
-    private static bool CommentIsValid(Comment comment) {
-      return !string.IsNullOrEmpty(comment.Author)
-        && !string.IsNullOrEmpty(comment.EmailAddress)
-          && !string.IsNullOrEmpty(comment.Content);
-    }*/
   }
 }

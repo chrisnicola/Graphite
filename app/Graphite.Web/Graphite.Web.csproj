@@ -481,9 +481,9 @@
     <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="XmlRpc.ashx" />
     <Content Include="Views\BlogML\Show.aspx" />
-    <Content Include="Views\Post\Delete.aspx" />
-    <Content Include="Views\Post\New.aspx" />
-    <Content Include="Views\Post\Edit.aspx" />
+    <Content Include="Views\Posts\Delete.aspx" />
+    <Content Include="Views\Posts\New.aspx" />
+    <Content Include="Views\Posts\Edit.aspx" />
     <Content Include="Views\Shared\PostForm.ascx" />
     <Content Include="Views\User\Delete.aspx" />
     <Content Include="Views\User\Edit.aspx" />
@@ -496,8 +496,8 @@
     <None Include="Views\Shared\Site.Master" />
     <Content Include="Views\Shared\Navigation.ascx" />
     <Content Include="Views\Login\Login.aspx" />
-    <Content Include="Views\Post\Index.aspx" />
-    <Content Include="Views\Post\Show.aspx" />
+    <Content Include="Views\Posts\Index.aspx" />
+    <Content Include="Views\Posts\Show.aspx" />
     <Content Include="Views\Shared\CommentForm.ascx" />
     <Content Include="Views\Shared\Comments.ascx" />
     <Content Include="Views\Shared\CommentView.ascx" />

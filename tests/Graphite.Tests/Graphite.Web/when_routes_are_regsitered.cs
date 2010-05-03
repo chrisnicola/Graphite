@@ -25,16 +25,16 @@ namespace Tests.Graphite.Web{
 	  public void post_is_mapped_to_post_controller() {
 	    var guid = Guid.NewGuid();
       //Validate restful routes
-	    "~/post".Route().ShouldMapTo<PostController>(x => x.Index());
-      "~/post/itemname".Route().ShouldMapTo<PostController>(x => x.Show("itemname"));
-      "~/post/new".Route().ShouldMapTo<PostController>(x => x.New(null));
-      "~/post".WithMethod(HttpVerbs.Post).ShouldMapTo<PostController>(x => x.Create(null));
-      String.Format("~/post/{0}/edit", guid).Route().ShouldMapTo<PostController>(x => x.Edit(guid));
-      String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Put).ShouldMapTo<PostController>(x => x.Update(null));
-      String.Format("~/post/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostController>(x => x.Destroy(guid));
+	    "~/posts".Route().ShouldMapTo<PostsController>(x => x.Index());
+      "~/posts/itemname".Route().ShouldMapTo<PostsController>(x => x.Show("itemname"));
+      "~/posts/new".Route().ShouldMapTo<PostsController>(x => x.New(null));
+      "~/posts".WithMethod(HttpVerbs.Post).ShouldMapTo<PostsController>(x => x.Create(null));
+      String.Format("~/posts/{0}/edit", guid).Route().ShouldMapTo<PostsController>(x => x.Edit(guid));
+      String.Format("~/posts/{0}", guid).WithMethod(HttpVerbs.Put).ShouldMapTo<PostsController>(x => x.Update(null));
+      String.Format("~/posts/{0}", guid).WithMethod(HttpVerbs.Delete).ShouldMapTo<PostsController>(x => x.Destroy(guid));
       //Validate extra routes
-      String.Format("~/post/{0}/id", guid).Route().ShouldMapTo<PostController>(x => x.Id(guid));
-      String.Format("~/post/{0}/delete", guid).Route().ShouldMapTo<PostController>(x => x.Delete(guid));
+      String.Format("~/posts/{0}/id", guid).Route().ShouldMapTo<PostsController>(x => x.Id(guid));
+      String.Format("~/posts/{0}/delete", guid).Route().ShouldMapTo<PostsController>(x => x.Delete(guid));
 	  }
 
     [Test]
@@ -46,8 +46,8 @@ namespace Tests.Graphite.Web{
     [Test]
     public void login_is_mapped_to_login_controller() {
       "~/login".Route().ShouldMapTo<LoginController>(x => x.Login());
-      "~/login/signout".Route().ShouldMapTo<LoginController>(x => x.Logout());
-      "~/login/authenticate".WithMethod(HttpVerbs.Post).ShouldMapTo<LoginController>(x => x.Authenticate(null));
+      "~/logout".Route().ShouldMapTo<LoginController>(x => x.Logout());
+      "~/login".WithMethod(HttpVerbs.Post).ShouldMapTo<LoginController>(x => x.Authenticate(null));
     }
 
 

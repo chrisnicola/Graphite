@@ -2,7 +2,7 @@
 <%@ Import Namespace="Graphite.Web.Controllers.Posts" %>
 
 <div class="post">
-<h2 class="title"><%= Html.ActionLink<PostController>(c => c.Show(Model.Slug), Model.Title)%></h2>
+<h2 class="title"><%= Html.ActionLink<PostsController>(c => c.Show(Model.Slug), Model.Title)%></h2>
 <div class="author">By <%= Model.AuthorRealName %></div>
 <div class="content"><%= Model.Content%></div>
 <div class="footer">

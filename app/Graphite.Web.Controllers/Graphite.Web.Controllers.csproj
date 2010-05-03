@@ -185,7 +185,7 @@
     <Compile Include="..\..\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Posts\PostController.cs" />
+    <Compile Include="Posts\PostsController.cs" />
     <Compile Include="Posts\PostIndexMapper.cs" />
     <Compile Include="Posts\PostIndexViewModel.cs" />
     <Compile Include="Posts\PostItemViewModel.cs" />

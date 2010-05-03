@@ -27,10 +27,10 @@
       foreach (PostShowViewModel item in Model.Posts) {%>
     <tr>
         <td>
-          <%=Html.ActionLink<PostController>(c => c.Show(item.Slug), "View")%>
+          <%=Html.ActionLink<PostsController>(c => c.Show(item.Slug), "View")%>
           <%
         if (Model.IsAuthenticated) {%> 
-            | <%=Html.ActionLink<PostController>(x => x.Edit(item.Id), "Edit")%> | <%=Html.ActionLink<PostController>(x => x.Delete(item.Id), "Delete")%>
+            | <%=Html.ActionLink<PostsController>(x => x.Edit(item.Id), "Edit")%> | <%=Html.ActionLink<PostsController>(x => x.Delete(item.Id), "Delete")%>
           <%
         }%>
         </td>
@@ -59,7 +59,7 @@
 <%
       if (Model.IsAuthenticated) {%>
   <p>
-    <%=Html.ActionLink<PostController>(x => x.New(new PostNewModel()), "Create New Post")%>
+    <%=Html.ActionLink<PostsController>(x => x.New(new PostNewModel()), "Create New Post")%>
   </p>
 <%
       }%>
